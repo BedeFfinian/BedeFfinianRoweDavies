@@ -1,0 +1,53 @@
+[
+  {
+    "path": "posts/2022-04-16-acoustics/",
+    "title": "Acoustic Complexity Index to assess benthic biodiversity of a partially protected area in the southwest of the UK",
+    "description": "Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt & Emma V. Sheehan.",
+    "author": [
+      {
+        "name": "Bede Ffinian Rowe Davies",
+        "url": {}
+      }
+    ],
+    "date": "2022-04-16",
+    "categories": [],
+    "contents": "\n[Davies et al., 2020] (http://publicationslist.org/data/m.j.witt/ref-126/Davies_2020_EcolIndicators.pdf)\n\n\n\n",
+    "preview": "posts/2022-04-16-acoustics/Acoustics_Preview.png",
+    "last_modified": "2022-04-16T18:43:41+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2022-04-16-baited/",
+    "title": "Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area.",
+    "description": "Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright & Emma V. Sheehan.",
+    "author": [
+      {
+        "name": "Bede Ffinian Rowe Davies",
+        "url": {}
+      }
+    ],
+    "date": "2022-04-16",
+    "categories": [],
+    "contents": "\n[Davies et al., 2021] (https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/1365-2664.13986)\n\n\n\n",
+    "preview": "posts/2022-04-16-baited/Baited_Preview.png",
+    "last_modified": "2022-04-16T18:47:10+01:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2022-04-16-functional/",
+    "title": "A Decade Implementing Ecosystem Approach to Fisheries Management Improves Diversity of Taxa and Traits within a Marine Protected Area in the UK.",
+    "description": "Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill & Emma V. Sheehan",
+    "author": [
+      {
+        "name": "Bede Ffinian Rowe Davies",
+        "url": {}
+      }
+    ],
+    "date": "2022-04-16",
+    "categories": [],
+    "contents": "\n[Davies et al., 2021] (https://onlinelibrary.wiley.com/doi/pdf/10.1111/ddi.13451)\n\n\n\n",
+    "preview": "posts/2022-04-16-functional/Functional_Preview.png",
+    "last_modified": "2022-04-16T18:47:19+01:00",
+    "input_file": {}
+  }
+]

@@ -1,0 +1,19 @@
+---
+title: "Acoustic Complexity Index to assess benthic biodiversity of a partially protected area in the southwest of the UK"
+description: |
+  Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt & Emma V. Sheehan.
+author:
+  - name: Bede Ffinian Rowe Davies
+preview: Acoustics_Preview.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Davies *et al.,* 2020] (http://publicationslist.org/data/m.j.witt/ref-126/Davies_2020_EcolIndicators.pdf)
+

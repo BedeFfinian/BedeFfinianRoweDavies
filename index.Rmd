@@ -1,5 +1,5 @@
 ---
-title: "Bede Ffinian Consulting"
+title: "Bede Ffinian Rowe Consultancy"
 description: |
   Ecology and Statistical Consultant
 site: distill::distill_website
@@ -8,7 +8,7 @@ site: distill::distill_website
 
 # Who am I? 
 
-![](Images/index/Bede.png)
+![](Images/index/Bede.png){width=30%}
 
 # What do I do?
 
