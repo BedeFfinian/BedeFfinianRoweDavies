@@ -1,8 +1,8 @@
 name: "BedeFfinian_Consulting"
-title: "Bede Ffinian Rowe Davies"
+title: "Bede Ffinian Consulting"
 description: |
-  Bede Ffinian Consulting
-output_dir: "docs"
+  Bede Ffinian Consulting: Ecological and General Statistical Consultancy.
+output_dir: "_site"
 navbar:
   right:
     - text: "Home"
