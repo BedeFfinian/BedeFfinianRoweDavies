@@ -1,0 +1,10 @@
+name: "BedeFfinian_Consulting"
+title: "Bede Ffinian Rowe Davies"
+description: |
+  Bede Ffinian Consulting
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+output: distill::distill_article
