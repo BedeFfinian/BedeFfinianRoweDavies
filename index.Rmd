@@ -8,14 +8,19 @@ site: distill::distill_website
 
 # Who am I? 
 
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology. 
+
 ![](Images/index/Bede.png){width=30%}
+
+I completed my PhD based at the University of Plymouth. The title of my PhD was: The Effectiveness of Partially Protected Marine Areas for Ecosystem Based Fisheries Management.  The work centred around the Marine Protected Area (MPA) in Lyme Bay (UK), which excluded all demersal towed fishing activity across 206km$^2$ of seabed in 2008. University of Plymouth staff and students have monitored the benthic environment across the bay (inside and outside the MPA) annually, using a range of underwater sampling equipment. The methods include Passive Acoustic Monitoring (PAM), Towed Underwater Video Systems (TUVs) and Baited Remote Underwater Video Systems (BRUVs). The objective of my PhD was to assess how the protection affected the benthic ecosystems inside vs outside the MPA. My duties included: the continued application of annual surveys alongside other members of the team; organisation of the 12 year data sets for BRUVs and TUVs, and 5 years of PAM recordings; analysis of BRUVs and PAM data sets, statistical analysis of the time series data; assessment of the applicability of the methods and the creation of journal style articles for publication. Since completing my PhD, I have been employed as an Assistant Project Manager delivering monitoring goals within the team with whom I completed my PhD. My current responsibilities follow closely to those during my PhD.
 
 # What do I do?
 
-
+I am currently a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands.
 
 # Experience
 
+The analysis has ranged from assessing the change in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate) and from abundance and diversity of taxa of importance, to whole ecosystem functional trait analysis. The methods used have mostly been applied within the coding language r, with models being applied of varying complexity in both frequentist and bayesian frameworks, from one or two fixed effects to more complex mixed effect, hierarchical models. These models, as the data have been varying in distributions and characteristics, have been similarly variable, with models using gaussian, poisson, beta, gamma and bernoulli/binomial distributions and zero-inflated/zero-altered (hurdle etc) alternatives.  
 
 
 
