@@ -7,8 +7,10 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Papers"
+    - text: "First Author Papers"
       href: Papers.html
+    - text: "Co-Author Papers"
+      href: Papers1.html  
     - icon: fa fa-github
       href: https://github.com/bedeffinian
     - icon: fa fa-twitter

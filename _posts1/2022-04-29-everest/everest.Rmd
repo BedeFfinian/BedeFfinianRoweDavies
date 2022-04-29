@@ -1,0 +1,21 @@
+---
+title: "Reaching New Heights in Plastic Pollution—Preliminary Findings of Microplastics on Mount Everest"
+description: |
+  Imogen E. Napper, Bede F.R. Davies, Heather Clifford, Sandra Elvin, Heather J.Koldewey, Paul A.Mayewski, Kimberley R.Miner, Mariusz Potocki, Aurora C. Elmore Ananta P. Gajurel & Richard C. Thompson.
+author:
+  - name: Bede Ffinian Rowe Davies
+preview: Everest_Preview.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Napper *et al.,* 2020](https://www.sciencedirect.com/science/article/pii/S2590332220305509)
+
+
+

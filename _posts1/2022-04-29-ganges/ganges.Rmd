@@ -1,0 +1,21 @@
+---
+title: "The Abundance and Characteristics of Microplastics in Surface Water in the Transboundary Ganges River"
+description: |
+  Imogen E. Napper, Anju Baroth, Aaron C. Barrett, Sunanda Bhola. Gawsia W. Chowdhuryd, Bede F.R. Davies, Emily M. Duncan, Sumit Kumar, Sarah E. Nelms, Md Nazmul Hasan Niloy, Bushra Nishat, Taylor Maddalene, Richard C. Thompson & Heather Koldewey.
+author:
+  - name: Bede Ffinian Rowe Davies
+preview: Ganges_Preview.jpeg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Napper *et al.,* 2021](https://www.sciencedirect.com/science/article/pii/S0269749120370378)
+
+
+
