@@ -16,4 +16,4 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-[Davies *et al.,* 2021] (https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/1365-2664.13986)
+[Davies *et al.,* 2021](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/1365-2664.13986)
