@@ -15,5 +15,5 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-[Davies *et al.,* 2020] (http://publicationslist.org/data/m.j.witt/ref-126/Davies_2020_EcolIndicators.pdf)
+[Davies *et al.,* 2020](http://publicationslist.org/data/m.j.witt/ref-126/Davies_2020_EcolIndicators.pdf)
 
