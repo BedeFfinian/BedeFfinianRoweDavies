@@ -1,0 +1,75 @@
+---
+title: "Map of Previous Projects"
+description: |
+  Ecology and Statistical Consultant bedeffinian@gmail.com
+site: distill::distill_website
+---
+
+
+```{r, echo=FALSE}
+library(leaflet)
+
+Projects<-data.frame(
+  Name=c(
+  "<b> Lyme Bay </b> <br/> Marine Protected Area <br/> PhD Project",
+  "<b> Lyme Bay </b> <br/> Offshore Aquaculture <br/> Impact Assessment",
+  "<b> Orkney </b> <br/> Tidal Energy Device <br/> Impact Assessment",
+  "<b> Galapagos Islands </b> <br/> Marine Invasive Species <br/> Impact Assessment and Monitoring",
+  "<b> Berwickshire </b> <br/> Marine Protected Area <br/> Baseline Survey",
+  "<b> Jersey </b> <br/> Territorial Waters <br/> Blue Carbon Assessment",
+  "<b> Chichester Harbour </b> <br/> Oyster Fishery <br/> Stock Assessment",
+  "<b> India, Pakistan and Nepal </b> <br/> Ganges River <br/> Plastics Pollution Assessment",
+  "<b> Nepal </b> <br/> Mount Everest <br/> Plastics Pollution Assessment",
+  "<b> Ecuador </b> <br/> Longline Fishery <br/> Bycatch Assessment",
+  "<b> Australia </b> <br/> Marine Protected Areas <br/> Impact on Rare Species"
+  ),
+  Long=c(-2.932835,
+         -3.137340,
+         -3.143856,
+         -90.735188,
+         -2.120646,
+         -2.144517,
+         -0.881243,
+          83.057458,
+          86.923506,
+         -79.888597,
+          147.188089),
+  Lat=c(50.693708,
+        50.612101, 
+        58.893811, 
+        -0.534533,
+        55.905891,
+        49.184870,
+        50.809141, 
+        26.435213,
+        27.987316,
+        -1.880188,
+        -17.872771),
+  Involvement=c("Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Analysis",
+                "Data Analysis",
+                "Data Analysis",
+                "Data Analysis"
+                )
+  )
+
+beatCol <- colorFactor(palette = 'RdYlGn', Projects$Involvement)
+
+leaflet(Projects) %>% 
+    setView(lng = 0, lat = 12, zoom = 1) %>%
+  addProviderTiles("CartoDB.Positron", 
+                     options = providerTileOptions(minZoom = 1, maxZoom = 7)) %>% 
+  addCircleMarkers(lng=~Long,lat =  ~Lat,color = ~beatCol(Involvement), popup = ~Name) %>% 
+  addLegend('bottomright', pal = beatCol, values = Projects$Involvement,
+            title = 'Personal Involvement in the Projects',
+            opacity = 1) 
+
+
+
+```

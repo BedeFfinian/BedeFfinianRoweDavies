@@ -7,6 +7,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Previous Projects"
+      href: map.html
     - text: "First Author Papers"
       href: Papers.html
     - text: "Co-Author Papers"
