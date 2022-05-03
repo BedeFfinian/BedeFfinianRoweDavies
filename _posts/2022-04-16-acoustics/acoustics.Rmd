@@ -1,5 +1,5 @@
 ---
-title: "Acoustic Complexity Index to assess benthic biodiversity of a partially protected area in the southwest of the UK"
+title: "Acoustic Complexity Index to Assess Benthic Biodiversity of a Partially Protected Area in the Southwest of the UK"
 description: |
   Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt & Emma V. Sheehan.
 author:
