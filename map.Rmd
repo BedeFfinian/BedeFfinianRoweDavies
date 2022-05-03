@@ -75,7 +75,7 @@ leaflet(Projects) %>%
                    popup = ~Name,
                    opacity = 1) %>% 
   addLegend('bottomright', pal = beatCol, values = Projects$Involvement,
-            title = 'Personal Involvement in the Projects',
+            title = 'Personal Involvement in Projects',
             opacity = 1) 
 
 
