@@ -8,6 +8,8 @@ site: distill::distill_website
 
 ```{r, echo=FALSE}
 library(leaflet)
+library(leaflet.esri)
+library(leaflet.providers)
 
 Projects<-data.frame(
   Name=c(
@@ -59,13 +61,19 @@ Projects<-data.frame(
                 )
   )
 
-beatCol <- colorFactor(palette = 'RdYlGn', Projects$Involvement)
+
+
+beatCol <- colorFactor(palette = c("dark cyan","darkgoldenrod"), Projects$Involvement)
 
 leaflet(Projects) %>% 
-    setView(lng = 0, lat = 12, zoom = 1) %>%
-  addProviderTiles("CartoDB.Positron", 
+    setView(lng = 0, lat = 12, zoom = 1) %>% 
+  addProviderTiles("GeoportailFrance.orthos", 
                      options = providerTileOptions(minZoom = 1, maxZoom = 7)) %>% 
-  addCircleMarkers(lng=~Long,lat =  ~Lat,color = ~beatCol(Involvement), popup = ~Name) %>% 
+  addCircleMarkers(lng=~Long,
+                   lat =  ~Lat,
+                   color = ~beatCol(Involvement), 
+                   popup = ~Name,
+                   opacity = 1) %>% 
   addLegend('bottomright', pal = beatCol, values = Projects$Involvement,
             title = 'Personal Involvement in the Projects',
             opacity = 1) 
