@@ -9,11 +9,11 @@
         "url": {}
       }
     ],
-    "date": "2022-05-03",
+    "date": "2022-05-13",
     "categories": [],
-    "contents": "\nDavies\net al., 2020\n\n\n\n",
+    "contents": "\nDavies\net al., 2020\nThe soundscape of the marine environment is a relatively understudied\narea of ecology that has the potential to provide large amounts of\ninformation on biodiversity, reproductive behaviour, habitat selection,\nspawning and predator–prey interactions. Biodiversity is often visually\nassessed and used as a proxy for ecosystem health. Visual assessment\nusing divers or remote video methods can be expensive, and limited to\ntimes of good weather and water visibility. Previous studies have\nconcluded that acoustic measures, such as the Acoustic Complexity Index\n(ACI), correlate with visual biodiversity estimates and offer an\nalternative to assess ecosystem health. Here, the ACI measured over 5\nyears in a Marine Protected Area (MPA) in the UK, Lyme Bay, was analysed\nalongside another monitoring method, Baited Remote Underwater Video\nSystems (BRUVs). Two treatments were sampled annually in the summer from\n2014 until 2018 with sites inside the MPA, as well as Open Control sites\noutside of the MPA. Year by year correlations, which have been used\nelsewhere to test ACI, showed significant correlations with Number of\nSpecies and ACI. However, the sign of these correlations changed almost\nyearly, showing that more in-depth analyses are needed. Multivariate\nanalysis of the benthic assemblage composition (from BRUVs) was carried\nout by Permutational Multivariate Analysis of Variance (PERMANOVA) using\nDistance Matrices. Although not consistently correlating with univariate\nmeasures, the ACI was significantly interacting with the changing\nbenthic assemblage composition, as it changed over time and protection\n(Inside vs Outside the MPA). ACI showed potential to allude to shifting\nbenthic communities, yet with no consistency when used alongside\nunivariate measures of diversity. Although it is not without its own\ndisadvantages, and thus should be developed further before\nimplementation, the ACI could potentially reflect more complex changes\nto the benthos than simply the overall diversity.\n\n\n\n",
     "preview": "posts/2022-04-16-acoustics/Acoustics_Preview.png",
-    "last_modified": "2022-05-03T14:17:44+01:00",
+    "last_modified": "2022-05-13T11:55:30+01:00",
     "input_file": {}
   },
   {
@@ -26,11 +26,11 @@
         "url": {}
       }
     ],
-    "date": "2022-04-29",
+    "date": "2022-05-13",
     "categories": [],
-    "contents": "\nDavies\net al., 2021\n\n\n\n",
+    "contents": "\nDavies\net al., 2021\nDesignated using a Statutory Instrument in 2008, Lyme Bay marine-\nprotected area (MPA) is the UK’s first and largest example of an\nambitious, whole-site approach to management, to recover and protect\nreef biodiversity. The whole-site approach applies consistent\nmanagement, in this case excluding bottom towed fishing, across the full\n206 km2 extent of the MPA, thus protecting a mosaic of reef-associated\nhabitats from regular damage, while still allowing less destructive\nfishing methods, such as static gear, rod and line, and diving.2. To\nassess the effectiveness of this management strategy for mobile taxa and\nthe sustainability for those taxa that continue to be targeted,\nExploited and Non- Exploited species’ populations were compared inside\nthe MPA, relative to open control sites spanning 11 of the 12 years of\ndesignation. baited remote underwater video systems (BRUVs) were\ndeployed annually to assess mobile benthic and demersal fauna.3.\nOverall, the number of taxa significantly increased in the MPA relative\nto the open controls while total abundance increased in both\ntreatments.4. Exploited fish showed increases in number of taxa (430%)\nand total abundance (370%) inside the MPA over 11 years.5. Likewise, but\nto a lesser degree in the open controls, number of taxa of commercially\nExploited fish increased over time, potentially showing ‘spillover’\neffects from the MPA.6. Non-Exploited fish did not show such changes.\nRegardless of constituting the majority of the fishery value, highly\nvaluable Exploited invertebrates showed no significant changes over\ntime.7. Synthesis and applications. The Lyme Bay marine- protected area\nshows importance of protecting a whole site, comprising mosaics of\ndifferent benthic habitats, through protection of sessile organisms that\ncontribute to essential fish habitats.\n\n\n\n",
     "preview": "posts/2022-04-16-baited/Baited_Preview.png",
-    "last_modified": "2022-04-29T11:17:24+01:00",
+    "last_modified": "2022-05-13T11:55:38+01:00",
     "input_file": {}
   },
   {
@@ -43,11 +43,11 @@
         "url": {}
       }
     ],
-    "date": "2022-04-29",
+    "date": "2022-05-13",
     "categories": [],
-    "contents": "\nDavies\net al., 2021\n\n\n\n",
+    "contents": "\nDavies\net al., 2021\nAim: Ecosystem Approach to Fisheries Management has highlighted the\nimportance of studying ecosystem functions and services, and the\nbiological traits that drive them. Yet, ecosystem services and the\nassociated benefits that they provide are rarely the motive for creating\nmarine protected area (MPA). Therefore, many MPA monitoring projects do\nnot explicitly study these functions and services or the underlying\nbiological traits linked to them. Location: Lyme Bay MPA, located in the\nSW of England, was established in 2008 to protect the reef biodiversity\nacross a 206 km\\(^2\\) area, which\nincludes rocky reef habitats, pebbly sand and soft muddy sediments.\nMobile demersal fishing was excluded across the whole site to allow the\nrecovery of the reef habitats. Methods: Using a combination of towed\nunderwater video and Baited Remote Underwater Video Systems changes in\ndiversity (taxonomic and trait), and traits affected by mobile demersal\nfishing were assessed in Lyme Bay MPA over 10 years. Results: There was\na consistent increase in the number of taxa and the trait diversity they\nprovide within the MPA as well as an increase in functional redundancy,\nwhich may increase community resilience to perturbations. Outside of the\nMPA there was an increase in the abundance of mobile species, while the\nMPA showed an increase in filter feeders. Main conclusions: The MPA\nshowed a trend towards more diverse and potentially resilient rocky reef\nhabitats. This study constitutes a novel MPA assessment using multiple\nsampling methods to encompass a wide range of taxa. It also reinforces\nthe importance of effective MPA monitoring, which has demonstrated\nchanges in trait diversity and trait composition driven by changes in\ntaxonomic diversity.\n\n\n\n",
     "preview": "posts/2022-04-16-functional/Functional_Preview.png",
-    "last_modified": "2022-04-29T11:17:50+01:00",
+    "last_modified": "2022-05-13T11:55:50+01:00",
     "input_file": {}
   }
 ]
