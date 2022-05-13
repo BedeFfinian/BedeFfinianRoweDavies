@@ -7,6 +7,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
+    - text: "Who am I?"
+      href: who.html
     - text: "Previous Projects"
       href: map.html
     - text: "First Author Papers"
