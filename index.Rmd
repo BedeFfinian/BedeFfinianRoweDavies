@@ -28,22 +28,23 @@ knitr::include_graphics("Images/index/Figure1.png")
 
 ```
 
-These models, as the data have been varying in distributions and characteristics, have been similarly variable, with models using:
+These models, like the data, have been varying in distributions and characteristics with models using:
 
-- gaussian
+- gaussian distributions
 
-- poisson
+- poisson distributions
 
-- beta
+- beta distributions
 
-- gamma 
+- gamma distributions
 
-- bernoulli/binomial
+- bernoulli distributions
 
-- zero-inflated/zero-altered alternatives.  
+- binomial distributions
+
+- zero-inflated/one-inflated/zero-altered/one-altered alternatives.  
 
 These analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects.
-
 
 :::
 
