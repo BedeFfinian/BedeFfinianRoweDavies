@@ -8,7 +8,7 @@ site: distill::distill_website
 
 # Who am I? 
 
-My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology. 
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the University of Nantes. The current project I am taking part in aims to create scaleable and generaliseable classification models to use Spectral reflectance measured from Satelite imagery to predict spatial extent of intertidal habitats across the whole of Norther Europe. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satelite imagery).
 
 ::: {.floatting}
 
@@ -51,7 +51,7 @@ Since completing my PhD, I have been employed as an Assistant Project Manager an
 :::
 
 
-# What do I do?
+# What have I done?
 ::: {.floatting}
 
 ```{r , echo=FALSE,out.width='50%', out.extra='style="float:left; padding:10px"'}
@@ -59,7 +59,7 @@ knitr::include_graphics("Images/who/Cores.png")
 
 ```
 
-I am currently a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aims to assess the stored carbon within sedimentary habitats in Jersey. This information is then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
+After my PhD I was a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aimed to assess the stored carbon within sedimentary habitats in Jersey. This information was then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
 
 :::
 

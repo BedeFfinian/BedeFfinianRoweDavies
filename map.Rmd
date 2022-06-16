@@ -23,7 +23,12 @@ Projects<-data.frame(
   "<b> India, Pakistan and Nepal </b> <br/> Ganges River <br/> Plastics Pollution Assessment",
   "<b> Nepal </b> <br/> Mount Everest <br/> Plastics Pollution Assessment",
   "<b> Ecuador </b> <br/> Longline Fishery <br/> Bycatch Assessment",
-  "<b> Australia </b> <br/> Marine Protected Areas <br/> Impact on Rare Species"
+  "<b> Australia </b> <br/> Marine Protected Areas <br/> Impact on Rare Species",
+  "<b> Portugal </b> <br/> Aveiro Lagoon <br/> Mapping Interdial Habitats",
+  "<b> Portugal </b> <br/> Tagus Estuary <br/> Mapping Interdial Habitats",
+  "<b> France </b> <br/> Bourgneuf Bay <br/> Mapping Interdial Habitats",
+  "<b> France </b> <br/> Gulf of Morbihan <br/> Mapping Interdial Habitats",
+  "<b> France </b> <br/> Bay of St Mont Michel <br/> Mapping Interdial Habitats"
   ),
   Long=c(-2.932835,
          -3.137340,
@@ -35,7 +40,12 @@ Projects<-data.frame(
           83.057458,
           86.923506,
          -79.888597,
-          147.188089),
+          147.188089,
+         -8.745730,
+         -9.029625,
+         -2.097998, 
+         -2.757178,
+        -1.508291),
   Lat=c(50.693708,
         50.612101, 
         58.893811, 
@@ -46,7 +56,12 @@ Projects<-data.frame(
         26.435213,
         27.987316,
         -1.880188,
-        -17.872771),
+        -17.872771,
+         40.617610, 
+        38.730280,
+        46.977129, 
+        47.546101,
+        48.659781),
   Involvement=c("Data Collection and Analysis",
                 "Data Collection and Analysis",
                 "Data Collection and Analysis",
@@ -57,13 +72,18 @@ Projects<-data.frame(
                 "Data Analysis",
                 "Data Analysis",
                 "Data Analysis",
-                "Data Analysis"
+                "Data Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis",
+                "Data Collection and Analysis"
                 )
   )
 
 
 
-beatCol <- colorFactor(palette = c("dark cyan","darkgoldenrod"), Projects$Involvement)
+beatCol <- colorFactor(palette = c("darkgoldenrod","dark cyan"), Projects$Involvement)
 
 leaflet(Projects) %>% 
     setView(lng = 0, lat = 12, zoom = 1) %>% 
@@ -73,7 +93,8 @@ leaflet(Projects) %>%
                    lat =  ~Lat,
                    color = ~beatCol(Involvement), 
                    popup = ~Name,
-                   opacity = 1) %>% 
+                   opacity = 1,
+                   radius=2) %>% 
   addLegend('bottomright', pal = beatCol, values = Projects$Involvement,
             title = 'Personal Involvement in Projects',
             opacity = 1) 

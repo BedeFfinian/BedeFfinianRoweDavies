@@ -15,13 +15,13 @@ knitr::include_graphics("Images/index/MonthlyCurrentFacet.gif")
 
 ```
 
-My statistical exoeriences have ranged from:
+My statistical experiences have ranged from:
 
-- assessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance)
+- assessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance) to predictive spatial modelling of macroalgal species from satelite imagery
 
 - abundance and diversity of taxa of importance, to whole ecosystem functional trait analysis.
 
-The methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both **frequentist** and **bayesian** frameworks, from one or two fixed effects to more complex mixed effects, hierarchical models and General Additive Models.
+The methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both **frequentist** and **bayesian** frameworks as well as **Machine Learning** algoritms, from one or two fixed effects to more complex mixed effects, hierarchical regression, General Additive, Random Forest, XGBoost, Neural Network classification models.
 
 ```{r , echo=FALSE,out.width='70%', out.extra='style="float:right; padding:10px"'}
 knitr::include_graphics("Images/index/Figure1.png")
