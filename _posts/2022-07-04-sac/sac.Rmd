@@ -1,0 +1,26 @@
+---
+title: "Ecosystem benefits of adopting a whole‐site approach to MPA management."
+description: |
+  Bede F. R. Davies, Luke Holmes, Martin J. Attrill & Emma V. Sheehan
+author:
+  - name: Bede Ffinian Rowe Davies
+    url: {}
+preview: SAC_Preview.png
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+[Davies *et al.,* 2022]()
+
+# Abstract 
+
+Globally, nations are designating Marine Protected Areas to recover and protect habitats and species. With targets to protect 30% of marine areas by 2030, effectiveness of MPAs to protect designated space is important. In Lyme Bay (South West UK) two co-located MPAs have each adopted different management styles to exclude mobile demersal fishing; a Special Area of Conservation (SAC) protecting the known extent of sensitive reef habitat and an area including a mosaic of reef and sedimentary habitats where the whole-site is protected from mobile demersal fishing under a Statutory Instrument (SI). Underwater videography, both towed (individuals m$^{-2}$) and baited (MaxN), was used to enumerate change over time of reef species (Number of Taxa, Total Abundance, Functional Richness and Functional Redundancy) in the MPAs and nearby control areas (2008-2019). Total abundance and functional redundancy of sessile taxa and functional richness of mobile taxa increased, while the number of sessile or mobile taxa, functional richness of sessile taxa, total abundance of mobile taxa or functional redundancy of mobile taxa did not differ from nearby control sites. Over time, both management styles did result in increases in sessile and sedentary taxa diversity relative to open controls, with increases in total abundance of 15% and 95% in the ‘feature based’ and whole-site MPAs respectively alongside increases in the number of sessile taxa of 44% over time in the ‘feature based’ MPA. However, the mobile taxa in the whole-site MPA showed levels of functional redundancy 7% higher than the ‘feature based’ MPA, indicative of a higher community resilience inside the whole-site MPA to perturbations, such as storms or biological invasions. Increases seen in the diversity of sessile taxa we expected only in areas where mobile demersal fishing was excluded (~46.8% of its’ areas). Therefore, if the whole ‘feature based’ MPA was consistently protected, we expected to see similar levels of increase in functional extent of reef. While the ‘feature based’ MPA showed similar results over time to that of the ‘whole site’, the ‘whole site’ showed higher levels of diversity, both taxonomical and functional.
+
+
+
