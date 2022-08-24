@@ -3,7 +3,6 @@ title: "A Decade Implementing Ecosystem Approach to Fisheries Management Improve
 description: "Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill & Emma V. Sheehan"
 author:
   - name: Bede Ffinian Rowe Davies
-    url: {}
 image: Functional_Preview.png
 ---
 

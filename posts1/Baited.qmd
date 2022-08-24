@@ -3,7 +3,6 @@ title: "Ecosystem Approach to Fisheries Management works— How switching from M
 description: "Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright & Emma V. Sheehan."
 author:
   - name: Bede Ffinian Rowe Davies
-    url: {}
 image: Baited_Preview.png
 ---
 

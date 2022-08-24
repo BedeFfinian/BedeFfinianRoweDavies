@@ -3,7 +3,6 @@ title: "Ecosystem benefits of adopting a whole‐site approach to MPA management
 subtitle: "Bede F. R. Davies, Luke Holmes, Martin J. Attrill & Emma V. Sheehan"
 author:
   - name: Bede Ffinian Rowe Davies
-    url: {}
 image: SAC_Preview.png
 ---
 
