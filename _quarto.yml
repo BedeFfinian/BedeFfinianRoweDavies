@@ -11,9 +11,9 @@ website:
    search: true
    right:
     - text: "Home"
-      href: index.qmd
-    - text: "Who am I?"
       href: who.qmd
+    - text: "Consultancy"
+      href: index.qmd
     - text: "Previous Projects"
       href: map.qmd
     - text: "First Author Publications"

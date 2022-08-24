@@ -37,7 +37,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Bede Ffinian Rowe Davies Consultancy",
+    "title": "Bede Ffinian Rowe Davies",
     "section": "",
     "text": "My statistical experiences have ranged from:\n\n\n\nmodelling decadal oceanographic changes over ocean basin scales to predict marine invasive species\nassessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance) to predictive spatial modelling of macroalgal species from satelite imagery\nabundance and diversity of taxa of importance, to whole ecosystem functional trait analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both frequentist and bayesian frameworks as well as Machine Learning algorithms, from one or two fixed effects to more complex mixed effects, hierarchical regression, General Additive, Random Forest, XGBoost, Neural Network classification models. These models, like the data, have been varying in distributions and characteristics with models using:\n\ngaussian distributions\npoisson distributions\nbeta distributions\ngamma distributions\nbernoulli distributions\nbinomial distributions\nzero-inflated/one-inflated/zero-altered/one-altered alternatives.\n\n\n\nThese analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects."
   },
