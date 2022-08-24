@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "consultancy.html",
+    "href": "consultancy.html",
+    "title": "Ecological and Statistical Consultancy",
+    "section": "",
+    "text": "My statistical experiences have ranged from:\n\n\n\nmodelling decadal oceanographic changes over ocean basin scales to predict marine invasive species\nassessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance) to predictive spatial modelling of macroalgal species from satelite imagery\nabundance and diversity of taxa of importance, to whole ecosystem functional trait analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both frequentist and bayesian frameworks as well as Machine Learning algorithms, from one or two fixed effects to more complex mixed effects, hierarchical regression, General Additive, Random Forest, XGBoost, Neural Network classification models. These models, like the data, have been varying in distributions and characteristics with models using:\n\ngaussian distributions\npoisson distributions\nbeta distributions\ngamma distributions\nbernoulli distributions\nbinomial distributions\nzero-inflated/one-inflated/zero-altered/one-altered alternatives.\n\n\n\nThese analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects."
+  },
+  {
     "objectID": "posts2/Ganges.html",
     "href": "posts2/Ganges.html",
     "title": "The Abundance and Characteristics of Microplastics in Surface Water in the Transboundary Ganges River",
@@ -21,25 +28,18 @@
     "text": "Marine protected areas (MPAs) are employed as tools to manage human impacts, especially fishing pressure. By excluding the most destructive activities MPAs can rewild degraded areas of seabed habitat. The potential for MPAs to increase ecosystem resilience from storms is, however, not understood, nor how such events impact seabed habitats. Extreme storm disturbance impact was studied in Lyme Bay MPA, Southwest United Kingdom, where the 2008 exclusion of bottom-towed fishing from the whole site allowed recovery of degraded temperate reef assemblages to a more complex community. Severe storm impacts in 2013–2014 resulted in major damage to the seabed so that assemblages in the MPA were more similar to sites where fishing continued than at any point since the designation of the MPA; the communities were not dominated by species resistant to physical disturbance. Nevertheless, annual surveys since 2014 have demonstrated that the initial recovery of MPA assemblages was much quicker than that seen following the cessation of chronic towed fishing impact in 2008. Likewise, General Additive Mixed Effect Models (GAMMs) showed that inside the MPA increases in diversity metrics post-Storm were greater and more consistent over time than post-Bottom-Towed Fishing. As extreme events are likely to become more common with climate change, wave exposure observations indicated that 29% of coastal reef MPAs around the United Kingdom may be exposed to comparable wave climate extremes, and may be similarly impacted. This paper therefore provides an insight into the likely extent and magnitude of ecological responses of seabed ecosystems to future extreme disturbance events"
   },
   {
-    "objectID": "who.html",
-    "href": "who.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Dr. Bede Ffinian Rowe Davies",
     "section": "",
     "text": "My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the University of Nantes. The current project I am taking part in aims to create scaleable and generaliseable classification models to use Spectral reflectance measured from Satelite imagery to predict spatial extent of intertidal habitats across the whole of Norther Europe. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satelite imagery).\n\n\nI completed my PhD based at the University of Plymouth. The title of my PhD was: The Effectiveness of Partially Protected Marine Areas for Ecosystem Based Fisheries Management. The work centred around the Marine Protected Area (MPA) in Lyme Bay (UK), which excluded all demersal towed fishing activity across 206km\\(^2\\) of seabed in 2008. University of Plymouth staff and students have monitored the benthic environment across the bay (inside and outside the MPA) annually, using a range of underwater sampling equipment.\nThe methods include:\n\nPassive Acoustic Monitoring (PAM)\nTowed Underwater Video Systems (TUVs)\nBaited Remote Underwater Video Systems (BRUVs)\n\n\n\n\n\n\nThe objective of my PhD was to assess how the protection affected the benthic ecosystems inside vs outside the MPA.\n\n\nMy duties included:\n\nthe continued application of annual surveys alongside other members of the team,\norganisation of the 12 year data sets for BRUVs and TUVs, and 5 years of PAM recordings,\nanalysis of BRUVs and PAM data sets,\nstatistical analysis of the time series data,\nassessment of the applicability of the methods,\nthe creation of journal style articles for publication.\n\n\n\n\n\n\n\n\n\n\nSince completing my PhD, I have been employed as an Assistant Project Manager and Post-Doctoral Researcher delivering monitoring goals within the team with whom I completed my PhD."
   },
   {
-    "objectID": "who.html#projects",
-    "href": "who.html#projects",
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
     "title": "Dr. Bede Ffinian Rowe Davies",
     "section": "Projects",
     "text": "Projects\nI have worked and assisted in many projects across the UK including:\n\nLong term MPA Assessment\nEcological Impact Assessment of a 50 Year Storm\nFisheries Stock Assessment\nSeagrass Mapping\nWave Energy Device Impact Assessment\nOffshore Aquaculture Impact Assessment\nSedimentary Blue Carbon Assessment\nAcoustic Assessments of Marine Soundscapes.\n\n\n\n\n\n\nFurther afield, I have also worked in:\n\nthe Galapagos Islands assessing both Plastic Pollution and Biological Invasive species\nthe Ecuadorian fisheries department (Instituto Nacional de Pesca) asssessing bycatch of protected species\nthe Himalayan mountains and the Ganges River alongside National Geographic researchers assessing plastics.\n\n\n\n\n\n\nThrough this work I have collaborated with researchers from across the globe and across many disciplines combining in-the-field research (Underwater videography (BRUVs), boatwork, snorkelling, SCUBA, intertidal estuary surveys) and in the lab (Sediment core and grab preparation). Often, I have then been responsible for data organisation, analysis and presentation."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Ecological and Statistical Consultancy",
-    "section": "",
-    "text": "My statistical experiences have ranged from:\n\n\n\nmodelling decadal oceanographic changes over ocean basin scales to predict marine invasive species\nassessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance) to predictive spatial modelling of macroalgal species from satelite imagery\nabundance and diversity of taxa of importance, to whole ecosystem functional trait analysis.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both frequentist and bayesian frameworks as well as Machine Learning algorithms, from one or two fixed effects to more complex mixed effects, hierarchical regression, General Additive, Random Forest, XGBoost, Neural Network classification models. These models, like the data, have been varying in distributions and characteristics with models using:\n\ngaussian distributions\npoisson distributions\nbeta distributions\ngamma distributions\nbernoulli distributions\nbinomial distributions\nzero-inflated/one-inflated/zero-altered/one-altered alternatives.\n\n\n\nThese analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects."
   },
   {
     "objectID": "posts1/Acoustics.html",
