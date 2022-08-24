@@ -1,6 +1,6 @@
 ---
-title: "Ecology and Statistical Consultant"
-subtitle: "bedeffinian@gmail.com"
+title: "Dr. Bede Ffinian Rowe Davies"
+subtitle: "Marine Ecologist and Statistician bedeffinian@gmail.com"
 categories: [statistics, ecology, marine, science, marine management, consultancy]
 ---
 
