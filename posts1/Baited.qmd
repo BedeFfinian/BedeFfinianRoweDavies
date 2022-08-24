@@ -1,0 +1,12 @@
+---
+title: "Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area."
+description: "Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright & Emma V. Sheehan."
+author:
+  - name: Bede Ffinian Rowe Davies
+    url: {}
+image: Baited_Preview.png
+---
+
+[Davies *et al.,* 2021](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/1365-2664.13986)
+
+Designated using a Statutory Instrument in 2008, Lyme Bay marine- protected area (MPA) is the UK's first and largest example of an ambitious, whole-site approach to management, to recover and protect reef biodiversity. The whole-site approach applies consistent management, in this case excluding bottom towed fishing, across the full 206 km2 extent of the MPA, thus protecting a mosaic of reef-associated habitats from regular damage, while still allowing less destructive fishing methods, such as static gear, rod and line, and diving.2. To assess the effectiveness of this management strategy for mobile taxa and the sustainability for those taxa that continue to be targeted, Exploited and Non- Exploited species' populations were compared inside the MPA, relative to open control sites spanning 11 of the 12 years of designation. baited remote underwater video systems (BRUVs) were deployed annually to assess mobile benthic and demersal fauna.3. Overall, the number of taxa significantly increased in the MPA relative to the open controls while total abundance increased in both treatments.4. Exploited fish showed increases in number of taxa (430%) and total abundance (370%) inside the MPA over 11 years.5. Likewise, but to a lesser degree in the open controls, number of taxa of commercially Exploited fish increased over time, potentially showing 'spillover' effects from the MPA.6. Non-Exploited fish did not show such changes. Regardless of constituting the majority of the fishery value, highly valuable Exploited invertebrates showed no significant changes over time.7. Synthesis and applications. The Lyme Bay marine- protected area shows importance of protecting a whole site, comprising mosaics of different benthic habitats, through protection of sessile organisms that contribute to essential fish habitats.

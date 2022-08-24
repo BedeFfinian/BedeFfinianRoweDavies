@@ -1,0 +1,19 @@
+---
+title: "A Decade Implementing Ecosystem Approach to Fisheries Management Improves Diversity of Taxa and Traits within a Marine Protected Area in the UK."
+description: "Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill & Emma V. Sheehan"
+author:
+  - name: Bede Ffinian Rowe Davies
+    url: {}
+image: Functional_Preview.png
+---
+
+[Davies *et al.,* 2021](https://onlinelibrary.wiley.com/doi/pdf/10.1111/ddi.13451)
+
+Aim: Ecosystem Approach to Fisheries Management has highlighted the importance of studying ecosystem functions and services, and the biological traits that drive them. Yet, ecosystem services and the associated benefits that they provide are rarely the motive for creating marine protected area (MPA). Therefore, many MPA monitoring projects do not explicitly study these functions and services or the underlying biological traits linked to them. 
+Location: Lyme Bay MPA, located in the SW of England, was established in 2008 to protect the reef biodiversity across a 206 km$^2$ area, which includes rocky reef habitats, pebbly sand and soft muddy sediments. Mobile demersal fishing was excluded across the whole site to allow the recovery of the reef habitats.
+Methods: Using a combination of towed underwater video and Baited Remote Underwater Video Systems changes in diversity (taxonomic and trait), and traits affected by mobile demersal fishing were assessed in Lyme Bay MPA over 10 years.
+Results: There was a consistent increase in the number of taxa and the trait diversity they provide within the MPA as well as an increase in functional redundancy, which may increase community resilience to perturbations. Outside of the MPA there was an increase in the abundance of mobile species, while the MPA showed an increase in filter feeders.
+Main conclusions: The MPA showed a trend towards more diverse and potentially resilient rocky reef habitats. This study constitutes a novel MPA assessment using multiple sampling methods to encompass a wide range of taxa. It also reinforces the importance of effective MPA monitoring, which has demonstrated changes in trait diversity and trait composition driven by changes in taxonomic diversity.
+
+
+
