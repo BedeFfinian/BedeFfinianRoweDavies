@@ -1,2 +1,2 @@
-# BedeFfinianRoweDavies_Consultancy
-Git repo for BFRD Consultancy Website
+# BedeFfinianRoweDavies
+Website for Bede Ffinian Rowe Davies, Academic and Statistical Consultant.
