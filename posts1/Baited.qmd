@@ -2,8 +2,10 @@
 title: "Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area."
 description: "Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright & Emma V. Sheehan."
 author:
-  - name: Bede Ffinian Rowe Davies
+  - name: [Bede Ffinian Rowe Davies; Luke Holmes; Adam Rees; Martin J. Attrill; Amy Y. Cartwright; Emma V. Sheehan]
 image: Baited_Preview.png
+date: "06-17-2021"
+categories: [BRUVs, Ecology, Marine Diversity, First Author]
 ---
 
 [Davies *et al.,* 2021](https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/1365-2664.13986)

@@ -2,8 +2,10 @@
 title: "A Decade Implementing Ecosystem Approach to Fisheries Management Improves Diversity of Taxa and Traits within a Marine Protected Area in the UK."
 description: "Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill & Emma V. Sheehan"
 author:
-  - name: Bede Ffinian Rowe Davies
+  - name: [Bede Ffinian Rowe Davies; Luke Holmes; Anthony Bicknell; Martin J. Attrill; Emma V. Sheehan]
 image: Functional_Preview.png
+date: "11-15-2021"
+categories: [BRUVs, TUVs, Ecology, Marine Diversity, Functional Diversity, First Author]
 ---
 
 [Davies *et al.,* 2021](https://onlinelibrary.wiley.com/doi/pdf/10.1111/ddi.13451)

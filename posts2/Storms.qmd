@@ -2,8 +2,10 @@
 title: "Rewilding of Protected Areas Enhances Resilience of Marine Ecosystems to Extreme Climatic Events"
 description: "Emma V. Sheehan, Luke A. Holmes, Bede F. R. Davies, Amy Cartwright, Adam Rees & Martin J. Attrill."
 author:
-  - name: Bede Ffinian Rowe Davies
+  - name: [Emma V. Sheehan; Luke A. Holmes; Bede Ffinian Rowe Davies; Amy Cartwright; Adam Rees; Martin J. Attrill]
 image: Storms_Preview.jpeg
+date: "08-23-2021"
+categories: [Storms, Ecology, Marine Diversity, Climatic Events, TUVs, Co-Author]
 ---
 
 [Sheehan *et al.,* 2021](https://www.lymebayreserve.co.uk/download-centre/files/2021-Sheehan-et-al-Rewilding-of-Protected-Areas-Enhances-Resilience-to-Extreme-Climatic-Events-Frontiers-in-Marine-Science-open-access.pdf)

@@ -65,9 +65,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -90,7 +90,7 @@ ul.task-list{list-style: none;}
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -126,8 +126,10 @@ ul.task-list{list-style: none;}
 </i> 
  </a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://orcid.org/my-orcid?orcid=0000-0001-6462-4347">ORCID ID</a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://orcid.org/my-orcid?orcid=0000-0001-6462-4347"><i class="bi bi-flower" role="img">
+</i> 
+ </a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -136,12 +138,14 @@ ul.task-list{list-style: none;}
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Acoustic">Acoustic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="BRUVs">BRUVs <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Climatic Events">Climatic Events <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Co-Author">Co-Author <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ecology">Ecology <span class="quarto-category-count">(5)</span></div><div class="category" data-category="First Author">First Author <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Freshwater Pollution">Freshwater Pollution <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Functional Diversity">Functional Diversity <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Marine Diversity">Marine Diversity <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Marine Management">Marine Management <span class="quarto-category-count">(1)</span></div><div class="category" data-category="PAM">PAM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Plastics">Plastics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Pollution">Pollution <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Storms">Storms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TUVs">TUVs <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Terrestrial Pollution">Terrestrial Pollution <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -164,8 +168,30 @@ ul.task-list{list-style: none;}
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1661343468334" data-listing-reading-time-sort="1.345">
+<div class="quarto-post image-right" data-index="0" data-categories="BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1636930800000" data-listing-file-modified-sort="1664119304955" data-listing-reading-time-sort="1.345">
 <div class="thumbnail">
 <p><a href="./posts1/Functional.html"> <img src="./posts1/Functional_Preview.png" class="thumnail-image"> </a></p>
 </div>
@@ -177,6 +203,28 @@ A Decade Implementing Ecosystem Approach to Fisheries Management Improves Divers
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
+BRUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TUVs'); return false;">
+TUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
+Marine Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Functional Diversity'); return false;">
+Functional Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
+First Author
+</div>
+</div>
+<a href="./posts1/Functional.html">
 <div class="listing-description">
 <p>Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill &amp; Emma V. Sheehan</p>
 </div>
@@ -184,13 +232,13 @@ A Decade Implementing Ecosystem Approach to Fisheries Management Improves Divers
 </div>
 <div class="metadata">
 <a href="./posts1/Functional.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Nov 15, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1658761439161" data-listing-reading-time-sort="1.475">
+<div class="quarto-post image-right" data-index="1" data-categories="Acoustic,BRUVs,Ecology,PAM,Marine Diversity,First Author" data-listing-date-sort="1577833200000" data-listing-file-modified-sort="1664119094135" data-listing-reading-time-sort="1.475">
 <div class="thumbnail">
 <p><a href="./posts1/Acoustics.html"> <img src="./posts1/Acoustics_Preview.png" class="thumnail-image"> </a></p>
 </div>
@@ -202,6 +250,28 @@ Acoustic Complexity Index to Assess Benthic Biodiversity of a Partially Protecte
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Acoustic'); return false;">
+Acoustic
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
+BRUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('PAM'); return false;">
+PAM
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
+Marine Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
+First Author
+</div>
+</div>
+<a href="./posts1/Acoustics.html">
 <div class="listing-description">
 <p>Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt &amp; Emma V. Sheehan.</p>
 </div>
@@ -209,13 +279,13 @@ Acoustic Complexity Index to Assess Benthic Biodiversity of a Partially Protecte
 </div>
 <div class="metadata">
 <a href="./posts1/Acoustics.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Jan 1, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1661343458767" data-listing-reading-time-sort="1.365">
+<div class="quarto-post image-right" data-index="2" data-categories="BRUVs,Ecology,Marine Diversity,First Author" data-listing-date-sort="1623880800000" data-listing-file-modified-sort="1664119231319" data-listing-reading-time-sort="1.365">
 <div class="thumbnail">
 <p><a href="./posts1/Baited.html"> <img src="./posts1/Baited_Preview.png" class="thumnail-image"> </a></p>
 </div>
@@ -227,6 +297,22 @@ Ecosystem Approach to Fisheries Management works— How switching from Mbile to 
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
+BRUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
+Marine Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
+First Author
+</div>
+</div>
+<a href="./posts1/Baited.html">
 <div class="listing-description">
 <p>Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright &amp; Emma V. Sheehan.</p>
 </div>
@@ -234,13 +320,13 @@ Ecosystem Approach to Fisheries Management works— How switching from Mbile to 
 </div>
 <div class="metadata">
 <a href="./posts1/Baited.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Jun 17, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1661343477483" data-listing-reading-time-sort="1.715">
+<div class="quarto-post image-right" data-index="3" data-categories="Marine Management,BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1657749600000" data-listing-file-modified-sort="1664119431435" data-listing-reading-time-sort="1.715">
 <div class="thumbnail">
 <p><a href="./posts1/SAC.html"> <img src="./posts1/SAC_Preview.png" class="thumnail-image"> </a></p>
 </div>
@@ -252,6 +338,31 @@ Ecosystem benefits of adopting a whole‐site approach to MPA management.
 <div class="listing-subtitle">
 Bede F. R. Davies, Luke Holmes, Martin J. Attrill &amp; Emma V. Sheehan
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Management'); return false;">
+Marine Management
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
+BRUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TUVs'); return false;">
+TUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
+Marine Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Functional Diversity'); return false;">
+Functional Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
+First Author
+</div>
+</div>
+<a href="./posts1/SAC.html">
 <div class="listing-description">
 Davies <em>et al.,</em> 2022
 </div>
@@ -259,13 +370,13 @@ Davies <em>et al.,</em> 2022
 </div>
 <div class="metadata">
 <a href="./posts1/SAC.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Jul 14, 2022
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1658761652783" data-listing-reading-time-sort="0.695">
+<div class="quarto-post image-right" data-index="4" data-categories="Plastics,Pollution,Terrestrial Pollution,Co-Author" data-listing-date-sort="1605826800000" data-listing-file-modified-sort="1664119454518" data-listing-reading-time-sort="0.695">
 <div class="thumbnail">
 <p><a href="./posts2/Everest.html"> <img src="./posts2/Everest_Preview.jpg" class="thumnail-image"> </a></p>
 </div>
@@ -277,6 +388,22 @@ Reaching New Heights in Plastic Pollution—Preliminary Findings of Microplastic
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Plastics'); return false;">
+Plastics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Pollution'); return false;">
+Pollution
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Terrestrial Pollution'); return false;">
+Terrestrial Pollution
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Co-Author'); return false;">
+Co-Author
+</div>
+</div>
+<a href="./posts2/Everest.html">
 <div class="listing-description">
 <p>Imogen E. Napper, Bede F.R. Davies, Heather Clifford, Sandra Elvin, Heather J.Koldewey, Paul A.Mayewski, Kimberley R.Miner, Mariusz Potocki, Aurora C. Elmore Ananta P. Gajurel &amp; Richard C. Thompson.</p>
 </div>
@@ -284,13 +411,13 @@ Reaching New Heights in Plastic Pollution—Preliminary Findings of Microplastic
 </div>
 <div class="metadata">
 <a href="./posts2/Everest.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Nov 20, 2020
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1658761765201" data-listing-reading-time-sort="1.275">
+<div class="quarto-post image-right" data-index="5" data-categories="Storms,Ecology,Marine Diversity,Climatic Events,TUVs,Co-Author" data-listing-date-sort="1629669600000" data-listing-file-modified-sort="1664119654666" data-listing-reading-time-sort="1.275">
 <div class="thumbnail">
 <p><a href="./posts2/Storms.html"> <img src="./posts2/Storms_Preview.jpeg" class="thumnail-image"> </a></p>
 </div>
@@ -302,6 +429,28 @@ Rewilding of Protected Areas Enhances Resilience of Marine Ecosystems to Extreme
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Storms'); return false;">
+Storms
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
+Ecology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
+Marine Diversity
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Climatic Events'); return false;">
+Climatic Events
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TUVs'); return false;">
+TUVs
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Co-Author'); return false;">
+Co-Author
+</div>
+</div>
+<a href="./posts2/Storms.html">
 <div class="listing-description">
 <p>Emma V. Sheehan, Luke A. Holmes, Bede F. R. Davies, Amy Cartwright, Adam Rees &amp; Martin J. Attrill.</p>
 </div>
@@ -309,13 +458,13 @@ Rewilding of Protected Areas Enhances Resilience of Marine Ecosystems to Extreme
 </div>
 <div class="metadata">
 <a href="./posts2/Storms.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Aug 23, 2021
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1658761712287" data-listing-reading-time-sort="0.97">
+<div class="quarto-post image-right" data-index="6" data-categories="Plastics,Pollution,Freshwater Pollution,Co-Author" data-listing-date-sort="1617228000000" data-listing-file-modified-sort="1664119624059" data-listing-reading-time-sort="0.97">
 <div class="thumbnail">
 <p><a href="./posts2/Ganges.html"> <img src="./posts2/Ganges_Preview.jpeg" class="thumnail-image"> </a></p>
 </div>
@@ -327,6 +476,22 @@ The Abundance and Characteristics of Microplastics in Surface Water in the Trans
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Plastics'); return false;">
+Plastics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Pollution'); return false;">
+Pollution
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Freshwater Pollution'); return false;">
+Freshwater Pollution
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Co-Author'); return false;">
+Co-Author
+</div>
+</div>
+<a href="./posts2/Ganges.html">
 <div class="listing-description">
 <p>Imogen E. Napper, Anju Baroth, Aaron C. Barrett, Sunanda Bhola. Gawsia W. Chowdhuryd, Bede F.R. Davies, Emily M. Duncan, Sumit Kumar, Sarah E. Nelms, Md Nazmul Hasan Niloy, Bushra Nishat, Taylor Maddalene, Richard C. Thompson &amp; Heather Koldewey.</p>
 </div>
@@ -334,8 +499,8 @@ The Abundance and Characteristics of Microplastics in Surface Water in the Trans
 </div>
 <div class="metadata">
 <a href="./posts2/Ganges.html">
-<div class="listing-author">
-Bede Ffinian Rowe Davies
+<div class="listing-date">
+Apr 1, 2021
 </div>
 </a>
 </div>
