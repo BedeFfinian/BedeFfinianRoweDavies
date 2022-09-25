@@ -8,7 +8,7 @@ website:
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
   site-url: "BedeFfinianRoweDavies.com"
-  favicon: Images/Octo.jpeg
+  favicon: Images/whale.ico
   navbar:
    background: "#008b8b"
    foreground: "#dbb13b"
