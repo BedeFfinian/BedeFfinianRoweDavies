@@ -14,12 +14,10 @@ website:
       href: index.qmd
     - text: "Consultancy"
       href: consultancy.qmd
-    - text: "Previous Projects"
+    - text: "Projects"
       href: map.qmd
-    - text: "First Author Publications"
-      href: Posts1.qmd
-    - text: "Co-Author Publications"
-      href: Posts2.qmd
+    - text: "Publications"
+      href: Posts3.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter

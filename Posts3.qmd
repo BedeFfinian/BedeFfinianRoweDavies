@@ -1,0 +1,5 @@
+---
+title: "Publications"
+listing:
+  contents: [posts1,posts2]
+---
