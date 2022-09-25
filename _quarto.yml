@@ -2,9 +2,13 @@ project:
   type: website
 
 website:
+  open-graph: true
+  twitter-card:
+    creator: "@bedeffinian"
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
   site-url: "BedeFfinianRoweDavies.com"
+  favicon: Images/Octo.jpeg
   navbar:
    background: "#008b8b"
    foreground: "#dbb13b"
@@ -22,12 +26,14 @@ website:
       href: https://github.com/bedeffinian
     - icon: twitter
       href: https://twitter.com/bedeffinian
-    - icon: flowers2
+    - icon: flower2
       href: https://orcid.org/my-orcid?orcid=0000-0001-6462-4347
 
 format:
   html:
-    theme: spacelab
+    theme:
+      light: [litera, jollydata.scss]
+      dark: [superhero, jollydata.scss]
     css: styles.css
 
 editor: source

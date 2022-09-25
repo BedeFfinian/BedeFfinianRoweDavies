@@ -9,11 +9,8 @@ categories: [statistics, ecology, marine, science, marine management, consultanc
 ::: {.grid}
 
 ::: {.g-col-4}
-```{r}
-#| echo: false
-knitr::include_graphics("Images/who/Bede.JPEG")
 
-```
+![](Images/who/Bede.JPEG){.preview-image}
 :::
 
 ::: {.g-col-8}
