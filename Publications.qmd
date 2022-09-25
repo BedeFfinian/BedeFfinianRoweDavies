@@ -10,14 +10,12 @@ listing:
   - id: Co
     contents: posts2
     type: grid
-    categories: true
-    sort-ui: [categories,date]
-    fields: [image, title, description, categories]
 ---
 
 ## First Author Publications:
 
 ::: {#First}
+
 :::
 
 ## Co-Author Publications:
