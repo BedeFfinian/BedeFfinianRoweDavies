@@ -13,6 +13,7 @@ website:
    background: "#008b8b"
    foreground: "#dbb13b"
    search: true
+   logo: Images/index/whale.ico
    right:
     - text: "Home"
       href: index.qmd
