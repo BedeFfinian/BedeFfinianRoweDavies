@@ -5,6 +5,7 @@ author:
   - name: [Imogen E. Napper; Anju Baroth; Aaron C. Barrett; Sunanda Bhola. Gawsia W. Chowdhuryd; Bede Ffinian Rowe Davies; Emily M. Duncan; Sumit Kumar; Sarah E. Nelms; Md Nazmul Hasan Niloy; Bushra Nishat; Taylor Maddalene; Richard C. Thompson; Heather Koldewey]
 image: Ganges_Preview.jpeg
 date: "04-01-2021"
+id: Co
 categories: [Plastics, Pollution, Freshwater Pollution, Co-Author]
 ---
 

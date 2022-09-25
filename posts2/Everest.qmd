@@ -4,6 +4,7 @@ description: "Imogen E. Napper, Bede F.R. Davies, Heather Clifford, Sandra Elvin
 author:
   - name: [Imogen E. Napper; Bede Ffinian Rowe Davies; Heather Clifford; Sandra Elvin; Heather J.Koldewey; Paul A.Mayewski; Kimberley R.Miner; Mariusz Potocki; Aurora C. Elmore Ananta P. Gajurel & Richard C. Thompson]
 image: Everest_Preview.jpg
+id: Co
 date: "11-20-2020"
 categories: [Plastics, Pollution, Terrestrial Pollution, Co-Author]
 ---
