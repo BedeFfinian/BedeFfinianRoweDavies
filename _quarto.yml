@@ -21,7 +21,7 @@ website:
     - text: "Projects"
       href: map.qmd
     - text: "Publications"
-      href: Posts3.qmd
+      href: Publications.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter
