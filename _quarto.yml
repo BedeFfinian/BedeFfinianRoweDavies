@@ -22,7 +22,7 @@ website:
       href: https://github.com/bedeffinian
     - icon: twitter
       href: https://twitter.com/bedeffinian
-    - icon: flower2
+    - text: "ORCID ID"
       href: https://orcid.org/my-orcid?orcid=0000-0001-6462-4347
 
 format:
