@@ -33,7 +33,7 @@ The methods include:
 ```{r}
 #| echo: false
 #| out.extra: 'style="float:right; padding:10px"'
-knitr::include_graphics("Images/who/Picture12.png")
+knitr::include_graphics("Images/who/preview.png")
 
 ```
 

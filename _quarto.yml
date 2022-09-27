@@ -2,14 +2,14 @@ project:
   type: website
 
 website:
-  open-graph: true
-  twitter-card:
-    image: "Images/who/Picture12.png"
-    creator: "@bedeffinian"
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
-  site-url: "BedeFfinianRoweDavies.com"
+  site-url: "www.bedeffinianrowedavies.com"
   favicon: Images/index/whale.ico
+  open-graph: true
+  twitter-card:
+    image: "/Images/who/preview.png"
+    creator: "@bedeffinian"
   navbar:
    background: "#008b8b"
    foreground: "#dbb13b"
