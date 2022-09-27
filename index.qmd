@@ -10,7 +10,7 @@ categories: [statistics, ecology, marine, science, marine management, consultanc
 
 ::: {.g-col-4}
 
-![](Images/who/Bede.JPEG){.preview-image}
+![](Images/who/Bede.JPEG)
 :::
 
 ::: {.g-col-8}
@@ -30,13 +30,7 @@ The methods include:
 - Baited Remote Underwater Video Systems (**BRUVs**) 
 
 
-```{r}
-#| echo: false
-#| out.extra: 'style="float:right; padding:10px"'
-knitr::include_graphics("Images/who/preview.png")
-
-```
-
+![](Images/who/preview.png){.preview-image}
 
 
 The **objective** of my PhD was to assess how the protection affected the benthic ecosystems inside vs outside the MPA. 
