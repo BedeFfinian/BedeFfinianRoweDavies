@@ -30,7 +30,7 @@ The methods include:
 - Baited Remote Underwater Video Systems (**BRUVs**) 
 
 
-![](Images/who/preview-image.png){.preview-image}
+![](Images/who/preview-image.png)
 
 
 The **objective** of my PhD was to assess how the protection affected the benthic ecosystems inside vs outside the MPA. 
