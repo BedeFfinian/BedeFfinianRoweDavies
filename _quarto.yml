@@ -4,7 +4,7 @@ project:
 website:
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
-  site-url: www.bedeffinianrowedavies.com
+  site-url: bedeffinianrowedavies.com
   favicon: Images/index/whale.ico
   open-graph: true
   twitter-card:
