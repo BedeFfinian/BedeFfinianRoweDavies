@@ -8,7 +8,8 @@ website:
   favicon: Images/index/whale.ico
   open-graph: true
   twitter-card:
-    creator: "@bedeffinian"
+    creator: "@bedeffinian" 
+    image: /Images/who/preview-image.png
   navbar:
    background: "#008b8b"
    foreground: "#dbb13b"
