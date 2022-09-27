@@ -14,7 +14,7 @@ categories: [statistics, ecology, marine, science, marine management, consultanc
 :::
 
 ::: {.g-col-8}
-My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the University of Nantes. The current project I am taking part in aims to create scaleable and generaliseable classification models to use Spectral reflectance measured from Satelite imagery to predict spatial extent of intertidal habitats across the whole of Norther Europe. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satelite imagery).
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satelite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satelite imagery).
 :::
 
 :::
