@@ -33,8 +33,8 @@ website:
 format:
   html:
     theme:
-      light: [litera, CustomStyle.scss]
       dark: [superhero, CustomStyle.scss]
+      light: [litera, CustomStyle.scss]
     css: styles.css
 
 editor: source
