@@ -1,6 +1,6 @@
 ---
 title: "Remote sensing in seagrass ecology: coupled dynamicsbetween migratory herbivorous birds and intertidalmeadows observed by satellite during four decades"
-description: "Emma V. Sheehan, Luke A. Holmes, Bede F. R. Davies, Amy Cartwright, Adam Rees & Martin J. Attrill."
+description: "Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies & Laurent Barilĺ"
 author:
   - name: [Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau,Bede Ffinian Rowe Davies & Laurent Barilĺe]
 image: BrentGoose_Preview.png
