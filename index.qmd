@@ -4,6 +4,14 @@ subtitle: "Marine Ecologist and Statistician bedeffinian@gmail.com"
 categories: [statistics, ecology, marine, science, marine management, consultancy]
 ---
 
+<div>
+**Bede Ffinian Rowe Davies**<br>
+Post-Doctoral Researcher [bedeffinian@gmail.com](bedeffinian@gmail.com)<br>
+[Laboratoire ISOMer, UFR Sciences et Techniques](https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology)<br>
+[Nantes University](https://english.univ-nantes.fr/), France.
+</div>
+
+
 # Who am I? 
 
 ::: {.grid}
