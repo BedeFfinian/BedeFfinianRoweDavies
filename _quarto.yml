@@ -35,7 +35,6 @@ format:
     theme:
       dark: [superhero, CustomStyle.scss]
       light: [litera, CustomStyle.scss]
-    css: styles.css
 
 editor: source
 

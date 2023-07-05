@@ -167,3 +167,11 @@ div.quarto-about-trestles .about-entity .about-link {
 .card {
   border-radius: 0;
 }
+
+@media screen and (win-width: 0px) and (max-width: 799px) {
+  .hide-on-small { display: none;}
+}
+
+@media screen and (min-width: 800px) and (max-width: 4000px){
+  .show-on-small { display: none;}
+}
