@@ -209,6 +209,10 @@ legend {
   color: $primary;
 }
 
+.bs-body-color{
+  color: $primary;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

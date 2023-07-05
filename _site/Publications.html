@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -228,16 +228,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="first-author-publications">First Author Publications:</h2>
 <div id="listing-First" class="quarto-listing quarto-listing-container-grid">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-First-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-First'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-categories" data-direction="asc">
-          Categories
-        </option>
-     </select>
-  </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
 <div class="g-col-1" data-index="0" data-categories="BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1636930800000" data-listing-file-modified-sort="1669820919823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
@@ -250,26 +240,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="no-anchor card-title listing-title">
 A Decade Implementing Ecosystem Approach to Fisheries Management Improves Diversity of Taxa and Traits within a Marine Protected Area in the UK.
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
-BRUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TUVs'); return false;">
-TUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
-Ecology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
-Marine Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Functional Diversity'); return false;">
-Functional Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
-First Author
-</div>
-</div>
 <div class="card-text listing-description">
 Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill &amp; Emma V. Sheehan
 </div>
@@ -287,26 +257,6 @@ Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill &amp; Emma V
 <h5 class="no-anchor card-title listing-title">
 Acoustic Complexity Index to Assess Benthic Biodiversity of a Partially Protected Area in the Southwest of the UK
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Acoustic'); return false;">
-Acoustic
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
-BRUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
-Ecology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('PAM'); return false;">
-PAM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
-Marine Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
-First Author
-</div>
-</div>
 <div class="card-text listing-description">
 Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt &amp; Emma V. Sheehan.
 </div>
@@ -324,20 +274,6 @@ Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt &am
 <h5 class="no-anchor card-title listing-title">
 Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area.
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
-BRUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
-Ecology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
-Marine Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
-First Author
-</div>
-</div>
 <div class="card-text listing-description">
 Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright &amp; Emma V. Sheehan.
 </div>
@@ -355,29 +291,6 @@ Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright &
 <h5 class="no-anchor card-title listing-title">
 Ecosystem benefits of adopting a whole‐site approach to MPA management.
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Marine Management'); return false;">
-Marine Management
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
-BRUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TUVs'); return false;">
-TUVs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
-Ecology
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Marine Diversity'); return false;">
-Marine Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Functional Diversity'); return false;">
-Functional Diversity
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
-First Author
-</div>
-</div>
 <div class="card-text listing-description">
 Davies <em>et al.,</em> 2022
 </div>
@@ -395,23 +308,6 @@ Davies <em>et al.,</em> 2022
 <h5 class="no-anchor card-title listing-title">
 Multi- and hyperspectral classification of soft-bottom intertidal vegetation using a spectral library for coastal biodiversity remote sensing.
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Remote Sensing'); return false;">
-Remote Sensing
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Spectral Library'); return false;">
-Spectral Library
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Satellite'); return false;">
-Satellite
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Machine Learning'); return false;">
-Machine Learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('First Author'); return false;">
-First Author
-</div>
-</div>
 <div class="card-text listing-description">
 Davies <em>et al.,</em> 2023
 </div>
