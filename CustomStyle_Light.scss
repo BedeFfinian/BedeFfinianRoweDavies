@@ -4,17 +4,17 @@
 // Color system
 //
 
-$white:    #fff !default;
+$white:    #FFFFFF !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #f7f7f9 !default;
 $gray-300: #eceeef !default;
 $gray-400: #ced4da !default;
-$gray-500: #aaa !default;
-$gray-600: #888 !default;
+$gray-500: #aaaaaa !default;
+$gray-600: #888888 !default;
 $gray-700: #5a5a5a !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black:    #000000 !default;
 
 $blue:    #007bff !default;
 $indigo:  #6610f2 !default;
@@ -65,14 +65,14 @@ $headings-color:              $gray-700 !default;
 
 // Dropdowns
 
-$dropdown-link-hover-color:         $white !default;
+$dropdown-link-hover-color:         $primary !default;
 $dropdown-link-hover-bg:            $secondary !default;
 
 // Navbar
 $navbar-hl:                         $red !default;
 $navbar-bg:                         #467373 !default;
 $navbar-dark-color:                 $orange1 !default;
-$navbar-dark-hover-color:           $white !default;
+$navbar-dark-hover-color:           $primary !default;
 $navbar-light-color:                $orange1 !default;
 $navbar-light-hover-color:          $orange1 !default;
 $navbar-light-active-color:         $orange1 !default;
@@ -80,15 +80,15 @@ $navbar-light-disabled-color:       $orange1 !default;
 
 // Pagination
 
-$pagination-color:                  $white !default;
+$pagination-color:                  $primary !default;
 $pagination-bg:                     $primary !default;
 $pagination-border-color:           $primary !default;
-$pagination-hover-color:            $white !default;
+$pagination-hover-color:            $primary !default;
 $pagination-hover-bg:               $secondary !default;
 $pagination-hover-border-color:     $pagination-hover-bg !default;
 $pagination-active-bg:              $secondary !default;
 $pagination-active-border-color:    $pagination-active-bg !default;
-$pagination-disabled-color:         $white !default;
+$pagination-disabled-color:         $primary !default;
 $pagination-disabled-bg:            #cce8e0 !default;
 $pagination-disabled-border-color:  $pagination-disabled-bg !default;
 
@@ -102,7 +102,7 @@ $alert-bg-scale:                    0 !default;
 $breadcrumb-padding-y:              .375rem !default;
 $breadcrumb-padding-x:              .75rem !default;
 $breadcrumb-bg:                     $primary !default;
-$breadcrumb-divider-color:          $white !default;
+$breadcrumb-divider-color:          $primary !default;
 $breadcrumb-active-color:           $breadcrumb-divider-color !default;
 $breadcrumb-border-radius:          .25rem !default;
 
@@ -112,7 +112,9 @@ $breadcrumb-border-radius:          .25rem !default;
  h1{ color: $red; line-height: 150%; margin: 1%}
  h2{ color: $red; line-height: 90%; margin: 1%}
  h3{ color: $red; font-size: 130%; line-height: 90%; margin: 1%}
-
+ h4{ color: $red;}
+ h5{ color: $red;}
+ h6{ color: $red;}
 // Variables
 
 $web-font-path: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" !default;
@@ -158,7 +160,7 @@ legend {
   }
 
   a:hover {
-    color: $white;
+    color: $primary;
     text-decoration: none;
   }
 }
@@ -168,7 +170,7 @@ legend {
 .alert {
   a,
   .alert-link {
-    color: $white;
+    color: $primary;
   }
 
   &-light {
@@ -182,7 +184,7 @@ legend {
 }
 
 .badge {
-  color: $white;
+  color: $primary;
 
   &.bg-light {
     color: $gray-700;
@@ -198,9 +200,13 @@ legend {
   h3,
   h4,
   h5,
-  h6 {
-    color: inherit;
+  h6,{
+    color: $primary;
   }
+}
+
+.quarto-grid-link{
+  color: $primary;
 }
 
 .wrapper {

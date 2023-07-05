@@ -1,0 +1,59 @@
+---
+title: "Ecological and Statistical Consultancy"
+subtitle: "Bede Ffinian Rowe Davies Consultancy bedeffinian@gmail.com"
+categories: [statistics, ecology, marine, science, marine management, consultancy]
+---
+
+## Statistical Experience
+
+My statistical experiences have ranged from:
+
+- modelling decadal oceanographic changes over ocean basin scales to predict marine invasive species
+
+- assessing changes in acoustic complexity index (a univariate measure of ecosystem noise), to assemblage level changes (multivariate abundance) to predictive spatial modelling of macroalgal species from satelite imagery
+
+- abundance and diversity of taxa of importance, to whole ecosystem functional trait analysis.
+
+
+```{r} 
+#| echo: false
+
+knitr::include_graphics("Images/index/MonthlyCurrentFacet.gif")
+
+```
+
+
+The methods used have mostly been applied within the coding language {r}, with models being applied of varying complexity, in both **frequentist** and **bayesian** frameworks as well as **Machine Learning** algorithms, from one or two fixed effects to more complex mixed effects, hierarchical regression, General Additive, Random Forest, XGBoost, Neural Network classification models.
+These models, like the data, have been varying in distributions and characteristics with models using:
+
+- gaussian distributions
+
+- poisson distributions
+
+- beta distributions
+
+- gamma distributions
+
+- bernoulli distributions
+
+- binomial distributions
+
+- zero-inflated/one-inflated/zero-altered/one-altered alternatives.  
+
+
+```{r} 
+#| echo: false
+ 
+knitr::include_graphics("Images/index/Figure1.png")
+
+```
+
+
+These analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects.
+
+
+```{r , echo=FALSE,out.width='100%', out.extra='style="padding:10px"'}
+knitr::include_graphics("Images/index/Orcas.png")
+
+```
+
