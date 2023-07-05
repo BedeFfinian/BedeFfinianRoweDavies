@@ -1,21 +1,21 @@
-
-```{=html}
-<meta name="title" content="Bede Ffinian Rowe Davies" />
-<meta name="description" content="I am a Post-Doctoral Researcher in Marine Ecology and Statistics at Nantes University. This is my personal website." />
-```
-
-::: {.hide-on-small}
-```{r, results='asis', echo=FALSE}
-desk<-knitr::knit_child("index_Desktop.qmd", envir = environment(), quiet = TRUE)
-
-cat(desk, sep='\n')
-```
-:::
+---
+title: "Dr. Bede Ffinian Rowe Davies"
+subtitle: "Marine Ecologist and Statistician bedeffinian@gmail.com"
+categories: [statistics, ecology, marine, science, marine management, consultancy]
+---
 
 ::: {.show-on-small}
 ```{r, results='asis', echo=FALSE}
 a<-knitr::knit_child("index_Mobile.qmd", envir = environment(), quiet = TRUE)
 
 cat(a, sep='\n')
+```
+:::
+
+::: {.hide-on-small}
+```{r, results='asis', echo=FALSE}
+desk<-knitr::knit_child("index_Desktop.qmd", envir = environment(), quiet = TRUE)
+
+cat(desk, sep='\n')
 ```
 :::

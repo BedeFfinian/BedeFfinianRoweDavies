@@ -33,8 +33,9 @@ website:
 format:
   html:
     theme:
-      dark: [superhero, CustomStyle.scss]
-      light: [litera, CustomStyle.scss]
+      dark: [superhero, CustomStyle_New.scss]
+      light: [litera, CustomStyle_New.scss]
+      
 
 editor: source
 
