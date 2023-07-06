@@ -28,7 +28,9 @@ website:
     - icon: twitter
       href: https://twitter.com/bedeffinian
     - icon: flower2
-      href: https://orcid.org/my-orcid?orcid=0000-0001-6462-4347
+      href: https://orcid.org/0000-0001-6462-4347
+    - icon: file-bar-graph
+      href: https://www.researchgate.net/profile/Bede-Davies-2
 
 format:
   html:
