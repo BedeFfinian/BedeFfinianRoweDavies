@@ -20,13 +20,12 @@ $blue:    #007bff !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #dbb13b !default;
-$orange:  #dbb13b !default;
+$red:     #A5CCAC !default;
 $yellow:  #ffce67 !default;
 $green:   #56cc9d !default;
 $teal:    #20c997 !default;
 $cyan:    #6cc3d5 !default;
-$orange1: #dbb13b !default;
+$orange: #dbb13b !default;
 
 $primary:       #78c2ad !default;
 $secondary:     #f3969a !default;
@@ -43,7 +42,7 @@ $min-contrast-ratio:   1.45 !default;
 
 $body-color:                $white !default;
 $color-contrast-dark:       $body-color !default; // Prefer $body-color over $black inside color-contrast()
-$body-bg:                   #263F3F !default; 
+$body-bg:                   #004B4B !default; 
 
 // Components
 
@@ -71,12 +70,12 @@ $dropdown-link-hover-bg:            $secondary !default;
 // Navbar
 $navbar-hl:                         $red !default;
 $navbar-bg:                         #467373 !default;
-$navbar-dark-color:                 $orange1 !default;
+$navbar-dark-color:                 $orange !default;
 $navbar-dark-hover-color:           $primary !default;
-$navbar-light-color:                $orange1 !default;
-$navbar-light-hover-color:          $orange1 !default;
-$navbar-light-active-color:         $orange1 !default;
-$navbar-light-disabled-color:       $orange1 !default;
+$navbar-light-color:                $orange !default;
+$navbar-light-hover-color:          $orange !default;
+$navbar-light-active-color:         $orange !default;
+$navbar-light-disabled-color:       $orange !default;
 
 // Pagination
 
@@ -109,12 +108,12 @@ $breadcrumb-border-radius:          .25rem !default;
 
 
 /*-- scss:rules --*/
- h1{ color: $red; line-height: 150%; margin: 1%}
- h2{ color: $red; line-height: 90%; margin: 1%}
- h3{ color: $red; font-size: 130%; line-height: 90%; margin: 1%}
- h4{ color: $red;}
- h5{ color: $red;}
- h6{ color: $red;}
+ h1{ color: $orange; line-height: 150%; margin: 1%}
+ h2{ color: $orange; line-height: 90%; margin: 1%}
+ h3{ color: $orange; font-size: 130%; line-height: 90%; margin: 1%}
+ h4{ color: $orange;}
+ h5{ color: $orange;}
+ h6{ color: $orange;}
 // Variables
 
 $web-font-path: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" !default;
@@ -129,7 +128,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;50
 }
 
 .bg-dark {
-  background-color: $orange1 !important;
+  background-color: $orange !important;
 }
 
 .border-dark {
@@ -243,7 +242,7 @@ legend {
 }
 
 .grid_color {
-  background-color: #467373;
+  background-color: $body-bg;
 }
 
 
