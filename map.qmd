@@ -1,9 +1,7 @@
 ---
 title: "Map of Previous Projects"
-categories: [statistics, ecology, marine, science, marine management, consultancy]
+categories: [statistics, ecology, marine, science, marine management, consultancy] 
 ---
-
-
 
 ```{r}
 #| echo: false
@@ -103,4 +101,3 @@ leaflet(Projects) %>%
 
 
 ```
-
