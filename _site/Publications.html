@@ -42,8 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -102,9 +102,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="first-author-publications" class="level2">
 <h2 class="anchored" data-anchor-id="first-author-publications">First Author Publications:</h2>
-<div id="listing-First" class="quarto-listing quarto-listing-container-grid">
+<div id="listing-First" class="quarto-listing quarto-listing-container-default">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
@@ -239,17 +239,20 @@ ul.task-list li input[type="checkbox"] {
      </select>
   </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1636930800000" data-listing-file-modified-sort="1669820919823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts1/Functional.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts1/Functional_Preview.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1636930800000" data-listing-file-modified-sort="1669820919823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts1/Functional.html"> <img src="./posts1/Functional_Preview.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts1/Functional.html">
+<h3 class="no-anchor listing-title">
 A Decade Implementing Ecosystem Approach to Fisheries Management Improves Diversity of Taxa and Traits within a Marine Protected Area in the UK.
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
 BRUVs
@@ -270,23 +273,29 @@ Functional Diversity
 First Author
 </div>
 </div>
-<div class="card-text listing-description">
-Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill &amp; Emma V. Sheehan
-</div>
-</div>
+<a href="./posts1/Functional.html">
+<div class="listing-description">
+<p>Bede F. R. Davies, Luke Holmes, Anthony Bicknell, Martin J. Attrill &amp; Emma V. Sheehan</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Acoustic,BRUVs,Ecology,PAM,Marine Diversity,First Author" data-listing-date-sort="1577833200000" data-listing-file-modified-sort="1669820919822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts1/Acoustics.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts1/Acoustics_Preview.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts1/Functional.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Acoustic,BRUVs,Ecology,PAM,Marine Diversity,First Author" data-listing-date-sort="1577833200000" data-listing-file-modified-sort="1669820919822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts1/Acoustics.html"> <img src="./posts1/Acoustics_Preview.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts1/Acoustics.html">
+<h3 class="no-anchor listing-title">
 Acoustic Complexity Index to Assess Benthic Biodiversity of a Partially Protected Area in the Southwest of the UK
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Acoustic'); return false;">
 Acoustic
@@ -307,23 +316,29 @@ Marine Diversity
 First Author
 </div>
 </div>
-<div class="card-text listing-description">
-Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt &amp; Emma V. Sheehan.
-</div>
-</div>
+<a href="./posts1/Acoustics.html">
+<div class="listing-description">
+<p>Bede F.R. Davies, Martin J. Attrill, Luke Holmes, Adam Rees, Matthew J. Witt &amp; Emma V. Sheehan.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="BRUVs,Ecology,Marine Diversity,First Author" data-listing-date-sort="1623880800000" data-listing-file-modified-sort="1669820919823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts1/Baited.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts1/Baited_Preview.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts1/Acoustics.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="BRUVs,Ecology,Marine Diversity,First Author" data-listing-date-sort="1623880800000" data-listing-file-modified-sort="1669820919823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts1/Baited.html"> <img src="./posts1/Baited_Preview.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts1/Baited.html">
+<h3 class="no-anchor listing-title">
 Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area.
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('BRUVs'); return false;">
 BRUVs
@@ -338,23 +353,29 @@ Marine Diversity
 First Author
 </div>
 </div>
-<div class="card-text listing-description">
-Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright &amp; Emma V. Sheehan.
-</div>
-</div>
+<a href="./posts1/Baited.html">
+<div class="listing-description">
+<p>Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright &amp; Emma V. Sheehan.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Marine Management,BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1657749600000" data-listing-file-modified-sort="1669820919828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts1/SAC.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts1/SAC_Preview.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts1/Baited.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Marine Management,BRUVs,TUVs,Ecology,Marine Diversity,Functional Diversity,First Author" data-listing-date-sort="1657749600000" data-listing-file-modified-sort="1669820919828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts1/SAC.html"> <img src="./posts1/SAC_Preview.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts1/SAC.html">
+<h3 class="no-anchor listing-title">
 Ecosystem benefits of adopting a whole‐site approach to MPA management.
-</h5>
+</h3>
+<div class="listing-subtitle">
+Bede F. R. Davies, Luke Holmes, Martin J. Attrill &amp; Emma V. Sheehan
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Marine Management'); return false;">
 Marine Management
@@ -378,23 +399,29 @@ Functional Diversity
 First Author
 </div>
 </div>
-<div class="card-text listing-description">
+<a href="./posts1/SAC.html">
+<div class="listing-description">
 Davies <em>et al.,</em> 2022
-</div>
-</div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Remote Sensing,Spectral Library,Satellite,Machine Learning,First Author" data-listing-date-sort="1679612400000" data-listing-file-modified-sort="1679677708234" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts1/SpectralLibrary.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts1/SpectralLibrary.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts1/SAC.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Remote Sensing,Spectral Library,Satellite,Machine Learning,First Author" data-listing-date-sort="1679612400000" data-listing-file-modified-sort="1679677708234" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts1/SpectralLibrary.html"> <img src="./posts1/SpectralLibrary.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts1/SpectralLibrary.html">
+<h3 class="no-anchor listing-title">
 Multi- and hyperspectral classification of soft-bottom intertidal vegetation using a spectral library for coastal biodiversity remote sensing.
-</h5>
+</h3>
+<div class="listing-subtitle">
+Bede F. R. Davies, Pierre Gernez, Andréa Geraud, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli &amp; Laurent Barillé
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Remote Sensing'); return false;">
 Remote Sensing
@@ -412,12 +439,15 @@ Machine Learning
 First Author
 </div>
 </div>
-<div class="card-text listing-description">
+<a href="./posts1/SpectralLibrary.html">
+<div class="listing-description">
 Davies <em>et al.,</em> 2023
 </div>
-</div>
-</div>
 </a>
+</div>
+<div class="metadata">
+<a href="./posts1/SpectralLibrary.html"> </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -427,18 +457,21 @@ No matching items
 </section>
 <section id="co-author-publications" class="level2">
 <h2 class="anchored" data-anchor-id="co-author-publications">Co-Author Publications:</h2>
-<div id="listing-Co" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Plastics,Pollution,Terrestrial Pollution,Co-Author" data-listing-date-sort="1605826800000" data-listing-file-modified-sort="1669820919833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts2/Everest.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts2/Everest_Preview.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div id="listing-Co" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Plastics,Pollution,Terrestrial Pollution,Co-Author" data-listing-date-sort="1605826800000" data-listing-file-modified-sort="1669820919833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts2/Everest.html"> <img src="./posts2/Everest_Preview.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts2/Everest.html">
+<h3 class="no-anchor listing-title">
 Reaching New Heights in Plastic Pollution—Preliminary Findings of Microplastics on Mount Everest
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Plastics'); return false;">
 Plastics
@@ -453,31 +486,29 @@ Terrestrial Pollution
 Co-Author
 </div>
 </div>
-<div class="card-text listing-description">
-Imogen E. Napper, Bede F.R. Davies, Heather Clifford, Sandra Elvin, Heather J.Koldewey, Paul A.Mayewski, Kimberley R.Miner, Mariusz Potocki, Aurora C. Elmore Ananta P.…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined undefined
-</div>
-<div class="listing-date">
-Nov 20, 2020
-</div>
-</div>
-</div>
+<a href="./posts2/Everest.html">
+<div class="listing-description">
+<p>Imogen E. Napper, Bede F.R. Davies, Heather Clifford, Sandra Elvin, Heather J.Koldewey, Paul A.Mayewski, Kimberley R.Miner, Mariusz Potocki, Aurora C. Elmore Ananta P. Gajurel &amp; Richard C. Thompson.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Satellite,Ecology,Seagrass,Marine Diversity,Climatic Events,Remote Sensing,Co-Author" data-listing-date-sort="1609455600000" data-listing-file-modified-sort="1673520941988" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts2/BrentGoose.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts2/BrentGoose_Preview.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts2/Everest.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Satellite,Ecology,Seagrass,Marine Diversity,Climatic Events,Remote Sensing,Co-Author" data-listing-date-sort="1609455600000" data-listing-file-modified-sort="1673520941988" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts2/BrentGoose.html"> <img src="./posts2/BrentGoose_Preview.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts2/BrentGoose.html">
+<h3 class="no-anchor listing-title">
 Remote sensing in seagrass ecology: coupled dynamicsbetween migratory herbivorous birds and intertidalmeadows observed by satellite during four decades
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Satellite'); return false;">
 Satellite
@@ -501,31 +532,29 @@ Remote Sensing
 Co-Author
 </div>
 </div>
-<div class="card-text listing-description">
-Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies &amp; Laurent Barilĺ
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined undefined
-</div>
-<div class="listing-date">
-Jan 1, 2021
-</div>
-</div>
-</div>
+<a href="./posts2/BrentGoose.html">
+<div class="listing-description">
+<p>Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies &amp; Laurent Barilĺ</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Storms,Ecology,Marine Diversity,Climatic Events,TUVs,Co-Author" data-listing-date-sort="1629669600000" data-listing-file-modified-sort="1669820919856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts2/Storms.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts2/Storms_Preview.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts2/BrentGoose.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Storms,Ecology,Marine Diversity,Climatic Events,TUVs,Co-Author" data-listing-date-sort="1629669600000" data-listing-file-modified-sort="1669820919856" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts2/Storms.html"> <img src="./posts2/Storms_Preview.jpeg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts2/Storms.html">
+<h3 class="no-anchor listing-title">
 Rewilding of Protected Areas Enhances Resilience of Marine Ecosystems to Extreme Climatic Events
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Storms'); return false;">
 Storms
@@ -546,31 +575,29 @@ TUVs
 Co-Author
 </div>
 </div>
-<div class="card-text listing-description">
-Emma V. Sheehan, Luke A. Holmes, Bede F. R. Davies, Amy Cartwright, Adam Rees &amp; Martin J. Attrill.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined undefined
-</div>
-<div class="listing-date">
-Aug 23, 2021
-</div>
-</div>
-</div>
+<a href="./posts2/Storms.html">
+<div class="listing-description">
+<p>Emma V. Sheehan, Luke A. Holmes, Bede F. R. Davies, Amy Cartwright, Adam Rees &amp; Martin J. Attrill.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Plastics,Pollution,Freshwater Pollution,Co-Author" data-listing-date-sort="1617228000000" data-listing-file-modified-sort="1669820919833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<a href="./posts2/Ganges.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts2/Ganges_Preview.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts2/Storms.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Plastics,Pollution,Freshwater Pollution,Co-Author" data-listing-date-sort="1617228000000" data-listing-file-modified-sort="1669820919833" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="./posts2/Ganges.html"> <img src="./posts2/Ganges_Preview.jpeg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts2/Ganges.html">
+<h3 class="no-anchor listing-title">
 The Abundance and Characteristics of Microplastics in Surface Water in the Transboundary Ganges River
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Plastics'); return false;">
 Plastics
@@ -585,31 +612,29 @@ Freshwater Pollution
 Co-Author
 </div>
 </div>
-<div class="card-text listing-description">
-Imogen E. Napper, Anju Baroth, Aaron C. Barrett, Sunanda Bhola. Gawsia W. Chowdhuryd, Bede F.R. Davies, Emily M. Duncan, Sumit Kumar, Sarah E. Nelms, Md Nazmul Hasan Niloy…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined undefined
-</div>
-<div class="listing-date">
-Apr 1, 2021
-</div>
-</div>
-</div>
+<a href="./posts2/Ganges.html">
+<div class="listing-description">
+<p>Imogen E. Napper, Anju Baroth, Aaron C. Barrett, Sunanda Bhola. Gawsia W. Chowdhuryd, Bede F.R. Davies, Emily M. Duncan, Sumit Kumar, Sarah E. Nelms, Md Nazmul Hasan Niloy, Bushra Nishat, Taylor Maddalene, Richard C. Thompson &amp; Heather Koldewey.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Ecology,Marine Diversity,Aquaculture,TUVs,Co-Author" data-listing-date-sort="1665957600000" data-listing-file-modified-sort="1669820919834" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<a href="./posts2/Mussels.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./posts2/Mussels_Preview.jpeg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="metadata">
+<a href="./posts2/Ganges.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Ecology,Marine Diversity,Aquaculture,TUVs,Co-Author" data-listing-date-sort="1665957600000" data-listing-file-modified-sort="1669820919834" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="thumbnail">
+<p><a href="./posts2/Mussels.html"> <img src="./posts2/Mussels_Preview.jpeg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts2/Mussels.html">
+<h3 class="no-anchor listing-title">
 The restoration potential of offshore mussel farming on degraded seabed habitat
-</h5>
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Ecology'); return false;">
 Ecology
@@ -627,20 +652,15 @@ TUVs
 Co-Author
 </div>
 </div>
-<div class="card-text listing-description">
-Danielle Bridger, Martin J. Attrill, Bede F. R. Davies, Luke A. Holmes, Amy Cartwright, Siân E. Rees, Llucia Mascorda Cabre &amp; Emma V. Sheehan
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-undefined undefined
-</div>
-<div class="listing-date">
-Oct 17, 2022
-</div>
-</div>
-</div>
+<a href="./posts2/Mussels.html">
+<div class="listing-description">
+<p>Danielle Bridger, Martin J. Attrill, Bede F. R. Davies, Luke A. Holmes, Amy Cartwright, Siân E. Rees, Llucia Mascorda Cabre &amp; Emma V. Sheehan</p>
 </div>
 </a>
+</div>
+<div class="metadata">
+<a href="./posts2/Mussels.html"> </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
