@@ -24,7 +24,9 @@ website:
     - text: "Publications"
       href: Publications.qmd
     - text: "Blogs"
-      href: Blogs.qmd
+      href: Blogs.qmd    
+    - text: "Tutorials"
+      href: Tutorials.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter

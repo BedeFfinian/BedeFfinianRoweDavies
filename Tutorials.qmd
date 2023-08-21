@@ -1,16 +1,16 @@
 ---
-title: "Blogs"
+title: "Tutorials"
 listing:
   - id: Travel
-    contents: blogs2
+    contents: blogs1
     type: default
     categories: true
     sort-ui: [categories,date]
     fields: [image, title, description, categories]
 ---
 
-## Travel:
+## Tutorials:
 
-::: {#Travel}
+::: {#Tutorials}
 
 :::
