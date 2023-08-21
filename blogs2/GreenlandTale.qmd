@@ -7,7 +7,22 @@ image: Greenland_Preview.png
 id: Travel
 date: "08-22-2023"
 categories: [Travel, Fisheries, Arctic, Marine Benthic Taxonomist]
+filters:
+  - lightbox
+lightbox: auto
 ---
+
+::: {layout="[[1, 1], [1]]"}
+![Aquinnah](Greenland/IMG_0837.png){group="elsewhere"
+description="The waves break off the coast of Aquinnah on a beautiful summer day."}
+
+![Oak Bluffs](Greenland/IMG_0892.png){group="elsewhere"
+description="Oak Bluffs is famous for its Gingerbread cottages, busy town center, and party like atmosphere."}
+
+![Vineyard lighthouse](Greenland/IMG_0856.png){group="elsewhere"
+description="The Edgartown Lighthouse is a short walk from downtown and has beautiful views over the entrance to Edgartown Harbor."}
+:::
+
 
 10th July 2023
 
