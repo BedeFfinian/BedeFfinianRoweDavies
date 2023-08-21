@@ -1,5 +1,5 @@
 ---
-title: "Tutorials"
+title: "Tutorials Coming Soon I HOPE!!"
 listing:
   - id: Travel
     contents: blogs1
@@ -8,8 +8,6 @@ listing:
     sort-ui: [categories,date]
     fields: [image, title, description, categories]
 ---
-
-## Tutorials:
 
 ::: {#Tutorials}
 

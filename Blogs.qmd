@@ -1,5 +1,5 @@
 ---
-title: "Blogs"
+title: "Travel Blogs"
 listing:
   - id: Travel
     contents: blogs2
@@ -8,8 +8,6 @@ listing:
     sort-ui: [categories,date]
     fields: [image, title, description]
 ---
-
-## Travel:
 
 ::: {#Travel}
 
