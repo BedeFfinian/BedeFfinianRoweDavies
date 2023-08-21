@@ -13,5 +13,11 @@
       "/posts2/Ganges.html",
       "/posts2/Mussels.html"
     ]
+  },
+  {
+    "listing": "/Blogs.html",
+    "items": [
+      "/blogs2/GreenlandTale.html"
+    ]
   }
 ]

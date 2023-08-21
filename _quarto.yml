@@ -23,6 +23,8 @@ website:
       href: map.qmd
     - text: "Publications"
       href: Publications.qmd
+    - text: "Blogs"
+      href: Blogs.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter

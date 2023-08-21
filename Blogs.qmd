@@ -1,0 +1,26 @@
+---
+title: "Blogs"
+listing:
+  - id: Tutorials
+    contents: blogs1
+    type: default
+    categories: true
+    sort-ui: [categories,date]
+    fields: [image, title, description, categories]
+  - id: Travel
+    contents: blogs2
+    type: default
+    fields: [image, title, description, categories]
+---
+
+## Tutorials:
+
+::: {#Tutorials}
+
+:::
+
+## Travel:
+
+::: {#Travel}
+
+:::
