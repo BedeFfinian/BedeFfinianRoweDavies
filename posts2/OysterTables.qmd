@@ -3,7 +3,7 @@ title: "Mapping intertidal oyster farms using unmanned aerial vehicles (UAV) hig
 description: "Alejandro Román, Hermansyah Prasyad, Simon Oiry, Bede F.R. Davies, Guillaume Brunier & Laurent Barillé́"
 author:
   - name: [Alejandro Román, Hermansyah Prasyad, Simon Oiry, Bede F.R. Davies, Guillaume Brunier & Laurent Barillé]
-image: OysterTable_Preview.jpeg
+image: OysterTables_Preview.jpeg
 date: "09-30-2023"
 id: Co
 categories: [Drones, Ecology, Oyster, Marine Diversity, Remote Sensing, Co-Author]
