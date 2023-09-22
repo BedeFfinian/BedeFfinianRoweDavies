@@ -2,6 +2,7 @@ project:
   type: website
 
 website:
+  page-navigation: true
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
   site-url: https://www.bedeffinianrowedavies.com
@@ -48,7 +49,6 @@ website:
     border: true
     foreground: "#dbb13b"
     background: "#467373"
-  page-navigation: true
 format:
   html:
     toc: true

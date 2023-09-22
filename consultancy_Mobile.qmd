@@ -1,7 +1,7 @@
 ---
 title: "Ecological and Statistical Consultancy"
 subtitle: "Bede Ffinian Rowe Davies Consultancy bedeffinian@gmail.com"
-categories: [statistics, ecology, marine, science, marine management, consultancy]
+categories: [statistics, ecology, marine, science, marine management, consultancy, fieldwork]
 ---
 
 ## Statistical Experience
