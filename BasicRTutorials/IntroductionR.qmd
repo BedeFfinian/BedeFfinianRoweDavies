@@ -160,11 +160,13 @@ A single group of one data type (it could be Numeric, Character, Integer, Factor
 ```{r}
 Vector_Numeric<- c(1.3,5.8,5.122,3.00,7.12)
 
-Vector_Integer<- as.integer(c(1,5,5,3,7)) # we change between data types with these functions 
+Vector_Integer<- as.integer(c(1,5,5,3,7)) 
+# we change between data types with these functions 
 
 Vector_Character<- c("This","is","A","Character Vector")
 
-Vector_Factor<-as.factor(c("This","is","A","Character", "Vector")) # Notice how r automatically orders alphabetically if we don't tell it the order
+Vector_Factor<-as.factor(c("This","is","A","Character", "Vector")) 
+# Notice how r automatically orders alphabetically if we don't tell it the order
 
 ```
 
