@@ -3,6 +3,7 @@ title: "Introduction to R"
 description: "An Introduction to R for Research Scientists: From Installation to Reading and Writing Data."
 image: ../Images/Tutorials/R_logo.png
 id: Basics
+date: "09/20/2023"
 categories: [Introduction, R]
 ---
 

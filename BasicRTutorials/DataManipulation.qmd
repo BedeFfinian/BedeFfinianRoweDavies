@@ -3,6 +3,7 @@ title: "Data Manipulation with Real World Data in R"
 description: "An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling."
 image: ../Images/Tutorials/Tidyverse.png
 id: Basics
+date: "09/21/2023"
 categories: [Introduction, R]
 ---
 

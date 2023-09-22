@@ -1,8 +1,9 @@
 ---
-title: "(General) Linear Models in R - Background to Regression Analysis"
-description: "An Introduction to General Linear Models in R."
+title: "Gaussian GLMs"
+description: "Examples of Gaussian GLMs"
 image: ../Images/Tutorials/logo.png
 id: Stats
+date: "09/25/2023"
 categories: [Introduction, R, GLMs, Stats]
 ---
 

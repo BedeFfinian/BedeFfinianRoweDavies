@@ -5,11 +5,13 @@ listing:
     contents: BasicRTutorials
     type: default
     categories: true
-    sort-ui: [categories,date]
-    fields: [image, title,description,categories]
+    sort: "date asc"
+    fields: [image,title,description,categories]
   - id: Stats
     contents: StatisticsTutorials
     type: default
+    categories: true
+    sort: "date asc"
     fields: [image, title,description,categories]
 ---
 

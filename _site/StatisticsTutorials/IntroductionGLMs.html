@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="An Introduction to General Linear Models in R.">
+<meta name="dcterms.date" content="2023-09-24">
+<meta name="description" content="An Introduction to General Linear Models (GLMs) in R.">
 
 <title>Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis</title>
 <style>
@@ -68,13 +69,13 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta property="og:title" content="Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis">
-<meta property="og:description" content="An Introduction to General Linear Models in R.">
+<meta property="og:description" content="An Introduction to General Linear Models (GLMs) in R.">
 <meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Example_Plot.png">
 <meta property="og:site-name" content="Bede Ffinian Rowe Davies">
 <meta property="og:image:height" content="484">
 <meta property="og:image:width" content="754">
 <meta name="twitter:title" content="Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis">
-<meta name="twitter:description" content="An Introduction to General Linear Models in R.">
+<meta name="twitter:description" content="An Introduction to General Linear Models (GLMs) in R.">
 <meta name="twitter:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Example_Plot.png">
 <meta name="twitter:creator" content="@bedeffinian">
 <meta name="twitter:image-height" content="484">
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -157,8 +158,47 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#glms---background" id="toc-glms---background" class="nav-link active" data-scroll-target="#glms---background">GLMs - Background <img src="../Images/Tutorials/logo.png" align="right" height="138.5"></a>
+  <ul class="collapse">
+  <li><a href="#short-and-probably-biased-history" id="toc-short-and-probably-biased-history" class="nav-link" data-scroll-target="#short-and-probably-biased-history">Short and Probably Biased History</a></li>
+  <li><a href="#side-note---bayesfrequentistwho-cares" id="toc-side-note---bayesfrequentistwho-cares" class="nav-link" data-scroll-target="#side-note---bayesfrequentistwho-cares">Side Note - Bayes/Frequentist/Who Cares</a></li>
+  <li><a href="#what-are-glms" id="toc-what-are-glms" class="nav-link" data-scroll-target="#what-are-glms">What are GLMs?</a></li>
+  <li><a href="#first-step-of-analysis---statistical-model-formulation" id="toc-first-step-of-analysis---statistical-model-formulation" class="nav-link" data-scroll-target="#first-step-of-analysis---statistical-model-formulation">First Step of Analysis - Statistical Model Formulation</a></li>
+  <li><a href="#second-step-of-analysis---response-variable-distribution" id="toc-second-step-of-analysis---response-variable-distribution" class="nav-link" data-scroll-target="#second-step-of-analysis---response-variable-distribution">Second Step of Analysis - Response Variable Distribution</a>
+  <ul class="collapse">
+  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions">Distributions</a></li>
+  <li><a href="#which-to-choose" id="toc-which-to-choose" class="nav-link" data-scroll-target="#which-to-choose">Which to Choose?</a></li>
+  <li><a href="#numeric-or-categorical" id="toc-numeric-or-categorical" class="nav-link" data-scroll-target="#numeric-or-categorical">Numeric or Categorical</a></li>
+  <li><a href="#numeric-continuous-or-integer" id="toc-numeric-continuous-or-integer" class="nav-link" data-scroll-target="#numeric-continuous-or-integer">Numeric: Continuous or Integer</a></li>
+  <li><a href="#continuous-can-the-data-be-negative" id="toc-continuous-can-the-data-be-negative" class="nav-link" data-scroll-target="#continuous-can-the-data-be-negative">Continuous: Can the data be Negative?</a></li>
+  <li><a href="#continuous-are-the-data-bound-between-two-values" id="toc-continuous-are-the-data-bound-between-two-values" class="nav-link" data-scroll-target="#continuous-are-the-data-bound-between-two-values">Continuous: Are the data bound between two values?</a></li>
+  <li><a href="#integer-known-upper-limit-or-not" id="toc-integer-known-upper-limit-or-not" class="nav-link" data-scroll-target="#integer-known-upper-limit-or-not">Integer: Known upper limit or not?</a></li>
+  </ul></li>
+  <li><a href="#third-step-of-analysis---organising-fixed-effects" id="toc-third-step-of-analysis---organising-fixed-effects" class="nav-link" data-scroll-target="#third-step-of-analysis---organising-fixed-effects">Third Step of Analysis - Organising Fixed Effects</a>
+  <ul class="collapse">
+  <li><a href="#numeric-fixed-effects" id="toc-numeric-fixed-effects" class="nav-link" data-scroll-target="#numeric-fixed-effects">Numeric Fixed Effects</a></li>
+  <li><a href="#categorical-fixed-effects" id="toc-categorical-fixed-effects" class="nav-link" data-scroll-target="#categorical-fixed-effects">Categorical Fixed Effects</a></li>
+  </ul></li>
+  <li><a href="#fourth-step-of-analysis---assessing-model-functioning" id="toc-fourth-step-of-analysis---assessing-model-functioning" class="nav-link" data-scroll-target="#fourth-step-of-analysis---assessing-model-functioning">Fourth Step of Analysis - Assessing Model Functioning</a>
+  <ul class="collapse">
+  <li><a href="#glmglmm-assumptions" id="toc-glmglmm-assumptions" class="nav-link" data-scroll-target="#glmglmm-assumptions">GLM/GLMM Assumptions</a></li>
+  <li><a href="#homoscedasticity-of-residuals---fitted-vs-residuals-plot" id="toc-homoscedasticity-of-residuals---fitted-vs-residuals-plot" class="nav-link" data-scroll-target="#homoscedasticity-of-residuals---fitted-vs-residuals-plot">Homoscedasticity of Residuals - Fitted vs Residuals Plot</a></li>
+  <li><a href="#normality-of-residuals---quantile-quantile-plot" id="toc-normality-of-residuals---quantile-quantile-plot" class="nav-link" data-scroll-target="#normality-of-residuals---quantile-quantile-plot">Normality of Residuals - Quantile-Quantile Plot</a></li>
+  </ul></li>
+  <li><a href="#fifth-step-of-analysis---model-interpretation" id="toc-fifth-step-of-analysis---model-interpretation" class="nav-link" data-scroll-target="#fifth-step-of-analysis---model-interpretation">Fifth Step of Analysis - Model Interpretation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -174,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    An Introduction to General Linear Models in R.
+    An Introduction to General Linear Models (GLMs) in R.
   </div>
 </div>
 
@@ -182,6 +222,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 24, 2023</p>
+    </div>
+  </div>
   
     
   </div>

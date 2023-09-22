@@ -3,6 +3,7 @@ title: "Data Visualisation in R"
 description: "An Introduction to Data Visualisation in R for Research Scientists: From Base Scatter Plots to Facetting GGPlots."
 image: ../Images/Tutorials/ggplot2.png
 id: Basics
+date: "09/23/2023"
 categories: [Introduction,Tidyverse, ggplot2, R]
 ---
 

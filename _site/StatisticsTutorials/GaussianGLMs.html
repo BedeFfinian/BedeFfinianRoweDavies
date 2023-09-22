@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="An Introduction to General Linear Models in R.">
+<meta name="dcterms.date" content="2023-09-25">
+<meta name="description" content="Examples of Gaussian GLMs">
 
-<title>Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis</title>
+<title>Bede Ffinian Rowe Davies - Gaussian GLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,14 +102,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis">
-<meta property="og:description" content="An Introduction to General Linear Models in R.">
+<meta property="og:title" content="Bede Ffinian Rowe Davies - Gaussian GLMs">
+<meta property="og:description" content="Examples of Gaussian GLMs">
 <meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/logo.png">
 <meta property="og:site-name" content="Bede Ffinian Rowe Davies">
 <meta property="og:image:height" content="1200">
 <meta property="og:image:width" content="1037">
-<meta name="twitter:title" content="Bede Ffinian Rowe Davies - (General) Linear Models in R - Background to Regression Analysis">
-<meta name="twitter:description" content="An Introduction to General Linear Models in R.">
+<meta name="twitter:title" content="Bede Ffinian Rowe Davies - Gaussian GLMs">
+<meta name="twitter:description" content="Examples of Gaussian GLMs">
 <meta name="twitter:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/logo.png">
 <meta name="twitter:creator" content="@bedeffinian">
 <meta name="twitter:image-height" content="1200">
@@ -116,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -191,14 +192,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#using-gaussian-glms" id="toc-using-gaussian-glms" class="nav-link active" data-scroll-target="#using-gaussian-glms">Using Gaussian GLMs <img src="../Images/Tutorials/logo.png" align="right" height="138.5"></a>
+  <ul class="collapse">
+  <li><a href="#linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova" id="toc-linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova" class="nav-link" data-scroll-target="#linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova">Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA?</a></li>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading">Data Loading</a></li>
+  <li><a href="#modelling-with-categorical-predictor-variables" id="toc-modelling-with-categorical-predictor-variables" class="nav-link" data-scroll-target="#modelling-with-categorical-predictor-variables">Modelling with Categorical Predictor Variables</a>
+  <ul class="collapse">
+  <li><a href="#step-one---scienctific-model-to-stats-model" id="toc-step-one---scienctific-model-to-stats-model" class="nav-link" data-scroll-target="#step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</a></li>
+  <li><a href="#step-two---resonse-variable-distribution" id="toc-step-two---resonse-variable-distribution" class="nav-link" data-scroll-target="#step-two---resonse-variable-distribution">Step Two - Resonse Variable Distribution</a></li>
+  <li><a href="#step-three---organising-fixed-effects" id="toc-step-three---organising-fixed-effects" class="nav-link" data-scroll-target="#step-three---organising-fixed-effects">Step Three - Organising Fixed Effects</a></li>
+  <li><a href="#step-four---assessing-model-functioning" id="toc-step-four---assessing-model-functioning" class="nav-link" data-scroll-target="#step-four---assessing-model-functioning">Step Four - Assessing Model Functioning</a></li>
+  <li><a href="#step-five---model-interpretation" id="toc-step-five---model-interpretation" class="nav-link" data-scroll-target="#step-five---model-interpretation">Step Five - Model Interpretation</a></li>
+  </ul></li>
+  <li><a href="#modelling-continuous-predictor-variables" id="toc-modelling-continuous-predictor-variables" class="nav-link" data-scroll-target="#modelling-continuous-predictor-variables">Modelling Continuous Predictor Variables</a>
+  <ul class="collapse">
+  <li><a href="#step-one---scienctific-model-to-stats-model-1" id="toc-step-one---scienctific-model-to-stats-model-1" class="nav-link" data-scroll-target="#step-one---scienctific-model-to-stats-model-1">Step one - Scienctific Model to Stats Model</a></li>
+  <li><a href="#step-two---resonse-variable-distribution-1" id="toc-step-two---resonse-variable-distribution-1" class="nav-link" data-scroll-target="#step-two---resonse-variable-distribution-1">Step Two - Resonse Variable Distribution</a></li>
+  <li><a href="#step-three---organising-fixed-effects-1" id="toc-step-three---organising-fixed-effects-1" class="nav-link" data-scroll-target="#step-three---organising-fixed-effects-1">Step Three - Organising Fixed Effects</a></li>
+  <li><a href="#step-four---assessing-model-functioning-1" id="toc-step-four---assessing-model-functioning-1" class="nav-link" data-scroll-target="#step-four---assessing-model-functioning-1">Step Four - Assessing Model Functioning</a></li>
+  <li><a href="#step-five---model-interpretation-1" id="toc-step-five---model-interpretation-1" class="nav-link" data-scroll-target="#step-five---model-interpretation-1">Step Five - Model Interpretation</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">(General) Linear Models in R - Background to Regression Analysis</h1>
+<h1 class="title">Gaussian GLMs</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Introduction</div>
     <div class="quarto-category">R</div>
@@ -209,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    An Introduction to General Linear Models in R.
+    Examples of Gaussian GLMs
   </div>
 </div>
 
@@ -217,6 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 25, 2023</p>
+    </div>
+  </div>
   
     
   </div>

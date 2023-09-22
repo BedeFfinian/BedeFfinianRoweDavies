@@ -24,9 +24,9 @@
   {
     "listing": "/Tutorials.html",
     "items": [
+      "/BasicRTutorials/IntroductionR.html",
       "/BasicRTutorials/DataManipulation.html",
       "/BasicRTutorials/DataVisualisation.html",
-      "/BasicRTutorials/IntroductionR.html",
       "/StatisticsTutorials/IntroductionGLMs.html",
       "/StatisticsTutorials/GaussianGLMs.html"
     ]
