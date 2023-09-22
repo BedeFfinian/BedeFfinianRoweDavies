@@ -1,14 +1,26 @@
 ---
-title: "Tutorials Coming Soon I HOPE!!"
+title: "Tutorials"
 listing:
-  - id: Travel
-    contents: tutorials
+  - id: Basics
+    contents: BasicRTutorials
     type: default
     categories: true
     sort-ui: [categories,date]
-    fields: [image, title, description, categories]
+    fields: [image, title,description,categories]
+  - id: Stats
+    contents: StatisticsTutorials
+    type: default
+    fields: [image, title,description,categories]
 ---
 
-::: {#Tutorials}
+## R Basics Tutorials with an Ecologist Bias:
+
+::: {#Basics}
+
+:::
+
+## Statistics Tutorials with an Ecologist Bias:
+
+::: {#Stats}
 
 :::

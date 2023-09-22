@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Desktop.html</loc>
-    <lastmod>2023-08-24T21:33:56.682Z</lastmod>
+    <lastmod>2023-09-22T14:03:20.783Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts1/SpectralLibrary.html</loc>
@@ -14,27 +14,27 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Mobile.html</loc>
-    <lastmod>2023-08-24T21:33:54.337Z</lastmod>
+    <lastmod>2023-09-22T14:03:18.260Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Publications.html</loc>
-    <lastmod>2023-08-24T21:15:38.063Z</lastmod>
+    <lastmod>2023-09-22T14:03:34.426Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index.html</loc>
-    <lastmod>2023-08-24T21:34:01.916Z</lastmod>
+    <lastmod>2023-09-22T14:07:42.123Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
-    <lastmod>2023-08-24T21:11:59.589Z</lastmod>
+    <lastmod>2023-09-22T14:03:31.879Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
-    <lastmod>2023-08-21T20:54:46.816Z</lastmod>
+    <lastmod>2023-09-22T14:10:29.600Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Blogs.html</loc>
-    <lastmod>2023-08-24T21:11:44.645Z</lastmod>
+    <lastmod>2023-09-22T13:58:37.867Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/blogs1/Acoustics.html</loc>
@@ -50,15 +50,15 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Tutorials.html</loc>
-    <lastmod>2023-08-24T21:10:10.737Z</lastmod>
+    <lastmod>2023-09-22T14:03:44.781Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy_Mobile.html</loc>
-    <lastmod>2023-08-21T20:54:51.345Z</lastmod>
+    <lastmod>2023-09-22T14:10:09.381Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
-    <lastmod>2023-08-24T21:11:37.008Z</lastmod>
+    <lastmod>2023-09-22T14:10:26.236Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
@@ -71,5 +71,25 @@
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts1/Acoustics.html</loc>
     <lastmod>2023-08-24T21:14:56.443Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/IntroductionR.html</loc>
+    <lastmod>2023-09-22T13:20:30.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataManipulation.html</loc>
+    <lastmod>2023-09-22T13:27:51.380Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
+    <lastmod>2023-09-22T13:20:16.660Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/IntroductionGLMs.html</loc>
+    <lastmod>2023-09-22T13:19:19.445Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/GaussianGLMs.html</loc>
+    <lastmod>2023-09-22T13:19:51.850Z</lastmod>
   </url>
 </urlset>

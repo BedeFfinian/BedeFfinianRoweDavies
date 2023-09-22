@@ -48,8 +48,14 @@ website:
     border: true
     foreground: "#dbb13b"
     background: "#467373"
+  sidebar:
+    style: "floating"
+    search: true
+  page-navigation: true
 format:
   html:
+    toc: true
+    toc-location: left
     theme:
       dark: CustomStyle_Dark.scss
       light: CustomStyle_Light.scss

@@ -48,7 +48,6 @@ knitr::include_graphics("Images/index/Figure1.png")
 
 ```
 
-
 These analysis methods have been used to provide visiualisations of predicted scenarios across many of the projects.
 
 
@@ -56,4 +55,24 @@ These analysis methods have been used to provide visiualisations of predicted sc
 knitr::include_graphics("Images/index/Orcas.png")
 
 ```
+
+## Consultancy Fieldwork Experience
+
+I have assisted in Fisheries Assessment cruises as a Bnethic Taxonomist across the Greenlandic and Icelandic Seas. 
+
+During this cruise on the RV Tarajoq my main duties were to:
+
+- Identify
+
+- Quantify
+
+- Record
+
+All Benthic taxa caught as bycatch during fisheries assessments of Alantic Cod and Shrimp. 
+
+```{r , echo=FALSE,out.width='100%', out.extra='style="padding:10px"'}
+knitr::include_graphics("Images/index/Halibut.png")
+
+```
+
 

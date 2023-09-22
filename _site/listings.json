@@ -23,6 +23,12 @@
   },
   {
     "listing": "/Tutorials.html",
-    "items": []
+    "items": [
+      "/BasicRTutorials/DataManipulation.html",
+      "/BasicRTutorials/DataVisualisation.html",
+      "/BasicRTutorials/IntroductionR.html",
+      "/StatisticsTutorials/IntroductionGLMs.html",
+      "/StatisticsTutorials/GaussianGLMs.html"
+    ]
   }
 ]
