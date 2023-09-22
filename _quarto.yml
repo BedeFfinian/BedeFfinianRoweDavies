@@ -2,7 +2,6 @@ project:
   type: website
 
 website:
-  page-navigation: true
   title: "Bede Ffinian Rowe Davies"
   description: "Marine Ecologist and Statistician bedeffinian@gmail.com"
   site-url: https://www.bedeffinianrowedavies.com
@@ -35,7 +34,6 @@ website:
     - icon: flower2
       href: https://orcid.org/0000-0001-6462-4347
     - icon: file-bar-graph
-      href: https://www.researchgate.net/profile/Bede-Davies-2
   page-footer: 
     left:
       - icon: github
@@ -49,6 +47,33 @@ website:
     border: true
     foreground: "#dbb13b"
     background: "#467373"
+  sidebar:
+      contents: 
+        - section: "Who am I and What have I done?"
+          contents: 
+            - index.qmd
+            - map.qmd
+            - Publications.qmd
+        - text: "---"
+        - section: "Consultancy Work"
+          contents:
+            - consultancy.qmd
+        - text: "---"
+        - section: "Basic R Tutorials"
+          contents: 
+            - BasicRTutorials/IntroductionR.qmd
+            - BasicRTutorials/DataVisualisation.qmd
+            - BasicRTutorials/DataManipulation.qmd
+        - text: "---"
+        - section: "Statistics Tutorials"
+          contents:
+            - StatisticsTutorials/IntroductionGLMs.qmd
+            - StatisticsTutorials/GaussianGLMs.qmd
+        - text: "---"
+        - section: "Travel Blogs"
+          contents:
+            - blogs/GreenlandTale.qmd
+  page-navigation: true
 format:
   html:
     toc: true
