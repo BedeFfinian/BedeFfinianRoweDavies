@@ -23,6 +23,10 @@ website:
       href: map.qmd
     - text: "Publications"
       href: Publications.qmd
+    - text: "Blogs"
+      href: Blogs.qmd    
+    - text: "Tutorials"
+      href: Tutorials.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter
@@ -30,10 +34,50 @@ website:
     - icon: flower2
       href: https://orcid.org/0000-0001-6462-4347
     - icon: file-bar-graph
-      href: https://www.researchgate.net/profile/Bede-Davies-2
-
+  page-footer: 
+    left:
+      - icon: github
+        href: https://github.com/bedeffinian/bedeffinianrowedavies
+    center: |
+      <span> **Bede Ffinian Rowe Davies**<br> Post-Doctoral Researcher in Marine Ecology and Statistics [bedeffinian@gmail.com](bedeffinian@gmail.com)<br> 
+      [Laboratoire ISOMer, UFR Sciences et Techniques](https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology)<br>
+      [Nantes University](https://english.univ-nantes.fr/), France.</span>
+    right: |
+      <span> Built with <a href="https://quarto.org/">Quarto</a></span>
+    border: true
+    foreground: "#dbb13b"
+    background: "#467373"
+  sidebar:
+      contents: 
+        - section: "Who am I and What have I done?"
+          contents: 
+            - index.qmd
+            - map.qmd
+            - Publications.qmd
+        - text: "---"
+        - section: "Consultancy Work"
+          contents:
+            - consultancy.qmd
+        - text: "---"
+        - section: "Basic R Tutorials"
+          contents: 
+            - BasicRTutorials/IntroductionR.qmd
+            - BasicRTutorials/DataVisualisation.qmd
+            - BasicRTutorials/DataManipulation.qmd
+        - text: "---"
+        - section: "Statistics Tutorials"
+          contents:
+            - StatisticsTutorials/IntroductionGLMs.qmd
+            - StatisticsTutorials/GaussianGLMs.qmd
+        - text: "---"
+        - section: "Travel Blogs"
+          contents:
+            - blogs/GreenlandTale.qmd
+  page-navigation: true
 format:
   html:
+    toc: true
+    toc-location: left
     theme:
       dark: CustomStyle_Dark.scss
       light: CustomStyle_Light.scss

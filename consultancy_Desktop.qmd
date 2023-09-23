@@ -1,7 +1,7 @@
 ---
 title: "Ecological and Statistical Consultancy"
 subtitle: "Bede Ffinian Rowe Davies Consultancy bedeffinian@gmail.com"
-categories: [statistics, ecology, marine, science, marine management, consultancy]
+categories: [statistics, ecology, marine, science, marine management, consultancy, fieldwork]
 ---
 
 ## Statistical Experience
@@ -72,3 +72,29 @@ knitr::include_graphics("Images/index/Orcas.png")
 
 ```
 
+## Consultancy Fieldwork Experience
+
+
+::: {.grid}
+
+::: {.g-col-4}
+I have assisted in Fisheries Assessment cruises as a Bnethic Taxonomist across the Greenlandic and Icelandic Seas. 
+
+During this cruise on the RV Tarajoq my main duties were to:
+
+- Identify
+
+- Quantify
+
+- Record
+
+All Benthic taxa caught as bycatch during fisheries assessments of Alantic Cod and Shrimp. 
+:::
+
+::: {.g-col-8}
+```{r , echo=FALSE,out.width='100%', out.extra='style="padding:10px"'}
+knitr::include_graphics("Images/index/Halibut.png")
+```
+:::
+
+:::

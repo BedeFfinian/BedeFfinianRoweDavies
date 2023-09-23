@@ -1,0 +1,14 @@
+---
+title: "Travel Blogs"
+listing:
+  - id: Travel
+    contents: blogs
+    type: grid
+    categories: true
+    sort-ui: [categories,date]
+    fields: [image, title, description]
+---
+
+::: {#Travel}
+
+:::

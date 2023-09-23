@@ -1,0 +1,28 @@
+---
+title: "Tutorials"
+listing:
+  - id: Basics
+    contents: BasicRTutorials
+    type: default
+    categories: true
+    sort: "date asc"
+    fields: [image,title,description,categories]
+  - id: Stats
+    contents: StatisticsTutorials
+    type: default
+    categories: true
+    sort: "date asc"
+    fields: [image, title,description,categories]
+---
+
+## R Basics Tutorials with an Ecologist Bias:
+
+::: {#Basics}
+
+:::
+
+## Statistics Tutorials with an Ecologist Bias:
+
+::: {#Stats}
+
+:::

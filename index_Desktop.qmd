@@ -27,6 +27,12 @@ My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology
 
 :::
 
+# Previous Post-Doctoral Work
+
+After my PhD I was a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aimed to assess the stored carbon within sedimentary habitats in Jersey. This information was then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
+
+# PhD 
+
 I completed my PhD based at the University of Plymouth. The title of my PhD was: **The Effectiveness of Partially Protected Marine Areas for Ecosystem Based Fisheries Management.**  The work centred around the Marine Protected Area (**MPA**) in Lyme Bay (UK), which excluded all demersal towed fishing activity across 206km$^2$ of seabed in 2008. University of Plymouth staff and students have monitored the benthic environment across the bay (inside and outside the MPA) annually, using a range of underwater sampling equipment. 
 
 The methods include:
@@ -73,11 +79,6 @@ knitr::include_graphics("Images/who/Cores.png")
 
 :::
 
-Since completing my PhD, I have been employed as an Assistant Project Manager and Post-Doctoral Researcher delivering monitoring goals within the team with whom I completed my PhD. 
-
-
-# What have I done?
-After my PhD I was a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aimed to assess the stored carbon within sedimentary habitats in Jersey. This information was then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
 
 ```{r}
 #| echo: false 
@@ -90,7 +91,6 @@ knitr::include_graphics("Images/who/North Santa Cruz.jpg")
 # Experience
 
 ## Projects
-
 
 I have worked and assisted in many projects across the UK including: 
 
@@ -119,6 +119,9 @@ knitr::include_graphics("Images/who/BRUVs.jpg")
 
 ```
 
+::: {.grid}
+
+::: {.g-col-7}
 
 Further afield, I have also worked in: 
 
@@ -127,6 +130,21 @@ Further afield, I have also worked in:
 - the Ecuadorian fisheries department (Instituto Nacional de Pesca) asssessing bycatch of protected species
 
 - the Himalayan mountains and the Ganges River alongside National Geographic researchers assessing plastics.  
+
+- the Greenlandic Arctic Ocean as a Benthic Taxonomist aboard a Fisheries Research Vessel
+:::
+
+::: {.g-col-5}
+```{r}
+#| echo: false
+#| out.extra: 'style="float:right; padding:10px"'
+knitr::include_graphics("Images/who/Whale_Vertebrae.png")
+
+```
+::: 
+
+:::
+
 
 ```{r }
 #| echo: false 
