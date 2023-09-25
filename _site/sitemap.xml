@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Desktop.html</loc>
-    <lastmod>2023-09-22T14:17:14.571Z</lastmod>
+    <lastmod>2023-09-23T18:09:55.831Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts1/SpectralLibrary.html</loc>
@@ -14,19 +14,23 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Mobile.html</loc>
-    <lastmod>2023-09-22T14:17:11.744Z</lastmod>
+    <lastmod>2023-09-23T18:09:50.632Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Publications.html</loc>
-    <lastmod>2023-09-22T14:58:54.164Z</lastmod>
+    <lastmod>2023-09-23T18:13:03.386Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index.html</loc>
+<<<<<<< HEAD
     <lastmod>2023-09-22T15:21:49.856Z</lastmod>
+=======
+    <lastmod>2023-09-23T18:13:17.741Z</lastmod>
+>>>>>>> 46466bd3325d4de14c893ac2502a28cfcc51d262
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
-    <lastmod>2023-09-22T14:58:50.822Z</lastmod>
+    <lastmod>2023-09-23T18:09:43.651Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
@@ -54,11 +58,11 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy_Mobile.html</loc>
-    <lastmod>2023-09-22T14:17:04.491Z</lastmod>
+    <lastmod>2023-09-23T18:09:53.506Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
-    <lastmod>2023-09-22T14:17:06.558Z</lastmod>
+    <lastmod>2023-09-23T18:09:48.187Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
@@ -66,7 +70,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts2/OysterTables.html</loc>
-    <lastmod>2023-08-24T21:15:30.852Z</lastmod>
+    <lastmod>2023-09-23T18:09:44.294Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts1/Acoustics.html</loc>
@@ -95,5 +99,9 @@
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts2/Mussels.html</loc>
     <lastmod>2023-09-22T14:41:13.810Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges_2.html</loc>
+    <lastmod>2023-09-23T18:13:00.318Z</lastmod>
   </url>
 </urlset>
