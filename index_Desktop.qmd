@@ -119,7 +119,7 @@ knitr::include_graphics("Images/who/BRUVs.jpg")
 
 ::: {.g-col-7}
 
-Further afield, I have also worked in: 
+Further afield, I have also worked in location and with data from: 
 
 - the Galapagos Islands assessing both Plastic Pollution and Biological Invasive species
 
