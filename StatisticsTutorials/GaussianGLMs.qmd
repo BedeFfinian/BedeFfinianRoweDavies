@@ -1,10 +1,10 @@
 ---
 title: "Gaussian GLMs"
 description: "Examples of Gaussian GLMs"
-image: ../Images/Tutorials/logo.png
+image: ../Images/Tutorials/Gaussian_Plot.png
 id: Stats
 date: "09/25/2023"
-categories: [Introduction, R, GLMs, Stats]
+categories: [Introduction, R, GLMs, Stats, Gaussian]
 ---
 
 # Using Gaussian GLMs <img src='../Images/Tutorials/logo.png' align="right" height="138.5" /></a>

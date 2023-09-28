@@ -69,10 +69,12 @@ website:
           contents:
             - StatisticsTutorials/IntroductionGLMs.qmd
             - StatisticsTutorials/GaussianGLMs.qmd
+            - StatisticsTutorials/PoissonGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:
             - blogs/GreenlandTale.qmd
+      collapse-level: 1
   page-navigation: true
 format:
   html:
