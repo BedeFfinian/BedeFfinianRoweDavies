@@ -70,6 +70,7 @@ website:
             - StatisticsTutorials/IntroductionGLMs.qmd
             - StatisticsTutorials/GaussianGLMs.qmd
             - StatisticsTutorials/PoissonGLMs.qmd
+            - StatisticsTutorials/BinomialGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:

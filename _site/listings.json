@@ -30,7 +30,8 @@
       "/BasicRTutorials/DataVisualisation.html",
       "/StatisticsTutorials/IntroductionGLMs.html",
       "/StatisticsTutorials/GaussianGLMs.html",
-      "/StatisticsTutorials/PoissonGLMs.html"
+      "/StatisticsTutorials/PoissonGLMs.html",
+      "/StatisticsTutorials/BinomialGLMs.html"
     ]
   }
 ]

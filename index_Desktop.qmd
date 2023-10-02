@@ -15,7 +15,11 @@ Post-Doctoral Researcher [bedeffinian@gmail.com](bedeffinian@gmail.com)<br>
 # Who am I? 
 
 ::: {.g-col-12}
-My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery).
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. I am a researcher interested in the large scale changes in marine ecosystems in relation to anthropogenic activities and drivers, using novel techniques alongside traditional methods. 
+
+# Current Post-Doctoral Work
+
+The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery).
 :::
 
 ::: {.g-col-8}
