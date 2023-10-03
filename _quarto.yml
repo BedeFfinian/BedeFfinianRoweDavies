@@ -65,12 +65,13 @@ website:
             - BasicRTutorials/DataVisualisation.qmd
             - BasicRTutorials/DataManipulation.qmd
         - text: "---"
-        - section: "Statistics Tutorials"
+        - section: "Statistics Tutorials: GLMs"
           contents:
             - StatisticsTutorials/IntroductionGLMs.qmd
             - StatisticsTutorials/GaussianGLMs.qmd
             - StatisticsTutorials/PoissonGLMs.qmd
             - StatisticsTutorials/BinomialGLMs.qmd
+            - StatisticsTutorials/GammaGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Desktop.html</loc>
-    <lastmod>2023-10-02T16:09:18.915Z</lastmod>
+    <lastmod>2023-10-03T16:24:03.817Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/posts1/SpectralLibrary.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Mobile.html</loc>
-    <lastmod>2023-10-02T16:09:21.958Z</lastmod>
+    <lastmod>2023-10-03T16:24:15.488Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Publications.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Tutorials.html</loc>
-    <lastmod>2023-10-02T16:04:38.851Z</lastmod>
+    <lastmod>2023-10-03T16:24:07.686Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/PoissonGLMs.html</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/index.html</loc>
-    <lastmod>2023-10-02T16:09:25.087Z</lastmod>
+    <lastmod>2023-10-03T16:24:17.972Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
@@ -47,5 +47,9 @@
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/BinomialGLMs.html</loc>
     <lastmod>2023-10-02T16:08:13.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/GammaGLMs.html</loc>
+    <lastmod>2023-10-03T16:22:30.774Z</lastmod>
   </url>
 </urlset>

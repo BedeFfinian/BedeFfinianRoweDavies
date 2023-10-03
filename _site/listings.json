@@ -31,7 +31,8 @@
       "/StatisticsTutorials/IntroductionGLMs.html",
       "/StatisticsTutorials/GaussianGLMs.html",
       "/StatisticsTutorials/PoissonGLMs.html",
-      "/StatisticsTutorials/BinomialGLMs.html"
+      "/StatisticsTutorials/BinomialGLMs.html",
+      "/StatisticsTutorials/GammaGLMs.html"
     ]
   }
 ]
