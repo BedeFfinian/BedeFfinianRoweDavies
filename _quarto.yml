@@ -62,8 +62,8 @@ website:
         - section: "Basic R Tutorials"
           contents: 
             - BasicRTutorials/IntroductionR.qmd
-            - BasicRTutorials/DataVisualisation.qmd
             - BasicRTutorials/DataManipulation.qmd
+            - BasicRTutorials/DataVisualisation.qmd
         - text: "---"
         - section: "Statistics Tutorials: GLMs"
           contents:
