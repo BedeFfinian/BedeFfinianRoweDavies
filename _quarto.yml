@@ -11,11 +11,24 @@ website:
     creator: "@bedeffinian" 
   page-navigation: true
   navbar:
+   pinned: true
    background: "#008b8b"
    foreground: "#dbb13b"
    search: true
    logo: Images/index/whale.ico
    right:
+    - text: "Home"
+      file: index.qmd
+    - text: "Consultancy"
+      file: consultancy.qmd
+    - text: "Projects"
+      file: map.qmd
+    - text: "Publications"
+      file: Publications.qmd
+    - text: "Blogs"
+      file: Blogs.qmd
+    - text: "Tutorials"
+      file: Tutorials.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter
