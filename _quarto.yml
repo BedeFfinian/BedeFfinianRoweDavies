@@ -9,24 +9,13 @@ website:
   open-graph: true
   twitter-card:
     creator: "@bedeffinian" 
+  page-navigation: true
   navbar:
    background: "#008b8b"
    foreground: "#dbb13b"
    search: true
    logo: Images/index/whale.ico
    right:
-    - text: "Home"
-      href: index.qmd
-    - text: "Consultancy"
-      href: consultancy.qmd
-    - text: "Projects"
-      href: map.qmd
-    - text: "Publications"
-      href: Publications.qmd
-    - text: "Blogs"
-      href: Blogs.qmd    
-    - text: "Tutorials"
-      href: Tutorials.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter
@@ -49,12 +38,12 @@ website:
     background: "#467373"
   sidebar:
       contents: 
-        - section: "Who am I and What have I done?"
+        - section: "Who am I and What have I done?" 
           contents: 
             - index.qmd
             - map.qmd
             - Publications.qmd
-        - text: "---"
+        - text: "---" 
         - section: "Consultancy Work"
           contents:
             - consultancy.qmd
@@ -76,8 +65,10 @@ website:
         - section: "Travel Blogs"
           contents:
             - blogs/GreenlandTale.qmd
-      collapse-level: 1
-  page-navigation: true
+      collapse-level: 3
+      foreground: "#dbb13b"
+      background: "#467373"
+       
 format:
   html:
     toc: true

@@ -7,7 +7,7 @@ date: "10/02/2023"
 categories: [Introduction, R, GLMs, Stats, Binomial]
 ---
 
-# Using Binomial GLMs <img src='Images/logo.png' align="right" height="138.5" /></a>
+# Using Binomial GLMs <img src='../Images/Tutorials/logo.png' align="right" height="138.5" /></a>
 
 ## Data Loading Simple - Diamonds
 
@@ -25,7 +25,7 @@ summary(diamonds)
 
 ```
 
-<img src='Images/diamond.jpeg' align="centre" width = 100%/></a>
+<img src='../Images/Tutorials/diamond.jpeg' align="centre" width = 100%/></a>
 
 ### Step One - Scienctific Model to Stats Model
 

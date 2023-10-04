@@ -9,7 +9,7 @@ categories: [Introduction, R, GLMs, Stats, Poisson]
 
 # Using Poisson GLMs <img src='../Images/Tutorials/logo.png' align="right" height="138.5" /></a>
 
-## Data Loading Simple - Galapagos
+### Data Loading Simple - Galapagos
 
 Lets use a real-world dataset. This data set is the number of Plant species on different islands in the Galapagos Islands, how many of those species are endemic, the area of the island, its max elevation, the distance to the nearest island, its distance to santa cruz (the most populace island) and the area of the nearest island.
 

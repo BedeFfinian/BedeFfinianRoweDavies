@@ -82,6 +82,16 @@ $navbar-light-hover-color:          $orange !default;
 $navbar-light-active-color:         $orange !default;
 $navbar-light-disabled-color:       $orange !default;
 
+// Sidebar
+$sidebar-hl:                         $red !default;
+$sidebar-bg:                         #467373 !default;
+$sidebar-dark-color:                 $orange !default;
+$sidebar-dark-hover-color:           $primary !default;
+$sidebar-light-color:                $orange !default;
+$sidebar-light-hover-color:          $orange !default;
+$sidebar-light-active-color:         $orange !default;
+$sidebar-light-disabled-color:       $orange !default;
+
 // Pagination
 
 $pagination-color:                  #E1EFCA !default;
@@ -128,9 +138,6 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;50
 
 // Navbar
 
-.navbar {
-  font-family: $headings-font-family;
-}
 
 .bg-dark {
   background-color: $orange !important;

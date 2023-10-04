@@ -9,11 +9,9 @@ categories: [Introduction, R, GLMs, Stats, Gaussian]
 
 # Using Gaussian GLMs <img src='../Images/Tutorials/logo.png' align="right" height="138.5" /></a>
 
-## Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA? 
+Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA? There are many names for this type of model, they all effectively mean the same thing. I am going to stick to calling it a Gaussian GLM because then there isn't a new name for every different test. If you don't like that, use whatever term you like, but the code and interpretation will be the same.
 
-There are many names for this type of model, they all effectively mean the same thing. I am going to stick to calling it a Gaussian GLM because then there isn't a new name for every different test. If you don't like that, use whatever term you like, but the code and interpretation will be the same.
-
-## Data Loading
+## Data Loading - Palmer Penguins
 
 As before lets use the Palmer penguins dataset and remove the NAs (as before NAs should never be remove without considering why there are NAs but here we will remove them for ease).
 
@@ -27,9 +25,9 @@ data(penguins)
 penguins_noNAs<-penguins%>% 
   drop_na()
 
-
-
 ```
+
+<img src='../Images/Tutorials/lter_penguins.png' align="centre" width = 100%/></a>
 
 ## Modelling with Categorical Predictor Variables
 
