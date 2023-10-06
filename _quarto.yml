@@ -74,6 +74,7 @@ website:
             - StatisticsTutorials/PoissonGLMs.qmd
             - StatisticsTutorials/BinomialGLMs.qmd
             - StatisticsTutorials/GammaGLMs.qmd
+            - StatisticsTutorials/BetaGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:
