@@ -3,7 +3,7 @@ title: "Making Maps in R"
 description: "A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections."
 image: ../Images/Tutorials/sf.gif
 id: Basics
-date: "09/23/2023"
+date: "10/09/2023"
 categories: [Introduction, Tidyverse, ggplot2, R, sf, Mapping, GIS]
 ---
 
@@ -11,21 +11,21 @@ categories: [Introduction, Tidyverse, ggplot2, R, sf, Mapping, GIS]
 
 ### Rant about Research and Being Lazy
 
-Okay so I have strong and potentially controversial opinions on using GIS software. While very useful, user friendly tools, just like Excel, I strongly argue against their use for scientific analysis (I have caveats to this). The main pillars of science, in my opinion, are increasing societies knowledge in an open, repeatable, replicate-able and critique-able way. Therefore, using software that is paid for or not open access is a big no for me. Likewise, software that is just lots of clicking buttons, without a full transcript of the process being carried out, doesn't allow full repeatablility. This may be repetition by other researchers to check your results, emulate your analysis method on another dataset or it may be repetition by future you or me! Another major element of using a coding language to carry out tasks is scaleability. If I make a map in a GIS software, to make the same map with a few changes will always take a similar amount of time, doing so in r (or another coding language) will decrease the time per map through looping or functional programming. I am also a lazy scientist, I can use R to carry out all elements of my research, so why learn another program? 
+Okay so I have strong and potentially controversial opinions on using GIS software. While very useful, user friendly tools, just like Excel, I strongly argue against their use for scientific analysis (I have caveats to this). The main pillars of science, in my opinion, are increasing societies knowledge in an open, repeatable, replicate-able and critique-able way. Therefore, using software that is paid for or not open access is a big no for me. Likewise, software that is just lots of clicking buttons, without a full transcript of the process being carried out, doesn't allow full repeatablility. This may be repetition by other researchers to check your results, emulate your analysis method on another dataset or it may be repetition by future you or me! Another major element of using a coding language to carry out tasks is scaleability. If I make a map in a GIS software, to make the same map with a few changes will always take a similar amount of time, doing so in r (or another coding language) will decrease the time per map through looping or functional programming. I am also a lazy scientist, I can use R to carry out all elements of my research, so why learn another program? (I do use other languages from time to time actually but still)
 
 ### Rant Over, Simple Mapping Attack Plan
 
 #### Spatial Data Types
 
-Spatial data is basically the same as any other data type but it has some information about its location, and generally it is stored in two major types: Raster or Shape. Raster data are gridded with repeating units or pixels, with each pixel having a x and y coordinates and some data value(s). Shape data are generally type of irregular polygons or points. 
+Spatial data is basically the same as any other data type but it has some information about its location, and generally it is stored in two major types: Raster or Shape. Raster data are gridded with repeating units or pixels, with each pixel having x and y coordinates and some data value(s). Shape data are generally types of irregular polygons or points. 
 
-Thankfully for us we can use ggplot2 and its functionality to plot a wide range of shapes and polygons, as well as combination of them. 
+Thankfully for us we can use ggplot2 and its functionality to plot a wide range of shapes and rasters, as well as combinations of them. 
 
 ### Mapping Attack Plan
 
 #### Step 1 - Background Map
 
-- Somethings this is all we want and can be many different types: satellite image, coastline, road map. Generally, it gives us the spatial context for other elements we want to display.
+- Sometimes this is all we want and can be many different types: satellite image, coastline, road map. Generally, it gives us the spatial context for other elements we want to display.
 
 ```{r}
 #| echo: false
@@ -260,7 +260,7 @@ With ggplot we can layer all these elements on top of each other in the order we
 
 ## Step 1 - Background Map 
 
-Here we need the data itself, then we want to plot it in a project that makes sense. Atlantic centric? Pacific centric? But depending on some projections we may need to do some extra work to look nice.
+Here we need the data itself, then we want to plot it in a projection that makes sense for our use. Atlantic centric? Pacific centric? But depending on some projections we may need to do some extra work for it to look nice.
 
 ### Data Download
 
@@ -272,7 +272,7 @@ To organise and edit we will use the sf package for shape files and the terra pa
 
 ### World Coastlines 
 
-The rnaturalearth packages have preloaded data that we can access for country polygons at different spatial scales, lets look at the biggest scale. If we load the basic ne_countries() data set and tell the function we want it as an 'sf' object we can plot it using the base plot. However, as there are many columns other than the spatial information the baseplot function plots each separately. 
+The rnaturalearth packages have preloaded data that we can access for country polygons at different spatial scales, lets look at the middle scale. If we load the basic ne_countries() data set and tell the function we want it as an 'sf' object we can plot it using the base plot. However, as there are many columns other than the spatial information the base plot() function plots each separately. 
 
 ```{r}
 
@@ -289,7 +289,7 @@ plot(world_map)
 
 ```
 
-Here we have a world_map object in our global environment, and generally it seems just like a normal dataframe, with columns and rows of data. An sf object has extra information in a column called geometry. This is information on the type of shape (Point, Line or Polygon) for each line in the dataframe. Here we have a row for each country and a polygon for each, alongside lots of info on its administration and population etc. As a dataframe we can easily inspect the data we have and use the same techniques of data manipulation we have used before such as mutating, selecting, summarising, grouping etc.
+Here we have a world_map object in our global environment, and generally it seems just like a normal dataframe, with columns and rows of data. An sf object has extra information in a column called geometry. This is information on the type of shape (Point, Line or Polygon) for each row in the dataframe. Here we have a row with a polygon or group of polygons for each country, alongside lots of info on its administration and population etc. As a dataframe we can easily inspect the data we have and use the same techniques of data manipulation we have used before such as mutating, selecting, summarising, grouping etc.
 
 Lets take a glance at the top of the first 6 columns:
 
@@ -343,7 +343,7 @@ ggplot()+
 
 ```
 
-The mercator uses metres as its units so we have to use those units for setting limits. Lets see some another systems.
+The mercator uses metres as its units so we have to use those units for setting limits. Lets see some other systems.
 
 ```{r}
 
@@ -367,7 +367,7 @@ ggplot()+
 
 ```
 
-As you can see, all of these are horrible. But it seems the main issue is being caused by Antarctica. Perhaps if we remove it they will look better?
+As you can see, all of these are horrible. By reprojecting the sf file we are causing the polygons to become glitchy and distorted. It seems some issue is being caused by Antarctica. Perhaps if we remove it it will look better?
 
 
 ```{r}
@@ -381,11 +381,11 @@ ggplot()+
 
 ```
 
-Okay no it doesn't.
+Okay no it does not.
 
 ### Distortions
 
-These projections have inherent edges to their projection which will be latitude or longitude values, they will also have the centre position. The areas of the map that are furthest from the centre, around the edges will become distorted when plotting on a 2D plane: think about looking at a 3D globe and trying to see the countries on the other side from you. When transfomring and then plotting, a polygon of a country (the shape that country makes) will potentially get divided. Thus we get these weird glitchy distortions. There are ways around having these distortions but it involves creating a really thin polygon along the edges of the original map, then deleting this thin polygon. This splits the polygons that will be split when changing the transformation. We can visualise this if we want. 
+These projections have inherent edges to their projection (the far left or far right of the plotted map) which will be latitude or longitude values, they will also have the centre position. The areas of the map that are furthest from the centre, around the edges will become distorted when plotting on a 2D plane: think about looking at a 3D globe and trying to see the countries on the other side from you. When transforming and then plotting, a polygon of a country (the shape that country makes) will potentially get divided byt the edge of the projection area. Thus, we get these weird glitchy distortions. There are ways around having these distortions but it involves creating a really thin polygon along the edges of the original map, then deleting this thin polygon. This splits the polygons that will be split when changing the transformation. We can visualise this if we want. 
 
 Original Map and transformed into desired CRS.
 
@@ -435,7 +435,7 @@ polygon <- st_polygon(x = list(rbind(
 
 ```
 
-Lets plot the slime polygon on the original map. 
+Lets plot the slim polygon on the original map. 
 
 
 ```{r}
@@ -489,14 +489,14 @@ ggplot()+
 
 ```
 
-This projection is a favourite of mine, I used it above for the map of Europe. The choice of mapping projection will be dictated by the scale you want to show
+This projection is a favourite of mine, I used it above for the map of Europe. The choice of mapping projection will be dictated by the scale you want to show and on your own personal preference. 
 
 ## Step 2 - Spatially Explicit Details 
 
-Okay so we have a global map we will use to be our Base Map, it isn't perfect by any means but it is fine for now. Now lets plots some spatially explicit data. As a Marine Ecologist I absolutely **LOVE** bathymetry plots so lets get some bathymetry and try make a nice Bathymetry plot of the North Atlantic. We may have our own bathymetry data, or we could go to some website, download it and read into r, **or** we can download straight into r using the marmap package. This gets bathymetry data from the NOAA database. 
+Okay so we have a global map we will use to be our Base Map, it isn't perfect by any means but it is fine for now. Now lets plot some spatially explicit data. As a Marine Ecologist with a dark Oceanography past, I absolutely **LOVE** bathymetry plots so lets get some bathymetry and try make a nice Bathymetry plot of the Atlantic. We may have our own bathymetry data, or we could go to some website, download it and read into r, **or** we can download straight into r using the marmap package. This gets bathymetry data from the NOAA database. (Or GEBCO if you prefer)
 
 
-To do this we use the getNOAA.bathy() and tell the function the longitude limits, then latitude limits, then the resolution. If our desired data cross the antimeridian (the longitude line 180 and -180) we can tell the function this too. This function creates a bathy object, but we can convert this to a data frame with as.xyz(). Remember when we set a big area and a low resolution value the file gets bigger so will take longer to download and plot. We shall also remove Depth values that are positive so we only get Depth. (This may not be ideal for inland areas that are below 0).
+To do this we use the getNOAA.bathy() and tell the function the longitude limits, then latitude limits, then the resolution. If our desired data cross the antimeridian (the longitude line 180 and -180) we can tell the function this too. This function creates a bathy object, but we can convert this to a data frame with as.xyz(). Remember when we set a big area and a fine resolution value the file gets bigger so will take longer to download and to plot. We shall also remove Depth values that are positive so we only get Depth. (This may not be ideal for inland areas that are below 0, such as the eastern coast of the UK).
 
 
 ```{r}
@@ -538,7 +538,7 @@ ggplot()+
 
 ```
 
-So what we will do is convert the dataframe to an spatial object. We could use sf to do this. Then we can easily transform it to the projection we want! To do this we can use the st_as_sf() function. One issue is we will need to tell sf what projection our latitude and longitude data are. 
+So what we will do is convert the dataframe to a spatial object. We could use sf to do this. Then we can easily transform it to the projection we want! To do this we can use the st_as_sf() function. One issue is we will need to tell sf what projection our latitude and longitude data are. Thankfully getNOAAA.bathy() uses EPSG:4326.
 
 ```{r}
 #| warning: false
@@ -582,7 +582,7 @@ ggplot()+
 
 ```
 
-Okay, this good, the projection is correct and the detail is enough for our current zoom level. The main issue now seems to be the NA values in the spat raster being plotted in a grey colour. So lets plot this with a nicer colour palette, and maybe we want our map lines to be on top of the bathymetry?
+Okay, this is good, the projection is correct and the detail is enough for our current zoom level. The main issue now seems to be the NA values in the spat raster being plotted in a grey colour. So lets plot this with a nicer colour palette, and maybe we want our map lines to be on top of the bathymetry?
 
 
 ```{r}
@@ -599,7 +599,7 @@ ggplot()+
 
 ```
 
-Hmmm maybe it would be nicer with a full global bathymetry? Or we could zoom into the area we have bathymetry for?
+Hmmm maybe it would be nicer with a full global bathymetry? Or we could zoom into the area we have bathymetry for? Or both?
 
 ```{r}
 #| warning: false
@@ -623,9 +623,9 @@ ggplot()+
 
 ```
 
-Lets also make some labels of points of interest, and lets zoom in on the mid atlantic ridge because it is very cool! Always have to refer to [Marie Tharp](https://en.wikipedia.org/wiki/Marie_Tharp) for her magnificent work on mapping and effectively discovering this region of the ocean! 
+Lets also make some labels of points of interest, and lets zoom in on the mid atlantic ridge because it is very cool! Always have to refer to [Marie Tharp](https://en.wikipedia.org/wiki/Marie_Tharp) for her magnificent, literally world changing work on mapping and effectively discovering this region of the ocean! 
 
-As our projection works in metres it would be a lot of trial and error to get the correct values, but we can create an sf object with the latitude and longitude we want then transform it and use that to create our limits!
+As our projection works in metres it would be a lot of trial and error to get the correct values, but we can create an sf object with the latitude and longitude we want then transform it and use that to create our limits! I will just look up some islands and archipelagoes and their Latitudes and Longitudes and add them as labels with the ggforce package function geom_mark_ellipse().
 
 ```{r}
 #| warning: false
@@ -684,7 +684,7 @@ geom_mark_ellipse(data=InterestingPoints,
 
 ## Step 3 - Appearance
 
-Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big a scale bar is unneccesary (but we will put a small one in anyway) and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.
+Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big i think a scale bar is unneccesary (but we will put a small one in anyway) and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.
 
 Here I add nicer legend labels. Again it is personal preference but Depth in my opinion should be positive going deeper. I also add a scale bar, although with this projection it will change how big it should be for different areas of the map. I change the colour scheme of the bathymetry to be a blue palette. Then I add Labels for x and y, and a caption of data source. I add some grid lines to show latitude and longitude lines with theme(). 
 

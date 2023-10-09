@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../BasicRTutorials/MakingMaps.html" rel="next">
 <link href="../BasicRTutorials/DataManipulation.html" rel="prev">
 <link href="../Images/index/whale.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -271,6 +272,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../BasicRTutorials/DataVisualisation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Visualisation in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making Maps in R</span></a>
   </div>
 </li>
       </ul>
@@ -503,9 +510,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             117.       114.
-2 Treatment 1        -705.      1140.
-3 Treatment 2        1211.       888.</code></pre>
+1 Control             124.       118.
+2 Treatment 1        -688.      1169.
+3 Treatment 2        1252.       883.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -521,16 +528,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950       -0.272       34.0
- 2 Control    1951       41.7         33.9
- 3 Control    1952       23.0         24.0
- 4 Control    1953       22.8         33.2
- 5 Control    1954        9.02        38.7
- 6 Control    1955       30.0         27.7
- 7 Control    1956       20.6         51.2
- 8 Control    1957       49.1         33.5
- 9 Control    1958       18.1         52.7
-10 Control    1959       44.4         39.0
+ 1 Control    1950        -1.97       23.1
+ 2 Control    1951        18.4        24.9
+ 3 Control    1952        16.6        26.5
+ 4 Control    1953        20.5        28.9
+ 5 Control    1954        35.5        52.1
+ 6 Control    1955        33.5        31.2
+ 7 Control    1956         5.14       38.2
+ 8 Control    1957        21.2        41.8
+ 9 Control    1958        25.7        52.2
+10 Control    1959        23.2        65.8
 # ℹ 212 more rows</code></pre>
 </div>
 </div>
@@ -1174,6 +1181,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../BasicRTutorials/MakingMaps.html" class="pagination-link">
+        <span class="nav-page-text">Making Maps in R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

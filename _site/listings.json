@@ -4,8 +4,8 @@
     "items": [
       "/BasicRTutorials/IntroductionR.html",
       "/BasicRTutorials/DataManipulation.html",
-      "/BasicRTutorials/MakingMaps.html",
       "/BasicRTutorials/DataVisualisation.html",
+      "/BasicRTutorials/MakingMaps.html",
       "/StatisticsTutorials/IntroductionGLMs.html",
       "/StatisticsTutorials/GaussianGLMs.html",
       "/StatisticsTutorials/PoissonGLMs.html",

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-23">
+<meta name="dcterms.date" content="2023-10-09">
 <meta name="description" content="A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections.">
 
 <title>Bede Ffinian Rowe Davies - Making Maps in R</title>
@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../BasicRTutorials/DataVisualisation.html" rel="prev">
 <link href="../Images/index/whale.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -181,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Making Maps in R</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/MakingMaps.html">Making Maps in R</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -266,6 +267,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../BasicRTutorials/DataVisualisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Visualisation in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Making Maps in R</span></a>
   </div>
 </li>
       </ul>
@@ -397,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 23, 2023</p>
+      <p class="date">October 9, 2023</p>
     </div>
   </div>
   
@@ -411,14 +418,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1><img src="../Images/Tutorials/sf.gif" align="right" height="138.5"></h1>
 <section id="rant-about-research-and-being-lazy" class="level3">
 <h3 class="anchored" data-anchor-id="rant-about-research-and-being-lazy">Rant about Research and Being Lazy</h3>
-<p>Okay so I have strong and potentially controversial opinions on using GIS software. While very useful, user friendly tools, just like Excel, I strongly argue against their use for scientific analysis (I have caveats to this). The main pillars of science, in my opinion, are increasing societies knowledge in an open, repeatable, replicate-able and critique-able way. Therefore, using software that is paid for or not open access is a big no for me. Likewise, software that is just lots of clicking buttons, without a full transcript of the process being carried out, doesn’t allow full repeatablility. This may be repetition by other researchers to check your results, emulate your analysis method on another dataset or it may be repetition by future you or me! Another major element of using a coding language to carry out tasks is scaleability. If I make a map in a GIS software, to make the same map with a few changes will always take a similar amount of time, doing so in r (or another coding language) will decrease the time per map through looping or functional programming. I am also a lazy scientist, I can use R to carry out all elements of my research, so why learn another program?</p>
+<p>Okay so I have strong and potentially controversial opinions on using GIS software. While very useful, user friendly tools, just like Excel, I strongly argue against their use for scientific analysis (I have caveats to this). The main pillars of science, in my opinion, are increasing societies knowledge in an open, repeatable, replicate-able and critique-able way. Therefore, using software that is paid for or not open access is a big no for me. Likewise, software that is just lots of clicking buttons, without a full transcript of the process being carried out, doesn’t allow full repeatablility. This may be repetition by other researchers to check your results, emulate your analysis method on another dataset or it may be repetition by future you or me! Another major element of using a coding language to carry out tasks is scaleability. If I make a map in a GIS software, to make the same map with a few changes will always take a similar amount of time, doing so in r (or another coding language) will decrease the time per map through looping or functional programming. I am also a lazy scientist, I can use R to carry out all elements of my research, so why learn another program? (I do use other languages from time to time actually but still)</p>
 </section>
 <section id="rant-over-simple-mapping-attack-plan" class="level3">
 <h3 class="anchored" data-anchor-id="rant-over-simple-mapping-attack-plan">Rant Over, Simple Mapping Attack Plan</h3>
 <section id="spatial-data-types" class="level4">
 <h4 class="anchored" data-anchor-id="spatial-data-types">Spatial Data Types</h4>
-<p>Spatial data is basically the same as any other data type but it has some information about its location, and generally it is stored in two major types: Raster or Shape. Raster data are gridded with repeating units or pixels, with each pixel having a x and y coordinates and some data value(s). Shape data are generally type of irregular polygons or points.</p>
-<p>Thankfully for us we can use ggplot2 and its functionality to plot a wide range of shapes and polygons, as well as combination of them.</p>
+<p>Spatial data is basically the same as any other data type but it has some information about its location, and generally it is stored in two major types: Raster or Shape. Raster data are gridded with repeating units or pixels, with each pixel having x and y coordinates and some data value(s). Shape data are generally types of irregular polygons or points.</p>
+<p>Thankfully for us we can use ggplot2 and its functionality to plot a wide range of shapes and rasters, as well as combinations of them.</p>
 </section>
 </section>
 <section id="mapping-attack-plan" class="level3">
@@ -426,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-1---background-map" class="level4">
 <h4 class="anchored" data-anchor-id="step-1---background-map">Step 1 - Background Map</h4>
 <ul>
-<li>Somethings this is all we want and can be many different types: satellite image, coastline, road map. Generally, it gives us the spatial context for other elements we want to display.</li>
+<li>Sometimes this is all we want and can be many different types: satellite image, coastline, road map. Generally, it gives us the spatial context for other elements we want to display.</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
@@ -463,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Map the Globe</h1>
 <section id="step-1---background-map-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-1---background-map-1">Step 1 - Background Map</h2>
-<p>Here we need the data itself, then we want to plot it in a project that makes sense. Atlantic centric? Pacific centric? But depending on some projections we may need to do some extra work to look nice.</p>
+<p>Here we need the data itself, then we want to plot it in a projection that makes sense for our use. Atlantic centric? Pacific centric? But depending on some projections we may need to do some extra work for it to look nice.</p>
 <section id="data-download" class="level3">
 <h3 class="anchored" data-anchor-id="data-download">Data Download</h3>
 <p>Often we will have our own shape or raster files locally, but there are also a wide range of easily accessible data for different forms of data.</p>
@@ -472,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="world-coastlines" class="level3">
 <h3 class="anchored" data-anchor-id="world-coastlines">World Coastlines</h3>
-<p>The rnaturalearth packages have preloaded data that we can access for country polygons at different spatial scales, lets look at the biggest scale. If we load the basic ne_countries() data set and tell the function we want it as an ‘sf’ object we can plot it using the base plot. However, as there are many columns other than the spatial information the baseplot function plots each separately.</p>
+<p>The rnaturalearth packages have preloaded data that we can access for country polygons at different spatial scales, lets look at the middle scale. If we load the basic ne_countries() data set and tell the function we want it as an ‘sf’ object we can plot it using the base plot. However, as there are many columns other than the spatial information the base plot() function plots each separately.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) </span>
@@ -492,7 +499,7 @@ all</code></pre>
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Here we have a world_map object in our global environment, and generally it seems just like a normal dataframe, with columns and rows of data. An sf object has extra information in a column called geometry. This is information on the type of shape (Point, Line or Polygon) for each line in the dataframe. Here we have a row for each country and a polygon for each, alongside lots of info on its administration and population etc. As a dataframe we can easily inspect the data we have and use the same techniques of data manipulation we have used before such as mutating, selecting, summarising, grouping etc.</p>
+<p>Here we have a world_map object in our global environment, and generally it seems just like a normal dataframe, with columns and rows of data. An sf object has extra information in a column called geometry. This is information on the type of shape (Point, Line or Polygon) for each row in the dataframe. Here we have a row with a polygon or group of polygons for each country, alongside lots of info on its administration and population etc. As a dataframe we can easily inspect the data we have and use the same techniques of data manipulation we have used before such as mutating, selecting, summarising, grouping etc.</p>
 <p>Lets take a glance at the top of the first 6 columns:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(world_map[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -558,7 +565,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The mercator uses metres as its units so we have to use those units for setting limits. Lets see some another systems.</p>
+<p>The mercator uses metres as its units so we have to use those units for setting limits. Lets see some other systems.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">3978</span>) <span class="sc">%&gt;%</span> </span>
@@ -585,7 +592,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As you can see, all of these are horrible. But it seems the main issue is being caused by Antarctica. Perhaps if we remove it they will look better?</p>
+<p>As you can see, all of these are horrible. By reprojecting the sf file we are causing the polygons to become glitchy and distorted. It seems some issue is being caused by Antarctica. Perhaps if we remove it it will look better?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>sovereignt<span class="sc">==</span><span class="st">"Antarctica"</span>) <span class="sc">%&gt;%</span> </span>
@@ -597,11 +604,11 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Okay no it doesn’t.</p>
+<p>Okay no it does not.</p>
 </section>
 <section id="distortions" class="level3">
 <h3 class="anchored" data-anchor-id="distortions">Distortions</h3>
-<p>These projections have inherent edges to their projection which will be latitude or longitude values, they will also have the centre position. The areas of the map that are furthest from the centre, around the edges will become distorted when plotting on a 2D plane: think about looking at a 3D globe and trying to see the countries on the other side from you. When transfomring and then plotting, a polygon of a country (the shape that country makes) will potentially get divided. Thus we get these weird glitchy distortions. There are ways around having these distortions but it involves creating a really thin polygon along the edges of the original map, then deleting this thin polygon. This splits the polygons that will be split when changing the transformation. We can visualise this if we want.</p>
+<p>These projections have inherent edges to their projection (the far left or far right of the plotted map) which will be latitude or longitude values, they will also have the centre position. The areas of the map that are furthest from the centre, around the edges will become distorted when plotting on a 2D plane: think about looking at a 3D globe and trying to see the countries on the other side from you. When transforming and then plotting, a polygon of a country (the shape that country makes) will potentially get divided byt the edge of the projection area. Thus, we get these weird glitchy distortions. There are ways around having these distortions but it involves creating a really thin polygon along the edges of the original map, then deleting this thin polygon. This splits the polygons that will be split when changing the transformation. We can visualise this if we want.</p>
 <p>Original Map and transformed into desired CRS.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="sc">%&gt;%</span></span>
@@ -646,7 +653,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sfc</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="dv">4326</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Lets plot the slime polygon on the original map.</p>
+<p>Lets plot the slim polygon on the original map.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span> </span>
@@ -687,13 +694,13 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>This projection is a favourite of mine, I used it above for the map of Europe. The choice of mapping projection will be dictated by the scale you want to show</p>
+<p>This projection is a favourite of mine, I used it above for the map of Europe. The choice of mapping projection will be dictated by the scale you want to show and on your own personal preference.</p>
 </section>
 </section>
 <section id="step-2---spatially-explicit-details-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-2---spatially-explicit-details-1">Step 2 - Spatially Explicit Details</h2>
-<p>Okay so we have a global map we will use to be our Base Map, it isn’t perfect by any means but it is fine for now. Now lets plots some spatially explicit data. As a Marine Ecologist I absolutely <strong>LOVE</strong> bathymetry plots so lets get some bathymetry and try make a nice Bathymetry plot of the North Atlantic. We may have our own bathymetry data, or we could go to some website, download it and read into r, <strong>or</strong> we can download straight into r using the marmap package. This gets bathymetry data from the NOAA database.</p>
-<p>To do this we use the getNOAA.bathy() and tell the function the longitude limits, then latitude limits, then the resolution. If our desired data cross the antimeridian (the longitude line 180 and -180) we can tell the function this too. This function creates a bathy object, but we can convert this to a data frame with as.xyz(). Remember when we set a big area and a low resolution value the file gets bigger so will take longer to download and plot. We shall also remove Depth values that are positive so we only get Depth. (This may not be ideal for inland areas that are below 0).</p>
+<p>Okay so we have a global map we will use to be our Base Map, it isn’t perfect by any means but it is fine for now. Now lets plot some spatially explicit data. As a Marine Ecologist with a dark Oceanography past, I absolutely <strong>LOVE</strong> bathymetry plots so lets get some bathymetry and try make a nice Bathymetry plot of the Atlantic. We may have our own bathymetry data, or we could go to some website, download it and read into r, <strong>or</strong> we can download straight into r using the marmap package. This gets bathymetry data from the NOAA database. (Or GEBCO if you prefer)</p>
+<p>To do this we use the getNOAA.bathy() and tell the function the longitude limits, then latitude limits, then the resolution. If our desired data cross the antimeridian (the longitude line 180 and -180) we can tell the function this too. This function creates a bathy object, but we can convert this to a data frame with as.xyz(). Remember when we set a big area and a fine resolution value the file gets bigger so will take longer to download and to plot. We shall also remove Depth values that are positive so we only get Depth. (This may not be ideal for inland areas that are below 0, such as the eastern coast of the UK).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("marmap")</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -728,7 +735,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>So what we will do is convert the dataframe to an spatial object. We could use sf to do this. Then we can easily transform it to the projection we want! To do this we can use the st_as_sf() function. One issue is we will need to tell sf what projection our latitude and longitude data are.</p>
+<p>So what we will do is convert the dataframe to a spatial object. We could use sf to do this. Then we can easily transform it to the projection we want! To do this we can use the st_as_sf() function. One issue is we will need to tell sf what projection our latitude and longitude data are. Thankfully getNOAAA.bathy() uses EPSG:4326.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Bathy_sf<span class="ot">&lt;-</span><span class="fu">st_as_sf</span>(bat_xyz,<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"Longitude"</span>,<span class="st">"Latitude"</span>),<span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span>  </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(Projection3D)</span>
@@ -766,7 +773,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Okay, this good, the projection is correct and the detail is enough for our current zoom level. The main issue now seems to be the NA values in the spat raster being plotted in a grey colour. So lets plot this with a nicer colour palette, and maybe we want our map lines to be on top of the bathymetry?</p>
+<p>Okay, this is good, the projection is correct and the detail is enough for our current zoom level. The main issue now seems to be the NA values in the spat raster being plotted in a grey colour. So lets plot this with a nicer colour palette, and maybe we want our map lines to be on top of the bathymetry?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>world_map <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(Projection3D) <span class="sc">%&gt;%</span> </span>
@@ -779,7 +786,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Hmmm maybe it would be nicer with a full global bathymetry? Or we could zoom into the area we have bathymetry for?</p>
+<p>Hmmm maybe it would be nicer with a full global bathymetry? Or we could zoom into the area we have bathymetry for? Or both?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>bat_whole <span class="ot">&lt;-</span> <span class="fu">getNOAA.bathy</span>(<span class="at">lon1=</span><span class="sc">-</span><span class="dv">180</span>,<span class="at">lon2=</span><span class="dv">180</span>,<span class="at">lat1=</span><span class="dv">90</span>,<span class="at">lat2=</span><span class="sc">-</span><span class="dv">90</span>, <span class="at">res =</span> <span class="dv">10</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -800,8 +807,8 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <p><img src="MakingMaps_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Lets also make some labels of points of interest, and lets zoom in on the mid atlantic ridge because it is very cool! Always have to refer to <a href="https://en.wikipedia.org/wiki/Marie_Tharp">Marie Tharp</a> for her magnificent work on mapping and effectively discovering this region of the ocean!</p>
-<p>As our projection works in metres it would be a lot of trial and error to get the correct values, but we can create an sf object with the latitude and longitude we want then transform it and use that to create our limits!</p>
+<p>Lets also make some labels of points of interest, and lets zoom in on the mid atlantic ridge because it is very cool! Always have to refer to <a href="https://en.wikipedia.org/wiki/Marie_Tharp">Marie Tharp</a> for her magnificent, literally world changing work on mapping and effectively discovering this region of the ocean!</p>
+<p>As our projection works in metres it would be a lot of trial and error to get the correct values, but we can create an sf object with the latitude and longitude we want then transform it and use that to create our limits! I will just look up some islands and archipelagoes and their Latitudes and Longitudes and add them as labels with the ggforce package function geom_mark_ellipse().</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("sfheaders")</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -855,7 +862,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 </section>
 <section id="step-3---appearance-1" class="level2">
 <h2 class="anchored" data-anchor-id="step-3---appearance-1">Step 3 - Appearance</h2>
-<p>Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big a scale bar is unneccesary (but we will put a small one in anyway) and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.</p>
+<p>Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big i think a scale bar is unneccesary (but we will put a small one in anyway) and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.</p>
 <p>Here I add nicer legend labels. Again it is personal preference but Depth in my opinion should be positive going deeper. I also add a scale bar, although with this projection it will change how big it should be for different areas of the map. I change the colour scheme of the bathymetry to be a blue palette. Then I add Labels for x and y, and a caption of data source. I add some grid lines to show latitude and longitude lines with theme().</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("ggsn")</span></span>
@@ -1261,6 +1268,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../BasicRTutorials/DataVisualisation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Visualisation in R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

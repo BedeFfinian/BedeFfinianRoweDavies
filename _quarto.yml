@@ -66,6 +66,7 @@ website:
             - BasicRTutorials/IntroductionR.qmd
             - BasicRTutorials/DataManipulation.qmd
             - BasicRTutorials/DataVisualisation.qmd
+            - BasicRTutorials/MakingMaps.qmd
         - text: "---"
         - section: "Statistics Tutorials: GLMs"
           contents:
