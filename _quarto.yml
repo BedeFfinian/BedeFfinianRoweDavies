@@ -9,24 +9,26 @@ website:
   open-graph: true
   twitter-card:
     creator: "@bedeffinian" 
+  page-navigation: true
   navbar:
+   pinned: true
    background: "#008b8b"
    foreground: "#dbb13b"
    search: true
    logo: Images/index/whale.ico
    right:
     - text: "Home"
-      href: index.qmd
+      file: index.qmd
     - text: "Consultancy"
-      href: consultancy.qmd
+      file: consultancy.qmd
     - text: "Projects"
-      href: map.qmd
+      file: map.qmd
     - text: "Publications"
-      href: Publications.qmd
+      file: Publications.qmd
     - text: "Blogs"
-      href: Blogs.qmd    
+      file: Blogs.qmd
     - text: "Tutorials"
-      href: Tutorials.qmd
+      file: Tutorials.qmd
     - icon: github
       href: https://github.com/bedeffinian
     - icon: twitter
@@ -49,12 +51,12 @@ website:
     background: "#467373"
   sidebar:
       contents: 
-        - section: "Who am I and What have I done?"
+        - section: "Who am I and What have I done?" 
           contents: 
             - index.qmd
             - map.qmd
             - Publications.qmd
-        - text: "---"
+        - text: "---" 
         - section: "Consultancy Work"
           contents:
             - consultancy.qmd
@@ -62,18 +64,27 @@ website:
         - section: "Basic R Tutorials"
           contents: 
             - BasicRTutorials/IntroductionR.qmd
-            - BasicRTutorials/DataVisualisation.qmd
             - BasicRTutorials/DataManipulation.qmd
+            - BasicRTutorials/DataVisualisation.qmd
+            - BasicRTutorials/CombiningPlots.qmd
+            - BasicRTutorials/MakingMaps.qmd
         - text: "---"
-        - section: "Statistics Tutorials"
+        - section: "Statistics Tutorials: GLMs"
           contents:
             - StatisticsTutorials/IntroductionGLMs.qmd
             - StatisticsTutorials/GaussianGLMs.qmd
+            - StatisticsTutorials/PoissonGLMs.qmd
+            - StatisticsTutorials/BinomialGLMs.qmd
+            - StatisticsTutorials/GammaGLMs.qmd
+            - StatisticsTutorials/BetaGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:
             - blogs/GreenlandTale.qmd
-  page-navigation: true
+      collapse-level: 3
+      foreground: "#dbb13b"
+      background: "#467373"
+       
 format:
   html:
     toc: true

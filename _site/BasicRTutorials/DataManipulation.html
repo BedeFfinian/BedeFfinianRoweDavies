@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-09-21">
 <meta name="description" content="An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling.">
 
-<title>Bede Ffinian Rowe Davies - Data Manipulation with Real World Data in R</title>
+<title>Bede Ffinian Rowe Davies - Data Manipulation in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,13 +60,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../BasicRTutorials/DataVisualisation.html" rel="prev">
+<link href="../BasicRTutorials/DataVisualisation.html" rel="next">
+<link href="../BasicRTutorials/IntroductionR.html" rel="prev">
 <link href="../Images/index/whale.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -101,13 +101,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<meta property="og:title" content="Bede Ffinian Rowe Davies - Data Manipulation with Real World Data in R">
+<meta property="og:title" content="Bede Ffinian Rowe Davies - Data Manipulation in R">
 <meta property="og:description" content="An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling.">
 <meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Tidyverse.png">
 <meta property="og:site-name" content="Bede Ffinian Rowe Davies">
 <meta property="og:image:height" content="852">
 <meta property="og:image:width" content="738">
-<meta name="twitter:title" content="Bede Ffinian Rowe Davies - Data Manipulation with Real World Data in R">
+<meta name="twitter:title" content="Bede Ffinian Rowe Davies - Data Manipulation in R">
 <meta name="twitter:description" content="An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling.">
 <meta name="twitter:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Tidyverse.png">
 <meta name="twitter:creator" content="@bedeffinian">
@@ -187,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/DataManipulation.html">Data Manipulation with Real World Data in R</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/DataManipulation.html">Data Manipulation in R</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -264,14 +264,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/DataManipulation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data Manipulation in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../BasicRTutorials/DataVisualisation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Visualisation in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../BasicRTutorials/DataManipulation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data Manipulation with Real World Data in R</span></a>
+  <a href="../BasicRTutorials/CombiningPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combining Multiple Plots in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making Maps in R</span></a>
   </div>
 </li>
       </ul>
@@ -280,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Statistics Tutorials</span></a>
+ <span class="menu-text">Statistics Tutorials: GLMs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -289,13 +301,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../StatisticsTutorials/IntroductionGLMs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">(General) Linear Models in R - Background to Regression Analysis</span></a>
+ <span class="menu-text">Introduction GLMs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../StatisticsTutorials/GaussianGLMs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gaussian GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/PoissonGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poisson GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/BinomialGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binomial GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/GammaGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gamma GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/BetaGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta GLMs</span></a>
   </div>
 </li>
       </ul>
@@ -354,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Manipulation with Real World Data in R</h1>
+<h1 class="title">Data Manipulation in R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Introduction</div>
     <div class="quarto-category">R</div>
@@ -1683,11 +1719,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../BasicRTutorials/DataVisualisation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Visualisation in R</span>
+      <a href="../BasicRTutorials/IntroductionR.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../BasicRTutorials/DataVisualisation.html" class="pagination-link">
+        <span class="nav-page-text">Data Visualisation in R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

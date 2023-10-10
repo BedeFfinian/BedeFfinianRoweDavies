@@ -59,6 +59,7 @@ Some of the arguments in this function are well named but you need to know the n
 you can easily find documentation of what arguments are within a function by typing two ? before the function in the console like so:
 
 ```{r}
+#| eval: false
 
 ?plot()
 

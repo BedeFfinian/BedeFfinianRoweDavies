@@ -14,17 +14,17 @@ Post-Doctoral Researcher [bedeffinian@gmail.com](bedeffinian@gmail.com)<br>
 
 # Who am I? 
 
-::: {.grid}
+::: {.g-col-12}
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. I am a researcher interested in the large scale changes in marine ecosystems in relation to anthropogenic activities and drivers, using novel techniques alongside traditional methods. 
 
-::: {.g-col-4}
+# Current Post-Doctoral Work
 
-![](Images/who/Bede.JPEG)
+The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery).
 :::
 
 ::: {.g-col-8}
-My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery).
-:::
 
+![](Images/who/Me.JPG)
 :::
 
 # Previous Post-Doctoral Work
@@ -123,7 +123,7 @@ knitr::include_graphics("Images/who/BRUVs.jpg")
 
 ::: {.g-col-7}
 
-Further afield, I have also worked in: 
+Further afield, I have also worked in location and with data from: 
 
 - the Galapagos Islands assessing both Plastic Pollution and Biological Invasive species
 

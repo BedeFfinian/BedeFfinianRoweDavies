@@ -1,5 +1,21 @@
 [
   {
+    "listing": "/Tutorials.html",
+    "items": [
+      "/BasicRTutorials/IntroductionR.html",
+      "/BasicRTutorials/DataManipulation.html",
+      "/BasicRTutorials/DataVisualisation.html",
+      "/BasicRTutorials/CombiningPlots.html",
+      "/BasicRTutorials/MakingMaps.html",
+      "/StatisticsTutorials/IntroductionGLMs.html",
+      "/StatisticsTutorials/GaussianGLMs.html",
+      "/StatisticsTutorials/PoissonGLMs.html",
+      "/StatisticsTutorials/BinomialGLMs.html",
+      "/StatisticsTutorials/GammaGLMs.html",
+      "/StatisticsTutorials/BetaGLMs.html"
+    ]
+  },
+  {
     "listing": "/Publications.html",
     "items": [
       "/posts1/Functional.html",
@@ -20,16 +36,6 @@
     "listing": "/Blogs.html",
     "items": [
       "/blogs/GreenlandTale.html"
-    ]
-  },
-  {
-    "listing": "/Tutorials.html",
-    "items": [
-      "/BasicRTutorials/IntroductionR.html",
-      "/BasicRTutorials/DataManipulation.html",
-      "/BasicRTutorials/DataVisualisation.html",
-      "/StatisticsTutorials/IntroductionGLMs.html",
-      "/StatisticsTutorials/GaussianGLMs.html"
     ]
   }
 ]

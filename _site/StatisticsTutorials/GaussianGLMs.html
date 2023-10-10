@@ -60,12 +60,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../StatisticsTutorials/PoissonGLMs.html" rel="next">
+<link href="../StatisticsTutorials/IntroductionGLMs.html" rel="prev">
 <link href="../Images/index/whale.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -104,20 +105,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Bede Ffinian Rowe Davies - Gaussian GLMs">
 <meta property="og:description" content="Examples of Gaussian GLMs">
-<meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/logo.png">
+<meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Gaussian_Plot.png">
 <meta property="og:site-name" content="Bede Ffinian Rowe Davies">
-<meta property="og:image:height" content="1200">
-<meta property="og:image:width" content="1037">
+<meta property="og:image:height" content="630">
+<meta property="og:image:width" content="630">
 <meta name="twitter:title" content="Bede Ffinian Rowe Davies - Gaussian GLMs">
 <meta name="twitter:description" content="Examples of Gaussian GLMs">
-<meta name="twitter:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/logo.png">
+<meta name="twitter:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Gaussian_Plot.png">
 <meta name="twitter:creator" content="@bedeffinian">
-<meta name="twitter:image-height" content="1200">
-<meta name="twitter:image-width" content="1037">
+<meta name="twitter:image-height" content="630">
+<meta name="twitter:image-width" content="630">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
+    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -176,11 +177,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </i> 
  <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.researchgate.net/profile/Bede-Davies-2" rel="" target=""><i class="bi bi-file-bar-graph" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
 </ul>
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -188,19 +184,187 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../StatisticsTutorials/IntroductionGLMs.html">Statistics Tutorials: GLMs</a></li><li class="breadcrumb-item"><a href="../StatisticsTutorials/GaussianGLMs.html">Gaussian GLMs</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Who am I and What have I done?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dr.&nbsp;Bede Ffinian Rowe Davies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Map of Previous Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Publications.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publications</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Consultancy Work</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../consultancy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ecological and Statistical Consultancy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Basic R Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/IntroductionR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/DataManipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Manipulation in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/DataVisualisation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Visualisation in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/CombiningPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Combining Multiple Plots in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making Maps in R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Statistics Tutorials: GLMs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/IntroductionGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/GaussianGLMs.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gaussian GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/PoissonGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Poisson GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/BinomialGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binomial GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/GammaGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gamma GLMs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/BetaGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta GLMs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">Travel Blogs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../blogs/GreenlandTale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A Greenlandic Tale</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#using-gaussian-glms" id="toc-using-gaussian-glms" class="nav-link active" data-scroll-target="#using-gaussian-glms">Using Gaussian GLMs <img src="../Images/Tutorials/logo.png" align="right" height="138.5"></a>
   <ul class="collapse">
-  <li><a href="#linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova" id="toc-linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova" class="nav-link" data-scroll-target="#linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova">Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA?</a></li>
-  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading">Data Loading</a></li>
+  <li><a href="#data-loading---palmer-penguins" id="toc-data-loading---palmer-penguins" class="nav-link" data-scroll-target="#data-loading---palmer-penguins">Data Loading - Palmer Penguins</a></li>
   <li><a href="#modelling-with-categorical-predictor-variables" id="toc-modelling-with-categorical-predictor-variables" class="nav-link" data-scroll-target="#modelling-with-categorical-predictor-variables">Modelling with Categorical Predictor Variables</a>
   <ul class="collapse">
   <li><a href="#step-one---scienctific-model-to-stats-model" id="toc-step-one---scienctific-model-to-stats-model" class="nav-link" data-scroll-target="#step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</a></li>
@@ -236,6 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="quarto-category">R</div>
     <div class="quarto-category">GLMs</div>
     <div class="quarto-category">Stats</div>
+    <div class="quarto-category">Gaussian</div>
   </div>
   </div>
 
@@ -264,12 +429,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="using-gaussian-glms" class="level1">
 <h1>Using Gaussian GLMs <img src="../Images/Tutorials/logo.png" align="right" height="138.5"></h1>
-<section id="linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova" class="level2">
-<h2 class="anchored" data-anchor-id="linear-model-or-general-linear-model-with-gaussian-distribution-or-anova-or-ancova">Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA?</h2>
-<p>There are many names for this type of model, they all effectively mean the same thing. I am going to stick to calling it a Gaussian GLM because then there isn’t a new name for every different test. If you don’t like that, use whatever term you like, but the code and interpretation will be the same.</p>
-</section>
-<section id="data-loading" class="level2">
-<h2 class="anchored" data-anchor-id="data-loading">Data Loading</h2>
+<p>Linear Model? or General Linear Model with Gaussian Distribution? or ANOVA? or ANCOVA? There are many names for this type of model, they all effectively mean the same thing. I am going to stick to calling it a Gaussian GLM because then there isn’t a new name for every different test. If you don’t like that, use whatever term you like, but the code and interpretation will be the same.</p>
+<section id="data-loading---palmer-penguins" class="level2">
+<h2 class="anchored" data-anchor-id="data-loading---palmer-penguins">Data Loading - Palmer Penguins</h2>
 <p>As before lets use the Palmer penguins dataset and remove the NAs (as before NAs should never be remove without considering why there are NAs but here we will remove them for ease).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("palmerpenguins")</span></span>
@@ -293,6 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>penguins_noNAs<span class="ot">&lt;-</span>penguins<span class="sc">%&gt;%</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><img src="../Images/Tutorials/lter_penguins.png" align="centre" width="100%/"></p>
 </section>
 <section id="modelling-with-categorical-predictor-variables" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-with-categorical-predictor-variables">Modelling with Categorical Predictor Variables</h2>
@@ -1098,6 +1261,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../StatisticsTutorials/IntroductionGLMs.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction GLMs</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../StatisticsTutorials/PoissonGLMs.html" class="pagination-link">
+        <span class="nav-page-text">Poisson GLMs</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
