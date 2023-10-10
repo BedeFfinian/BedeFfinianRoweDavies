@@ -515,7 +515,7 @@ all</code></pre>
 Geometry type: MULTIPOLYGON
 Dimension:     XY
 Bounding box:  xmin: -70.06611 ymin: -18.01973 xmax: 74.89131 ymax: 60.40581
-Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+CRS:           +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
   scalerank      featurecla labelrank     sovereignt sov_a3 adm0_dif
 0         3 Admin-0 country         5    Netherlands    NL1        1
 1         1 Admin-0 country         3    Afghanistan    AFG        0
@@ -940,8 +940,8 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span>Islands) ,</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend=</span>F,</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.8</span>,</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">8</span>, </span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>),</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">7</span>, </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">"mm"</span>),</span>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="at">label.fill =</span> <span class="st">"grey90"</span>)<span class="sc">+</span></span>
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours=</span><span class="fu">c</span>(<span class="st">"#5e24d6"</span>,<span class="st">"#22496d"</span>,<span class="st">"#042f66"</span>,<span class="st">"#054780"</span>,<span class="st">"#1074a6"</span>,</span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"#218eb7"</span>,<span class="st">"#48b5d2"</span>,<span class="st">"#72d0e1"</span>,<span class="st">"#9ddee7"</span>,<span class="st">"#c6edec"</span>),</span>
@@ -954,7 +954,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scalebar</span>(world_map <span class="sc">%&gt;%</span>  <span class="fu">st_transform</span>(Projection3D),</span>
 <span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">dist =</span> <span class="dv">1500</span>, <span class="at">dist_unit =</span> <span class="st">"km"</span>, </span>
 <span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>                 <span class="at">transform=</span><span class="cn">FALSE</span>, </span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>                 <span class="at">st.dist=</span><span class="fl">0.008</span>,</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>                 <span class="at">st.dist=</span><span class="fl">0.0085</span>,</span>
 <span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>                 <span class="at">height=</span><span class="fl">0.01</span>,</span>
 <span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>                 <span class="at">location=</span><span class="st">"bottomright"</span>,</span>
 <span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>                 <span class="at">anchor=</span><span class="fu">c</span>(<span class="at">x=</span><span class="fu">min</span>(Crop_MAR<span class="sc">$</span>x)<span class="sc">*</span><span class="fl">1.07</span>,</span>
@@ -1003,7 +1003,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span>Islands) ,</span>
 <span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend=</span>F,</span>
 <span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.8</span>,</span>
-<span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">8</span>,</span>
+<span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">10</span>,</span>
 <span id="cb26-78"><a href="#cb26-78" aria-hidden="true" tabindex="-1"></a><span class="at">expand =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
 <span id="cb26-79"><a href="#cb26-79" aria-hidden="true" tabindex="-1"></a><span class="at">radius =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
 <span id="cb26-80"><a href="#cb26-80" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>),</span>
@@ -1056,10 +1056,10 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb26-127"><a href="#cb26-127" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span>Islands) ,</span>
 <span id="cb26-128"><a href="#cb26-128" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend=</span>F,</span>
 <span id="cb26-129"><a href="#cb26-129" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.8</span>,</span>
-<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">8</span>,</span>
-<span id="cb26-131"><a href="#cb26-131" aria-hidden="true" tabindex="-1"></a><span class="at">expand =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
-<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a><span class="at">radius =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
-<span id="cb26-133"><a href="#cb26-133" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>),</span>
+<span id="cb26-130"><a href="#cb26-130" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">10</span>,</span>
+<span id="cb26-131"><a href="#cb26-131" aria-hidden="true" tabindex="-1"></a><span class="at">expand =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"mm"</span>) , </span>
+<span id="cb26-132"><a href="#cb26-132" aria-hidden="true" tabindex="-1"></a><span class="at">radius =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"mm"</span>) , </span>
+<span id="cb26-133"><a href="#cb26-133" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="fl">0.2</span>, <span class="st">"mm"</span>),</span>
 <span id="cb26-134"><a href="#cb26-134" aria-hidden="true" tabindex="-1"></a><span class="at">label.fill =</span> <span class="st">"grey90"</span>)<span class="sc">+</span></span>
 <span id="cb26-135"><a href="#cb26-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours=</span><span class="fu">c</span>(<span class="st">"#5e24d6"</span>,<span class="st">"#22496d"</span>,<span class="st">"#042f66"</span>,<span class="st">"#054780"</span>,<span class="st">"#1074a6"</span>,</span>
 <span id="cb26-136"><a href="#cb26-136" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"#218eb7"</span>,<span class="st">"#48b5d2"</span>,<span class="st">"#72d0e1"</span>,<span class="st">"#9ddee7"</span>,<span class="st">"#c6edec"</span>),</span>
@@ -1110,7 +1110,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 <span id="cb26-181"><a href="#cb26-181" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span>Islands) ,</span>
 <span id="cb26-182"><a href="#cb26-182" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend=</span>F,</span>
 <span id="cb26-183"><a href="#cb26-183" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha=</span><span class="fl">0.8</span>,</span>
-<span id="cb26-184"><a href="#cb26-184" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">8</span>,</span>
+<span id="cb26-184"><a href="#cb26-184" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.fontsize =</span> <span class="dv">10</span>,</span>
 <span id="cb26-185"><a href="#cb26-185" aria-hidden="true" tabindex="-1"></a><span class="at">expand =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
 <span id="cb26-186"><a href="#cb26-186" aria-hidden="true" tabindex="-1"></a><span class="at">radius =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>) , </span>
 <span id="cb26-187"><a href="#cb26-187" aria-hidden="true" tabindex="-1"></a><span class="at">label.buffer =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>),</span>
