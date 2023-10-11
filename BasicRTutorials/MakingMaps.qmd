@@ -1,5 +1,5 @@
 ---
-title: "Making Maps in R"
+title: "Making Static Maps in R"
 description: "A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections."
 image: ../Images/Tutorials/sf.gif
 id: Basics
@@ -507,6 +507,15 @@ To do this we use the getNOAA.bathy() and tell the function the longitude limits
 
 library(marmap)
 
+```
+
+
+
+```{r}
+#| warning: false
+#| error: false
+ 
+
 # Get bathymetric data
 bat <- getNOAA.bathy(lon1=-90,lon2=40,lat1=70,lat2=-60, res = 4)
 
@@ -526,7 +535,7 @@ Okay so now we have some regular gridded bathymetry data but it isn't the same p
 ```{r}
 #| warning: false
 #| error: false
-#| cache: true
+ 
 
 Projection3D<-"+proj=laea +lat_0=0 +lon_0=-30 +x_0=43210000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 
@@ -544,7 +553,7 @@ So what we will do is convert the dataframe to a spatial object. We could use sf
 ```{r}
 #| warning: false
 #| error: false
-#| cache: true
+ 
 
 Bathy_sf<-st_as_sf(bat_xyz,coords = c("Longitude","Latitude"),crs=4326) %>%  
   st_transform(Projection3D)
@@ -590,7 +599,7 @@ Okay, this is good, the projection is correct and the detail is enough for our c
 ```{r}
 #| warning: false
 #| error: false
-#| cache: true
+ 
 
 world_map %>% 
   st_transform(Projection3D) %>% 
@@ -607,7 +616,7 @@ Hmmm maybe it would be nicer with a full global bathymetry? Or we could zoom int
 ```{r}
 #| warning: false
 #| error: false
-#| cache: true
+ 
 
 bat_whole <- getNOAA.bathy(lon1=-180,lon2=180,lat1=90,lat2=-90, res = 10)
 
@@ -634,14 +643,21 @@ As our projection works in metres it would be a lot of trial and error to get th
 ```{r}
 #| warning: false
 #| error: false
-#| fig-width: 10
-#| fig-height: 12
 
 #install.packages("sfheaders")
 
 library(sfheaders)
 library(ggforce)
 
+```
+
+
+```{r}
+#| warning: false
+#| error: false
+#| fig-width: 10
+#| fig-height: 12
+ 
 Crop_MAR<-data.frame(
   lon = c(-80,50,-80,50),  
   lat = c(-45,-45,45,45)
@@ -665,8 +681,13 @@ InterestingPoints<-data.frame(
   st_as_sf(coords=c("lon","lat"), crs = 4326) %>% 
   st_transform(Projection3D) %>% 
   sf_to_df(fill=T)
+```
 
-
+```{r}
+#| warning: false
+#| error: false
+#| fig-width: 10
+#| fig-height: 12
 
 world_map %>% 
   st_transform(Projection3D) %>% 
@@ -753,8 +774,45 @@ For this we will be our big map and then zooming in to two regions of the map an
 ```{r}
 #| warning: false
 #| error: false
+ 
+
+world_map_HighRes<- ne_countries(returnclass = "sf",scale = 10) 
+
+bat_whole_Canaries <- getNOAA.bathy(lon1=-30,lon2=0,lat1=15,lat2=45, res = 1)
+
+Bathy_Canaries <- as.xyz(bat_whole_Canaries) %>% 
+  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
+  filter(Depth<1) %>% 
+  as_spatraster(xycols = c(1:2),crs=4326) %>%  
+  project(Projection3D)
+
+bat_whole_SouthGeorgia <- getNOAA.bathy(lon1=-45,lon2=-25,lat1=-58,lat2=-50, res = 1)
+
+Bathy_SouthGeorgia <- as.xyz(bat_whole_SouthGeorgia) %>% 
+  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
+  filter(Depth<1) %>% 
+  as_spatraster(xycols = c(1:2),crs=4326) %>%  
+  project(Projection3D)
+
+bat_whole_Possession <- getNOAA.bathy(lon1=45,lon2=65,lat1=-50,lat2=-42, res = 1)
+
+Bathy_Possession <- as.xyz(bat_whole_Possession) %>% 
+  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
+  filter(Depth<1) %>% 
+  as_spatraster(xycols = c(1:2),crs=4326) %>%  
+  project(Projection3D)
+
+```
+
+
+Now just the same plotting code for each plot to be saved as global objects.
+
+```{r}
+#| warning: false
+#| error: false
 #| fig-width: 11
 #| fig-height: 11
+#| code-fold: true
 
 BaseMap<-world_map %>% 
   st_transform(Projection3D) %>% 
@@ -807,16 +865,6 @@ Canaries<-data.frame(
   st_transform(Projection3D) %>% 
   sf_to_df(fill=T)
 
-bat_whole_Canaries <- getNOAA.bathy(lon1=-30,lon2=0,lat1=15,lat2=45, res = 1)
-
-Bathy_Canaries <- as.xyz(bat_whole_Canaries) %>% 
-  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
-  filter(Depth<1) %>% 
-  as_spatraster(xycols = c(1:2),crs=4326) %>%  
-  project(Projection3D)
-
-world_map_HighRes<- ne_countries(returnclass = "sf",scale = 10) 
-
 
 CanariesMap<-world_map_HighRes %>% 
   st_transform(Projection3D) %>% 
@@ -861,14 +909,6 @@ SouthGeorgia<-data.frame(
   st_as_sf(coords=c("lon","lat"), crs = 4326) %>% 
   st_transform(Projection3D) %>% 
   sf_to_df(fill=T)
-
-bat_whole_SouthGeorgia <- getNOAA.bathy(lon1=-45,lon2=-25,lat1=-58,lat2=-50, res = 1)
-
-Bathy_SouthGeorgia <- as.xyz(bat_whole_SouthGeorgia) %>% 
-  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
-  filter(Depth<1) %>% 
-  as_spatraster(xycols = c(1:2),crs=4326) %>%  
-  project(Projection3D)
 
 
 SGeorgiaMap<-world_map_HighRes %>% 
@@ -916,15 +956,6 @@ Possession<-data.frame(
   st_transform(Projection3D) %>% 
   sf_to_df(fill=T)
 
-bat_whole_Possession <- getNOAA.bathy(lon1=45,lon2=65,lat1=-50,lat2=-42, res = 1)
-
-Bathy_Possession <- as.xyz(bat_whole_Possession) %>% 
-  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
-  filter(Depth<1) %>% 
-  as_spatraster(xycols = c(1:2),crs=4326) %>%  
-  project(Projection3D)
-
-
 PossessionMap<-world_map_HighRes %>% 
   st_transform(Projection3D) %>% 
 ggplot()+
@@ -969,9 +1000,9 @@ Now to plot together with Patchwork (See previous tutorial for more info)
 ```{r}
 #| warning: false
 #| error: false
-#| fig-width: 14
-#| fig-height: 14
-#| out-width: 100%
+#| fig-width: 13
+#| fig-height: 13
+#| out-width: 110%
 #| message: false
 
 library(patchwork)
@@ -988,7 +1019,8 @@ plot(layout)
 
 BaseMap+CanariesMap+PossessionMap+SGeorgiaMap+
   plot_layout(guides = "collect",design = layout)+
-  plot_annotation(tag_levels = "a")
+  plot_annotation(tag_levels = "a") &
+  theme(plot.title = element_text(face = "bold",size=25))
 
 ```
 

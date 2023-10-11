@@ -68,6 +68,7 @@ website:
             - BasicRTutorials/DataVisualisation.qmd
             - BasicRTutorials/CombiningPlots.qmd
             - BasicRTutorials/MakingMaps.qmd
+            - BasicRTutorials/MakingInteractiveMaps.qmd
         - text: "---"
         - section: "Statistics Tutorials: GLMs"
           contents:

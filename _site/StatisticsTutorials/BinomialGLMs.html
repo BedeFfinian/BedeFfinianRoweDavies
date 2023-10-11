@@ -281,7 +281,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Making Maps in R</span></a>
+ <span class="menu-text">Making Static Maps in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../BasicRTutorials/MakingInteractiveMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making Interactive Maps in R</span></a>
   </div>
 </li>
       </ul>
@@ -433,11 +439,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ dplyr     1.1.2     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
 ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -568,10 +574,6 @@ The following object is masked from 'package:ggplot2':
 Call:
 glm(formula = binary ~ clarity + color + weight, family = "binomial", 
     data = df_bin)
-
-Deviance Residuals: 
-     Min        1Q    Median        3Q       Max  
--2.81502  -0.59412  -0.05014   0.45285   2.38291  
 
 Coefficients:
             Estimate Std. Error z value Pr(&gt;|z|)    
@@ -845,22 +847,23 @@ Attaching package: 'zoo'</code></pre>
 <h3 class="anchored" data-anchor-id="step-four---assessing-model-functioning-1">Step Four - Assessing Model Functioning</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Model has interaction terms. VIFs might be inflated.
+  You may check multicollinearity among predictors of a model without
+  interaction terms.</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>As earlier, we don’t see the plot for hommogeneity of residuals but we do see binned probabilities, which most of our values are inside the error bounds. Again the qqnorm plot looks good. There seems to be high collinearity but this is often the case with interactions terms. Generally, we can be happy with this model diagnostic.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
 glm(formula = affairs_bin ~ Children * Yearsmarried + Gender + 
     Religiousness_fct, family = "binomial", data = Affairs_binom)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--1.2873  -0.7613  -0.6069  -0.3037   2.4190  
 
 Coefficients:
                           Estimate Std. Error z value Pr(&gt;|z|)    
@@ -905,7 +908,7 @@ y = \beta_{1} Children : Years \:Married \\
 \]</span></p>
 <p>This is a lot of <span class="math inline">\(\beta\)</span> values but thankfully we don’t have to deal with them directly. As before our link function is the logit value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logit"</code></pre>
 </div>
@@ -921,40 +924,40 @@ y = \beta_{1} Children : Years \:Married \\
 <p>We can also tell the predict function to predict error (Standard Error here that we then convert to an approximation of the 95% confidence interval again we make sure they stay between 0 and 1).</p>
 <p>Note that here I tell Predict that I want the fit to be returned on the response scale and not the link scale.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">Children=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>,<span class="st">"No"</span>)),</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Yearsmarried=</span><span class="fu">unique</span>(Affairs_binom<span class="sc">$</span>Yearsmarried),</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Gender=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Female"</span>,<span class="st">"Male"</span>)),</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Religiousness_fct=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)))</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm2,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
-<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
-<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Children),</span>
-<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
-<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
-<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Children),</span>
-<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Religiousness_fct<span class="sc">~</span>Gender)<span class="sc">+</span></span>
-<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
-<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
-<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Years Married"</span>,<span class="at">y=</span><span class="st">"Probability of an Affair</span><span class="sc">\n</span><span class="st">in the Last Year"</span>,</span>
-<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Children"</span>,</span>
-<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour=</span><span class="st">"Children"</span>)<span class="sc">+</span></span>
-<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">Children=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>,<span class="st">"No"</span>)),</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Yearsmarried=</span><span class="fu">unique</span>(Affairs_binom<span class="sc">$</span>Yearsmarried),</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Gender=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Female"</span>,<span class="st">"Male"</span>)),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Religiousness_fct=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)))</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm2,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Children),</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Children),</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Religiousness_fct<span class="sc">~</span>Gender)<span class="sc">+</span></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Years Married"</span>,<span class="at">y=</span><span class="st">"Probability of an Affair</span><span class="sc">\n</span><span class="st">in the Last Year"</span>,</span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Children"</span>,</span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour=</span><span class="st">"Children"</span>)<span class="sc">+</span></span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="768"></p>
 </div>
