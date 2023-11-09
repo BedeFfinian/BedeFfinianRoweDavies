@@ -78,7 +78,7 @@ knitr::include_graphics("Images/index/Orcas.png")
 ::: {.grid}
 
 ::: {.g-col-4}
-I have assisted in Fisheries Assessment cruises as a Bnethic Taxonomist across the Greenlandic and Icelandic Seas. 
+I have assisted in Fisheries Assessment cruises as a Benthic Taxonomist across the Greenlandic and Icelandic Seas. 
 
 During this cruise on the RV Tarajoq my main duties were to:
 
