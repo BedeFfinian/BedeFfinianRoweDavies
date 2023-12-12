@@ -16,7 +16,6 @@ Lets use a real-world dataset. This data set is the number of Plant species on d
 ```{r}
 library(tidyverse)
 library(faraway)
-library(performance)
 library(patchwork)
 
 data("gala")
@@ -77,9 +76,26 @@ glm1<-glm(Endemics~Elevation_log,data=df, family= "poisson")
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm1)
+library(patchwork)
+
+ModelOutputs<-data.frame(Fitted=fitted(glm1),
+                  Residuals=resid(glm1))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 
@@ -264,9 +280,24 @@ glm2<-glm(seizures~treatment*age+base_sqrt,data=df, family= "poisson")
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm2)
+ModelOutputs<-data.frame(Fitted=fitted(glm2),
+                  Residuals=resid(glm2))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 

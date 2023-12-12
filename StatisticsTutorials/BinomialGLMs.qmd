@@ -94,13 +94,29 @@ glm1<-glm(binary~clarity+color+weight,data=df_bin, family= "binomial")
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm1)
+ModelOutputs<-data.frame(Fitted=fitted(glm1),
+                  Residuals=resid(glm1))
+
+p3<-ggplot(ModelOutputs)+
+    geom_histogram(aes(x=Residuals))+
+    theme_classic()+
+    labs(x="Residuals",y="Count")
+
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 
-Okay, here we have a different looking plot than before as the response variable is not continuous or integers. Therefore, homogeneity of resiiduals is less important, but normality of residuals is. Here we see that the qqnorm plot looks fairly good but high values are moving away from normality. Generally the model seems to fit well so we will interpret it. 
+Okay, here we have a different looking plot than before as the response variable is not continuous or integers. Therefore, homogeneity of residuals is less important, but normality of residuals is. Here we see that the qqnorm plot looks fairly good but high values are moving away from normality. Generally the model seems to fit well so we will interpret it. 
 
 ```{r}
 summary(glm1)
@@ -340,13 +356,67 @@ glm2<-glm(affairs_bin~Children*Yearsmarried+Gender+Religiousness_fct,data=Affair
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm2)
+ModelOutputs<-data.frame(Fitted=fitted(glm2),
+                  Residuals=resid(glm2))
+
+p3<-ggplot(ModelOutputs)+
+    geom_histogram(aes(x=Residuals))+
+    theme_classic()+
+    labs(x="Residuals",y="Count")
+
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 
-As earlier, we don't see the plot for hommogeneity of residuals but we do see binned probabilities, which most of our values are inside the error bounds. Again the qqnorm plot looks good. There seems to be high collinearity but this is often the case with interactions terms. Generally, we can be happy with this model diagnostic.
+As earlier, we don't see the plot for homogeneity of residuals but we do see binned residuals, which show two clear peaks of residuals. There seems to be two clear elements/patterns within our data. Generally, we shouldn't accept this model diagnostic. One trick to find out where these issues come from can be to plot the residuals against the fixed factors in the model. 
+
+```{r}
+#| fig.width: 8
+#| fig.height: 8
+
+ModelOutputs<-data.frame(Fitted=fitted(glm2),
+                  Residuals=resid(glm2),
+                  Children= Affairs_binom$Children,
+                  Yearsmarried= Affairs_binom$Yearsmarried,
+                  Gender= Affairs_binom$Gender,
+                  Religiousness_fct= Affairs_binom$Religiousness_fct)
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Residuals,y=Children))+
+    theme_classic()+
+    labs(x="Residuals",y="Children")
+
+p4<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Residuals,y=Yearsmarried))+
+    theme_classic()+
+    labs(x="Residuals",y="Years Married")
+
+p5<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Residuals,y=Gender))+
+    theme_classic()+
+    labs(x="Residuals",y="Gender")
+
+p6<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Residuals,y=Religiousness_fct))+
+    theme_classic()+
+    labs(x="Residuals",y="Religiousness")
+
+(p3+p4)/(p5+p6)
+
+```
+
+There seems to be no clear patterns we can see, so we must have some other issue somewhere, we will continue with caution now but that would not be advisable normally.
+
 
 ```{r}
 summary(glm2)

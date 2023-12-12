@@ -13,7 +13,9 @@
       "/StatisticsTutorials/PoissonGLMs.html",
       "/StatisticsTutorials/BinomialGLMs.html",
       "/StatisticsTutorials/GammaGLMs.html",
-      "/StatisticsTutorials/BetaGLMs.html"
+      "/StatisticsTutorials/BetaGLMs.html",
+      "/StatisticsTutorials/ZeroInflatedGLMs.html",
+      "/StatisticsTutorials/ProblematicGLMs.html"
     ]
   },
   {

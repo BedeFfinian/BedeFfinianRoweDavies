@@ -338,6 +338,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Beta GLMs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/ProblematicGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common GLM Problems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/ZeroInflatedGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero Inflated GLMs</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -440,9 +452,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -462,9 +474,14 @@ Attaching package: 'Matrix'
 
 The following objects are masked from 'package:tidyr':
 
-    expand, pack, unpack
-
-************
+    expand, pack, unpack</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in .recacheSubclasses(def@className, def, env): undefined subclass
+"ndiMatrix" of class "replValueSp"; definition not updated</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>************
 Welcome to BayesFactor 0.9.12-4.5. If you have questions, please contact Richard Morey (richarddmorey@gmail.com).
 
 Type BFManual() to open the manual.
@@ -493,8 +510,8 @@ The following object is masked from 'package:ggplot2':
 
     diamonds</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(diamonds)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(diamonds)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(diamonds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     weight          clarity           color          value      
  Min.   : 5.360   Min.   :0.4400   Min.   :2.00   Min.   :174.0  
@@ -510,13 +527,13 @@ The following object is masked from 'package:ggplot2':
 <h3 class="anchored" data-anchor-id="step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</h3>
 <p>So we could model the actual diamond value but for this example we will split the value into high and low values (higher than 190 or lower than 190).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_bin<span class="ot">&lt;-</span>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">binary=</span><span class="fu">if_else</span>(value<span class="sc">&gt;</span><span class="dv">190</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(binary)))<span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Binary Value Above 190 or not"</span>,<span class="at">y=</span><span class="st">"Count"</span>)<span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_bin<span class="ot">&lt;-</span>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">binary=</span><span class="fu">if_else</span>(value<span class="sc">&gt;</span><span class="dv">190</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.factor</span>(binary)))<span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Binary Value Above 190 or not"</span>,<span class="at">y=</span><span class="st">"Count"</span>)<span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="768"></p>
 </div>
@@ -532,43 +549,62 @@ The following object is masked from 'package:ggplot2':
 <h3 class="anchored" data-anchor-id="step-three---organising-fixed-effects">Step Three - Organising Fixed Effects</h3>
 <p>Okay so lets look at our fixed effects, we will use density for continuous values (clarity and weight), while bars can show the counts for the integer Colour. Here colour is an ordinal integer, therefore we will model it as such. If we had Colour as a category (such as red, green, blue etc) we would want to convert it to be a factor for modelling as it would be more nominal.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>clarity))<span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Clarity"</span>,<span class="at">y=</span><span class="st">"Density"</span>)<span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>color))<span class="sc">+</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Colour"</span>,<span class="at">y=</span><span class="st">"Count"</span>)<span class="sc">+</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>weight))<span class="sc">+</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Weight"</span>,<span class="at">y=</span><span class="st">"Denisty"</span>)<span class="sc">+</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>clarity))<span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Clarity"</span>,<span class="at">y=</span><span class="st">"Density"</span>)<span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>color))<span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Colour"</span>,<span class="at">y=</span><span class="st">"Count"</span>)<span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_bin,<span class="fu">aes</span>(<span class="at">x=</span>weight))<span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Diamond Weight"</span>,<span class="at">y=</span><span class="st">"Denisty"</span>)<span class="sc">+</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2<span class="sc">+</span>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>Let’s fit the glm using these our statistical model from above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>glm1<span class="ot">&lt;-</span><span class="fu">glm</span>(binary<span class="sc">~</span>clarity<span class="sc">+</span>color<span class="sc">+</span>weight,<span class="at">data=</span>df_bin, <span class="at">family=</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>glm1<span class="ot">&lt;-</span><span class="fu">glm</span>(binary<span class="sc">~</span>clarity<span class="sc">+</span>color<span class="sc">+</span>weight,<span class="at">data=</span>df_bin, <span class="at">family=</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-four---assessing-model-functioning" class="level3">
 <h3 class="anchored" data-anchor-id="step-four---assessing-model-functioning">Step Four - Assessing Model Functioning</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(glm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ModelOutputs<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Fitted=</span><span class="fu">fitted</span>(glm1),</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Residuals=</span><span class="fu">resid</span>(glm1))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Count"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>(<span class="fu">aes</span>(<span class="at">sample=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>(<span class="fu">aes</span>(<span class="at">sample=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Sample Quartiles"</span>,<span class="at">x=</span><span class="st">"Theoretical Quartiles"</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">+</span>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
-<p>Okay, here we have a different looking plot than before as the response variable is not continuous or integers. Therefore, homogeneity of resiiduals is less important, but normality of residuals is. Here we see that the qqnorm plot looks fairly good but high values are moving away from normality. Generally the model seems to fit well so we will interpret it.</p>
+<p>Okay, here we have a different looking plot than before as the response variable is not continuous or integers. Therefore, homogeneity of residuals is less important, but normality of residuals is. Here we see that the qqnorm plot looks fairly good but high values are moving away from normality. Generally the model seems to fit well so we will interpret it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -605,7 +641,7 @@ y = \beta_{1} Weight + \beta_{2} Colour + \beta_{3} Clarity+ Intercept
 <p>Here our link function is slightly different again. This time it is a logit. This is effectively a way of converting a value to be a probability.</p>
 <p>We can check this is the link function r is using here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>glm1<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>glm1<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logit"</code></pre>
 </div>
@@ -621,46 +657,46 @@ y = \beta_{1} Weight + \beta_{2} Colour + \beta_{3} Clarity+ Intercept
 <p>Note that here I tell Predict that I want the fit to be returned on the response scale and not the link scale.</p>
 <p>To make plotting easier I will set a Low, middle and high value for weight and color as clarity has the highest influence on diamond value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">weight=</span><span class="fu">c</span>(<span class="fu">min</span>(df_bin<span class="sc">$</span>weight),<span class="fu">mean</span>(df_bin<span class="sc">$</span>weight),<span class="fu">max</span>(df_bin<span class="sc">$</span>weight)),</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>),</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">clarity=</span><span class="fu">seq</span>(<span class="fu">min</span>(df_bin<span class="sc">$</span>clarity),<span class="fu">max</span>(df_bin<span class="sc">$</span>clarity),<span class="at">length.out=</span><span class="dv">50</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                       ) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Weight_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(weight<span class="sc">==</span><span class="fu">min</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"Low"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">==</span><span class="fu">mean</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"Mid"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">==</span><span class="fu">max</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"High"</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low"</span>,<span class="st">"Mid"</span>,<span class="st">"High"</span>)),</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Color_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(color<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="st">"Low Colour"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="st">"Mid Colour"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">==</span><span class="dv">8</span><span class="sc">~</span><span class="st">"High Colour"</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low Colour"</span>,<span class="st">"Mid Colour"</span>,<span class="st">"High Colour"</span>)))</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm1,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Weight_Group),</span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Color_Group,<span class="at">ncol =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Clarity"</span>,<span class="at">y=</span><span class="st">"Response Variable (Probability of Diamond value over 190)"</span>,</span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Weight Group"</span>,<span class="at">colour=</span><span class="st">"Weight Group"</span>)<span class="sc">+</span></span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">weight=</span><span class="fu">c</span>(<span class="fu">min</span>(df_bin<span class="sc">$</span>weight),<span class="fu">mean</span>(df_bin<span class="sc">$</span>weight),<span class="fu">max</span>(df_bin<span class="sc">$</span>weight)),</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">clarity=</span><span class="fu">seq</span>(<span class="fu">min</span>(df_bin<span class="sc">$</span>clarity),<span class="fu">max</span>(df_bin<span class="sc">$</span>clarity),<span class="at">length.out=</span><span class="dv">50</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                       ) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Weight_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(weight<span class="sc">==</span><span class="fu">min</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"Low"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">==</span><span class="fu">mean</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"Mid"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">==</span><span class="fu">max</span>(df_bin<span class="sc">$</span>weight)<span class="sc">~</span><span class="st">"High"</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low"</span>,<span class="st">"Mid"</span>,<span class="st">"High"</span>)),</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">Color_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(color<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="st">"Low Colour"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="st">"Mid Colour"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">==</span><span class="dv">8</span><span class="sc">~</span><span class="st">"High Colour"</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low Colour"</span>,<span class="st">"Mid Colour"</span>,<span class="st">"High Colour"</span>)))</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm1,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Weight_Group),</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Color_Group,<span class="at">ncol =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Clarity"</span>,<span class="at">y=</span><span class="st">"Response Variable (Probability of Diamond value over 190)"</span>,</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Weight Group"</span>,<span class="at">colour=</span><span class="st">"Weight Group"</span>)<span class="sc">+</span></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
 </div>
@@ -668,33 +704,33 @@ y = \beta_{1} Weight + \beta_{2} Colour + \beta_{3} Clarity+ Intercept
 <p>From this graph we can see that Higher Weight class leads to a higher probability of a diamond being over 190 in value, likewise higher clarity leads to higher probability of high value. Colour seems to have less effect, although this is hard to see from this graph.</p>
 <p>Now lets plot this model output over the raw values to see how well the model has worked. We will create new columns to show the Colour and Weight Group from the raw data. I will set arbitary cut offs, which could be interquartiles or thirds of the data. Or if there were specific values of interest these could be plotted on their own.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Raw_df_bin<span class="ot">&lt;-</span>df_bin <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Weight_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(weight<span class="sc">&lt;=</span><span class="fl">7.5</span><span class="sc">~</span><span class="st">"Low"</span>,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">&gt;</span><span class="fl">7.5</span> <span class="sc">&amp;</span> weight<span class="sc">&lt;</span><span class="fl">12.5</span><span class="sc">~</span><span class="st">"Mid"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">&gt;=</span><span class="fl">12.5</span><span class="sc">~</span><span class="st">"High"</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low"</span>,<span class="st">"Mid"</span>,<span class="st">"High"</span>)),</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Color_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(color<span class="sc">&lt;=</span><span class="dv">3</span><span class="sc">~</span><span class="st">"Low Colour"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">&gt;</span><span class="dv">3</span> <span class="sc">&amp;</span> color<span class="sc">&lt;</span><span class="dv">7</span><span class="sc">~</span><span class="st">"Mid Colour"</span>,</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">&gt;=</span><span class="dv">7</span><span class="sc">~</span><span class="st">"High Colour"</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low Colour"</span>,<span class="st">"Mid Colour"</span>,<span class="st">"High Colour"</span>)))</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Weight_Group),</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>Raw_df_bin,<span class="fu">aes</span>(<span class="at">x=</span>clarity,<span class="at">y=</span>binary,<span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Weight_Group<span class="sc">~</span>Color_Group)<span class="sc">+</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Clarity"</span>,<span class="at">y=</span><span class="st">"Response Variable (Probability of Diamond value over 190)"</span>,</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Weight Group"</span>,<span class="at">colour=</span><span class="st">"Weight Group"</span>)<span class="sc">+</span></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Raw_df_bin<span class="ot">&lt;-</span>df_bin <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Weight_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(weight<span class="sc">&lt;=</span><span class="fl">7.5</span><span class="sc">~</span><span class="st">"Low"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">&gt;</span><span class="fl">7.5</span> <span class="sc">&amp;</span> weight<span class="sc">&lt;</span><span class="fl">12.5</span><span class="sc">~</span><span class="st">"Mid"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                                weight<span class="sc">&gt;=</span><span class="fl">12.5</span><span class="sc">~</span><span class="st">"High"</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low"</span>,<span class="st">"Mid"</span>,<span class="st">"High"</span>)),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Color_Group=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(color<span class="sc">&lt;=</span><span class="dv">3</span><span class="sc">~</span><span class="st">"Low Colour"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">&gt;</span><span class="dv">3</span> <span class="sc">&amp;</span> color<span class="sc">&lt;</span><span class="dv">7</span><span class="sc">~</span><span class="st">"Mid Colour"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                                color<span class="sc">&gt;=</span><span class="dv">7</span><span class="sc">~</span><span class="st">"High Colour"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                                ),<span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Low Colour"</span>,<span class="st">"Mid Colour"</span>,<span class="st">"High Colour"</span>)))</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Weight_Group),</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>clarity,</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>Raw_df_bin,<span class="fu">aes</span>(<span class="at">x=</span>clarity,<span class="at">y=</span>binary,<span class="at">colour=</span>Weight_Group))<span class="sc">+</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Weight_Group<span class="sc">~</span>Color_Group)<span class="sc">+</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"grey70"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Clarity"</span>,<span class="at">y=</span><span class="st">"Response Variable (Probability of Diamond value over 190)"</span>,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Weight Group"</span>,<span class="at">colour=</span><span class="st">"Weight Group"</span>)<span class="sc">+</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="768"></p>
 </div>
@@ -709,8 +745,8 @@ y = \beta_{1} Weight + \beta_{2} Colour + \beta_{3} Clarity+ Intercept
 <h2 class="anchored" data-anchor-id="data-loading-complex---affairs">Data Loading Complex - Affairs</h2>
 <p>Lets create a more complex Binomial model. This data set is the frequency of affairs within the last year with their gender, age, yearsmarried, children, religiousness, education, occupation and self rating of marriage.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("AER")</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"AER"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("AER")</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"AER"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: car</code></pre>
 </div>
@@ -752,9 +788,9 @@ Attaching package: 'zoo'</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: survival</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Affairs, <span class="at">package=</span><span class="st">"AER"</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Affairs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Affairs, <span class="at">package=</span><span class="st">"AER"</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Affairs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    affairs          gender         age         yearsmarried    children 
  Min.   : 0.000   female:315   Min.   :17.50   Min.   : 0.125   no :171  
@@ -771,8 +807,8 @@ Attaching package: 'zoo'</code></pre>
  3rd Qu.:4.000   3rd Qu.:18.00   3rd Qu.:6.000   3rd Qu.:5.000  
  Max.   :5.000   Max.   :20.00   Max.   :7.000   Max.   :5.000  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Affairs_binom<span class="ot">&lt;-</span>Affairs <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">affairs_bin=</span><span class="fu">if_else</span>(affairs<span class="sc">&gt;</span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Affairs_binom<span class="ot">&lt;-</span>Affairs <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">affairs_bin=</span><span class="fu">if_else</span>(affairs<span class="sc">&gt;</span><span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Our response variable will be a summary of the affairs column for occurrence or not of an affair in the last year where affairs was how often someone engaged in extramarital sexual intercourse during the past year? 0 = none, 1 = once, 2 = twice, 3 = 3 times, 7 = 4–10 times, 12 = monthly, 12 = weekly, 12 = daily.</p>
 <section id="step-one---scienctific-model-to-stats-model-1" class="level3">
@@ -789,76 +825,124 @@ Attaching package: 'zoo'</code></pre>
 <h3 class="anchored" data-anchor-id="step-three---organising-fixed-effects-1">Step Three - Organising Fixed Effects</h3>
 <p>Lets check all our fixed effects. For numeric values we can assess their distribution, categorical we can see the number of samples and if it is relatively even. From the way our data has been stored, they are all ordered categories but r has read some as numeric values. This is why we code them as factors first. Gender and children are already factors. We could use the yearsmarried as a categry but we will use a numeric here. I will also do a bit of house keeping such as capitalising the factors (personal preference!).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>Affairs_binom<span class="ot">&lt;-</span>Affairs_binom <span class="sc">%&gt;%</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yearsmarried_fct=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(yearsmarried<span class="sc">==</span><span class="fl">0.125</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">0.417</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">0.75</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">1.5</span><span class="sc">~</span><span class="st">"1-2 Years"</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"3-5 Years"</span>,</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">7</span><span class="sc">~</span><span class="st">"6-8 Years"</span>,</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">10</span><span class="sc">~</span><span class="st">"9-11 Years"</span>,</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">15</span><span class="sc">~</span><span class="st">"&gt; 12 Years"</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>                                          ),</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"&lt;1 Year"</span>,</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"1-2 Years"</span>,<span class="st">"3-5 Years"</span>,<span class="st">"6-8 Years"</span>,</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"9-11 Years"</span>,<span class="st">"&gt; 12 Years"</span>)),</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">Religiousness_fct=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(religiousness<span class="sc">==</span><span class="dv">1</span><span class="sc">~</span><span class="st">"Anti"</span>,</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="st">"Not"</span>,</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="st">"Slightly"</span>,</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Somewhat"</span>,</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="st">"Very"</span></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>                                          ),</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)),</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gender=</span><span class="fu">case_when</span>(gender<span class="sc">==</span><span class="st">"male"</span><span class="sc">~</span><span class="st">"Male"</span>,</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>                          gender<span class="sc">==</span><span class="st">"female"</span><span class="sc">~</span><span class="st">"Female"</span>),</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">Children=</span><span class="fu">case_when</span>(children<span class="sc">==</span><span class="st">"yes"</span><span class="sc">~</span><span class="st">"Yes"</span>,</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>                            children<span class="sc">==</span><span class="st">"no"</span><span class="sc">~</span><span class="st">"No"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Yearsmarried=</span>yearsmarried)</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Children))<span class="sc">+</span></span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried))<span class="sc">+</span></span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Gender))<span class="sc">+</span></span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Religiousness_fct))<span class="sc">+</span></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">+</span>p2)<span class="sc">/</span>(p3<span class="sc">+</span>p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Affairs_binom<span class="ot">&lt;-</span>Affairs_binom <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yearsmarried_fct=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(yearsmarried<span class="sc">==</span><span class="fl">0.125</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">0.417</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">0.75</span><span class="sc">~</span><span class="st">"&lt;1 Year"</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="fl">1.5</span><span class="sc">~</span><span class="st">"1-2 Years"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"3-5 Years"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">7</span><span class="sc">~</span><span class="st">"6-8 Years"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">10</span><span class="sc">~</span><span class="st">"9-11 Years"</span>,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>                                          yearsmarried<span class="sc">==</span><span class="dv">15</span><span class="sc">~</span><span class="st">"&gt; 12 Years"</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>                                          ),</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"&lt;1 Year"</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"1-2 Years"</span>,<span class="st">"3-5 Years"</span>,<span class="st">"6-8 Years"</span>,</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>                                          <span class="st">"9-11 Years"</span>,<span class="st">"&gt; 12 Years"</span>)),</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">Religiousness_fct=</span><span class="fu">factor</span>(<span class="fu">case_when</span>(religiousness<span class="sc">==</span><span class="dv">1</span><span class="sc">~</span><span class="st">"Anti"</span>,</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="st">"Not"</span>,</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="st">"Slightly"</span>,</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">4</span><span class="sc">~</span><span class="st">"Somewhat"</span>,</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>                                          religiousness<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="st">"Very"</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>                                          ),</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)),</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gender=</span><span class="fu">case_when</span>(gender<span class="sc">==</span><span class="st">"male"</span><span class="sc">~</span><span class="st">"Male"</span>,</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>                          gender<span class="sc">==</span><span class="st">"female"</span><span class="sc">~</span><span class="st">"Female"</span>),</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">Children=</span><span class="fu">case_when</span>(children<span class="sc">==</span><span class="st">"yes"</span><span class="sc">~</span><span class="st">"Yes"</span>,</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>                            children<span class="sc">==</span><span class="st">"no"</span><span class="sc">~</span><span class="st">"No"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">Yearsmarried=</span>yearsmarried)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Children))<span class="sc">+</span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried))<span class="sc">+</span></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Gender))<span class="sc">+</span></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(Affairs_binom,<span class="fu">aes</span>(<span class="at">x=</span>Religiousness_fct))<span class="sc">+</span></span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"darkcyan"</span>,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">+</span>p2)<span class="sc">/</span>(p3<span class="sc">+</span>p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>These look okay, not always totally even but we shall see how the model performs.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="ot">&lt;-</span><span class="fu">glm</span>(affairs_bin<span class="sc">~</span>Children<span class="sc">*</span>Yearsmarried<span class="sc">+</span>Gender<span class="sc">+</span>Religiousness_fct,<span class="at">data=</span>Affairs_binom, <span class="at">family=</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="ot">&lt;-</span><span class="fu">glm</span>(affairs_bin<span class="sc">~</span>Children<span class="sc">*</span>Yearsmarried<span class="sc">+</span>Gender<span class="sc">+</span>Religiousness_fct,<span class="at">data=</span>Affairs_binom, <span class="at">family=</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-four---assessing-model-functioning-1" class="level3">
 <h3 class="anchored" data-anchor-id="step-four---assessing-model-functioning-1">Step Four - Assessing Model Functioning</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ModelOutputs<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Fitted=</span><span class="fu">fitted</span>(glm2),</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Residuals=</span><span class="fu">resid</span>(glm2))</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Count"</span>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs) <span class="sc">+</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>(<span class="fu">aes</span>(<span class="at">sample=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>(<span class="fu">aes</span>(<span class="at">sample=</span>Residuals))<span class="sc">+</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Sample Quartiles"</span>,<span class="at">x=</span><span class="st">"Theoretical Quartiles"</span>)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">+</span>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Model has interaction terms. VIFs might be inflated.
-  You may check multicollinearity among predictors of a model without
-  interaction terms.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
-<p>As earlier, we don’t see the plot for hommogeneity of residuals but we do see binned probabilities, which most of our values are inside the error bounds. Again the qqnorm plot looks good. There seems to be high collinearity but this is often the case with interactions terms. Generally, we can be happy with this model diagnostic.</p>
+<p>As earlier, we don’t see the plot for homogeneity of residuals but we do see binned residuals, which show two clear peaks of residuals. There seems to be two clear elements/patterns within our data. Generally, we shouldn’t accept this model diagnostic. One trick to find out where these issues come from can be to plot the residuals against the fixed factors in the model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ModelOutputs<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">Fitted=</span><span class="fu">fitted</span>(glm2),</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Residuals=</span><span class="fu">resid</span>(glm2),</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Children=</span> Affairs_binom<span class="sc">$</span>Children,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Yearsmarried=</span> Affairs_binom<span class="sc">$</span>Yearsmarried,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Gender=</span> Affairs_binom<span class="sc">$</span>Gender,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Religiousness_fct=</span> Affairs_binom<span class="sc">$</span>Religiousness_fct)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals,<span class="at">y=</span>Children))<span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Children"</span>)</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals,<span class="at">y=</span>Yearsmarried))<span class="sc">+</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Years Married"</span>)</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>p5<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals,<span class="at">y=</span>Gender))<span class="sc">+</span></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Gender"</span>)</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>p6<span class="ot">&lt;-</span><span class="fu">ggplot</span>(ModelOutputs)<span class="sc">+</span></span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Residuals,<span class="at">y=</span>Religiousness_fct))<span class="sc">+</span></span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Residuals"</span>,<span class="at">y=</span><span class="st">"Religiousness"</span>)</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>(p3<span class="sc">+</span>p4)<span class="sc">/</span>(p5<span class="sc">+</span>p6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>There seems to be no clear patterns we can see, so we must have some other issue somewhere, we will continue with caution now but that would not be advisable normally.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -908,7 +992,7 @@ y = \beta_{1} Children : Years \:Married \\
 \]</span></p>
 <p>This is a lot of <span class="math inline">\(\beta\)</span> values but thankfully we don’t have to deal with them directly. As before our link function is the logit value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>glm2<span class="sc">$</span>family<span class="sc">$</span>link</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logit"</code></pre>
 </div>
@@ -924,42 +1008,42 @@ y = \beta_{1} Children : Years \:Married \\
 <p>We can also tell the predict function to predict error (Standard Error here that we then convert to an approximation of the 95% confidence interval again we make sure they stay between 0 and 1).</p>
 <p>Note that here I tell Predict that I want the fit to be returned on the response scale and not the link scale.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">Children=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>,<span class="st">"No"</span>)),</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Yearsmarried=</span><span class="fu">unique</span>(Affairs_binom<span class="sc">$</span>Yearsmarried),</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Gender=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Female"</span>,<span class="st">"Male"</span>)),</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Religiousness_fct=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)))</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm2,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Children),</span>
-<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
-<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
-<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Children),</span>
-<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
-<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Religiousness_fct<span class="sc">~</span>Gender)<span class="sc">+</span></span>
-<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
-<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
-<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Years Married"</span>,<span class="at">y=</span><span class="st">"Probability of an Affair</span><span class="sc">\n</span><span class="st">in the Last Year"</span>,</span>
-<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Children"</span>,</span>
-<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour=</span><span class="st">"Children"</span>)<span class="sc">+</span></span>
-<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>NewData_1<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">Children=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>,<span class="st">"No"</span>)),</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Yearsmarried=</span><span class="fu">unique</span>(Affairs_binom<span class="sc">$</span>Yearsmarried),</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Gender=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Female"</span>,<span class="st">"Male"</span>)),</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">Religiousness_fct=</span><span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">"Anti"</span>,<span class="st">"Not"</span>,<span class="st">"Slightly"</span>,<span class="st">"Somewhat"</span>,<span class="st">"Very"</span>)))</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>Pred<span class="ot">&lt;-</span><span class="fu">predict</span>(glm2,NewData_1,<span class="at">se.fit=</span><span class="cn">TRUE</span>,<span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>NewData<span class="ot">&lt;-</span>NewData_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response=</span>Pred<span class="sc">$</span>fit,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">se.fit=</span>Pred<span class="sc">$</span>se.fit,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span>response<span class="sc">+</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span>response<span class="sc">-</span>(se.fit<span class="sc">*</span><span class="fl">1.96</span>),</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Upr=</span><span class="fu">case_when</span>(Upr<span class="sc">&gt;</span><span class="dv">1</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Upr),</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">Lwr=</span><span class="fu">case_when</span>(Lwr<span class="sc">&lt;</span><span class="dv">0</span><span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>                       <span class="cn">TRUE</span><span class="sc">~</span>Lwr))</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(NewData)<span class="sc">+</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>Upr,</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin=</span>Lwr,</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>Children),</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>Yearsmarried,</span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y=</span>response,</span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour=</span>Children),</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.6</span>)<span class="sc">+</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Religiousness_fct<span class="sc">~</span>Gender)<span class="sc">+</span></span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>),)<span class="sc">+</span></span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkorange"</span>,<span class="st">"darkcyan"</span>))<span class="sc">+</span></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Years Married"</span>,<span class="at">y=</span><span class="st">"Probability of an Affair</span><span class="sc">\n</span><span class="st">in the Last Year"</span>,</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Children"</span>,</span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour=</span><span class="st">"Children"</span>)<span class="sc">+</span></span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="768"></p>
+<p><img src="BinomialGLMs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>We wont plot this model output with the raw values to see how well the model has worked as it will look pretty horrible. This is one of the biggest issues with Binomial models, the raw data are all 0s and 1s so when plotted it is very hard to see any patterns.</p>

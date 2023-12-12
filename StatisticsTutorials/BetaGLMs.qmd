@@ -85,18 +85,6 @@ glm1 <- gam(yield ~ pressure+temp, data = df, family = betar(link="logit"))
 
 ### Step Four - Assessing Model Functioning
 
-Normally we can use the check_model() function to assess the residuals from the performance package. 
-
-```{r}
-#| fig.width: 8
-#| fig.height: 8
-
-check_model(glm1)
-
-```
-
-But neither betareg nor gam are instigated in this package. Therefore, we shall calculate the residuals from the model object. We can calculate the residuals and fitted values from the model then plot them. 
-
 ```{r}
 #| fig.width: 8
 #| fig.height: 4
@@ -291,16 +279,6 @@ glm2<-gam(accuracy ~ iq*dyslexia,data=ReadingSkills, family = betar(link="logit"
 ```
 
 ### Step Four - Assessing Model Functioning
-
-```{r}
-#| fig.width: 8
-#| fig.height: 8
-
-check_model(glm2)
-
-```
-
-But neither betareg nor gam are instigated in this package. Therefore, we shall calculate the residuals from the model object. We can calculate the residuals and fitted values from the model then plot them. 
 
 ```{r}
 #| fig.width: 8

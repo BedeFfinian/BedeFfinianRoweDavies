@@ -73,9 +73,24 @@ glm1<-glm(Height~age,data=df, family=Gamma(link = "identity"))
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm1)
+ModelOutputs<-data.frame(Fitted=fitted(glm1),
+                  Residuals=resid(glm1))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 
@@ -237,13 +252,28 @@ glm2<-glm(weight~Time*Diet,data=ChickWeight, family=Gamma())
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-check_model(glm2)
+ModelOutputs<-data.frame(Fitted=fitted(glm2),
+                  Residuals=resid(glm2))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 ```
 
-As earlier, we see some fairly mixed results here. The normality of residuals is not perfect with many small and high value points not following the line, whereas our homogenerity of variance is pretty amazing part from less variation at lower values than larger values. 
+As earlier, we see some fairly mixed results here. The normality of residuals is not perfect with many small and high value points not following the line, whereas our homogenerity of variance is pretty good apart from less variation at lower values than larger values. 
 
 ```{r}
 summary(glm2)

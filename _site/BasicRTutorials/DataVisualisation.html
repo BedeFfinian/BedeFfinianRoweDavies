@@ -340,6 +340,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Beta GLMs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/ProblematicGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common GLM Problems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorials/ZeroInflatedGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero Inflated GLMs</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -495,9 +507,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -522,9 +534,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             119.       117.
-2 Treatment 1        -766.      1147.
-3 Treatment 2        1291.       852.</code></pre>
+1 Control             120.       119.
+2 Treatment 1        -681.      1137.
+3 Treatment 2        1259.       851.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -540,16 +552,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950         8.59       22.2
- 2 Control    1951        -1.37       35.0
- 3 Control    1952        28.6        46.2
- 4 Control    1953         3.92       26.2
- 5 Control    1954        12.0        39.5
- 6 Control    1955        54.5        38.4
- 7 Control    1956        26.4        41.3
- 8 Control    1957        42.7        30.2
- 9 Control    1958         8.54       36.7
-10 Control    1959        58.1        35.8
+ 1 Control    1950        14.4        23.5
+ 2 Control    1951        28.6        26.7
+ 3 Control    1952         2.57       23.1
+ 4 Control    1953         1.73       21.9
+ 5 Control    1954        24.4        36.6
+ 6 Control    1955        34.8        27.6
+ 7 Control    1956        23.8        28.1
+ 8 Control    1957        36.9        36.0
+ 9 Control    1958        20.6        60.0
+10 Control    1959        51.1        42.4
 # ℹ 212 more rows</code></pre>
 </div>
 </div>

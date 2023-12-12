@@ -77,19 +77,35 @@ plot(lm2.1)
 
 This is annoying as we have to press enter in the console to see all the plots.
 
-We will install some packages from the easystats ecosystem of packages for this. There are other packages we could also use for this (including one of my own) but the performance package is aesthetically pleasing, plots all plots together and provides info on what we want our diagnostics plots to look like.
+We will code the residuals and qqnorm plots. This is relatively simple code, there are helper functions such as part of the performance package but they are quite unstable from my experience.
 
 ```{r}
 #| fig.width: 8
-#| fig.height: 8
+#| fig.height: 4
 
-#install.packages("performance")
-library(performance)
+#install.packages("patchwork")
 
-check_model(lm2.1)
+library(patchwork)
+
+ModelOutputs<-data.frame(Fitted=fitted(lm2.1),
+                  Residuals=resid(lm2.1))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 ```
 
-As we only have factors in our model we don't see a 'cloud' of points, but the line is still flat and horizontal so this is good. 
+As we only have factors in our model we don't see a 'cloud' of points, but the residuals are evenly spread above and below 0 so this is good. 
 
 As the diagnostics are good we can look at the results
 
@@ -114,9 +130,7 @@ We can re-use some of our code from the intro for appearance and colours
 #| fig.height: 4
 
 #install.packages("ggdist")
-#install.packages("patchwork")
-
-library(patchwork)
+library(ggdist)
 
 p_box<-ggplot(penguins_noNAs)+
   geom_boxplot(aes(x=species,
@@ -130,7 +144,7 @@ p_cloud<-ggplot(penguins_noNAs,
                 aes(x=species,
                     y=flipper_length_mm,
                     fill=sex,colour=sex))+ 
-  ggdist::stat_halfeye(adjust = .5,
+  stat_halfeye(adjust = .5,
                        width = .6, 
                        .width = c(.5, .95),
                        alpha=0.7,
@@ -374,7 +388,23 @@ Lets check the plots and then the model summary.
 
 ```{r}
 
-check_model(lm3.1)
+
+ModelOutputs<-data.frame(Fitted=fitted(lm3.1),
+                  Residuals=resid(lm3.1))
+
+p3<-ggplot(ModelOutputs)+
+    geom_point(aes(x=Fitted,y=Residuals))+
+    theme_classic()+
+    labs(y="Residuals",x="Fitted Values")
+
+p4<-ggplot(ModelOutputs) +
+    stat_qq(aes(sample=Residuals))+
+    stat_qq_line(aes(sample=Residuals))+
+    theme_classic()+
+    labs(y="Sample Quartiles",x="Theoretical Quartiles")
+
+
+p3+p4
 
 summary(lm3.1)
 

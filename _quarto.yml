@@ -78,6 +78,8 @@ website:
             - StatisticsTutorials/BinomialGLMs.qmd
             - StatisticsTutorials/GammaGLMs.qmd
             - StatisticsTutorials/BetaGLMs.qmd
+            - StatisticsTutorials/ProblematicGLMs.qmd
+            - StatisticsTutorials/ZeroInflatedGLMs.qmd
         - text: "---"
         - section: "Travel Blogs"
           contents:
