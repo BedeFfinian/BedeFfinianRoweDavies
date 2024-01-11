@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.538">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -85,7 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -94,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:title" content="Bede Ffinian Rowe Davies - Data Visualisation in R">
 <meta property="og:description" content="An Introduction to Data Visualisation in R for Research Scientists: From Base Scatter Plots to Facetting GGPlots.">
 <meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/ggplot2.png">
-<meta property="og:site-name" content="Bede Ffinian Rowe Davies">
+<meta property="og:site_name" content="Bede Ffinian Rowe Davies">
 <meta property="og:image:height" content="2911">
 <meta property="og:image:width" content="2521">
 <meta name="twitter:title" content="Bede Ffinian Rowe Davies - Data Visualisation in R">
@@ -120,9 +127,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../Images/index/whale.ico" alt="" class="navbar-logo">
     </a>
@@ -137,66 +144,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../consultancy.html" rel="" target="">
- <span class="menu-text">Consultancy</span></a>
+    <a class="nav-link" href="../consultancy.html"> 
+<span class="menu-text">Consultancy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../map.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../map.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../Publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Blogs.html" rel="" target="">
- <span class="menu-text">Blogs</span></a>
+    <a class="nav-link" href="../Blogs.html"> 
+<span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Tutorials.html" rel="" target="">
- <span class="menu-text">Tutorials</span></a>
+    <a class="nav-link" href="../Tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bedeffinian" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/bedeffinian"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/bedeffinian" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/bedeffinian"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://orcid.org/0000-0001-6462-4347" rel="" target=""><i class="bi bi-flower2" role="img">
+    <a class="nav-link" href="https://orcid.org/0000-0001-6462-4347"> <i class="bi bi-flower2" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/DataVisualisation.html">Data Visualisation in R</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/DataVisualisation.html">Data Visualisation in R</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -391,14 +398,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../BasicRTutorials/IntroductionR.html">Basic R Tutorials</a></li><li class="breadcrumb-item"><a href="../BasicRTutorials/DataVisualisation.html">Data Visualisation in R</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Data Visualisation in R</h1>
   <div class="quarto-categories">
@@ -430,7 +437,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="visualisation" class="level1">
 <h1>Visualisation <img src="../Images/Tutorials/ggplot2.png" align="right" height="138.5"></h1>
@@ -454,14 +463,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can define x and y axes from columns of the data set</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>df<span class="sc">$</span>Year,<span class="at">y=</span>df<span class="sc">$</span>Response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>It automatically does a scatter plot, maybe we want to colour different treatments differently? and perhaps some axis labels that are more clear?</p>
@@ -472,7 +489,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"Year"</span>,</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Some of the arguments in this function are well named but you need to know the names of the arguments to properly use a function best,</p>
@@ -496,7 +517,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>),           <span class="co"># point colors</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch=</span><span class="dv">19</span>)                    <span class="co"># point type</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Here we can see that the response is totally random, regardless of treatment and year.</p>
@@ -534,9 +559,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             120.       119.
-2 Treatment 1        -681.      1137.
-3 Treatment 2        1259.       851.</code></pre>
+1 Control             122.       113.
+2 Treatment 1        -760.      1165.
+3 Treatment 2        1310.       909.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -552,16 +577,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950        14.4        23.5
- 2 Control    1951        28.6        26.7
- 3 Control    1952         2.57       23.1
- 4 Control    1953         1.73       21.9
- 5 Control    1954        24.4        36.6
- 6 Control    1955        34.8        27.6
- 7 Control    1956        23.8        28.1
- 8 Control    1957        36.9        36.0
- 9 Control    1958        20.6        60.0
-10 Control    1959        51.1        42.4
+ 1 Control    1950        14.8        31.0
+ 2 Control    1951         3.92       29.8
+ 3 Control    1952        19.8        34.1
+ 4 Control    1953        31.1        21.9
+ 5 Control    1954        23.9        50.4
+ 6 Control    1955        14.3        44.2
+ 7 Control    1956        10.6        45.1
+ 8 Control    1957        25.8        23.0
+ 9 Control    1958        58.3        35.2
+10 Control    1959        57.4        44.0
 # ℹ 212 more rows</code></pre>
 </div>
 </div>
@@ -597,7 +622,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour=</span>Treatment))<span class="sc">+</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>This looks good but could be nicer! There are many geom types to dictate the type of plot.</p>
@@ -608,17 +637,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_1,<span class="fu">aes</span>(<span class="at">x=</span>Response_updated,<span class="at">colour=</span>Treatment))<span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_1,<span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>Response_updated,<span class="at">fill=</span>Treatment))<span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_1,<span class="fu">aes</span>(<span class="at">x=</span>Treatment,<span class="at">y=</span>Response_updated,<span class="at">fill=</span>Treatment))<span class="sc">+</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can also add new data into the same plot, so we could use the summary data too, for this we add the data to the geom (geometry) we want it used for.</p>
@@ -632,7 +673,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df_1_summary_year,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>MeanResponse,<span class="at">colour=</span>Treatment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -658,7 +703,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Year"</span>,<span class="at">y=</span><span class="st">"Response Variable"</span>)<span class="sc">+</span></span>
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We could even separate plots by another column (facetting)</p>
@@ -676,7 +725,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Year"</span>,<span class="at">y=</span><span class="st">"Response Variable"</span>)<span class="sc">+</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can add up different layers but also edit all elements of the plot using either the theme() or scale_*_() functions</p>
@@ -709,7 +762,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df_1,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>Response_updated,<span class="at">colour=</span>Treatment),</span>
@@ -734,7 +791,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>        )<span class="sc">+</span></span>
 <span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1980</span>,<span class="at">y=</span><span class="dv">3000</span>,<span class="at">label=</span><span class="st">"this is text"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df_1,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>Response_updated,<span class="at">colour=</span>Treatment),</span>
@@ -761,7 +822,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1980</span>,<span class="at">y=</span><span class="dv">3000</span>,<span class="at">label=</span><span class="st">"this is text"</span>))<span class="sc">+</span></span>
 <span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1980</span>,<span class="at">y=</span><span class="dv">4000</span>,<span class="at">label=</span><span class="st">"this is a label (has a background)"</span>), <span class="at">colour=</span><span class="st">"purple"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-3.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df_1,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>Response_updated,<span class="at">colour=</span>Treatment),</span>
@@ -790,7 +855,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1980</span>,<span class="at">y=</span><span class="dv">4000</span>,<span class="at">label=</span><span class="st">"this is a label (has a background)"</span>), <span class="at">colour=</span><span class="st">"purple"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>)<span class="sc">+</span></span>
 <span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1960</span>,<span class="at">xend=</span><span class="dv">2020</span>,<span class="at">y=</span><span class="dv">2500</span>,<span class="at">yend=</span><span class="sc">-</span><span class="dv">2500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-4.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df_1,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>Response_updated,<span class="at">colour=</span>Treatment),</span>
@@ -821,7 +890,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1980</span>,<span class="at">y=</span><span class="dv">4000</span>,<span class="at">label=</span><span class="st">"this is a label (has a background)"</span>), <span class="at">colour=</span><span class="st">"purple"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>)<span class="sc">+</span></span>
 <span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1960</span>,<span class="at">xend=</span><span class="dv">2020</span>,<span class="at">y=</span><span class="dv">2500</span>,<span class="at">yend=</span><span class="sc">-</span><span class="dv">2500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-5.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="DataVisualisation_files/figure-html/unnamed-chunk-14-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The above plot is horrendous but shows different important elements we might want to add or take away from plots.</p>
@@ -893,6 +966,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -959,13 +1059,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1044,10 +1146,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1057,8 +1158,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1071,6 +1181,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1114,6 +1338,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1139,6 +1364,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1200,12 +1451,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../BasicRTutorials/DataManipulation.html" class="pagination-link">
+      <a href="../BasicRTutorials/DataManipulation.html" class="pagination-link  aria-label=" data="" manipulation="" in="" r"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Manipulation in R</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../BasicRTutorials/CombiningPlots.html" class="pagination-link">
+      <a href="../BasicRTutorials/CombiningPlots.html" class="pagination-link" aria-label="Combining Multiple Plots in R">
         <span class="nav-page-text">Combining Multiple Plots in R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1223,10 +1474,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
-    <div class="nav-footer-center"><span> <strong>Bede Ffinian Rowe Davies</strong><br> Post-Doctoral Researcher in Marine Ecology and Statistics <a href="bedeffinian@gmail.com">bedeffinian@gmail.com</a><br> <a href="https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology">Laboratoire ISOMer, UFR Sciences et Techniques</a><br> <a href="https://english.univ-nantes.fr/">Nantes University</a>, France.</span></div>
-    <div class="nav-footer-right"><span> Built with <a href="https://quarto.org/">Quarto</a></span></div>
+    <div class="nav-footer-center">
+<p><span> <strong>Bede Ffinian Rowe Davies</strong><br> Post-Doctoral Researcher in Marine Ecology and Statistics <a href="bedeffinian@gmail.com">bedeffinian@gmail.com</a><br> <a href="https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology">Laboratoire ISOMer, UFR Sciences et Techniques</a><br> <a href="https://english.univ-nantes.fr/">Nantes University</a>, France.</span></p>
+</div>
+    <div class="nav-footer-right">
+<p><span> Built with <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
   </div>
 </footer>
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.538">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -85,7 +85,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -94,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -103,10 +110,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <meta property="og:title" content="Bede Ffinian Rowe Davies - Poisson GLMs">
 <meta property="og:description" content="Examples of Poisson GLMs">
 <meta property="og:image" content="https://www.bedeffinianrowedavies.com/Images/Tutorials/Poisson.png">
-<meta property="og:site-name" content="Bede Ffinian Rowe Davies">
+<meta property="og:site_name" content="Bede Ffinian Rowe Davies">
 <meta property="og:image:height" content="686">
 <meta property="og:image:width" content="1060">
 <meta name="twitter:title" content="Bede Ffinian Rowe Davies - Poisson GLMs">
@@ -122,9 +156,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../Images/index/whale.ico" alt="" class="navbar-logo">
     </a>
@@ -139,66 +173,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../consultancy.html" rel="" target="">
- <span class="menu-text">Consultancy</span></a>
+    <a class="nav-link" href="../consultancy.html"> 
+<span class="menu-text">Consultancy</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../map.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../map.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="../Publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Blogs.html" rel="" target="">
- <span class="menu-text">Blogs</span></a>
+    <a class="nav-link" href="../Blogs.html"> 
+<span class="menu-text">Blogs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Tutorials.html" rel="" target="">
- <span class="menu-text">Tutorials</span></a>
+    <a class="nav-link" href="../Tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bedeffinian" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/bedeffinian"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/bedeffinian" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/bedeffinian"> <i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://orcid.org/0000-0001-6462-4347" rel="" target=""><i class="bi bi-flower2" role="img">
+    <a class="nav-link" href="https://orcid.org/0000-0001-6462-4347"> <i class="bi bi-flower2" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../StatisticsTutorials/IntroductionGLMs.html">Statistics Tutorials: GLMs</a></li><li class="breadcrumb-item"><a href="../StatisticsTutorials/PoissonGLMs.html">Poisson GLMs</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../StatisticsTutorials/IntroductionGLMs.html">Statistics Tutorials: GLMs</a></li><li class="breadcrumb-item"><a href="../StatisticsTutorials/PoissonGLMs.html">Poisson GLMs</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -401,14 +435,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../StatisticsTutorials/IntroductionGLMs.html">Statistics Tutorials: GLMs</a></li><li class="breadcrumb-item"><a href="../StatisticsTutorials/PoissonGLMs.html">Poisson GLMs</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Poisson GLMs</h1>
   <div class="quarto-categories">
@@ -441,7 +475,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="using-poisson-glms" class="level1">
 <h1>Using Poisson GLMs <img src="../Images/Tutorials/logo.png" align="right" height="138.5"></h1>
@@ -507,7 +543,11 @@ $ Adjacent  &lt;dbl&gt; 1.84, 572.33, 0.78, 0.18, 903.82, 1.84, 0.34, 2.85, 17.9
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">+</span>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We seem to have a good spread of values across its range with some very large values so we will use a log transformation for modelling. We can then convert back to its native scale after modelling. Lets fit the model using the glm function, we add our statistical formula with the log transformed Elevation, our data and then we specify that the family or distribution we want to use is poisson.</p>
@@ -540,7 +580,11 @@ $ Adjacent  &lt;dbl&gt; 1.84, 572.33, 0.78, 0.18, 903.82, 1.84, 0.34, 2.85, 17.9
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">+</span>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We see some fairly mixed results here. The normality of residuals is good with almost all points following the line, whereas our homogenerity of variance is not amazing, which is likely being driven by a low number of high elevation values. However, the general patterns are quite spread but with very large values showing some overdispersion. This over dispersion might make us want to use a distribution that is more able to deal with over dispersion, such as Negative Binomial. We will accept the amount of over dispersion here as it is quite minor and only at the largest values, which are being driven by our highest value of Elevation and highest value of Endemism: Fernandina and Santa Cruz</p>
@@ -618,7 +662,11 @@ y = \beta_{1} log Elevation + Intercept
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Elevation"</span>,<span class="at">y=</span><span class="st">"Response Variable (Count of Endemic Plant Species)"</span>)<span class="sc">+</span></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now lets plot this model output over the raw values to see how well the model has worked.</p>
@@ -640,7 +688,11 @@ y = \beta_{1} log Elevation + Intercept
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Elevation"</span>,<span class="at">y=</span><span class="st">"Response Variable (Count of Endemic Plant Species)"</span>)<span class="sc">+</span></span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -726,7 +778,11 @@ using the `.groups` argument.</code></pre>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>(p1<span class="sc">+</span>p2)<span class="sc">/</span>(p3<span class="sc">+</span>p4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Our factors age and treatment seem fine, but maybe we should square root the base effect so we don’t have really big base values influencing our model as much. We could log here or centre and scale but we shall use square root for now.</p>
@@ -757,7 +813,11 @@ using the `.groups` argument.</code></pre>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">+</span>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>As earlier, we see some fairly mixed results here. The normality of residuals is good with almost all points following the line, whereas our homogenerity of variance is again not amazing, which is likely being driven by a low number of high base seizure values values. However, the general patterns are quite spread but with very large values showing some overdispersion. This over dispersion might make us want to use a distribution that is more able to deal with over dispersion, such as Negative Binomial. We will accept the amount of over dispersion here as it is quite minor and only at the largest values.</p>
@@ -845,7 +905,11 @@ y = \beta_{1} treatment:age\\
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Age"</span>,<span class="at">y=</span><span class="st">"Base Number of Seizures"</span>,<span class="at">fill=</span><span class="st">"Predicted Number</span><span class="sc">\n</span><span class="st">of Seizures"</span>)<span class="sc">+</span></span>
 <span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now lets plot this model output with the raw values to see how well the model has worked.</p>
@@ -864,7 +928,11 @@ y = \beta_{1} treatment:age\\
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Age"</span>,<span class="at">y=</span><span class="st">"Base Number of Seizures"</span>,<span class="at">fill=</span><span class="st">"Number</span><span class="sc">\n</span><span class="st">of Seizures"</span>,<span class="at">colour=</span><span class="st">"Number</span><span class="sc">\n</span><span class="st">of Seizures"</span>)<span class="sc">+</span></span>
 <span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>The patterns of colour from points to back ground do seem to generalise well. However, from this plot we can see clearly that the model is predicting in the age/base space that is not in the original data, so perhaps it would be better to plot the model assuming an average base level of seizures then compare with the raw data. We can also display the models confidence then too.</p>
@@ -902,7 +970,11 @@ y = \beta_{1} treatment:age\\
 <pre><code>Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="768"></p>
+<div>
+<figure class="figure">
+<p><img src="PoissonGLMs_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>I have set the y axis to ignore very large values (above 100) so we can see clearly what the model is telling us.</p>
@@ -955,6 +1027,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1023,13 +1122,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'alternate';
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1108,10 +1209,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1121,8 +1221,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1135,6 +1244,120 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1178,6 +1401,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1203,6 +1427,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1264,12 +1514,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../StatisticsTutorials/GaussianGLMs.html" class="pagination-link">
+      <a href="../StatisticsTutorials/GaussianGLMs.html" class="pagination-link  aria-label=" gaussian="" glms"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Gaussian GLMs</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../StatisticsTutorials/BinomialGLMs.html" class="pagination-link">
+      <a href="../StatisticsTutorials/BinomialGLMs.html" class="pagination-link" aria-label="Binomial GLMs">
         <span class="nav-page-text">Binomial GLMs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1287,10 +1537,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
 </ul>
     </div>   
-    <div class="nav-footer-center"><span> <strong>Bede Ffinian Rowe Davies</strong><br> Post-Doctoral Researcher in Marine Ecology and Statistics <a href="bedeffinian@gmail.com">bedeffinian@gmail.com</a><br> <a href="https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology">Laboratoire ISOMer, UFR Sciences et Techniques</a><br> <a href="https://english.univ-nantes.fr/">Nantes University</a>, France.</span></div>
-    <div class="nav-footer-right"><span> Built with <a href="https://quarto.org/">Quarto</a></span></div>
+    <div class="nav-footer-center">
+<p><span> <strong>Bede Ffinian Rowe Davies</strong><br> Post-Doctoral Researcher in Marine Ecology and Statistics <a href="bedeffinian@gmail.com">bedeffinian@gmail.com</a><br> <a href="https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology">Laboratoire ISOMer, UFR Sciences et Techniques</a><br> <a href="https://english.univ-nantes.fr/">Nantes University</a>, France.</span></p>
+</div>
+    <div class="nav-footer-right">
+<p><span> Built with <a href="https://quarto.org/">Quarto</a></span></p>
+</div>
   </div>
 </footer>
+
 
 
 
