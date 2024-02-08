@@ -81,6 +81,10 @@ website:
             - StatisticsTutorials/ProblematicGLMs.qmd
             - StatisticsTutorials/ZeroInflatedGLMs.qmd
         - text: "---"
+        - section: "Statistics Tutorials: Machine Learning"
+          contents:
+            - StatisticsTutorials/IntroMachineLearning.qmd
+        - text: "---"
         - section: "Travel Blogs"
           contents:
             - blogs/GreenlandTale.qmd

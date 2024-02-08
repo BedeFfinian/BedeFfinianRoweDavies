@@ -1,0 +1,46 @@
+[
+  {
+    "listing": "/Tutorials.html",
+    "items": [
+      "/BasicRTutorials/IntroductionR.html",
+      "/BasicRTutorials/DataManipulation.html",
+      "/BasicRTutorials/DataVisualisation.html",
+      "/BasicRTutorials/CombiningPlots.html",
+      "/BasicRTutorials/MakingMaps.html",
+      "/BasicRTutorials/MakingInteractiveMaps.html",
+      "/StatisticsTutorials/IntroductionGLMs.html",
+      "/StatisticsTutorials/GaussianGLMs.html",
+      "/StatisticsTutorials/PoissonGLMs.html",
+      "/StatisticsTutorials/BinomialGLMs.html",
+      "/StatisticsTutorials/GammaGLMs.html",
+      "/StatisticsTutorials/BetaGLMs.html",
+      "/StatisticsTutorials/ZeroInflatedGLMs.html",
+      "/StatisticsTutorials/ProblematicGLMs.html",
+      "/StatisticsTutorials/IntroMachineLearning.html"
+    ]
+  },
+  {
+    "listing": "/Publications.html",
+    "items": [
+      "/posts1/Functional.html",
+      "/posts1/Acoustics.html",
+      "/posts1/Baited.html",
+      "/posts1/SAC.html",
+      "/posts1/SpectralLibrary.html",
+      "/posts2/LymeSummary.html",
+      "/posts2/OysterTables.html",
+      "/posts2/Everest.html",
+      "/posts2/BrentGoose.html",
+      "/posts2/Storms.html",
+      "/posts2/Ganges.html",
+      "/posts2/Ganges_2.html",
+      "/posts2/Mussels.html"
+    ]
+  },
+  {
+    "listing": "/Blogs.html",
+    "items": [
+      "/blogs/GreenlandTale.html"
+    ]
+  }
+]
