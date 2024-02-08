@@ -9,6 +9,7 @@ library(leaflet)
 library(leaflet.extras)
 library(leaflet.esri)
 library(leaflet.providers)
+library(leaflegend)
 
 Projects<-data.frame(
   Name=c(
@@ -28,7 +29,19 @@ Projects<-data.frame(
   "<b> France </b> <br/> Bourgneuf Bay <br/> Mapping Interdial Habitats",
   "<b> France </b> <br/> Gulf of Morbihan <br/> Mapping Interdial Habitats",
   "<b> France </b> <br/> Bay of St Mont Michel <br/> Mapping Interdial Habitats",
-  "<b> Greenland </b> <br/> Eastern Greenlandic Shelf <br/> Fisheries Bycatch Assessment"
+  "<b> Greenland </b> <br/> Eastern Greenlandic Shelf <br/> Fisheries Bycatch Assessment",
+  "<b> Scotland </b> <br/> Cromarty Firth <br/> Phenology of Intertidal Seagrass",
+  "<b> Northern Ireland </b> <br/> Strangford Lough <br/> Phenology of Intertidal Seagrass",
+  "<b> Germany </b> <br/> Beltringharder Koog <br/> Phenology of Intertidal Seagrass",
+  "<b> Wales </b> <br/> Milford Haven <br/> Phenology of Intertidal Seagrass",
+  "<b> England </b> <br/> Tamar Estuary <br/> Phenology of Intertidal Seagrass",
+  "<b> France </b> <br/> Bourgneuf Bay <br/> Phenology of Intertidal Seagrass",
+  "<b> France </b> <br/> Marennes Oléron <br/> Phenology of Intertidal Seagrass",
+  "<b> Spain </b> <br/> Santander Bay <br/> Phenology of Intertidal Seagrass",
+  "<b> Portugal </b> <br/> Aveiro Lagoon <br/> Phenology of Intertidal Seagrass",
+  "<b> Portugal </b> <br/> Tagus Estuary <br/> Phenology of Intertidal Seagrass",
+  "<b> Spain </b> <br/> Cádiz Bay <br/> Phenology of Intertidal Seagrass",
+  "<b> Morocco </b> <br/> Merja Zerga <br/> Phenology of Intertidal Seagrass"
   ),
   Long=c(-2.932835,
          -3.137340,
@@ -46,7 +59,19 @@ Projects<-data.frame(
          -2.097998, 
          -2.757178,
         -1.508291,
-        -38.700462),
+        -38.700462,
+        -4.089152,
+        -5.687167,
+        8.831230,
+        -5.060390,
+        -4.201895,
+        -2.138160,
+        -1.205946,
+        -3.789223,
+        -8.684040,
+        -9.023371,
+        -6.231828,
+        -6.274848),
   Lat=c(50.693708,
         50.612101, 
         58.893811, 
@@ -63,8 +88,20 @@ Projects<-data.frame(
         46.977129, 
         47.546101,
         48.659781,
-        64.361814),
-  Involvement=c("Data Collection and Analysis",
+        64.361814,
+        57.694590,
+        54.555433,
+        54.603525,
+        51.696103,
+        50.368626,
+        46.987809,
+        45.915571,
+        43.441265,
+        40.691813,
+        38.734875,
+        36.470814,
+        34.843086),
+  Involvement=as.factor(c("Data Collection and Analysis",
                 "Data Collection and Analysis",
                 "Data Collection and Analysis",
                 "Data Collection and Analysis",
@@ -80,27 +117,67 @@ Projects<-data.frame(
                 "Data Collection and Analysis",
                 "Data Collection and Analysis",
                 "Data Collection and Analysis",
-                "Data Collection and Analysis"
-                )
+                "Data Collection",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis",
+                "Data Collection with Satellite Imagery and Analysis"
+                ))
   )
-
 
 
 beatCol <- colorFactor(palette = c("darkgoldenrod","dark cyan"), Projects$Involvement)
 
+
+icon_list <- iconList(
+`Data Analysis` = makeIcon("Images/Tutorials/1.png", iconWidth = 24, iconHeight = 20),
+`Data Collection and Analysis` = makeIcon("Images/Tutorials/2.png", iconWidth = 24, iconHeight = 30),
+`Data Collection` = makeIcon("Images/Tutorials/2.png", iconWidth = 24, iconHeight = 30),
+`Data Collection with Satellite Imagery and Analysis` = makeIcon("Images/Tutorials/3.png", iconWidth = 18, iconHeight = 20))
+
+i <- c(1:4)
+
+labels<-c('Data Analysis',
+             'Data Collection and Analysis',
+             'Data Collection',
+             'Data Collection with Satellite Imagery and Analysis')
+  
+leafImg <- c('Images/Tutorials/1.png',
+             'Images/Tutorials/2.png',
+             'Images/Tutorials/3.png',
+             'Images/Tutorials/4.png')
+width<-c(24,24,24,18)
+
+height<-c(20,30,30,20)
+
+leafIcons <- icons(
+  iconUrl = leafImg[i],
+  iconWidth = width[i], 
+  iconHeight = width[i]
+)
+
+html_legend <- "<img src='Images/Tutorials/1.png'>Data Analysis<br/><img src='Images/Tutorials/2.png'>Data Collection and Analysis<br/><img src='Images/Tutorials/2.png'>Data Collection<br/><img src='Images/Tutorials/3.png'>Data Collection with Satellite Imagery and Analysis"
+
 leaflet(Projects) %>% 
     setView(lng = 0, lat = 12, zoom = 1) %>% 
-  addProviderTiles("GeoportailFrance.orthos", 
-                     options = providerTileOptions(minZoom = 1, maxZoom = 7)) %>% 
-  addCircleMarkers(lng=~Long,
-                   lat =  ~Lat,
-                   color = ~beatCol(Involvement), 
-                   popup = ~Name,
-                   opacity = 1,
-                   radius=2) %>% 
-  addLegend('bottomright', pal = beatCol, values = Projects$Involvement,
-            title = 'Involvement in Projects',
-            opacity = 1) 
+  addProviderTiles("Esri.WorldTerrain", 
+                     options = providerTileOptions(minZoom = 1, maxZoom = 15))%>%
+  addMarkers(~Long, 
+             ~Lat,
+             icon=leafIcons, 
+  popup = ~Name) %>%
+  addLegendImage(images = leafImg,
+                 labels = labels,
+                 orientation = 'vertical',
+                 position = 'bottomleft')
 
 
 
