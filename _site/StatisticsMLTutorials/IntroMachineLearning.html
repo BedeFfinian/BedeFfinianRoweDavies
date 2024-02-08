@@ -527,7 +527,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -595,10 +595,10 @@ Attaching package: 'palmerpenguins'</code></pre>
  2 &lt;split [223/26]&gt; Fold02
  3 &lt;split [223/26]&gt; Fold03
  4 &lt;split [223/26]&gt; Fold04
- 5 &lt;split [223/26]&gt; Fold05
- 6 &lt;split [223/26]&gt; Fold06
- 7 &lt;split [225/24]&gt; Fold07
- 8 &lt;split [226/23]&gt; Fold08
+ 5 &lt;split [224/25]&gt; Fold05
+ 6 &lt;split [224/25]&gt; Fold06
+ 7 &lt;split [224/25]&gt; Fold07
+ 8 &lt;split [225/24]&gt; Fold08
  9 &lt;split [226/23]&gt; Fold09
 10 &lt;split [226/23]&gt; Fold10</code></pre>
 </div>
@@ -653,10 +653,10 @@ Attaching package: 'palmerpenguins'</code></pre>
  2 &lt;split [223/26]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  3 &lt;split [223/26]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  4 &lt;split [223/26]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 5 &lt;split [223/26]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 6 &lt;split [223/26]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 7 &lt;split [225/24]&gt; Fold07 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 8 &lt;split [226/23]&gt; Fold08 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 5 &lt;split [224/25]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 6 &lt;split [224/25]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 7 &lt;split [224/25]&gt; Fold07 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 8 &lt;split [225/24]&gt; Fold08 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  9 &lt;split [226/23]&gt; Fold09 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
 10 &lt;split [226/23]&gt; Fold10 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
 </div>
@@ -698,9 +698,9 @@ Attaching package: 'palmerpenguins'</code></pre>
 <pre><code>Random Forest Model Specification (classification)
 
 Main Arguments:
-  mtry = 4
+  mtry = 8
   trees = 500
-  min_n = 20
+  min_n = 5
 
 Computational engine: ranger </code></pre>
 </div>
@@ -750,8 +750,8 @@ Attaching package: 'vip'</code></pre>
 <pre><code># A tibble: 2 × 4
   .metric  .estimator .estimate .config             
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass     0.964 Preprocessor1_Model1
-2 roc_auc  hand_till      0.999 Preprocessor1_Model1</code></pre>
+1 accuracy multiclass     0.976 Preprocessor1_Model1
+2 roc_auc  hand_till      0.998 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 <p>So in this very specific example we have got ridiculously good results in our model. This is not always the case.</p>
@@ -764,8 +764,8 @@ Attaching package: 'vip'</code></pre>
 <pre><code>           Truth
 Prediction  Adelie Chinstrap Gentoo
   Adelie        37         1      1
-  Chinstrap      1        21      0
-  Gentoo         0         0     23</code></pre>
+  Chinstrap      0        14      0
+  Gentoo         0         0     31</code></pre>
 </div>
 </div>
 <p>So we can see from this that almost all the predictions are the same as the truth. If you want to see how much the random number generation from before effects the results you can rerun this script with different set.seed() numbers.</p>

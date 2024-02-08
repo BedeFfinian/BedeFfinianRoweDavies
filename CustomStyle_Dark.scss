@@ -43,7 +43,7 @@ $min-contrast-ratio:   1.45 !default;
 $body-color:                $white !default;
 $color-contrast-dark:       $body-color !default; // Prefer $body-color over $black inside color-contrast()
 $body-bg:                   #004B4B !default; 
-
+$cell-output:               $yellow !default;
 // Components
 
 $border-radius:               .4rem !default;
@@ -262,6 +262,14 @@ pre.sourceCode {
 
 div.sourceCode {
   background-color: rgba(10,10,10,100);
+}
+
+div.cell-output-stderr {
+  background-color: #4C8181;
+}
+
+div.cell-output {
+  background-color: #4C8181;
 }
 
 
