@@ -126,6 +126,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-Stats_ML .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-Stats_ML'] = new List('listing-Stats_ML', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -414,11 +442,8 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./StatisticsTutorials/IntroMachineLearning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to Machine Learning</span></a>
-  </div>
-</li>
+ <span class="menu-text">StatisticsTutorials/IntroMachineLearning.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -445,7 +470,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-basics-tutorials-with-an-ecologist-bias" id="toc-r-basics-tutorials-with-an-ecologist-bias" class="nav-link active" data-scroll-target="#r-basics-tutorials-with-an-ecologist-bias">R Basics Tutorials with an Ecologist Bias:</a></li>
+  <li><a href="#r-tutorials-with-an-ecologist-bias" id="toc-r-tutorials-with-an-ecologist-bias" class="nav-link active" data-scroll-target="#r-tutorials-with-an-ecologist-bias">R Tutorials with an Ecologist Bias:</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-glms" id="toc-statistics-tutorials-with-an-ecologist-bias-glms" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-glms">Statistics Tutorials with an Ecologist Bias (GLMs):</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-machine-learning" id="toc-statistics-tutorials-with-an-ecologist-bias-machine-learning" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</a></li>
   </ul>
@@ -477,8 +502,8 @@ window.Quarto = {
 </header>
 
 
-<section id="r-basics-tutorials-with-an-ecologist-bias" class="level2">
-<h2 class="anchored" data-anchor-id="r-basics-tutorials-with-an-ecologist-bias">R Basics Tutorials with an Ecologist Bias:</h2>
+<section id="r-tutorials-with-an-ecologist-bias" class="level2">
+<h2 class="anchored" data-anchor-id="r-tutorials-with-an-ecologist-bias">R Tutorials with an Ecologist Bias:</h2>
 <div id="listing-Basics" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="Introduction,R" data-listing-date-sort="1695160800000" data-listing-file-modified-sort="1696352984200" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1940">
@@ -1016,18 +1041,28 @@ GLMs
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Introduction,R,Machine Learning,Stats,Random Forest" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1707402699165" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1531">
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="statistics-tutorials-with-an-ecologist-bias-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</h2>
+<div id="listing-Stats_ML" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,Machine Learning,Stats,Random Forest" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1707402699165" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1531">
 <div class="thumbnail">
-<p><a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external">
+<p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
 <p><img src="./Images/Tutorials/Machine.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external"></a></p>
+</a><p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external">Introduction to Machine Learning</a>
+<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">Introduction to Machine Learning</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external"></a>
+<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Introduction'); return false;">
@@ -1047,11 +1082,11 @@ Random Forest
 </div>
 </div>
 <div class="listing-description">
-<a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external">Brief Introduction to Machine Learning</a>
+<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">Brief Introduction to Machine Learning</a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsTutorials/IntroMachineLearning.html" class="no-external">
+<p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
 </a>
 </div>
 </div>
@@ -1059,12 +1094,6 @@ Random Forest
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div>
-</section>
-<section id="statistics-tutorials-with-an-ecologist-bias-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</h2>
-<div id="Stats_ML">
-
 </div>
 
 

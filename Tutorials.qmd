@@ -13,9 +13,15 @@ listing:
     categories: true
     sort: "date asc"
     fields: [image, title,description,categories]
+  - id: Stats_ML
+    contents: StatisticsMLTutorials
+    type: default
+    categories: true
+    sort: "date asc"
+    fields: [image, title,description,categories]
 ---
 
-## R Basics Tutorials with an Ecologist Bias:
+## R Tutorials with an Ecologist Bias:
 
 ::: {#Basics}
 
