@@ -21,8 +21,14 @@ listing:
 
 :::
 
-## Statistics Tutorials with an Ecologist Bias:
+## Statistics Tutorials with an Ecologist Bias (GLMs):
 
 ::: {#Stats}
+
+:::
+
+## Statistics Tutorials with an Ecologist Bias (Machine Learning):
+
+::: {#Stats_ML}
 
 :::

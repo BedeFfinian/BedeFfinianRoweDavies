@@ -2,7 +2,7 @@
 title: "Introduction to Machine Learning"
 description: "Brief Introduction to Machine Learning"
 image: ../Images/Tutorials/Machine.jpeg
-id: Stats
+id: Stats_ML
 date: "01/08/2024"
 categories: [Introduction, R, Machine Learning, Stats, Random Forest]
 ---
