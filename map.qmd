@@ -140,8 +140,8 @@ beatCol <- colorFactor(palette = c("darkgoldenrod","dark cyan"), Projects$Involv
 icon_list <- iconList(
 `Data Analysis` = makeIcon("Images/Tutorials/1.png", iconWidth = 24, iconHeight = 20),
 `Data Collection and Analysis` = makeIcon("Images/Tutorials/2.png", iconWidth = 24, iconHeight = 30),
-`Data Collection` = makeIcon("Images/Tutorials/2.png", iconWidth = 24, iconHeight = 30),
-`Data Collection with Satellite Imagery and Analysis` = makeIcon("Images/Tutorials/3.png", iconWidth = 18, iconHeight = 20))
+`Data Collection` = makeIcon("Images/Tutorials/3.png", iconWidth = 24, iconHeight = 30),
+`Data Collection with Satellite Imagery and Analysis` = makeIcon("Images/Tutorials/4.png", iconWidth = 18, iconHeight = 20))
 
 i <- c(1:4)
 
@@ -154,6 +154,7 @@ leafImg <- c('Images/Tutorials/1.png',
              'Images/Tutorials/2.png',
              'Images/Tutorials/3.png',
              'Images/Tutorials/4.png')
+
 width<-c(24,24,24,18)
 
 height<-c(20,30,30,20)
@@ -164,15 +165,13 @@ leafIcons <- icons(
   iconHeight = width[i]
 )
 
-html_legend <- "<img src='Images/Tutorials/1.png'>Data Analysis<br/><img src='Images/Tutorials/2.png'>Data Collection and Analysis<br/><img src='Images/Tutorials/2.png'>Data Collection<br/><img src='Images/Tutorials/3.png'>Data Collection with Satellite Imagery and Analysis"
-
 leaflet(Projects) %>% 
     setView(lng = 0, lat = 12, zoom = 1) %>% 
-  addProviderTiles("Esri.WorldTerrain", 
+  addProviderTiles("Stadia.StamenTerrain", 
                      options = providerTileOptions(minZoom = 1, maxZoom = 15))%>%
   addMarkers(~Long, 
              ~Lat,
-             icon=leafIcons, 
+             icon=~icon_list[Projects$Involvement], 
   popup = ~Name) %>%
   addLegendImage(images = leafImg,
                  labels = labels,
