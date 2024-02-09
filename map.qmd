@@ -167,7 +167,7 @@ leafIcons <- icons(
 
 leaflet(Projects) %>% 
     setView(lng = 0, lat = 12, zoom = 1) %>% 
-  addProviderTiles("Stadia.StamenTerrain", 
+  addProviderTiles("OpenStreetMap.France", 
                      options = providerTileOptions(minZoom = 1, maxZoom = 15))%>%
   addMarkers(~Long, 
              ~Lat,

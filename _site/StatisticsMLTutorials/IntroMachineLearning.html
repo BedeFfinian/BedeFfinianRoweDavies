@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -592,16 +592,16 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 2
    splits           id    
    &lt;list&gt;           &lt;chr&gt; 
- 1 &lt;split [222/27]&gt; Fold01
- 2 &lt;split [222/27]&gt; Fold02
- 3 &lt;split [224/25]&gt; Fold03
- 4 &lt;split [224/25]&gt; Fold04
- 5 &lt;split [224/25]&gt; Fold05
- 6 &lt;split [225/24]&gt; Fold06
+ 1 &lt;split [223/26]&gt; Fold01
+ 2 &lt;split [223/26]&gt; Fold02
+ 3 &lt;split [223/26]&gt; Fold03
+ 4 &lt;split [223/26]&gt; Fold04
+ 5 &lt;split [223/26]&gt; Fold05
+ 6 &lt;split [224/25]&gt; Fold06
  7 &lt;split [225/24]&gt; Fold07
  8 &lt;split [225/24]&gt; Fold08
- 9 &lt;split [225/24]&gt; Fold09
-10 &lt;split [225/24]&gt; Fold10</code></pre>
+ 9 &lt;split [226/23]&gt; Fold09
+10 &lt;split [226/23]&gt; Fold10</code></pre>
 </div>
 </div>
 <p>With tidymodels we use recipes to integrate transformations and model formula</p>
@@ -650,16 +650,16 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 4
    splits           id     .metrics          .notes          
    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;          
- 1 &lt;split [222/27]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 2 &lt;split [222/27]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 3 &lt;split [224/25]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 4 &lt;split [224/25]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 5 &lt;split [224/25]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 6 &lt;split [225/24]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 1 &lt;split [223/26]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 2 &lt;split [223/26]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 3 &lt;split [223/26]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 4 &lt;split [223/26]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 5 &lt;split [223/26]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 6 &lt;split [224/25]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  7 &lt;split [225/24]&gt; Fold07 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  8 &lt;split [225/24]&gt; Fold08 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 9 &lt;split [225/24]&gt; Fold09 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
-10 &lt;split [225/24]&gt; Fold10 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
+ 9 &lt;split [226/23]&gt; Fold09 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+10 &lt;split [226/23]&gt; Fold10 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
 </div>
 </div>
 <p>Lets plot the results of each fold using the ROC_AUC.</p>
@@ -699,9 +699,9 @@ Attaching package: 'palmerpenguins'</code></pre>
 <pre><code>Random Forest Model Specification (classification)
 
 Main Arguments:
-  mtry = 2
+  mtry = 4
   trees = 500
-  min_n = 39
+  min_n = 20
 
 Computational engine: ranger </code></pre>
 </div>
@@ -751,8 +751,8 @@ Attaching package: 'vip'</code></pre>
 <pre><code># A tibble: 2 × 4
   .metric  .estimator .estimate .config             
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass     0.964 Preprocessor1_Model1
-2 roc_auc  hand_till      0.998 Preprocessor1_Model1</code></pre>
+1 accuracy multiclass     0.976 Preprocessor1_Model1
+2 roc_auc  hand_till      0.997 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 <p>So in this very specific example we have got ridiculously good results in our model. This is not always the case.</p>
@@ -764,8 +764,8 @@ Attaching package: 'vip'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Truth
 Prediction  Adelie Chinstrap Gentoo
-  Adelie        33         1      0
-  Chinstrap      2        14      0
+  Adelie        36         2      0
+  Chinstrap      0        12      0
   Gentoo         0         0     34</code></pre>
 </div>
 </div>
