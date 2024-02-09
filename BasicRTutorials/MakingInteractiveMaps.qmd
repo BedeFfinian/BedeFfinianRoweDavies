@@ -64,46 +64,8 @@ We can set one we like, or we can allow our user to choose. Here we will save th
 
 (m<-leaflet()%>%
   addProviderTiles(
-    "Esri.WorldImagery",
-    group = "Esri.WorldImagery"
-  ) %>%
-  # add different provider tiles
-  addProviderTiles(
-    "OpenStreetMap",
-    # give the layer a name
-    group = "OpenStreetMap"
-  ) %>%
-  addProviderTiles(
-    "Stamen.Toner",
-    group = "Stamen.Toner"
-  ) %>%
-  addProviderTiles(
-    "Stamen.Terrain",
-    group = "Stamen.Terrain"
-  ) %>%
-  addProviderTiles(
-    "Esri.WorldStreetMap",
-    group = "Esri.WorldStreetMap"
-  ) %>%
-  addProviderTiles(
-    "Wikimedia",
-    group = "Wikimedia"
-  ) %>%
-  addProviderTiles(
-    "CartoDB.Positron",
-    group = "CartoDB.Positron"
-  ) %>%
-# add a layers control
-  addLayersControl(
-    baseGroups = c(
-      "Esri.WorldImagery","OpenStreetMap", "Stamen.Toner",
-      "Stamen.Terrain", "Esri.WorldStreetMap",
-      "Wikimedia", "CartoDB.Positron" 
-    ),
-    # position it on the topleft
-    position = "topleft"
-  ))
-
+    "OpenTopoMap"
+  ) )
 ```
 
 ### Local Data
@@ -122,7 +84,7 @@ Mountains<-data.frame(
   Continent=c("Asia","South America","North America","Africa","Antarctica","Europe","Oceania")
 )
 
-m %>% 
+m%>% 
   addMarkers(data=Mountains,lng=~Longitude,lat=~Latitude)
 
 ```
