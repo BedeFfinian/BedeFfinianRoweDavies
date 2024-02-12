@@ -1,0 +1,307 @@
+---
+title: "Comparing and Ensembling Machine Learning Models"
+description: "Building different Models and Intercomparing, and then Combining into an Ensemble"
+image: ../Images/Tutorials/tidymodels.png
+id: Stats_ML
+date: "01/09/2024"
+categories: [Introduction, R, Machine Learning, Stats, Random Forest, XGBoost, SVM, KNN]
+---
+
+# Preparing Board Games <img src='../Images/Tutorials/tidymodels.png' align="right" height="138.5" /></a>
+
+Lets take some tidy tuesday data (either with the package or with the code) <https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-01-25/readme.md>. Here we will look at some data on board games and try and predict a board games rating based on some of its information. 
+
+```{r}
+#install.packages("tidytuesdayR")
+#library(tidytuesdayR)
+#tt_data <- tt_load("2022-01-25")
+
+
+library(tidyverse)
+
+ratings <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/ratings.csv")
+details <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/details.csv")
+
+ratings_joined <- ratings %>%
+  left_join(details, by = "id") %>% 
+  filter(!yearpublished%in%NA) %>% 
+  select(id,average,yearpublished,minplayers,maxplayers,minage,playingtime,minplaytime,maxplaytime)
+
+
+```
+
+# Preliminary Data Exploration
+
+Lets look at ratings of board games.
+
+```{r}
+
+ggplot(ratings_joined,aes(average))+
+  geom_histogram()+
+  theme_classic()
+
+```
+
+Lets compare the minimum and maximum number of players for the game with its rating.
+
+
+```{r}
+
+ggplot(ratings_joined,aes(average,minplayers))+
+  geom_point()+
+  theme_classic()
+
+```
+
+```{r}
+
+ggplot(ratings_joined,aes(average,maxplayers))+
+  geom_point()+
+  scale_y_sqrt()+
+  theme_classic()
+
+```
+
+There are some interesting things going on here. But lets make some models then we can tease out some of these predictors.
+
+# Pre Processing
+
+## Data Splitting
+
+```{r}
+
+library(tidymodels)
+init<-initial_split(ratings_joined,strata = average)
+
+train<-training(init)
+
+folds<-vfold_cv(train,strata = average)
+
+test<-testing(init)
+
+```
+
+## Create Recipe
+
+First we want to create a recipe that takes all columns (apart from id) to predict the average ranking. We also square root transform max players as some have huge max players.
+
+```{r}
+
+recipe<-recipe(average~.,data=train) %>% 
+  update_role(id,new_role="id") %>% 
+  step_sqrt(maxplayers)
+
+
+```
+
+## Create Model Specification
+
+This is the first step where we choose the models we will compare. Lets do a glm, random forest, XGBoost, SVM and KNN. 
+
+```{r}
+
+glm_spec<-linear_reg(
+  penalty = tune(), 
+  mixture = tune()) %>% 
+  set_mode("regression")%>%
+  set_engine("glmnet")
+
+rf_spec<- rand_forest(
+  mtry = tune(),
+  trees = tune(),
+  min_n = tune()
+) %>%
+  set_mode("regression") %>%
+  set_engine("ranger")
+
+xgboost_spec<-boost_tree(
+    trees = tune(),
+    mtry = tune(),
+    min_n = tune(),
+    learn_rate = tune()
+  ) %>%
+  set_mode("regression")%>%
+  set_engine("xgboost") 
+
+# install.packages("kknn")
+# install.packages("kernlab")
+
+svm_spec<-  svm_rbf(
+  cost = tune(), 
+  rbf_sigma = tune()
+  ) %>%
+  set_mode("regression") %>%
+  set_engine("kernlab")
+
+knn_spec<-nearest_neighbor(neighbors = tune())%>%
+  set_mode("regression") %>% 
+  set_engine("kknn")
+
+```
+
+## Model Hyper Parameter Tuning
+
+So we could train each of these models as separate workflows then assess hyper parameter tuning as follows. 
+
+```{r}
+
+glm_wf<-workflow() %>%
+  add_recipe(recipe) %>%
+  add_model(glm_spec)
+
+set.seed(234)
+
+tune_res_glm <- tune_grid(
+  glm_wf,
+  resamples = folds,
+  grid = 5
+)
+
+tune_res_glm %>%
+  collect_metrics() %>%
+  filter(.metric == "rmse") %>%
+  select(mean, penalty, mixture) %>%
+  pivot_longer(penalty:mixture,
+    values_to = "value",
+    names_to = "parameter"
+  ) %>%
+  ggplot(aes(value, mean, color = parameter)) +
+  geom_point(show.legend = FALSE) +
+  facet_wrap(~parameter, scales = "free_x") +
+  labs(x = NULL, y = "RMSE")+
+  theme_classic()
+
+```
+
+But we will be comparing lots of specs of models so lets make a workflowset and then do the same but with lots of trained models. This will take a long time, so i set the grid to be just 2, really it should be set to around 10. We will also add (using option_add()) a control to the grid being used and the metric to be assessed (this will be necessary when we want to ensemble the models).
+
+```{r}
+#| cache: true
+
+library(stacks)
+
+metric <- metric_set(rmse)
+
+all_wf<-workflow_set(
+  list(recipe),
+  list(glm_spec,
+       rf_spec,
+       xgboost_spec,
+       svm_spec,
+       knn_spec)) %>%
+  option_add(
+    control = control_stack_grid(),
+    metrics = metric
+  )
+
+all_res<- all_wf %>% 
+  workflow_map(
+    resamples=folds,
+    grid=2
+  )
+
+```
+
+Once that finishes running we can compare between all the tuned models. 
+
+```{r}
+
+autoplot(
+   all_res,
+   rank_metric = "rmse",  # <- how to order models
+   metric = "rmse",       # <- which metric to visualize
+   select_best = TRUE     # <- one point per workflow
+) +
+   geom_text(aes(y = mean - 0.075, label = wflow_id), angle = 90, hjust = 1) +
+   lims(y = c(0.5, 1)) +
+   theme_classic()
+```
+
+## Select Best Model
+
+Lets select the best model, then see how well it performs on predicting the test data. Lets select the boost_tree model. The best_results object provides us the 'best' hyper parameter values for this model framework. This is based on a very small amount of tests here, in reality we should use many more combinations of hyper parameters to test the best ones.
+
+```{r}
+
+best_results <- all_res %>% 
+   extract_workflow_set_result("recipe_boost_tree") %>% 
+   select_best(metric = "rmse")
+
+best_results
+
+```
+
+## Assess Ability of 'Best' Model
+
+Now lets combine these hyperparrameter values with the workflow, finalise the model and then fit to the initial split of our data. Then we can collect the metrics when this model was applied to the test dataset.
+
+```{r}
+
+boosting_test_results <- 
+   all_res %>% 
+   extract_workflow("recipe_boost_tree") %>% 
+   finalize_workflow(best_results) %>% 
+   last_fit(split = init)
+  
+collect_metrics(boosting_test_results)
+
+```
+
+We can also plot the predicted verses the true results.
+
+```{r}
+
+library(ggpointdensity)
+library(viridis)
+
+boosting_test_results %>% 
+   collect_predictions() %>% 
+   ggplot(aes(x = average, y = .pred)) + 
+   geom_abline(colour = "gray50", linetype = 2) + 
+   geom_pointdensity() + 
+   coord_obs_pred()+
+  scale_color_viridis() + 
+   labs(x = "Observed", y = "Predicted",colour="Density")+
+   theme_classic()
+
+```
+
+# Ensemble All Models Together
+
+After training all these different models and there could be a lot more, we may be losing predictive ability by only selecting the best one. It has been shown by many researchers that combining an ensemble of models will generally lead to better prediction ability. With the Stacks package in r we can easily stack or ensemble our models together. 
+
+```{r}
+
+
+ all_stacked<-stacks() %>%
+  add_candidates(all_res) %>%
+  blend_predictions() %>%
+  fit_members() 
+ 
+stack_test_res <- all_stacked %>%
+  bind_cols(predict(all_stacked, .))
+
+stack_test_res %>% 
+   ggplot(aes(x = average, y = .pred)) + 
+   geom_abline(colour = "gray50", linetype = 2) + 
+   geom_pointdensity() + 
+   coord_obs_pred()+
+  scale_color_viridis() + 
+   labs(x = "Observed", y = "Predicted",colour="Density")+
+   theme_classic()
+
+```
+
+# Validation Metric
+
+Earlier, our 'best' model produced an rmse of:`r signif(collect_metrics(boosting_test_results)[[1,3]],3)`, which is very good and our ensemble model created an rmse of: `r signif(rmse_vec(stack_test_res$average,stack_test_res$.pred),3)`, which is almost identical but just slightly better. This is what ensembling is so often used for; improving an already very good model. 
+
+
+
+
+
+
+
+
+
+
