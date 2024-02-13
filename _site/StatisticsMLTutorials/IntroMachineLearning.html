@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -592,12 +592,12 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 2
    splits           id    
    &lt;list&gt;           &lt;chr&gt; 
- 1 &lt;split [223/26]&gt; Fold01
+ 1 &lt;split [222/27]&gt; Fold01
  2 &lt;split [223/26]&gt; Fold02
- 3 &lt;split [223/26]&gt; Fold03
- 4 &lt;split [223/26]&gt; Fold04
+ 3 &lt;split [224/25]&gt; Fold03
+ 4 &lt;split [224/25]&gt; Fold04
  5 &lt;split [224/25]&gt; Fold05
- 6 &lt;split [225/24]&gt; Fold06
+ 6 &lt;split [224/25]&gt; Fold06
  7 &lt;split [225/24]&gt; Fold07
  8 &lt;split [225/24]&gt; Fold08
  9 &lt;split [225/24]&gt; Fold09
@@ -650,12 +650,12 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 4
    splits           id     .metrics          .notes          
    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;          
- 1 &lt;split [223/26]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 1 &lt;split [222/27]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  2 &lt;split [223/26]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 3 &lt;split [223/26]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 4 &lt;split [223/26]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 3 &lt;split [224/25]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 4 &lt;split [224/25]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  5 &lt;split [224/25]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 6 &lt;split [225/24]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 6 &lt;split [224/25]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  7 &lt;split [225/24]&gt; Fold07 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  8 &lt;split [225/24]&gt; Fold08 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  9 &lt;split [225/24]&gt; Fold09 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
@@ -699,9 +699,9 @@ Attaching package: 'palmerpenguins'</code></pre>
 <pre><code>Random Forest Model Specification (classification)
 
 Main Arguments:
-  mtry = 7
+  mtry = 6
   trees = 500
-  min_n = 15
+  min_n = 6
 
 Computational engine: ranger </code></pre>
 </div>
@@ -751,8 +751,8 @@ Attaching package: 'vip'</code></pre>
 <pre><code># A tibble: 2 × 4
   .metric  .estimator .estimate .config             
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass     0.988 Preprocessor1_Model1
-2 roc_auc  hand_till      1     Preprocessor1_Model1</code></pre>
+1 accuracy multiclass         1 Preprocessor1_Model1
+2 roc_auc  hand_till          1 Preprocessor1_Model1</code></pre>
 </div>
 </div>
 <p>So in this very specific example we have got ridiculously good results in our model. This is not always the case.</p>
@@ -764,9 +764,9 @@ Attaching package: 'vip'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Truth
 Prediction  Adelie Chinstrap Gentoo
-  Adelie        31         0      0
-  Chinstrap      1        17      0
-  Gentoo         0         0     35</code></pre>
+  Adelie        30         0      0
+  Chinstrap      0        26      0
+  Gentoo         0         0     28</code></pre>
 </div>
 </div>
 <p>So we can see from this that almost all the predictions are the same as the truth. If you want to see how much the random number generation from before effects the results you can rerun this script with different set.seed() numbers.</p>

@@ -28,3 +28,6 @@ xgboost
 kernlab
 kknn
 stacks
+ggpointdensity
+viridisLite
+viridis
