@@ -87,6 +87,7 @@ website:
         - section: "Machine Learning Tutorials"
           contents:
             - StatisticsMLTutorials/IntroMachineLearning.qmd
+            - StatisticsMLTutorials/ComparingMLs.qmd
       collapse-level: 1
       foreground: "#dbb13b"
       background: "#467373"
