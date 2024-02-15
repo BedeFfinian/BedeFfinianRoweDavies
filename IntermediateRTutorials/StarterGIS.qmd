@@ -1,0 +1,367 @@
+---
+title: "Spatial Data in R"
+description: "An Introduction look at spatial analyses, plotting, manipulation and combination."
+image: ../Images/Tutorials/Terra.png
+id: Intermediate
+date: "10/10/2023"
+categories: [Tidyverse, ggplot2, R, terra, sf, Mapping, GIS]
+---
+
+# <img src='../Images/Tutorials/Terra.png' align="right" height="138.5" /></a>
+
+
+## Data Types  
+
+Generally, when we talk about spatial data the minimum requirements are having some form of spatial information (often called geometry or shape) and some additional information. This spatial information is normally an x and a y coordinate (but may contain z and time). 
+
+### Vector Data
+
+The most common spatial data is collectively called **Vector Data** and is generally more discrete spatial, such as individual points, lines or polygons. For example, we might have the location of capital cities (**Point**) or the route of a river system (**Line**) or shape of country borders of a country (**Polygon**). 
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+#| fig.width: 8
+#| fig.height: 8
+
+library(Utilities.Package) 
+library(tidyverse) 
+library(sf) 
+library(rnaturalearth) 
+library(rnaturalearthdata) 
+#remotes::install_github("ropensci/rnaturalearthhires")
+library(rnaturalearthhires) 
+
+world_map <- sovereignty10 %>% 
+  st_as_sf() 
+
+bbox_SAmerica <- st_bbox(c(xmin = -100, ymin = -55,
+                         xmax = -20, ymax = 10) ,
+                       crs = st_crs(world_map) ) 
+
+world_map<-st_make_valid(world_map) 
+
+SAmerica_map_cropped <- st_crop(world_map, bbox_SAmerica)  
+
+
+Projects<-data.frame(
+  City=c(
+  "Brasilia",
+  "Quito",
+  "Santiago",
+  "Lima",
+  "Buenos Aires",
+  "La Paz",
+  "Bogotá",
+  "Asunción",
+  "Montevideo",
+  "Caracas",
+  "Cayenne",
+  "Paramaribo",
+  "Georgetown"
+  ) ,	
+  Long=c(-47.9297,
+         -78.5250,
+         -70.6483,
+         -77.0282,
+         -58.4004,
+         -68.1500,
+         -74.0818,
+         -57.6359,
+         -56.1674,
+         -66.8792,
+         -52.3333,
+         -55.1668,
+         -58.1553),							
+  Lat=c(-15.7797,	
+        -0.2299,	
+        -33.4569,
+        -12.0432,
+        -34.6051,
+        -16.5000,
+          4.6097,
+        -25.3007,
+        -34.8335,
+        10.4880,
+        4.9333,
+        5.8664,
+        6.8045)
+  )  %>% 
+  st_as_sf(coords=c("Long","Lat") )  %>% 
+  st_set_crs("EPSG:4326") 
+
+
+Amazon<-st_read("../Images/Tutorials/majorrivers_0_0/MajorRivers.shp",quiet=T) %>% 
+   filter(SYSTEM=="Amazon") %>%
+  rename(`River System`=SYSTEM) 
+
+
+ggplot()+
+  geom_sf(data=SAmerica_map_cropped,linewidth=0.1,alpha=0.8,
+          fill="palegreen3",colour="grey30")+
+  geom_sf(data = Projects,aes(fill=City),shape=24,size=3)+
+  geom_sf(data=Amazon,aes(colour=`River System`),alpha=0.8)+
+  scale_colour_manual(values=c("darkcyan"))+
+  scale_fill_Bede("mixed")+
+  theme_Bede_Map()+
+  theme(legend.position = "right")
+
+
+```
+
+
+### Raster Data
+
+Another comment spatial data style is **Raster Data**, which is more continuous spatially and is sometimes called a spatial field or gridded data. For example bathymetry or elevation of an area will be a grid of x and y spatial cells with a bathymetry or eleveation value for each 'cell' of the grid. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| error: false
+#| fig.width: 8
+#| fig.height: 8
+
+library(marmap)
+library(terra)
+library(tidyterra)
+
+bat <- getNOAA.bathy(lon1=-100,lon2=-20,lat1=-65,lat2=15, res = 15)
+
+
+raster<-as.xyz(bat) %>% 
+  rename(Longitude=V1,Latitude=V2,Depth=V3) %>% 
+  filter(Depth<1) %>% 
+  as_spatraster(xycols = c(1:2),crs=4326) 
+
+ggplot()+
+  geom_spatraster(data=raster,alpha=0.8)+
+  geom_sf(data=SAmerica_map_cropped,linewidth=0.1,alpha=0.8,
+          fill="palegreen3",colour="grey30")+
+  scale_fill_Bede("Bathy_Blues",reverse = T,discrete = F,na.value="transparent",
+                  name="Depth (m)",
+                       breaks=c(0,-2500,-5000,-7500),
+                       labels=c("0","2,500","5,000","7,500"))+
+  theme_Bede_Map()+
+  theme(legend.position = "right")
+
+```
+
+## Spatial Basics
+
+### Create Vector Data
+
+As we see above, we can combine all these data types to make displays of our data. But also we can combine these data types to perform more complex manipulations or analyses. First of all lets bring in some vector data with the sf package. The sf package allows us to bring in our vector data easily and inspect, manipulate and plot it in a very similar way to using a normal dataframe. The only difference is that we have a column called geometry that stores the spatial data for each row. Above in the map of south america with the amazon and capital cities we had a combination of different vector spatial data. 
+
+The first data type, point data can be created by ourselves in r, without having to read any data in. First we make a data frame with the information of each point (latitude, longitude, name), then we use sf to convert this df to an sf object, telling sf which columns are our geomtry info and what coordinate reference system we are working in. This wasn't very automatic as I found the values online and copy and pasted them into r. 
+
+```{r}
+
+library(tidyverse)
+library(sf)
+
+Points_df<-data.frame(
+  City=c(
+    "Brasilia", "Quito", "Santiago", 
+    "Lima", "Buenos Aires", "La Paz", 
+    "Bogotá", "Asunción", "Montevideo", 
+    "Caracas", "Cayenne", "Paramaribo",
+         "Georgetown"
+  ) ,	
+  Long=c(-47.9297,-78.5250,-70.6483,-77.0282,
+         -58.4004,-68.1500,-74.0818,-57.6359,
+         -56.1674,-66.8792,-52.3333,-55.1668,-58.1553),							
+  Lat=c(-15.7797,	 -0.2299,	 -33.4569, -12.0432,
+        -34.6051, -16.5000,   4.6097, -25.3007,
+        -34.8335, 10.4880, 4.9333, 5.8664, 6.8045)
+  )  
+
+head(Points_df)
+
+Points_sf<-Points_df%>% 
+  st_as_sf(coords=c("Long","Lat") )  %>% 
+  st_set_crs("EPSG:4326") 
+
+head(Points_sf)
+
+```
+
+We can see when we inspect the sf object it has more spatial information that sf has assigned to the df when converting. As r recognises an sf object as being spatial now we can use the base plot function to look at the point locations. This isn't an amazing plot as there is not much information in the sf object, just city names.
+
+```{r}
+
+plot(Points_sf)
+
+```
+
+As it acts just like any other dataframe we can add data, subset, manipulate and join in the same way we would with tidyverse.
+
+```{r}
+
+Fake_ElevationData<-runif(13,min=0,max=3000)
+
+Points_sf_Elevate<-Points_sf %>% 
+  mutate(Elev=Fake_ElevationData)
+
+Location_Bogota<-Points_sf_Elevate %>% 
+  filter(City=="Bogotá")
+
+```
+
+### Load Open Access Vector Data
+
+We can also perform analyses between different spatial objects. So if we get spatial information for boundaries of countries in the world we can use our capital cities to join and subset the dataset. We will use the naturalhires suite of packages to get polygons of world boundaries. Lets bring in the data using a 10 resolution, convert it to an sf object and check it has worked well.
+
+```{r}
+
+library(rnaturalearth) 
+library(rnaturalearthdata) 
+#remotes::install_github("ropensci/rnaturalearthhires")
+library(rnaturalearthhires) 
+
+world_map <- sovereignty10 %>% 
+  st_as_sf() 
+
+ggplot(world_map)+
+  geom_sf(aes(fill=REGION_UN),alpha=0.7)+
+  theme_classic()
+
+```
+
+We can also inspect the information attached to each row in the sf file for each country. But i will select some specific columns of interest to neaten the dataset up first.
+
+```{r}
+
+world_map<-world_map %>% 
+  select(SOVEREIGNT,ADM0_A3,CONTINENT,
+         REGION_UN,SUBREGION,POP_EST,
+         POP_RANK, POP_YEAR, GDP_MD, GDP_YEAR)
+
+head(world_map)
+
+```
+
+If we plot our cities on top of the countries we can see it is only a select few cities that we have. Maybe we want to extract only the polygons that one of our cities lands inside of spatially?
+
+```{r}
+
+ggplot(world_map)+
+  geom_sf()+
+  geom_sf(data=Points_sf,fill="#dbb13b",colour="white",shape=23,size=3)+
+  theme_classic()
+
+```
+
+We can use a join to combine the sf objects. To carry out spatial joins we need to tell sf that we want to work in two d space (not a true sphere)
+
+```{r}
+
+sf_use_s2(FALSE)
+
+SouthAmerica<-world_map %>% 
+  st_join(Points_sf,left=F)
+
+ggplot(SouthAmerica)+
+  geom_sf()+
+  theme_classic()
+
+```
+
+Hmm this is looking a bit weird, we seem to have gained all the French lands. This is because in our world_map sf object, we had multiple polygons per row. Therefore, the row that contained the French Guiana also contained all of Frances territories. So perhaps we want to do a spatial filter. There are many ways to do this, the simplest is to create a bounding box the subset the SouthAmerica sf based on the new spatial object. Lets create a bounding box then plot it over our map to see where it is.
+
+```{r}
+
+ylims <- c(-65, 20)
+
+xlims <- c(-100, -20)
+
+box_coords <- tibble(x = xlims, y = ylims) %>% 
+  st_as_sf(coords = c("x", "y"),crs="EPSG:4326") %>%
+  st_bbox()%>% 
+  st_as_sfc()
+
+
+ggplot(SouthAmerica)+
+  geom_sf()+
+  geom_sf(data=box_coords,colour="red",fill=NA)+
+  theme_classic()
+
+```
+
+This looks like a good subset for now.
+
+```{r}
+
+SouthAmerica_subset <- st_intersection(SouthAmerica, box_coords)
+
+ggplot(SouthAmerica_subset)+
+  geom_sf()+
+  geom_sf(data=box_coords,colour="red",fill=NA)+
+  theme_classic()
+
+```
+
+Much Better!
+
+### Load in Local Vector Data
+
+So lets get some Vector Data and load I into r from our local system. I downloaded river shape file from: <https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World>
+
+```{r}
+
+Rivers<-st_read("majorrivers_0_0/MajorRivers.shp",quiet=T) 
+
+ggplot(Rivers)+
+  geom_sf(colour="#6cc3d5")+
+  theme_classic()
+
+```
+
+This looks to be correct, so lets do as before and select the rivers that are in south america. We could select the Amazon by using filter(SYSEM++"Amazon") but lets reuse our bounding box from earlier to select all rivers in south america.
+
+```{r}
+
+SouthAmerica_rivers <- st_intersection(Rivers, box_coords)
+
+ggplot(SouthAmerica_rivers)+
+  geom_sf(colour="#6cc3d5")+
+  geom_sf(data=box_coords,colour="red",fill=NA)+
+  theme_classic()
+
+```
+
+There are extra bits of information in this sf that we can treat just like a normal df. How long are all the rivers in south america? (In this shape file that is)
+
+```{r}
+
+sum(SouthAmerica_rivers$KILOMETERS)
+
+```
+
+Which is the maximum?
+
+```{r}
+
+SouthAmerica_rivers %>%
+             filter(KILOMETERS == max(KILOMETERS))
+
+```
+
+The Amazon, surprisingly!
+
+Lets combine all these Vector data into a single plot.
+
+```{r}
+
+
+ggplot(SouthAmerica_subset)+
+  geom_sf(linewidth=0.1,alpha=0.8,
+          fill="palegreen3",colour="grey30")+
+  geom_sf(data=SouthAmerica_rivers,colour="#6cc3d5")+
+  geom_sf(data=Points_sf,aes(colour=City))+
+  geom_sf(data=box_coords,colour="red",fill=NA)+
+  theme_classic()
+
+
+```
+

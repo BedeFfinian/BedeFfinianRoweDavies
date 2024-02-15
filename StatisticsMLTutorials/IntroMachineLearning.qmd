@@ -9,7 +9,7 @@ categories: [Introduction, R, Machine Learning, Stats, Random Forest]
 
 # Basic Concepts <img src='../Images/Tutorials/tidymodels.png' align="right" height="138.5" /></a>
 
-So far we have used models to describe data but a lot of times we might want to create a model that is able to predict new data. This may be new data outside of our temporal or spatial range, or outside of our current knowledge base. The best set of tools for predicting new data is generally Machine Learning (ML) methods. 
+So far we have used models to describe data but a lot of times we might want to create a model that is able to predict new data. This may be new data outside of our temporal or spatial range, or outside of our current knowledge base. The best set of tools for predicting new data is generally Machine Learning (ML) methods. For a pretty full and comprehensive discussion, with advantages and disadvantages go here: <https://ml-science-book.com/>
 
 ## Unsupervised ML 
 

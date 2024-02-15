@@ -101,6 +101,34 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-Intermediate .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-Intermediate'] = new List('listing-Intermediate', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-Stats .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -365,20 +393,32 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./BasicRTutorials/CombiningPlots.html" class="sidebar-item-text sidebar-link">
+  <a href="./IntermediateRTutorials/CombiningPlots.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Combining Multiple Plots in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
+  <a href="./IntermediateRTutorials/StarterGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntermediateRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Making Static Maps in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./BasicRTutorials/MakingInteractiveMaps.html" class="sidebar-item-text sidebar-link">
+  <a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Making Interactive Maps in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntermediateRTutorials/ComplexGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Complex GIS in R</span></a>
   </div>
 </li>
       </ul>
@@ -473,7 +513,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-tutorials-with-an-ecologist-bias" id="toc-r-tutorials-with-an-ecologist-bias" class="nav-link active" data-scroll-target="#r-tutorials-with-an-ecologist-bias">R Tutorials with an Ecologist Bias:</a></li>
+  <li><a href="#r-tutorials-with-an-ecologist-bias-basic" id="toc-r-tutorials-with-an-ecologist-bias-basic" class="nav-link active" data-scroll-target="#r-tutorials-with-an-ecologist-bias-basic">R Tutorials with an Ecologist Bias (Basic):</a></li>
+  <li><a href="#r-tutorials-with-an-ecologist-bias-intermediate" id="toc-r-tutorials-with-an-ecologist-bias-intermediate" class="nav-link" data-scroll-target="#r-tutorials-with-an-ecologist-bias-intermediate">R Tutorials with an Ecologist Bias (Intermediate):</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-glms" id="toc-statistics-tutorials-with-an-ecologist-bias-glms" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-glms">Statistics Tutorials with an Ecologist Bias (GLMs):</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-machine-learning" id="toc-statistics-tutorials-with-an-ecologist-bias-machine-learning" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</a></li>
   </ul>
@@ -482,7 +523,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(16)</span></div><div class="category" data-category="Beta">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Binomial">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GIS">GIS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="GLMs">GLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Gamma">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Gaussian">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(15)</span></div><div class="category" data-category="KNN">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Mapping">Mapping <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Poisson">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Problems">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(16)</span></div><div class="category" data-category="Random Forest">Random Forest <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SVM">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stats">Stats <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Tidyverse">Tidyverse <span class="quarto-category-count">(4)</span></div><div class="category" data-category="XGBoost">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zero Inflation">Zero Inflation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="leaflet">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="patchwork">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sf">sf <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Beta">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Binomial">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GIS">GIS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="GLMs">GLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Gamma">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Gaussian">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(15)</span></div><div class="category" data-category="KNN">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Mapping">Mapping <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Poisson">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Problems">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Random Forest">Random Forest <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SVM">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stats">Stats <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Tidyverse">Tidyverse <span class="quarto-category-count">(6)</span></div><div class="category" data-category="XGBoost">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zero Inflation">Zero Inflation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="leaflet">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="patchwork">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sf">sf <span class="quarto-category-count">(3)</span></div><div class="category" data-category="terra">terra <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -505,8 +546,8 @@ window.Quarto = {
 </header>
 
 
-<section id="r-tutorials-with-an-ecologist-bias" class="level2">
-<h2 class="anchored" data-anchor-id="r-tutorials-with-an-ecologist-bias">R Tutorials with an Ecologist Bias:</h2>
+<section id="r-tutorials-with-an-ecologist-bias-basic" class="level2">
+<h2 class="anchored" data-anchor-id="r-tutorials-with-an-ecologist-bias-basic">R Tutorials with an Ecologist Bias (Basic):</h2>
 <div id="listing-Basics" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="Introduction,R" data-listing-date-sort="1695160800000" data-listing-file-modified-sort="1696352984200" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1940">
@@ -605,18 +646,28 @@ R
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Introduction,Tidyverse,ggplot2,R,patchwork" data-listing-date-sort="1696716000000" data-listing-file-modified-sort="1696954646782" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2649">
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="r-tutorials-with-an-ecologist-bias-intermediate" class="level2">
+<h2 class="anchored" data-anchor-id="r-tutorials-with-an-ecologist-bias-intermediate">R Tutorials with an Ecologist Bias (Intermediate):</h2>
+<div id="listing-Intermediate" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Introduction,Tidyverse,ggplot2,R,patchwork" data-listing-date-sort="1696716000000" data-listing-file-modified-sort="1707927708906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2649">
 <div class="thumbnail">
-<p><a href="./BasicRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./BasicRTutorials/CombiningPlots.html" class="no-external">
+<p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
 <p><img src="./Images/Tutorials/Patchwork.png" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/CombiningPlots.html" class="no-external"></a></p>
+</a><p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BasicRTutorials/CombiningPlots.html" class="no-external">Combining Multiple Plots in R</a>
+<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">Combining Multiple Plots in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./BasicRTutorials/CombiningPlots.html" class="no-external"></a>
+<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Introduction'); return false;">
@@ -636,26 +687,26 @@ patchwork
 </div>
 </div>
 <div class="listing-description">
-<a href="./BasicRTutorials/CombiningPlots.html" class="no-external">A Introduction to Combining Plots in R for Research Scientists: From Facetting to Patchworks.</a>
+<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">A Introduction to Combining Plots in R for Research Scientists: From Facetting to Patchworks.</a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./BasicRTutorials/CombiningPlots.html" class="no-external">
+<p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Introduction,Tidyverse,ggplot2,R,sf,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1697042318325" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="36" data-listing-word-count-sort="7187">
+<div class="quarto-post image-right" data-index="1" data-categories="Introduction,Tidyverse,ggplot2,R,sf,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1707927831441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="36" data-listing-word-count-sort="7187">
 <div class="thumbnail">
-<p><a href="./BasicRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./BasicRTutorials/MakingMaps.html" class="no-external">
+<p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
 <p><img src="./Images/Tutorials/sf.gif" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/MakingMaps.html" class="no-external"></a></p>
+</a><p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BasicRTutorials/MakingMaps.html" class="no-external">Making Static Maps in R</a>
+<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">Making Static Maps in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./BasicRTutorials/MakingMaps.html" class="no-external"></a>
+<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Introduction'); return false;">
@@ -681,26 +732,26 @@ GIS
 </div>
 </div>
 <div class="listing-description">
-<a href="./BasicRTutorials/MakingMaps.html" class="no-external">A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections.</a>
+<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections.</a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./BasicRTutorials/MakingMaps.html" class="no-external">
+<p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Introduction,Tidyverse,ggplot2,R,leaflet,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1707479461727" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<div class="quarto-post image-right" data-index="2" data-categories="Introduction,Tidyverse,ggplot2,R,leaflet,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1707927603810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
 <div class="thumbnail">
-<p><a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external">
+<p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
 <p><img src="./Images/Tutorials/leaflet.png" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p>
+</a><p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p>
 </div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external">Making Interactive Maps in R</a>
+<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">Making Interactive Maps in R</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external"></a>
+<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a>
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Introduction'); return false;">
@@ -726,11 +777,101 @@ GIS
 </div>
 </div>
 <div class="listing-description">
-<a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external">A Rapid Introduction to Interactive Mapping in R for Research Scientists: All/some things Leaflet.</a>
+<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">A Rapid Introduction to Interactive Mapping in R for Research Scientists: All/some things Leaflet.</a>
 </div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./BasicRTutorials/MakingInteractiveMaps.html" class="no-external">
+<p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Tidyverse,ggplot2,R,terra,sf,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1708014868576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1602">
+<div class="thumbnail">
+<p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
+<p><img src="./Images/Tutorials/Terra.png" class="thumbnail-image"></p>
+</a><p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">Spatial Data in R</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Tidyverse'); return false;">
+Tidyverse
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ggplot2'); return false;">
+ggplot2
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('terra'); return false;">
+terra
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('sf'); return false;">
+sf
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mapping'); return false;">
+Mapping
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('GIS'); return false;">
+GIS
+</div>
+</div>
+<div class="listing-description">
+<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">An Introduction look at spatial analyses, plotting, manipulation and combination.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Tidyverse,ggplot2,R,terra,sf,Mapping,GIS" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1707929963338" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4">
+<div class="thumbnail">
+<p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
+<p><img src="./Images/Tutorials/Terra.png" class="thumbnail-image"></p>
+</a><p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">Complex GIS in R</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Tidyverse'); return false;">
+Tidyverse
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ggplot2'); return false;">
+ggplot2
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('terra'); return false;">
+terra
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('sf'); return false;">
+sf
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Mapping'); return false;">
+Mapping
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('GIS'); return false;">
+GIS
+</div>
+</div>
+<div class="listing-description">
+<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">An in-depth look at spatial dataset analyses.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
 </a>
 </div>
 </div>
@@ -1054,7 +1195,7 @@ No matching items
 <h2 class="anchored" data-anchor-id="statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</h2>
 <div id="listing-Stats_ML" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,Machine Learning,Stats,Random Forest" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1707407119291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1531">
+<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,Machine Learning,Stats,Random Forest" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1707927182021" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1544">
 <div class="thumbnail">
 <p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
 <p><img src="./Images/Tutorials/tidymodels.png" class="thumbnail-image"></p>

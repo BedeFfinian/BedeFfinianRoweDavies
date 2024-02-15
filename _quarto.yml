@@ -69,9 +69,11 @@ website:
         - text: "---"
         - section: "Intermediate R Tutorials"
           contents: 
-            - BasicRTutorials/CombiningPlots.qmd
-            - BasicRTutorials/MakingMaps.qmd
-            - BasicRTutorials/MakingInteractiveMaps.qmd
+            - IntermediateRTutorials/CombiningPlots.qmd
+            - IntermediateRTutorials/StarterGIS.qmd
+            - IntermediateRTutorials/MakingMaps.qmd
+            - IntermediateRTutorials/MakingInteractiveMaps.qmd
+            - IntermediateRTutorials/ComplexGIS.qmd
         - text: "---"
         - section: "General Linear Models Tutorials"
           contents:

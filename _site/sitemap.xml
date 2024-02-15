@@ -18,7 +18,15 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Tutorials.html</loc>
-    <lastmod>2024-02-08T14:51:31.170Z</lastmod>
+    <lastmod>2024-02-14T16:24:44.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/CombiningPlots.html</loc>
+    <lastmod>2024-02-14T16:21:48.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/MakingInteractiveMaps.html</loc>
+    <lastmod>2024-02-14T16:20:03.810Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/Publications.html</loc>
@@ -42,79 +50,67 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/IntroMachineLearning.html</loc>
-    <lastmod>2024-02-08T15:45:19.291Z</lastmod>
+    <lastmod>2024-02-14T16:13:02.021Z</lastmod>
   </url>
   <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/CombiningPlots.html</loc>
-    <lastmod>2023-10-10T16:17:26.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/MakingInteractiveMaps.html</loc>
-    <lastmod>2024-02-09T11:51:01.727Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/MakingMaps.html</loc>
-    <lastmod>2023-10-11T16:38:38.325Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
-    <lastmod>2023-11-09T16:22:48.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Everest.html</loc>
-    <lastmod>2022-11-30T15:08:39.833Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/BrentGoose.html</loc>
-    <lastmod>2023-01-12T10:55:41.988Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges_2.html</loc>
-    <lastmod>2023-09-25T11:33:58.495Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Mussels.html</loc>
-    <lastmod>2022-11-30T15:08:39.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
-    <lastmod>2023-08-23T07:48:30.578Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
-    <lastmod>2023-07-05T15:32:12.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
-    <lastmod>2024-02-09T11:46:19.359Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/OysterTables.html</loc>
-    <lastmod>2023-08-24T21:15:28.178Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges.html</loc>
-    <lastmod>2022-11-30T15:08:39.833Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/LymeSummary.html</loc>
-    <lastmod>2024-01-16T16:13:45.586Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Storms.html</loc>
-    <lastmod>2022-11-30T15:08:39.856Z</lastmod>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
+    <lastmod>2023-10-03T17:08:24.122Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataManipulation.html</loc>
     <lastmod>2023-10-11T07:44:13.076Z</lastmod>
   </url>
   <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/IntroductionR.html</loc>
-    <lastmod>2023-10-03T17:09:44.200Z</lastmod>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Storms.html</loc>
+    <lastmod>2022-11-30T15:08:39.856Z</lastmod>
   </url>
   <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
-    <lastmod>2023-10-03T17:08:24.122Z</lastmod>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/LymeSummary.html</loc>
+    <lastmod>2024-01-16T16:13:45.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges.html</loc>
+    <lastmod>2022-11-30T15:08:39.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/OysterTables.html</loc>
+    <lastmod>2023-08-24T21:15:28.178Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
+    <lastmod>2024-02-09T11:46:19.359Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
+    <lastmod>2023-07-05T15:32:12.962Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
+    <lastmod>2023-08-23T07:48:30.578Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Mussels.html</loc>
+    <lastmod>2022-11-30T15:08:39.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges_2.html</loc>
+    <lastmod>2023-09-25T11:33:58.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/BrentGoose.html</loc>
+    <lastmod>2023-01-12T10:55:41.988Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Everest.html</loc>
+    <lastmod>2022-11-30T15:08:39.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
+    <lastmod>2023-11-09T16:22:48.626Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/IntroductionR.html</loc>
+    <lastmod>2023-10-03T17:09:44.200Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/ComparingMLs.html</loc>
@@ -141,6 +137,14 @@
     <lastmod>2023-12-12T16:57:36.509Z</lastmod>
   </url>
   <url>
+    <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/MakingMaps.html</loc>
+    <lastmod>2024-02-14T16:23:51.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/ComplexGIS.html</loc>
+    <lastmod>2024-02-14T16:59:23.338Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.bedeffinianrowedavies.com/index_Mobile.html</loc>
     <lastmod>2023-10-02T16:07:24.289Z</lastmod>
   </url>
@@ -159,5 +163,9 @@
   <url>
     <loc>https://www.bedeffinianrowedavies.com/consultancy_Mobile.html</loc>
     <lastmod>2023-11-09T16:22:56.478Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/StarterGIS.html</loc>
+    <lastmod>2024-02-15T16:34:28.576Z</lastmod>
   </url>
 </urlset>

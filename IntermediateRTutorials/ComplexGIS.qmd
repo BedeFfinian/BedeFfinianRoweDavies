@@ -1,0 +1,15 @@
+---
+title: "Complex GIS in R"
+description: "An in-depth look at spatial dataset analyses."
+image: ../Images/Tutorials/Terra.png
+id: Intermediate
+date: "10/10/2023"
+categories: [Tidyverse, ggplot2, R, terra, sf, Mapping, GIS]
+---
+
+# <img src='../Images/Tutorials/Terra.png' align="right" height="138.5" /></a>
+
+
+### Complexity Coming 
+
+

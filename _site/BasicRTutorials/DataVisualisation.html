@@ -293,23 +293,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../BasicRTutorials/CombiningPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Combining Multiple Plots in R</span></a>
-  </div>
-</li>
+ <span class="menu-text">BasicRTutorials/CombiningPlots.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../BasicRTutorials/MakingMaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Making Static Maps in R</span></a>
-  </div>
-</li>
+ <span class="menu-text">BasicRTutorials/MakingMaps.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../BasicRTutorials/MakingInteractiveMaps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Making Interactive Maps in R</span></a>
-  </div>
-</li>
+ <span class="menu-text">BasicRTutorials/MakingInteractiveMaps.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">BasicRTutorials/ComplexGIS.qmd</span>
+  </li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -576,9 +570,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             120.       114.
-2 Treatment 1        -694.      1237.
-3 Treatment 2        1270.       841.</code></pre>
+1 Control             118.       113.
+2 Treatment 1        -700.      1150.
+3 Treatment 2        1267.       858.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -594,16 +588,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950        26.4        41.2
- 2 Control    1951        15.9        36.4
- 3 Control    1952        13.8        32.4
- 4 Control    1953         5.40       27.2
- 5 Control    1954        13.4        32.4
- 6 Control    1955        23.1        27.1
- 7 Control    1956        48.4        44.7
- 8 Control    1957        34.0        37.5
- 9 Control    1958        32.0        39.7
-10 Control    1959        35.1        30.1
+ 1 Control    1950         6.13       30.7
+ 2 Control    1951         2.68       34.7
+ 3 Control    1952        23.3        24.8
+ 4 Control    1953        17.3        50.1
+ 5 Control    1954        37.7        41.6
+ 6 Control    1955        38.3        10.4
+ 7 Control    1956        14.0        35.2
+ 8 Control    1957        18.1        51.5
+ 9 Control    1958        33.6        60.4
+10 Control    1959        50.3        48.9
 # ℹ 212 more rows</code></pre>
 </div>
 </div>
