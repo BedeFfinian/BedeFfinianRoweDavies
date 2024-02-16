@@ -422,11 +422,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#vector-data" id="toc-vector-data" class="nav-link" data-scroll-target="#vector-data">Vector Data</a></li>
   <li><a href="#raster-data" id="toc-raster-data" class="nav-link" data-scroll-target="#raster-data">Raster Data</a></li>
   </ul></li>
-  <li><a href="#spatial-basics" id="toc-spatial-basics" class="nav-link" data-scroll-target="#spatial-basics">Spatial Basics</a>
+  <li><a href="#spatial-basics-vector-data" id="toc-spatial-basics-vector-data" class="nav-link" data-scroll-target="#spatial-basics-vector-data">Spatial Basics: Vector Data</a>
   <ul class="collapse">
   <li><a href="#create-vector-data" id="toc-create-vector-data" class="nav-link" data-scroll-target="#create-vector-data">Create Vector Data</a></li>
   <li><a href="#load-open-access-vector-data" id="toc-load-open-access-vector-data" class="nav-link" data-scroll-target="#load-open-access-vector-data">Load Open Access Vector Data</a></li>
-  <li><a href="#load-in-local-vector-data" id="toc-load-in-local-vector-data" class="nav-link" data-scroll-target="#load-in-local-vector-data">Load in Local Vector Data</a></li>
+  <li><a href="#load-local-vector-data" id="toc-load-local-vector-data" class="nav-link" data-scroll-target="#load-local-vector-data">Load Local Vector Data</a></li>
+  </ul></li>
+  <li><a href="#spatial-basics-raster-data" id="toc-spatial-basics-raster-data" class="nav-link" data-scroll-target="#spatial-basics-raster-data">Spatial Basics: Raster Data</a>
+  <ul class="collapse">
+  <li><a href="#create-raster-data" id="toc-create-raster-data" class="nav-link" data-scroll-target="#create-raster-data">Create Raster Data</a></li>
+  <li><a href="#load-open-access-raster-data" id="toc-load-open-access-raster-data" class="nav-link" data-scroll-target="#load-open-access-raster-data">Load Open Access Raster Data</a></li>
+  <li><a href="#load-local-raster-data" id="toc-load-local-raster-data" class="nav-link" data-scroll-target="#load-local-raster-data">Load Local Raster Data</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -510,8 +516,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="spatial-basics" class="level2">
-<h2 class="anchored" data-anchor-id="spatial-basics">Spatial Basics</h2>
+<section id="spatial-basics-vector-data" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-basics-vector-data">Spatial Basics: Vector Data</h2>
 <section id="create-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="create-vector-data">Create Vector Data</h3>
 <p>As we see above, we can combine all these data types to make displays of our data. But also we can combine these data types to perform more complex manipulations or analyses. First of all lets bring in some vector data with the sf package. The sf package allows us to bring in our vector data easily and inspect, manipulate and plot it in a very similar way to using a normal dataframe. The only difference is that we have a column called geometry that stores the spatial data for each row. Above in the map of south america with the amazon and capital cities we had a combination of different vector spatial data.</p>
@@ -727,8 +733,8 @@ all geometries</code></pre>
 </div>
 <p>Much Better!</p>
 </section>
-<section id="load-in-local-vector-data" class="level3">
-<h3 class="anchored" data-anchor-id="load-in-local-vector-data">Load in Local Vector Data</h3>
+<section id="load-local-vector-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-local-vector-data">Load Local Vector Data</h3>
 <p>So lets get some Vector Data and load I into r from our local system. I downloaded river shape file from: <a href="https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World" class="uri">https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Rivers<span class="ot">&lt;-</span><span class="fu">st_read</span>(<span class="st">"majorrivers_0_0/MajorRivers.shp"</span>,<span class="at">quiet=</span>T) </span>
@@ -802,6 +808,323 @@ Geodetic CRS:  WGS 84
 <div>
 <figure class="figure">
 <p><img src="StarterGIS_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="spatial-basics-raster-data" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-basics-raster-data">Spatial Basics: Raster Data</h2>
+<section id="create-raster-data" class="level3">
+<h3 class="anchored" data-anchor-id="create-raster-data">Create Raster Data</h3>
+<p>Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where is it in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="at">ncol=</span><span class="dv">100</span>,<span class="at">nrow=</span><span class="dv">100</span>,<span class="at">nlyrs=</span><span class="dv">5</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(r[[<span class="dv">1</span>]])<span class="ot">&lt;-</span><span class="fu">sort</span>(<span class="fu">runif</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncell</span>(r)))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(r[[<span class="dv">2</span>]])<span class="ot">&lt;-</span><span class="fu">values</span>(r[[<span class="dv">1</span>]])<span class="sc">*-</span><span class="dv">1</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(r[[<span class="dv">3</span>]])<span class="ot">&lt;-</span><span class="fu">sort</span>(<span class="fu">runif</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncell</span>(r)))</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(r[[<span class="dv">4</span>]])<span class="ot">&lt;-</span><span class="fu">values</span>(r[[<span class="dv">3</span>]])<span class="sc">*</span><span class="fl">0.6</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="fu">values</span>(r[[<span class="dv">5</span>]])<span class="ot">&lt;-</span><span class="fu">sort</span>(<span class="fu">runif</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncell</span>(r)))</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>r)<span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>lyr)<span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>So far we haven’t added any information about where this raster is. We can inspect it to find where is its dimensions, resolution and extent.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100 100   5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">res</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.6 1.8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SpatExtent : -180, 180, -90, 90 (xmin, xmax, ymin, ymax)</code></pre>
+</div>
+</div>
+<p>We can see that this raster has 100 rows, 100 columns and 5 layers. Layers are a bit more complicated but they are often visualised like multiple layers of croissant dough (Pâtes feuilletée), with each layer being laid ontop of the other spatially but some containing different information (butter or pastry). It also has a resolution of 3.6 by 1.8 per pixel. And we can see what this information means in relation to its extent. Which is -180 to 180 and -90 to 90, which are the default before we tell raster where the raster is located in space. Once we change the extent we can see that our resolution changes too.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(r)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">100</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">res</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(r)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">0</span>,<span class="dv">50</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">res</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5 0.5</code></pre>
+</div>
+</div>
+<p>As we see the difference in extent is divided by the dimension to give the resolution. If we don’t pay attention to this we can get some weird results when changing dimension, resolution or extent.</p>
+</section>
+<section id="load-open-access-raster-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-open-access-raster-data">Load Open Access Raster Data</h3>
+<p>Lets look at some real world raster data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geodata)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>avgtemp <span class="ot">&lt;-</span> <span class="fu">worldclim_global</span>(<span class="at">var=</span><span class="st">"tavg"</span>,<span class="at">res=</span><span class="dv">10</span>,<span class="at">path=</span><span class="fu">tempdir</span>())</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(avgtemp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">res</span>(avgtemp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1666667 0.1666667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(avgtemp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1080 2160   12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(avgtemp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SpatExtent : -180, 180, -90, 90 (xmin, xmax, ymin, ymax)</code></pre>
+</div>
+</div>
+<p>This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Box_terra<span class="ot">&lt;-</span><span class="fu">vect</span>(box_coords)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>avgtemp_SoAm<span class="ot">&lt;-</span>avgtemp <span class="sc">%&gt;%</span> </span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crop</span>(Box_terra)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>avgtemp_SoAm)<span class="sc">+</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>lyr)<span class="sc">+</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Okay we have data for every month, this is interesting but a lot to deal with, lets take the mean across all layers. We could also resample to make computation faster but the raster will become more pixelated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>avgtemp_SoAm_mean<span class="ot">&lt;-</span>avgtemp_SoAm <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>avgtemp_SoAm_mean)<span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>avgtemp_SoAm_mean_agg<span class="ot">&lt;-</span>avgtemp_SoAm_mean <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">aggregate</span>(<span class="at">fact=</span><span class="dv">10</span>,<span class="at">fun=</span><span class="st">"mean"</span>,<span class="at">na.rm=</span>T)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>avgtemp_SoAm_mean_agg)<span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that locations or we can take the average values within each country then average.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>Countries<span class="ot">&lt;-</span><span class="fu">str_replace_all</span>(SouthAmerica_subset<span class="sc">$</span>SOVEREIGNT,<span class="st">"France"</span>,<span class="st">"French Guiana"</span>) <span class="co"># This is just to make it more correct for plotting later</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>countries_vect<span class="ot">&lt;-</span><span class="fu">vect</span>(SouthAmerica_subset)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>centroids_SoAm<span class="ot">&lt;-</span>countries_vect <span class="sc">%&gt;%</span> </span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">centroids</span>() </span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>avgtemp_SoAm_mean)<span class="sc">+</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatvector</span>(<span class="at">data=</span>countries_vect,<span class="at">fill=</span><span class="cn">NA</span>)<span class="sc">+</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatvector</span>(<span class="at">data=</span>centroids_SoAm)<span class="sc">+</span>  </span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>Centroid_temps<span class="ot">&lt;-</span>avgtemp_SoAm_mean <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(centroids_SoAm) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Centroid=</span>mean) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Countries=</span>Countries)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>Country_temps<span class="ot">&lt;-</span>avgtemp_SoAm_mean <span class="sc">%&gt;%</span> </span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract</span>(countries_vect,mean)<span class="sc">%&gt;%</span> </span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Extract=</span>mean) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Countries=</span>Countries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can compare these different methods for finding a countries average temperature.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>Temps<span class="ot">&lt;-</span>Centroid_temps <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(Country_temps,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>,<span class="st">"Countries"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(ID,Countries),<span class="at">names_to =</span> <span class="st">"Method"</span>,<span class="at">values_to =</span> <span class="st">"Temp"</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>Temps_Segment<span class="ot">&lt;-</span>Centroid_temps <span class="sc">%&gt;%</span> </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(Country_temps,<span class="at">by=</span><span class="fu">c</span>(<span class="st">"ID"</span>,<span class="st">"Countries"</span>)) </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Temps)<span class="sc">+</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data=</span>Temps_Segment,<span class="fu">aes</span>(<span class="at">x =</span> Countries, <span class="at">xend =</span> Countries, </span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">y =</span> Extract, <span class="at">yend =</span> Centroid),</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">colour=</span><span class="st">"#f3969a"</span>)<span class="sc">+</span></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>Countries,<span class="at">y=</span>Temp,<span class="at">fill=</span>Method),<span class="at">size=</span><span class="dv">3</span>,<span class="at">shape=</span><span class="dv">23</span>)<span class="sc">+</span></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name=</span><span class="st">"Method"</span>,<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#36b779"</span>,<span class="st">"#fcd32c"</span>))<span class="sc">+</span></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Temperature"</span>)<span class="sc">+</span></span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can some countries with little variation between the centroid and the overall mean. But some countries a bit difference (Ecuador for example). Obviously, we could do this is a multitude of different ways and it would depend on the objective that we had.</p>
+</section>
+<section id="load-local-raster-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-local-raster-data">Load Local Raster Data</h3>
+<p>Now lets load in some local raster data and maybe we can combine all of the above methods together. I went to this website and downloaded a raster of Sea Surface Temperature from 20240207: <a href="https://www.cpc.ncep.noaa.gov/products/GIS/GIS_DATA/sst_oiv2/index.php" class="uri">https://www.cpc.ncep.noaa.gov/products/GIS/GIS_DATA/sst_oiv2/index.php</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>SST<span class="ot">&lt;-</span><span class="fu">rast</span>(<span class="st">"sst_io.20240207.tif"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>SST</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class       : SpatRaster 
+dimensions  : 181, 361, 1  (nrow, ncol, nlyr)
+resolution  : 1, 1  (x, y)
+extent      : -0.5, 360.5, -90.5, 90.5  (xmin, xmax, ymin, ymax)
+coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+source      : sst_io.20240207.tif 
+name        : sst_io.20240207 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SST)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> sst_io.20240207   
+ Min.   :-999.000  
+ 1st Qu.:-999.000  
+ Median :   1.307  
+ Mean   :-325.907  
+ 3rd Qu.:  21.861  
+ Max.   :  31.270  </code></pre>
+</div>
+</div>
+<p>By inspecting the tif we can see there are some odd values (-999). This is likely to be a NA value so we should set them as NA. Also, the longitude is 0-360 rather than -180-180. This creates a pacific centric view, but we need to change this so we can extract the values we want.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">NAflag</span>(SST)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">999</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(SST)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> sst_io.20240207 
+ Min.   :-1.800  
+ 1st Qu.: 1.369  
+ Median :15.748  
+ Mean   :14.190  
+ 3rd Qu.:26.281  
+ Max.   :31.270  
+ NA's   :21933   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>SST_Atlantic<span class="ot">&lt;-</span><span class="fu">rotate</span>(SST)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>SST_Atlantic)<span class="sc">+</span></span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill=</span><span class="st">"Temperature"</span>)<span class="sc">+</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Again lets crop this to just South America.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>SST_SoAm<span class="ot">&lt;-</span>SST_Atlantic <span class="sc">%&gt;%</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crop</span>(Box_terra)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>SST_SoAm)<span class="sc">+</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>()<span class="sc">+</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill=</span><span class="st">"Temperature"</span>)<span class="sc">+</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This looks good, now lets bring together all the things we have been looking at to create one map of South America. (all the temperatures are different ranges so don’t read too much into any of it!!!). We will be using multiple scales for the same aesthetic (fill) in this so we will use the ggnewscale package to reset scales.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggnewscale)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>SST_SoAm,<span class="at">alpha=</span><span class="fl">0.7</span>)<span class="sc">+</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_whitebox_c</span>(<span class="st">"deep"</span>,<span class="at">name=</span><span class="st">"Sea Surface</span><span class="sc">\n</span><span class="st">Temperature:</span><span class="sc">\n</span><span class="st"> 07/02/2024"</span>)<span class="sc">+</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_scale_fill</span>()<span class="sc">+</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatraster</span>(<span class="at">data=</span>avgtemp_SoAm_mean)<span class="sc">+</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_spatvector</span>(<span class="at">data=</span>countries_vect,<span class="at">fill=</span><span class="cn">NA</span>)<span class="sc">+</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_terrain_c</span>(<span class="at">name=</span><span class="st">"Average Land</span><span class="sc">\n</span><span class="st">Temperature</span><span class="sc">\n</span><span class="st">from WorldClim"</span>)<span class="sc">+</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">new_scale_fill</span>()<span class="sc">+</span></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>SouthAmerica_rivers,<span class="at">colour=</span><span class="st">"#6cc3d5"</span>)<span class="sc">+</span></span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>Points_sf,<span class="fu">aes</span>(<span class="at">fill=</span>City),<span class="at">shape=</span><span class="dv">23</span>,<span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_whitebox_d</span>(<span class="st">"viridi"</span>,<span class="at">name=</span><span class="st">"Cities of South America"</span>)<span class="sc">+</span></span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.direction =</span> <span class="st">"vertical"</span>,</span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="StarterGIS_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>

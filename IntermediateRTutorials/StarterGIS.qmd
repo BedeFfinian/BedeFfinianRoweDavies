@@ -92,7 +92,7 @@ Projects<-data.frame(
   st_set_crs("EPSG:4326") 
 
 
-Amazon<-st_read("../Images/Tutorials/majorrivers_0_0/MajorRivers.shp",quiet=T) %>% 
+Amazon<-st_read("majorrivers_0_0/MajorRivers.shp",quiet=T) %>% 
    filter(SYSTEM=="Amazon") %>%
   rename(`River System`=SYSTEM) 
 
@@ -147,7 +147,7 @@ ggplot()+
 
 ```
 
-## Spatial Basics
+## Spatial Basics: Vector Data
 
 ### Create Vector Data
 
@@ -303,7 +303,7 @@ ggplot(SouthAmerica_subset)+
 
 Much Better!
 
-### Load in Local Vector Data
+### Load Local Vector Data
 
 So lets get some Vector Data and load I into r from our local system. I downloaded river shape file from: <https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World>
 
@@ -364,4 +364,264 @@ ggplot(SouthAmerica_subset)+
 
 
 ```
+
+
+## Spatial Basics: Raster Data
+
+### Create Raster Data
+
+Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where is it in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.
+
+```{r}
+library(terra)
+library(tidyterra)
+
+r<-rast(ncol=100,nrow=100,nlyrs=5)
+
+values(r[[1]])<-sort(runif(1:ncell(r)))
+
+values(r[[2]])<-values(r[[1]])*-1
+
+values(r[[3]])<-sort(runif(1:ncell(r)))
+
+values(r[[4]])<-values(r[[3]])*0.6
+
+values(r[[5]])<-sort(runif(1:ncell(r)))
+
+plot(r)
+
+ggplot()+
+  geom_spatraster(data=r)+
+  facet_wrap(~lyr)+
+  scale_fill_terrain_c()+
+  theme_classic()
+
+
+```
+
+So far we haven't added any information about where this raster is. We can inspect it to find where is its dimensions, resolution and extent.
+
+```{r}
+
+dim(r)
+
+res(r)
+
+ext(r)
+
+```
+
+We can see that this raster has 100 rows, 100 columns and 5 layers. Layers are a bit more complicated but they are often visualised like multiple layers of croissant dough (Pâtes feuilletée), with each layer being laid ontop of the other spatially but some containing different information (butter or pastry). It also has a resolution of 3.6 by 1.8 per pixel. And we can see what this information means in relation to its extent. Which is -180 to 180 and -90 to 90, which are the default before we tell raster where the raster is located in space. Once we change the extent we can see that our resolution changes too. 
+
+```{r}
+
+ext(r)<-c(0,100,0,100)
+
+res(r)
+
+ext(r)<-c(0,50,0,50)
+
+res(r)
+
+```
+
+As we see the difference in extent is divided by the dimension to give the resolution. If we don't pay attention to this we can get some weird results when changing dimension, resolution or extent.
+
+### Load Open Access Raster Data
+
+Lets look at some real world raster data.
+
+```{r}
+
+library(geodata)
+
+avgtemp <- worldclim_global(var="tavg",res=10,path=tempdir())
+
+plot(avgtemp)
+
+res(avgtemp)
+
+dim(avgtemp)
+
+ext(avgtemp)
+
+```
+
+This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object.
+
+```{r}
+
+Box_terra<-vect(box_coords)
+
+avgtemp_SoAm<-avgtemp %>% 
+  crop(Box_terra)
+
+ggplot()+
+  geom_spatraster(data=avgtemp_SoAm)+
+  facet_wrap(~lyr)+
+  scale_fill_terrain_c()+
+  theme_classic()
+
+```
+
+Okay we have data for every month, this is interesting but a lot to deal with, lets take the mean across all layers. We could also resample to make computation faster but the raster will become more pixelated.
+
+```{r}
+
+avgtemp_SoAm_mean<-avgtemp_SoAm %>% 
+  mean()
+
+ggplot()+
+  geom_spatraster(data=avgtemp_SoAm_mean)+
+  scale_fill_terrain_c()+
+  theme_classic()
+
+avgtemp_SoAm_mean_agg<-avgtemp_SoAm_mean %>% 
+  terra::aggregate(fact=10,fun="mean",na.rm=T)
+
+ggplot()+
+  geom_spatraster(data=avgtemp_SoAm_mean_agg)+
+  scale_fill_terrain_c()+
+  theme_classic()
+
+```
+
+Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that locations or we can take the average values within each country then average.
+
+
+```{r}
+
+Countries<-str_replace_all(SouthAmerica_subset$SOVEREIGNT,"France","French Guiana") # This is just to make it more correct for plotting later
+
+countries_vect<-vect(SouthAmerica_subset)
+
+centroids_SoAm<-countries_vect %>% 
+  centroids() 
+
+ggplot()+
+  geom_spatraster(data=avgtemp_SoAm_mean)+
+  geom_spatvector(data=countries_vect,fill=NA)+
+  geom_spatvector(data=centroids_SoAm)+  
+  scale_fill_terrain_c()+
+  theme_classic()
+
+Centroid_temps<-avgtemp_SoAm_mean %>% 
+  extract(centroids_SoAm) %>% 
+  rename(Centroid=mean) %>% 
+  mutate(Countries=Countries)
+
+Country_temps<-avgtemp_SoAm_mean %>% 
+  extract(countries_vect,mean)%>% 
+  rename(Extract=mean) %>% 
+  mutate(Countries=Countries)
+
+```
+
+We can compare these different methods for finding a countries average temperature.
+
+```{r}
+
+Temps<-Centroid_temps %>% 
+  full_join(Country_temps,by=c("ID","Countries")) %>% 
+  pivot_longer(-c(ID,Countries),names_to = "Method",values_to = "Temp")
+
+Temps_Segment<-Centroid_temps %>% 
+  full_join(Country_temps,by=c("ID","Countries")) 
+
+ggplot(Temps)+
+  geom_segment(data=Temps_Segment,aes(x = Countries, xend = Countries, 
+                                     y = Extract, yend = Centroid),
+               colour="#f3969a")+
+  geom_point(aes(x=Countries,y=Temp,fill=Method),size=3,shape=23)+
+  scale_fill_manual(name="Method",values=c("#36b779","#fcd32c"))+
+  labs(y="Temperature")+
+  theme_classic()+
+  coord_flip()
+
+
+```
+
+We can some countries with little variation between the centroid and the overall mean. But some countries a bit difference (Ecuador for example). Obviously, we could do this is a multitude of different ways and it would depend on the objective that we had.
+
+### Load Local Raster Data
+
+Now lets load in some local raster data and maybe we can combine all of the above methods together. I went to this website and downloaded a raster of Sea Surface Temperature from 20240207: <https://www.cpc.ncep.noaa.gov/products/GIS/GIS_DATA/sst_oiv2/index.php>. 
+
+```{r}
+
+SST<-rast("sst_io.20240207.tif")
+
+SST
+
+summary(SST)
+
+```
+
+By inspecting the tif we can see there are some odd values (-999). This is likely to be a NA value so we should set them as NA. Also, the longitude is 0-360 rather than -180-180. This creates a pacific centric view, but we need to change this so we can extract the values we want. 
+
+```{r}
+
+NAflag(SST)<-c(-999)
+
+summary(SST)
+
+SST_Atlantic<-rotate(SST)
+
+ggplot()+
+  geom_spatraster(data=SST_Atlantic)+
+  scale_fill_terrain_c()+
+  labs(fill="Temperature")+
+  theme_classic()
+
+```
+
+Again lets crop this to just South America.
+
+```{r}
+
+SST_SoAm<-SST_Atlantic %>% 
+  crop(Box_terra)
+
+ggplot()+
+  geom_spatraster(data=SST_SoAm)+
+  scale_fill_terrain_c()+
+  labs(fill="Temperature")+
+  theme_classic()
+
+```
+
+
+This looks good, now lets bring together all the things we have been looking at to create one map of South America. (all the temperatures are different ranges so don't read too much into any of it!!!). We will be using multiple scales for the same aesthetic (fill) in this so we will use the ggnewscale package to reset scales.
+
+```{r}
+#| fig.width: 10
+#| fig.height: 10
+
+library(ggnewscale)
+
+ggplot()+
+  geom_spatraster(data=SST_SoAm,alpha=0.7)+
+  scale_fill_whitebox_c("deep",name="Sea Surface\nTemperature:\n 07/02/2024")+
+  new_scale_fill()+
+  geom_spatraster(data=avgtemp_SoAm_mean)+
+  geom_spatvector(data=countries_vect,fill=NA)+
+  scale_fill_terrain_c(name="Average Land\nTemperature\nfrom WorldClim")+
+  new_scale_fill()+
+  geom_sf(data=SouthAmerica_rivers,colour="#6cc3d5")+
+  geom_sf(data=Points_sf,aes(fill=City),shape=23,size=5)+
+  scale_fill_whitebox_d("viridi",name="Cities of South America")+
+  theme_classic()+
+  theme(legend.direction = "vertical",
+        legend.position = "right")
+  
+```
+
+
+
+
+
+
+
+
+
 

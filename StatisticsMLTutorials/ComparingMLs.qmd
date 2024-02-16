@@ -12,9 +12,11 @@ categories: [Introduction, R, Machine Learning, Stats, Random Forest, XGBoost, S
 Lets take some tidy tuesday data (either with the package or with the code) <https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-01-25/readme.md>. Here we will look at some data on board games and try and predict a board games rating based on some of its information. 
 
 ```{r}
+#| cache: true
+
 #install.packages("tidytuesdayR")
 #library(tidytuesdayR)
-#tt_data <- tt_load("2022-01-25")
+#
 
 
 library(tidyverse)
@@ -22,6 +24,8 @@ library(tidymodels)
 library(stacks)
 library(ggpointdensity)
 library(viridis)
+
+#tt_data <- tt_load("2022-01-25")
 
 ratings <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/ratings.csv")
 details <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/details.csv")
@@ -178,8 +182,7 @@ tune_res_glm %>%
 But we will be comparing lots of specs of models so lets make a workflowset and then do the same but with lots of trained models. This will take a long time, so i set the grid to be just 5, really it should be set to around 10, or you can use other methods other than grid search. We will also add (using option_add()) a control to the grid being used and the metric to be assessed (this will be necessary when we want to ensemble the models).
 
 ```{r}
-#| cache: true 
-
+#| cache: true
 
 metric <- metric_set(rmse)
 
