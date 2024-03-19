@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.538">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -547,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::filter()  masks stats::filter()
 ✖ dplyr::lag()     masks stats::lag()
 ✖ recipes::step()  masks stats::step()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -611,16 +611,16 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 2
    splits           id    
    &lt;list&gt;           &lt;chr&gt; 
- 1 &lt;split [222/27]&gt; Fold01
- 2 &lt;split [222/27]&gt; Fold02
+ 1 &lt;split [223/26]&gt; Fold01
+ 2 &lt;split [223/26]&gt; Fold02
  3 &lt;split [223/26]&gt; Fold03
- 4 &lt;split [224/25]&gt; Fold04
- 5 &lt;split [225/24]&gt; Fold05
+ 4 &lt;split [223/26]&gt; Fold04
+ 5 &lt;split [223/26]&gt; Fold05
  6 &lt;split [225/24]&gt; Fold06
  7 &lt;split [225/24]&gt; Fold07
  8 &lt;split [225/24]&gt; Fold08
  9 &lt;split [225/24]&gt; Fold09
-10 &lt;split [225/24]&gt; Fold10</code></pre>
+10 &lt;split [226/23]&gt; Fold10</code></pre>
 </div>
 </div>
 <p>With tidymodels we use recipes to integrate transformations and model formula</p>
@@ -669,16 +669,16 @@ Attaching package: 'palmerpenguins'</code></pre>
 # A tibble: 10 × 4
    splits           id     .metrics          .notes          
    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;          
- 1 &lt;split [222/27]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 2 &lt;split [222/27]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 1 &lt;split [223/26]&gt; Fold01 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 2 &lt;split [223/26]&gt; Fold02 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  3 &lt;split [223/26]&gt; Fold03 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 4 &lt;split [224/25]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
- 5 &lt;split [225/24]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 4 &lt;split [223/26]&gt; Fold04 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
+ 5 &lt;split [223/26]&gt; Fold05 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  6 &lt;split [225/24]&gt; Fold06 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  7 &lt;split [225/24]&gt; Fold07 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  8 &lt;split [225/24]&gt; Fold08 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
  9 &lt;split [225/24]&gt; Fold09 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;
-10 &lt;split [225/24]&gt; Fold10 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
+10 &lt;split [226/23]&gt; Fold10 &lt;tibble [20 × 6]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
 </div>
 </div>
 <p>Lets plot the results of each fold using the ROC_AUC.</p>
@@ -718,9 +718,9 @@ Attaching package: 'palmerpenguins'</code></pre>
 <pre><code>Random Forest Model Specification (classification)
 
 Main Arguments:
-  mtry = 4
+  mtry = 2
   trees = 500
-  min_n = 22
+  min_n = 39
 
 Computational engine: ranger </code></pre>
 </div>
@@ -770,8 +770,8 @@ Attaching package: 'vip'</code></pre>
 <pre><code># A tibble: 2 × 4
   .metric  .estimator .estimate .config             
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
-1 accuracy multiclass     0.940 Preprocessor1_Model1
-2 roc_auc  hand_till      0.993 Preprocessor1_Model1</code></pre>
+1 accuracy multiclass     0.988 Preprocessor1_Model1
+2 roc_auc  hand_till      1.00  Preprocessor1_Model1</code></pre>
 </div>
 </div>
 <p>So in this very specific example we have got ridiculously good results in our model. This is not always the case.</p>
@@ -783,9 +783,9 @@ Attaching package: 'vip'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Truth
 Prediction  Adelie Chinstrap Gentoo
-  Adelie        32         0      1
-  Chinstrap      4        20      0
-  Gentoo         0         0     27</code></pre>
+  Adelie        40         1      0
+  Chinstrap      0        13      0
+  Gentoo         0         0     30</code></pre>
 </div>
 </div>
 <p>So we can see from this that almost all the predictions are the same as the truth. If you want to see how much the random number generation from before effects the results you can rerun this script with different set.seed() numbers.</p>
@@ -1100,7 +1100,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

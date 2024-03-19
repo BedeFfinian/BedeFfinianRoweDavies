@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.538">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="raster-data">Raster Data</h3>
-<p>Another comment spatial data style is <strong>Raster Data</strong>, which is more continuous spatially and is sometimes called a spatial field or gridded data. For example bathymetry or elevation of an area will be a grid of x and y spatial cells with a bathymetry or eleveation value for each ‘cell’ of the grid.</p>
+<p>Another common spatial data style is <strong>Raster Data</strong>, which is more continuous spatially and is sometimes called a spatial field or gridded data. For example bathymetry or elevation of an area will be a grid of x and y spatial cells with a bathymetry or elevation value for each ‘cell’ of the grid.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -596,7 +596,7 @@ Geodetic CRS:  WGS 84
 </section>
 <section id="load-open-access-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-open-access-vector-data">Load Open Access Vector Data</h3>
-<p>We can also perform analyses between different spatial objects. So if we get spatial information for boundaries of countries in the world we can use our capital cities to join and subset the dataset. We will use the naturalhires suite of packages to get polygons of world boundaries. Lets bring in the data using a 10 resolution, convert it to an sf object and check it has worked well.</p>
+<p>We can also perform analyses between different spatial objects. So if we get spatial information for boundaries of countries in the world we can use our capital cities to join and subset the dataset. We will use the naturalhires suite of packages to get polygons of world boundaries. Lets bring in the data using a 10 metre resolution, convert it to an sf object and check it has worked well.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth) </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearthdata) </span>
@@ -661,7 +661,7 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<p>We can use a join to combine the sf objects. To carry out spatial joins we need to tell sf that we want to work in two d space (not a true sphere)</p>
+<p>We can use a join to combine the sf objects. To carry out spatial joins we need to tell sf that we want to work in two d space (not a true sphere).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -684,7 +684,7 @@ are planar</code></pre>
 </div>
 </div>
 </div>
-<p>Hmm this is looking a bit weird, we seem to have gained all the French lands. This is because in our world_map sf object, we had multiple polygons per row. Therefore, the row that contained the French Guiana also contained all of Frances territories. So perhaps we want to do a spatial filter. There are many ways to do this, the simplest is to create a bounding box the subset the SouthAmerica sf based on the new spatial object. Lets create a bounding box then plot it over our map to see where it is.</p>
+<p>Hmm this is looking a bit weird, we seem to have gained all the French lands. This is because in our world_map sf object, we had multiple polygons per row. Therefore, the row that contained the French Guiana also contained all of Frances territories. So perhaps we want to do a spatial filter. There are many ways to do this, the simplest is to create a bounding box then subset the SouthAmerica sf based on the new spatial object. Lets create a bounding box then plot it over our map to see where it is.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ylims <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">65</span>, <span class="dv">20</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -735,7 +735,7 @@ all geometries</code></pre>
 </section>
 <section id="load-local-vector-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-local-vector-data">Load Local Vector Data</h3>
-<p>So lets get some Vector Data and load I into r from our local system. I downloaded river shape file from: <a href="https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World" class="uri">https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World</a></p>
+<p>So lets get some Vector Data and load it into r from our local system. I downloaded river shape file from: <a href="https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World" class="uri">https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Rivers<span class="ot">&lt;-</span><span class="fu">st_read</span>(<span class="st">"majorrivers_0_0/MajorRivers.shp"</span>,<span class="at">quiet=</span>T) </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -750,7 +750,7 @@ all geometries</code></pre>
 </div>
 </div>
 </div>
-<p>This looks to be correct, so lets do as before and select the rivers that are in south america. We could select the Amazon by using filter(SYSEM++“Amazon”) but lets reuse our bounding box from earlier to select all rivers in south america.</p>
+<p>This looks to be correct, so lets do as before and select the rivers that are in south america. We could select the Amazon by using dplyr::filter(SYSEM==“Amazon”) but lets reuse our bounding box from earlier to select all rivers in south america.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>SouthAmerica_rivers <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(Rivers, box_coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -818,7 +818,7 @@ Geodetic CRS:  WGS 84
 <h2 class="anchored" data-anchor-id="spatial-basics-raster-data">Spatial Basics: Raster Data</h2>
 <section id="create-raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="create-raster-data">Create Raster Data</h3>
-<p>Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where is it in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.</p>
+<p>Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where it is in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyterra)</span>
@@ -856,7 +856,7 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<p>So far we haven’t added any information about where this raster is. We can inspect it to find where is its dimensions, resolution and extent.</p>
+<p>So far we haven’t added any information about where this raster is. We can inspect it to find what are its dimensions, resolution and extent.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -917,7 +917,7 @@ Geodetic CRS:  WGS 84
 <pre><code>SpatExtent : -180, 180, -90, 90 (xmin, xmax, ymin, ymax)</code></pre>
 </div>
 </div>
-<p>This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object.</p>
+<p>This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object. soatvector and sf objects are very similar, but spatvector plays a bit nicer with spatrasters, whereas sf objects are generally easier to manipulate and analyse using our well practiced dplyr and tidyr skills.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Box_terra<span class="ot">&lt;-</span><span class="fu">vect</span>(box_coords)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -968,7 +968,7 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<p>Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that locations or we can take the average values within each country then average.</p>
+<p>Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that location or we can take the average values within each country then average across its extent.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>Countries<span class="ot">&lt;-</span><span class="fu">str_replace_all</span>(SouthAmerica_subset<span class="sc">$</span>SOVEREIGNT,<span class="st">"France"</span>,<span class="st">"French Guiana"</span>) <span class="co"># This is just to make it more correct for plotting later</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1026,7 +1026,7 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<p>We can some countries with little variation between the centroid and the overall mean. But some countries a bit difference (Ecuador for example). Obviously, we could do this is a multitude of different ways and it would depend on the objective that we had.</p>
+<p>We can see some countries with little variation between the centroid and the overall mean. But some countries have a big difference (Ecuador for example). Obviously, we could do this in a multitude of different ways and it would depend on the objective that we had.</p>
 </section>
 <section id="load-local-raster-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-local-raster-data">Load Local Raster Data</h3>
@@ -1441,7 +1441,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1664,7 +1669,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../IntermediateRTutorials/CombiningPlots.html" class="pagination-link  aria-label=" combining="" multiple="" plots="" in="" r"="">
+      <a href="../IntermediateRTutorials/CombiningPlots.html" class="pagination-link" aria-label="Combining Multiple Plots in R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Combining Multiple Plots in R</span>
       </a>          
   </div>

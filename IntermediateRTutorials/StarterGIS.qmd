@@ -113,7 +113,7 @@ ggplot()+
 
 ### Raster Data
 
-Another comment spatial data style is **Raster Data**, which is more continuous spatially and is sometimes called a spatial field or gridded data. For example bathymetry or elevation of an area will be a grid of x and y spatial cells with a bathymetry or eleveation value for each 'cell' of the grid. 
+Another common spatial data style is **Raster Data**, which is more continuous spatially and is sometimes called a spatial field or gridded data. For example bathymetry or elevation of an area will be a grid of x and y spatial cells with a bathymetry or elevation value for each 'cell' of the grid. 
 
 ```{r}
 #| echo: false
@@ -210,7 +210,7 @@ Location_Bogota<-Points_sf_Elevate %>%
 
 ### Load Open Access Vector Data
 
-We can also perform analyses between different spatial objects. So if we get spatial information for boundaries of countries in the world we can use our capital cities to join and subset the dataset. We will use the naturalhires suite of packages to get polygons of world boundaries. Lets bring in the data using a 10 resolution, convert it to an sf object and check it has worked well.
+We can also perform analyses between different spatial objects. So if we get spatial information for boundaries of countries in the world we can use our capital cities to join and subset the dataset. We will use the naturalhires suite of packages to get polygons of world boundaries. Lets bring in the data using a 10 metre resolution, convert it to an sf object and check it has worked well.
 
 ```{r}
 
@@ -252,7 +252,7 @@ ggplot(world_map)+
 
 ```
 
-We can use a join to combine the sf objects. To carry out spatial joins we need to tell sf that we want to work in two d space (not a true sphere)
+We can use a join to combine the sf objects. To carry out spatial joins we need to tell sf that we want to work in two d space (not a true sphere).
 
 ```{r}
 
@@ -267,7 +267,7 @@ ggplot(SouthAmerica)+
 
 ```
 
-Hmm this is looking a bit weird, we seem to have gained all the French lands. This is because in our world_map sf object, we had multiple polygons per row. Therefore, the row that contained the French Guiana also contained all of Frances territories. So perhaps we want to do a spatial filter. There are many ways to do this, the simplest is to create a bounding box the subset the SouthAmerica sf based on the new spatial object. Lets create a bounding box then plot it over our map to see where it is.
+Hmm this is looking a bit weird, we seem to have gained all the French lands. This is because in our world_map sf object, we had multiple polygons per row. Therefore, the row that contained the French Guiana also contained all of Frances territories. So perhaps we want to do a spatial filter. There are many ways to do this, the simplest is to create a bounding box then subset the SouthAmerica sf based on the new spatial object. Lets create a bounding box then plot it over our map to see where it is.
 
 ```{r}
 
@@ -305,7 +305,7 @@ Much Better!
 
 ### Load Local Vector Data
 
-So lets get some Vector Data and load I into r from our local system. I downloaded river shape file from: <https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World>
+So lets get some Vector Data and load it into r from our local system. I downloaded river shape file from: <https://datacatalog.worldbank.org/search/dataset/0042032/Major-Rivers-of-the-World>
 
 ```{r}
 
@@ -317,7 +317,7 @@ ggplot(Rivers)+
 
 ```
 
-This looks to be correct, so lets do as before and select the rivers that are in south america. We could select the Amazon by using filter(SYSEM++"Amazon") but lets reuse our bounding box from earlier to select all rivers in south america.
+This looks to be correct, so lets do as before and select the rivers that are in south america. We could select the Amazon by using dplyr::filter(SYSEM=="Amazon") but lets reuse our bounding box from earlier to select all rivers in south america.
 
 ```{r}
 
@@ -370,7 +370,7 @@ ggplot(SouthAmerica_subset)+
 
 ### Create Raster Data
 
-Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where is it in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.
+Like with all data forms in r, see vector data above, we can create our own version of raster data. The most important information for raster data is the dimensions (x, y, z, etc.), the resolution (how big each pixel is) and its extent (where it is in space). We can make a random noise raster, then inspect it by plotting it. Rasters in r generally are well plotted by the base plot() function. But we can also use the tidyterra package, which adds a new geom_* to ggplot.
 
 ```{r}
 library(terra)
@@ -399,7 +399,7 @@ ggplot()+
 
 ```
 
-So far we haven't added any information about where this raster is. We can inspect it to find where is its dimensions, resolution and extent.
+So far we haven't added any information about where this raster is. We can inspect it to find what are its dimensions, resolution and extent.
 
 ```{r}
 
@@ -447,7 +447,7 @@ ext(avgtemp)
 
 ```
 
-This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object.
+This is a big dataset and global, so lets subset it spatially. We can use our bounding box from earlier to do this but first lets convert our sf object to a spatvector object. soatvector and sf objects are very similar, but spatvector plays a bit nicer with spatrasters, whereas sf objects are generally easier to manipulate and analyse using our well practiced dplyr and tidyr skills.
 
 ```{r}
 
@@ -486,7 +486,7 @@ ggplot()+
 
 ```
 
-Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that locations or we can take the average values within each country then average.
+Okay lets use this climate data to look at the average temperatures (across the whole year) in our shape file of countries. Lets try two methods, take the centroid of each country then extract the average temperature for that location or we can take the average values within each country then average across its extent.
 
 
 ```{r}
@@ -541,7 +541,7 @@ ggplot(Temps)+
 
 ```
 
-We can some countries with little variation between the centroid and the overall mean. But some countries a bit difference (Ecuador for example). Obviously, we could do this is a multitude of different ways and it would depend on the objective that we had.
+We can see some countries with little variation between the centroid and the overall mean. But some countries have a big difference (Ecuador for example). Obviously, we could do this in a multitude of different ways and it would depend on the objective that we had.
 
 ### Load Local Raster Data
 
