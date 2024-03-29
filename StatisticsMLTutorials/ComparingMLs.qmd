@@ -1,10 +1,12 @@
 ---
 title: "Comparing and Ensembling Machine Learning Models"
 description: "Building different Models and Intercomparing, and then Combining into an Ensemble"
-image: ../Images/Tutorials/tidymodels.png
+image: ../Images/Tutorials/Stacks.png
 id: Stats_ML
 date: "01/09/2024"
 categories: [Introduction, R, Machine Learning, Stats, Random Forest, XGBoost, SVM, KNN]
+execute: 
+  cache: true
 ---
 
 # Preparing Board Games <img src='../Images/Tutorials/tidymodels.png' align="right" height="138.5" /></a>
@@ -159,6 +161,8 @@ So we could train each of these models as separate workflows then assess hyper p
 
 ```{r}
 
+library(tidymodels)
+
 glm_wf<-workflow() %>%
   add_recipe(recipe) %>%
   add_model(glm_spec)
@@ -306,5 +310,5 @@ stack_test_res %>%
 
 # Validation Metric
 
-Earlier, our 'best' model produced an rmse of: `r signif(collect_metrics(boosting_test_results)[[1,3]],3)`, which is very good and our ensemble model created an rmse of: `r signif(rmse_vec(stack_test_res$average,stack_test_res$.pred),3)`, which is almost identical but just slightly better. This is what ensembling is so often used for; improving an already very good model. 
+Earlier, our 'best' model produced an rmse of: `r signif(tune::collect_metrics(boosting_test_results)[[1,3]],3)`, which is very good and our ensemble model created an rmse of: `r signif(yardstick::rmse_vec(stack_test_res$average,stack_test_res$.pred),3)`, which is almost identical but just slightly better. This is what ensembling is so often used for; improving an already very good model. 
 

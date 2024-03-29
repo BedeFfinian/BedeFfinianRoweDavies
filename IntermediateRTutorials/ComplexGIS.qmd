@@ -5,6 +5,8 @@ image: ../Images/Tutorials/TidyTerra.png
 id: Intermediate
 date: "03/22/2024"
 categories: [Tidyverse, ggplot2, R, terra, sf, Mapping, GIS]
+execute: 
+  cache: true
 ---
 
 # <img src='../Images/Tutorials/TidyTerra.png' align="right" height="138.5" /></a>
@@ -474,7 +476,7 @@ HighRes_df %>%
 
 #### Incorrect Formal Analysis (Just an Example)
 
-Generally the same patterns are in high and low (not surprisingly). To give a little example analysis we could create a model based on the low resolution environmental data, and see if we can accurately predict the high resolution classification. This won't be the best or most effective way at doing this task, but an example! **DO NOT EMULATE THIS EXCEPT AS AN LEARNING EXERCISE** (Check other tutorials for applying models correctly, what steps to take and best practices). For example, if you look at temperature, elevation, precipitation for example they are clearly correlated so would require more complex modelling to do correctly.
+Generally the same patterns are in high and low (not surprisingly). To give a little example analysis we could create a model based on the low resolution environmental data, and see if we can accurately predict the high resolution classification. This won't be the best or most effective way at doing this task, but an example! **DO NOT EMULATE THIS EXCEPT AS A LEARNING EXERCISE** (Check other tutorials for applying models correctly, what steps to take and best practices). For example, if you look at temperature, elevation, precipitation for example they are clearly correlated so would require more complex modelling to do correctly.
 
 ```{r}
 

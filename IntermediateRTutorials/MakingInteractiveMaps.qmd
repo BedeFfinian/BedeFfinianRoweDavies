@@ -5,6 +5,8 @@ image: ../Images/Tutorials/leaflet.png
 id: Intermediate
 date: "10/10/2023"
 categories: [Introduction, Tidyverse, ggplot2, R, leaflet, Mapping, GIS]
+execute: 
+  cache: true
 ---
 
 # <img src='../Images/Tutorials/leaflet.png' align="right" height="40" /></a>

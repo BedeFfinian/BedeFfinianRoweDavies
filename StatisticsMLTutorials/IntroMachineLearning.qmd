@@ -5,6 +5,8 @@ image: ../Images/Tutorials/tidymodels.png
 id: Stats_ML
 date: "01/08/2024"
 categories: [Introduction, R, Machine Learning, Stats, Random Forest]
+execute: 
+  cache: true
 ---
 
 # Basic Concepts <img src='../Images/Tutorials/tidymodels.png' align="right" height="138.5" /></a>
