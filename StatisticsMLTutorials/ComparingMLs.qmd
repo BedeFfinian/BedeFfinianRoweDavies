@@ -44,6 +44,13 @@ Lets look at ratings of board games.
 
 ```{r}
 
+
+library(tidyverse)
+library(tidymodels)
+library(stacks)
+library(ggpointdensity)
+library(viridis)
+
 ggplot(ratings_joined,aes(average))+
   geom_histogram()+
   theme_classic()
