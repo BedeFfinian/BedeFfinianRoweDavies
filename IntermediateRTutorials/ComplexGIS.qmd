@@ -480,9 +480,7 @@ Generally the same patterns are in high and low (not surprisingly). To give a li
 
 ```{r}
 
-library(nnet)
-
-lowres_Model<-multinom(Classification~Elevation+
+lowres_Model<-nnet::multinom(Classification~Elevation+
                          Temperature+
                          Precipitation+
                          Population,
