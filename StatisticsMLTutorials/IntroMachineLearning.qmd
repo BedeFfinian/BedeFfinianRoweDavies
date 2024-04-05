@@ -206,6 +206,8 @@ So this is our model, lets investigate the different features and their importan
 
 library(vip)
 
+set.seed(234)
+
 final_rf %>%
   set_engine("ranger", importance = "permutation") %>%
   fit(species~.,data=penguin_juiced
@@ -216,7 +218,7 @@ final_rf %>%
 ```
 
 
-From this we can see that flipper length is the best predictor of species, followed by bill length.
+From this we can see that bill length is the best predictor of species, followed by flipper length.
 
 ## Validate Model on testing data
 
