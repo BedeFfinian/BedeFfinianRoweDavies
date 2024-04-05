@@ -706,7 +706,7 @@ Attaching package: 'palmerpenguins'</code></pre>
 </div>
 <p>We can see that the best values are low min_n and low mtry. But we can use a function to select the best hyper parameters from this AUC value, then that is our final model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>best_auc <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_res, <span class="st">"roc_auc"</span>)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>best_auc <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_res, <span class="at">metric =</span> <span class="st">"roc_auc"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>final_rf <span class="ot">&lt;-</span> <span class="fu">finalize_model</span>(</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  tune_spec,</span>

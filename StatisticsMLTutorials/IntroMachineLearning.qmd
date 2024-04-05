@@ -189,7 +189,7 @@ We can see that the best values are low min_n and low mtry. But we can use a fun
 
 ```{r}
 
-best_auc <- select_best(tune_res, "roc_auc")
+best_auc <- select_best(tune_res, metric = "roc_auc")
 
 final_rf <- finalize_model(
   tune_spec,
