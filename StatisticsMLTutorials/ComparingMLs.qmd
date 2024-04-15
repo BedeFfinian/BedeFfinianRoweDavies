@@ -284,7 +284,7 @@ boosting_test_results %>%
 
 # Ensemble All Models Together
 
-After training all these different models and there could be a lot more, we may be losing predictive ability by only selecting the best one. It has been shown by many researchers that combining an ensemble of models will generally lead to better prediction ability. With the Stacks package in r we can easily stack or ensemble our models together. 
+After training all these different models and there could be a lot more, we may be losing predictive ability by only selecting the best one. Many researchers and ML practitioners that combining an ensemble of models will generally lead to better prediction ability. With the Stacks package in r we can easily stack or ensemble our models together. 
 
 ```{r}
 
@@ -310,5 +310,5 @@ stack_test_res %>%
 
 # Validation Metric
 
-Earlier, our 'best' model produced an rmse of: `r signif(tune::collect_metrics(boosting_test_results)[[1,3]],3)`, which is very good and our ensemble model created an rmse of: `r signif(yardstick::rmse_vec(stack_test_res$average,stack_test_res$.pred),3)`, which is almost identical but just slightly better. This is what ensembling is so often used for; improving an already very good model. 
+Earlier, our 'best' model produced an rmse of: `r signif(tune::collect_metrics(boosting_test_results)[[1,3]],3)`, which is very good and our ensemble model created an rmse of: `r signif(yardstick::rmse_vec(stack_test_res$average,stack_test_res$.pred),3)`, which is almost identical but marginally `r if(signif(tune::collect_metrics(boosting_test_results)[[1,3]],3)>signif(yardstick::rmse_vec(stack_test_res$average,stack_test_res$.pred),3)){paste0("better")} else paste0("worse")`.
 

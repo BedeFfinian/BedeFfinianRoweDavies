@@ -786,7 +786,7 @@ i Creating pre-processing data to finalize unknown parameter: mtry</code></pre>
 </section>
 <section id="ensemble-all-models-together" class="level1">
 <h1>Ensemble All Models Together</h1>
-<p>After training all these different models and there could be a lot more, we may be losing predictive ability by only selecting the best one. It has been shown by many researchers that combining an ensemble of models will generally lead to better prediction ability. With the Stacks package in r we can easily stack or ensemble our models together.</p>
+<p>After training all these different models and there could be a lot more, we may be losing predictive ability by only selecting the best one. Many researchers and ML practitioners that combining an ensemble of models will generally lead to better prediction ability. With the Stacks package in r we can easily stack or ensemble our models together.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a> all_stacked<span class="ot">&lt;-</span><span class="fu">stacks</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_candidates</span>(all_res) <span class="sc">%&gt;%</span></span>
@@ -815,7 +815,7 @@ i Creating pre-processing data to finalize unknown parameter: mtry</code></pre>
 </section>
 <section id="validation-metric" class="level1">
 <h1>Validation Metric</h1>
-<p>Earlier, our ‘best’ model produced an rmse of: 0.72, which is very good and our ensemble model created an rmse of: 0.695, which is almost identical but just slightly better. This is what ensembling is so often used for; improving an already very good model.</p>
+<p>Earlier, our ‘best’ model produced an rmse of: 0.72, which is very good and our ensemble model created an rmse of: 0.695, which is almost identical but marginally better.</p>
 
 
 </section>
