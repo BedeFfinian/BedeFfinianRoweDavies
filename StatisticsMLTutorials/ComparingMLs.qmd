@@ -297,6 +297,7 @@ After training all these different models and there could be a lot more, we may 
 stack_test_res <- test %>%
   bind_cols(predict(all_stacked, .))
 
+
 stack_test_res %>% 
    ggplot(aes(x = average, y = .pred)) + 
    geom_abline(colour = "gray50", linetype = 2) + 
