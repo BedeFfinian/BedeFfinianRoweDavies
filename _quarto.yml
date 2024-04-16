@@ -86,6 +86,10 @@ website:
             - StatisticsTutorials/ProblematicGLMs.qmd
             - StatisticsTutorials/ZeroInflatedGLMs.qmd
         - text: "---"
+        - section: "Mixed Effects Models Tutorials"
+          contents:
+            - StatisticsTutorialsGLMM/IntroductionGLMMs.qmd
+        - text: "---"
         - section: "Machine Learning Tutorials"
           contents:
             - StatisticsMLTutorials/IntroMachineLearning.qmd

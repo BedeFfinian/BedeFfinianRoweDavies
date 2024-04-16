@@ -157,6 +157,34 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-StatsGLMMS .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-StatsGLMMS'] = new List('listing-StatsGLMMS', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
     const listingTargetEl = window.document.querySelector('#listing-Stats_ML .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
@@ -487,12 +515,30 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Machine Learning Tutorials</span></a>
+ <span class="menu-text">Mixed Effects Models Tutorials</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to GLMMs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">Machine Learning Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="sidebar-item-text sidebar-link">
@@ -516,6 +562,7 @@ window.Quarto = {
   <li><a href="#r-tutorials-with-an-ecologist-bias-basic" id="toc-r-tutorials-with-an-ecologist-bias-basic" class="nav-link active" data-scroll-target="#r-tutorials-with-an-ecologist-bias-basic">R Tutorials with an Ecologist Bias (Basic):</a></li>
   <li><a href="#r-tutorials-with-an-ecologist-bias-intermediate" id="toc-r-tutorials-with-an-ecologist-bias-intermediate" class="nav-link" data-scroll-target="#r-tutorials-with-an-ecologist-bias-intermediate">R Tutorials with an Ecologist Bias (Intermediate):</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-glms" id="toc-statistics-tutorials-with-an-ecologist-bias-glms" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-glms">Statistics Tutorials with an Ecologist Bias (GLMs):</a></li>
+  <li><a href="#statistics-tutorials-with-an-ecologist-bias-glmms" id="toc-statistics-tutorials-with-an-ecologist-bias-glmms" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-glmms">Statistics Tutorials with an Ecologist Bias (GLMMs):</a></li>
   <li><a href="#statistics-tutorials-with-an-ecologist-bias-machine-learning" id="toc-statistics-tutorials-with-an-ecologist-bias-machine-learning" class="nav-link" data-scroll-target="#statistics-tutorials-with-an-ecologist-bias-machine-learning">Statistics Tutorials with an Ecologist Bias (Machine Learning):</a></li>
   </ul>
 </nav>
@@ -523,7 +570,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Beta">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Binomial">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GIS">GIS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="GLMs">GLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Gamma">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Gaussian">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(15)</span></div><div class="category" data-category="KNN">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Mapping">Mapping <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Poisson">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Problems">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Random Forest">Random Forest <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SVM">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stats">Stats <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Tidyverse">Tidyverse <span class="quarto-category-count">(6)</span></div><div class="category" data-category="XGBoost">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zero Inflation">Zero Inflation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="leaflet">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="patchwork">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sf">sf <span class="quarto-category-count">(3)</span></div><div class="category" data-category="terra">terra <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(19)</span></div><div class="category" data-category="Beta">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Binomial">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GIS">GIS <span class="quarto-category-count">(4)</span></div><div class="category" data-category="GLMMs">GLMMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GLMs">GLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Gamma">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Gaussian">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Introduction">Introduction <span class="quarto-category-count">(16)</span></div><div class="category" data-category="KNN">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Machine Learning">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Mapping">Mapping <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Poisson">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Problems">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(19)</span></div><div class="category" data-category="Random Forest">Random Forest <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SVM">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stats">Stats <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Tidyverse">Tidyverse <span class="quarto-category-count">(6)</span></div><div class="category" data-category="XGBoost">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zero Inflation">Zero Inflation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ggplot2">ggplot2 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="leaflet">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="patchwork">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="sf">sf <span class="quarto-category-count">(3)</span></div><div class="category" data-category="terra">terra <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -885,7 +932,7 @@ No matching items
 <h2 class="anchored" data-anchor-id="statistics-tutorials-with-an-ecologist-bias-glms">Statistics Tutorials with an Ecologist Bias (GLMs):</h2>
 <div id="listing-Stats" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,GLMs" data-listing-date-sort="1695506400000" data-listing-file-modified-sort="1696416956262" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4866">
+<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,GLMs" data-listing-date-sort="1695506400000" data-listing-file-modified-sort="1713266603428" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4865">
 <div class="thumbnail">
 <p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
 <p><img src="./Images/Tutorials/Example_Plot.png" class="thumbnail-image"></p>
@@ -1074,7 +1121,7 @@ Gamma
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Introduction,R,GLMs,Stats,Beta" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1702396577488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2081">
+<div class="quarto-post image-right" data-index="5" data-categories="Introduction,R,GLMs,Stats,Beta" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1713274392341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2081">
 <div class="thumbnail">
 <p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
 <p><img src="./Images/Tutorials/Beta.png" class="thumbnail-image"></p>
@@ -1182,6 +1229,49 @@ GLMs
 </div>
 <div class="metadata">
 <p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="statistics-tutorials-with-an-ecologist-bias-glmms" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-tutorials-with-an-ecologist-bias-glmms">Statistics Tutorials with an Ecologist Bias (GLMMs):</h2>
+<div id="listing-StatsGLMMS" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Introduction,R,GLMMs" data-listing-date-sort="1713218400000" data-listing-file-modified-sort="1713281821588" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3856">
+<div class="thumbnail">
+<p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
+<p><img src="./Images/Tutorials/dragon.png" class="thumbnail-image"></p>
+</a><p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">Introduction to GLMMs</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Introduction'); return false;">
+Introduction
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('GLMMs'); return false;">
+GLMMs
+</div>
+</div>
+<div class="listing-description">
+<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">An Introduction to General Linear Mixed Effect Models (GLMMs) in R.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
 </a>
 </div>
 </div>

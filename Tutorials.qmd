@@ -19,6 +19,12 @@ listing:
     categories: true
     sort: "date asc"
     fields: [image, title,description,categories]
+  - id: StatsGLMMS
+    contents: StatisticsTutorialsGLMM
+    type: default
+    categories: true
+    sort: "date asc"
+    fields: [image, title,description,categories]
   - id: Stats_ML
     contents: StatisticsMLTutorials
     type: default
@@ -42,6 +48,12 @@ listing:
 ## Statistics Tutorials with an Ecologist Bias (GLMs):
 
 ::: {#Stats}
+
+:::
+
+## Statistics Tutorials with an Ecologist Bias (GLMMs):
+
+::: {#StatsGLMMS}
 
 :::
 

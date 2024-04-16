@@ -418,12 +418,30 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Machine Learning Tutorials</span></a>
+ <span class="menu-text">Mixed Effects Models Tutorials</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to GLMMs</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">Machine Learning Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../StatisticsMLTutorials/IntroMachineLearning.html" class="sidebar-item-text sidebar-link">
@@ -725,7 +743,7 @@ y = \beta_{1} Pressure \\
 </div>
 </div>
 </div>
-<p>Now lets plot this model output over the raw values to see how well the model has worked. To colour by temperature in the original data we will set groups</p>
+<p>Now lets plot this model output over the raw values to see how well the model has worked. To colour by temperature in the original data we will set groups.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_1<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp=</span><span class="fu">case_when</span>(temp<span class="sc">&lt;=</span><span class="dv">125</span><span class="sc">~</span><span class="dv">100</span>,</span>

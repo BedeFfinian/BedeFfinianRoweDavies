@@ -186,7 +186,7 @@ ggplot(NewData)+
 
 ```
 
-Now lets plot this model output over the raw values to see how well the model has worked. To colour by temperature in the original data we will set groups 
+Now lets plot this model output over the raw values to see how well the model has worked. To colour by temperature in the original data we will set groups. 
 
 ```{r}
 #| fig.width: 8
