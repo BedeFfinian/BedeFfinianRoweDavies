@@ -11,7 +11,7 @@ categories: [Introduction, R, GLMMs]
 
 ## What are GLMMs?
 
-General (or Generalised) Linear Mixed Effects Models (GLMMs) (sometimes called heirarchical models) are an extension on GLMs. They are a method of adding more complex model structure into account, with addition of random effects (sometimes partial pooling or shrinkage). This means that when our data have some form of structure that isn't our main question of interest we can tell the model about this structure, thus more correctly estimating our effects of interest (fixed effects). I will use the terms fixed and random effects to follow the nomenclature of the GLM tutorials, but there could be other names such as predictor variables, partial pooling variables etc.
+General (or Generalised) Linear Mixed Effects Models (GLMMs) (sometimes called hierarchical models or multi-level models) are an extension on GLMs. They are a method of adding more complex model structure into account, with addition of random effects (sometimes called partial pooling or shrinkage). This means that when our data have some form of structure that isn't our main question of interest we can tell the model about this structure, thus more correctly estimating our effects of interest (fixed effects). I will use the terms fixed and random effects to follow the nomenclature of the GLM tutorials, but there could be other names such as predictor variables, partial pooling variables etc. For a full FAQ of GLMMs by Ben Bolker go here: <https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html>
 
 ## General Workflow of GLMMs
 
@@ -27,14 +27,14 @@ GLMMs follow an almost identical workflow as GLMs with:
 
 - 5. Model Interpretation
 
-We went through these steps excessively in GLM tutorials and for GLMMs the only differences will be the Statistical Model Formulation (1), Organising Effects (3.) and Model Interpretation (5.). The other steps will stay almost identical and therefore I won't focus too much on them here (Go back to GLM tutorials for full explanations).
+We went through these steps excessively in GLM tutorials and for GLMMs the only differences will be the Statistical Model Formulation (1.), Organising Effects (3.) and Model Interpretation (5.). The other steps will stay almost identical and therefore I won't focus too much on them here (Go back to GLM tutorials for full explanations).
 
 
 ## When to use a Random Effect?
 
-Generally, we want to use random effects when we have some sort of grouping of variables that means each of our fixed effects are no longer independent; this might be some repeat measurement over time or perhaps different sub population. In these two examples we would expect values to be related within the same individual over time or within the same sub population. Therefore we need to tell our model that there is some correlation/variance explained by some grouping variable (the individual or sub population). 
+Generally, we want to use random effects when we have some sort of grouping of variables (maybe spatial or temporal) that means each of our fixed effects are no longer independent; this might be some repeat measurement over time or perhaps different sub populations over a wider area. In these two examples we would expect values to be related within the same individual over time or within the same sub population. Therefore we need to tell our model that some correlation/variance can be explained by some grouping variable (the individual or sub population). It is worth noting that the name 'random effect' does **not** infer any mathematica randomness of the data within it, it is just the naming convention used. There are reasons behind its naming but they are long and not important for now.
 
-There are three ways to add random effects into a model: allow varying intercepts, allow varying slopes or allow varying intercepts and slops across our groups. The data we will be using are from another tutorial here: <https://ourcodingclub.github.io/tutorials/mixed-models/>. So lets go into examples of intercept, slopes and intercept-slope random effects in relation to a dataset. The data we will use are to do with intelligence of dragons, their size in bodylength, which mountain range they come from and which site within that mountain range. Lets download the data into our base directory then load it into r. If not just follow the URL and it will download the data for you. 
+There are three popular ways to add random effects into a model: allow varying intercepts, allow varying slopes or allow varying intercepts and slopes across groups. The data we will be using in this tutorial are from another tutorial here: <https://ourcodingclub.github.io/tutorials/mixed-models/>. So lets go into examples of intercept, slopes and intercept-slope random effects in relation to a dataset. The data we will use are to do with intelligence of dragons, their size in bodylength, which mountain range they come from and which site within that mountain range. Lets download the data into our base directory then load it into r. If this doesn't work follow the URL and it will download the data for you and you can bring it into r in whatever way you prefer. 
 
 <img src='../Images/Tutorials/dragon.png' align="right" height="200" /></a>
 
@@ -51,7 +51,7 @@ head(dragons)
 
 ```
 
-So we are interested in the effect that bodylength has on textscore of dragons. So following our glm tutorials from before we might apply a beta GLM (scores are percentages that include 0 and 100 but we will divide by 100 to be between 0 and 1, we will also apply a very small conversion so the 0s are never fully 0 and 1 never fully 1). Lets ignore model assessment for now and skip straight to interpretation. I will also create a siteUnique column for later on when we do a full model.
+We are interested in the effect that bodylength has on test score of dragons. So following our glm tutorials from before we might apply a beta GLM (scores are percentages that include 0 and 100 but we will divide by 100 to be between 0 and 1, we will also apply a very small conversion so the 0s are never fully 0 and 1 never fully 1). Lets ignore model assessment for now and skip straight to interpretation. I will also create a siteUnique column for later on when we do a full model.
 
 ```{r}
 #| fig.width: 8
@@ -148,7 +148,9 @@ facet_wrap(~mountainRange)+
 
 ```
 
-So we can see that both mountain range and site within mountain range have some element of grouping. Yet we are not necessarily interested in which mountain range has the strongest effect of bodylength on test score. So we want to add our mountain range (and maybe our site) into our model, but not as fixed effects: here come the random effects. For correctly formulating our statistical model we need to also define how we think our mountain range changes the fixed effects. This is where we chose varying intercept, varying slope or varying intercept and slope. If we expect the overall effect of body length on test score to be equivalent but that some mountain ranges may score higher or lower on tests overall we would chose a varying intercept model. If we think that actually each mountain has the same background level of testscore ability but that the effect of bodylength will varying (positive effect, negative effect, no effect) depending on the mountain range we would select a varying slope model, and finally if we think that the effect of bodylength on testscore **and** the background level of testscore will change with mountain range we would chose a slope and intercept varying model. 
+So we can see that both mountain range and site within mountain range have some element of grouping. Yet we are not necessarily interested in which mountain range has the strongest effect of bodylength on test score. So we want to add our mountain range (and maybe our site) into our model, but not as fixed effects: here come the random effects. 
+
+For correctly formulating our statistical model we need to also define how we think our mountain range changes the fixed effects. This is where we chose varying intercept, varying slope or varying intercept and slope. If we expect the overall effect of body length on test score to be equivalent but that some mountain ranges may score higher or lower on tests overall we would chose a varying intercept model. If we think that each mountain has the same background level of testscore ability but that the effect of bodylength will vary (positive effect, negative effect, no effect) depending on the mountain range, we would select a varying slope model, and finally if we think that the effect of bodylength on testscore **and** the background level of testscore will change with mountain range we would chose a slope and intercept varying model. 
 
 # Random Intercept
 
@@ -175,8 +177,8 @@ We could perhaps do some scaling of body size but we will keep things simple wit
 So lets run our new formula as a GLMM and run some simple diagnostic plots as with GLMs. We will use the glmmTMB package to use the glmmTMB() function as it allows the use of beta regression. To do this we install TMB then glmmTMB. The diagnostics are not perfect but again we will accept them for now. Those extreme values are due to the 0s and 1s we converted, for a better model we might want to do some sort of hurdle/zero_one_inflated beta model, for now it should be fine.
 
 ```{r}
-#| echo: false
 #| message: false
+#| warning: false
 
 #install.packages("TMB", type="source")
 #install.packages("glmmTMB", type="source")
@@ -207,7 +209,7 @@ p3+p4
 
 ## Fifth Step of Analysis - Model Interpretation
 
-Again, as with GLMs, we make an 'empty' data frame with all the fixed effects values from the original data set, but we also have to include the random effects (mountain range) too. So we are not predicting outside of the range of the data from within each mountain range we will group by mountain range and use data_grid() from the modelr package to create our 'newdata'. This shows us that with a intercept varying model there is no effect of bodylength on test score. 
+Again, as with GLMs, we make an 'empty' data frame with all the fixed effects values from the original data set, but we also have to include the random effects (mountain range) too. So we are not predicting outside of the range of the data from within each mountain range we will group by mountain range and use data_grid() from the modelr package to create our 'newdata'. This shows us that with an intercept varying model there is no effect of bodylength on test score. 
 
 ```{r}
 #| fig.width: 8
@@ -258,26 +260,27 @@ Okay, we think the effect of bodylength isn't consistent accross mountain ranges
 
 This would create a stats model of:
 
-testScore ~ bodyLength + (bodyLength+1|1)
+testScore ~ bodyLength + (bodyLength|1)
 
-Here we use the notation of (effectValue+1|1) for our random effect. Everything before the vertical line is related to the slope and everything after is related to the intercept.
+Here we use the notation of (effectValue|1) for our random effect. Everything before the vertical line is related to the slope and everything after is related to the intercept.
 
 ## Second Step of Analysis - Response Variable Distribution
 
-As we said earlier this is the same as GLMs, our response variable is a continuous value between an upper and low bound and therefore is a beta distribution.
+See above.
 
 ## Third Step of Analysis - Organising Fixed Effects (and Random Effects)
 
-We could perhaps do some scaling of body size but we will keep things simple with the raw data. We do need to make sure our random variable is classed as a factor but that is already the case so no need to worry. 
+See above.
 
 ## Fourth Step of Analysis - Assessing Model Functioning
 
 So lets run our new formula as a GLMM and run some simple diagnostic plots as with GLMs. We will use the glmmTMB package to use the glmmTMB() function as it allows the use of beta regression. To do this we install TMB then glmmTMB. The diagnostics are a lot better now but still not perfect. 
 
 ```{r}
-#| echo: false
+#| warning: false
+#| message: false
 
-glmm2<-glmmTMB(testScore ~ bodyLength+ (bodyLength+1|1), data = dragons_1, family = beta_family)
+glmm2<-glmmTMB(testScore ~ bodyLength+ (bodyLength|1), data = dragons_1, family = beta_family)
 
 glmm2ModelOutputs<-data.frame(Fitted=fitted(glmm2),
                   Residuals=resid(glmm2))
@@ -297,7 +300,6 @@ p6<-ggplot(glmm2ModelOutputs) +
 p5+p6
 
 ```
-
 
 ## Fifth Step of Analysis - Model Interpretation
 
@@ -352,22 +354,22 @@ testScore ~ bodyLength + (bodyLength+1|mountainRange)
 
 ## Second Step of Analysis - Response Variable Distribution
 
-As we said earlier this is the same as GLMs, our response variable is a continuous value between an upper and low bound and therefore is a beta distribution.
+See above.
 
 ## Third Step of Analysis - Organising Fixed Effects (and Random Effects)
 
-We could perhaps do some scaling of body size but we will keep things simple with the raw data. We do need to make sure our random variable is classed as a factor but that is already the case so no need to worry. 
+See above.
 
 ## Fourth Step of Analysis - Assessing Model Functioning
 
 So lets run our new formula as a GLMM and run some simple diagnostic plots as with GLMs. We will use the glmmTMB package to use the glmmTMB() function as it allows the use of beta regression. To do this we install TMB then glmmTMB. The diagnostics are even better than previously but still an odd gap in the middle (maybe our site level difference/heirachry is a problem).
 
 ```{r}
-#| echo: false
+#| warning: false
 #| message: false
 
 
-glmm3<-glmmTMB(testScore ~ bodyLength+ (bodyLength+1|mountainRange), data = dragons_1, family = beta_family)
+glmm3<-glmmTMB(testScore ~ bodyLength+ (bodyLength|mountainRange), data = dragons_1, family = beta_family)
 
 glmm3ModelOutputs<-data.frame(Fitted=fitted(glmm3),
                   Residuals=resid(glmm3))
@@ -474,7 +476,7 @@ Okay, lets say we think the effect of bodylength isn't consistent across mountai
 
 This would create a stats model of:
 
-testScore ~ bodyLength + (bodyLength+1|mountainRange)+ (1|siteUnique)
+testScore ~ bodyLength + (bodyLength|mountainRange)+ (1|siteUnique)
 
 Here we add in another intercept term. We use the unique version of site as site was originally nested in the mountainRange column (there was a, b and c in all mountain ranges but they were not the same).
 
@@ -491,11 +493,11 @@ Same as above.
 So lets run our new formula as a GLMM and run some simple diagnostic plots as with GLMs. We will use the glmmTMB package to use the glmmTMB() function as it allows the use of beta regression. To do this we install TMB then glmmTMB. The diagnostics are even better than previously. 
 
 ```{r}
-#| echo: false
+#| warning: false
 #| message: false
 
 
-glmm4<-glmmTMB(testScore ~ bodyLength+ (bodyLength+1|mountainRange)+(1|siteUnique), data = dragons_1, family = beta_family)
+glmm4<-glmmTMB(testScore ~ bodyLength+ (bodyLength|mountainRange)+(1|siteUnique), data = dragons_1, family = beta_family)
 
 glmm4ModelOutputs<-data.frame(Fitted=fitted(glmm4),
                   Residuals=resid(glmm4))
