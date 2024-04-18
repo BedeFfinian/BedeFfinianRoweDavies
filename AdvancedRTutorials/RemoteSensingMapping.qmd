@@ -3,7 +3,7 @@ title: "Making Maps from Satellite Imagery"
 description: "Introduction to using Satellite Imagery for Mapping."
 image: ../Images/Tutorials/RemoteSensing.png
 id: Advanced
-date: "04/18/2024"
+date: "04/17/2024"
 categories: [Tidyverse, ggplot2, R, terra, sf, Mapping, GIS]
 ---
 
