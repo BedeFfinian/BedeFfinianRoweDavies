@@ -13,6 +13,12 @@ listing:
     categories: true
     sort: "date asc"
     fields: [image,title,description,categories]
+  - id: Advanced
+    contents: AdvancedRTutorials
+    type: default
+    categories: true
+    sort: "date asc"
+    fields: [image,title,description,categories]
   - id: Stats
     contents: StatisticsTutorials
     type: default
@@ -42,6 +48,12 @@ listing:
 ## R Tutorials with an Ecologist Bias (Intermediate):
 
 ::: {#Intermediate}
+
+:::
+
+## R Tutorials with an Ecologist Bias (Advanced):
+
+::: {#Advanced}
 
 :::
 

@@ -10,6 +10,7 @@
       "/IntermediateRTutorials/MakingInteractiveMaps.html",
       "/IntermediateRTutorials/StarterGIS.html",
       "/IntermediateRTutorials/ComplexGIS.html",
+      "/AdvancedRTutorials/RemoteSensingMapping.html",
       "/StatisticsTutorials/IntroductionGLMs.html",
       "/StatisticsTutorials/GaussianGLMs.html",
       "/StatisticsTutorials/PoissonGLMs.html",
@@ -20,7 +21,8 @@
       "/StatisticsTutorials/ProblematicGLMs.html",
       "/StatisticsTutorialsGLMM/IntroductionGLMMs.html",
       "/StatisticsMLTutorials/IntroMachineLearning.html",
-      "/StatisticsMLTutorials/ComparingMLs.html"
+      "/StatisticsMLTutorials/ComparingMLs.html",
+      "/StatisticsMLTutorials/RemoteSensingML.html"
     ]
   },
   {

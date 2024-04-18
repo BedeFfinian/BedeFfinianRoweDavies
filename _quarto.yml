@@ -75,6 +75,10 @@ website:
             - IntermediateRTutorials/MakingInteractiveMaps.qmd
             - IntermediateRTutorials/ComplexGIS.qmd
         - text: "---"
+        - section: "Advanced R Tutorials"
+          contents: 
+            - AdvancedRTutorials/RemoteSensingMapping.qmd
+        - text: "---"
         - section: "General Linear Models Tutorials"
           contents:
             - StatisticsTutorials/IntroductionGLMs.qmd
@@ -94,6 +98,7 @@ website:
           contents:
             - StatisticsMLTutorials/IntroMachineLearning.qmd
             - StatisticsMLTutorials/ComparingMLs.qmd
+            - StatisticsMLTutorials/RemoteSensingML.qmd
       collapse-level: 1
       foreground: "#dbb13b"
       background: "#467373"
