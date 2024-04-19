@@ -7,6 +7,126 @@ date: "04/17/2024"
 categories: [Introduction, R, Machine Learning, Stats, Random Forest, XGBoost, SVM, KNN]
 ---
 
+# Downloading Satellite Imagery 
+
+For this tutorial we will be trying to take some known landcover classes, associate them with the surface reflectance of those areas from Sentinel-2, then we will use tidymodels to create a supervised prediction model that can use the surface reflectance of Sentinel-2 to predict habitat from another Sentinel-2 image. We will then validate this new prediction using separate data. 
+
+## Necessary Data For ML
+
+This breaks down into having 4 different data types:
+
+- 1. Training/Testing Sentinel-2 Image: the surface reflectance we will use to train the supervised machine learning model.
+
+- 2. Training/Testing Habitat Information: the classes associated with the surface reflectance from the Training/Testing Sentinel-2 Image.
+
+- 3. Validation Sentinel-2 Image: a new Sentinel-2 image that we will use our trained model on.
+
+- 4. Validation Habitat Information: the true classes associated with the Validation Sentinel-2 Image.
+
+## Our Data
+
+Creating these datasets is in itself a large task to do, and requires using resources outside of R. To download Sentinel-2 imagery you need to create a free account here: <https://dataspace.copernicus.eu/>. Once you have that you can browse locations and times and download a full tile. This will come as a folder called a SAFE file. This has a lot of information inside that is important but not needed from use currently. Likewise tif file for a whole Sentinel-2 tile is quite large and will take up space and time in this tutorial. So I have taken two Sentinel-2 tiles from the European Atlantic Coast, areas that include large cities, forests and farming areas: Bordeaux and Bilbao. I have then taken the landcover classification from ESRI found here: <https://www.arcgis.com/home/item.html?id=cfcb7609de5f478eb7666240902d4d3d>. This landcover classification is created with complex modelling techniques and has its own uncertainty/accuracy. We will ignore this and pretend the landcover is the truth! (Just for simplicity's sense, this isn't good practice!). 
 
 
-# Coming soon
+```{r}
+
+library(tidyverse)
+library(terra)
+library(sf)
+
+r<-rast("30T_20230101-20240101.tif")
+
+plot(r)
+
+bbox_Bordeaux <- st_bbox(c(xmin = -1.389959, ymin = 44.712743,
+                         xmax = -0.163688, ymax = 45.030115) ,
+                       crs = st_crs(4326) ) %>% 
+  st_as_sfc()%>% 
+  st_transform(crs=crs(r))%>% 
+  vect()
+
+Bordeaux_B2<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B02_10m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B3<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B03_10m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B4<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B04_10m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B5<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B05_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B6<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B06_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B7<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B07_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B8<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B08_10m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B8A<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B8A_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B11<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B11_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+Bordeaux_B12<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B12_20m.jp2")%>% 
+  crop(bbox_Bordeaux)
+BordeauxClass<-r %>% 
+  crop(bbox_Bordeaux)
+
+
+writeRaster(Bordeaux_B2,"Bordeaux_S2/T30TXQ_20230821T105629_B02_10m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B3,"Bordeaux_S2/T30TXQ_20230821T105629_B03_10m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B4,"Bordeaux_S2/T30TXQ_20230821T105629_B04_10m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B5,"Bordeaux_S2/T30TXQ_20230821T105629_B05_20m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B6,"Bordeaux_S2/T30TXQ_20230821T105629_B06_20m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B7,"Bordeaux_S2/T30TXQ_20230821T105629_B07_20m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B8,"Bordeaux_S2/T30TXQ_20230821T105629_B08_10m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B8A,"Bordeaux_S2/T30TXQ_20230821T105629_B8A_20m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B11,"Bordeaux_S2/T30TXQ_20230821T105629_B11_20m_cropped.tif",overwrite=T)
+writeRaster(Bordeaux_B12,"Bordeaux_S2/T30TXQ_20230821T105629_B12_20m_cropped.tif",overwrite=T)
+writeRaster(BordeauxClass,"Bordeaux_S2/T30TXQ_20230821T105629_Classification.tif",overwrite=T)
+
+
+bbox_Bilbao <- st_bbox(c(xmin = -3.066515, ymin = 42.948374,
+                         xmax = -2.185319, ymax = 43.399087),
+                       crs = st_crs(4326) ) %>% 
+  st_as_sfc()%>% 
+  st_transform(crs=crs(r))%>% 
+  vect()
+
+Bilbao_B2<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B02_10m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B3<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B03_10m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B4<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B04_10m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B5<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B05_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B6<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B06_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B7<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B07_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B8<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B08_10m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B8A<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B8A_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B11<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B11_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+Bilbao_B12<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B12_20m.jp2")%>% 
+  crop(bbox_Bilbao)
+BilbaoClass<-r %>% 
+  crop(bbox_Bilbao)
+
+
+writeRaster(Bilbao_B2,"Bilbao_S2/T30TWN_20230925T105801_B02_10m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B3,"Bilbao_S2/T30TWN_20230925T105801_B03_10m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B4,"Bilbao_S2/T30TWN_20230925T105801_B04_10m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B5,"Bilbao_S2/T30TWN_20230925T105801_B05_20m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B6,"Bilbao_S2/T30TWN_20230925T105801_B06_20m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B7,"Bilbao_S2/T30TWN_20230925T105801_B07_20m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B8,"Bilbao_S2/T30TWN_20230925T105801_B08_10m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B8A,"Bilbao_S2/T30TWN_20230925T105801_B8A_20m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B11,"Bilbao_S2/T30TWN_20230925T105801_B11_20m_cropped.tif",overwrite=T)
+writeRaster(Bilbao_B12,"Bilbao_S2/T30TWN_20230925T105801_B12_20m_cropped.tif",overwrite=T)
+writeRaster(BilbaoClass,"Bilbao_S2/T30TWN_20230925T105801_Classification.tif",overwrite=T)
+
+```
+
+## Read Data
+
+So the two folders in this repository can be found with the 10 bands of Sentinel-2 and a landcover classification for Bordeaux <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bordeaux_S2> and Bilbao <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bilbao_S2>. You can download these datasets
