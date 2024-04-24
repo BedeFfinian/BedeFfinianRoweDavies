@@ -9,7 +9,7 @@ execute:
   cache: true
 ---
 
-# Downloading Satellite Imagery  <img src='../Images/Tutorials/ESA.png' align="right" height="138.5" /></a>
+# Downloading Satellite Imagery  <img src='../Images/Tutorials/ESA.png' align="right" height="118.5" /></a>
 
 For this tutorial we will be trying to take some known landcover classes, associate them with the surface reflectance of those areas from Sentinel-2, then we will use tidymodels to create a supervised prediction model that can use the surface reflectance of Sentinel-2 to predict habitat from another Sentinel-2 image provided by the European Space Agency (ESA). We will then validate this new prediction using separate data. 
 
