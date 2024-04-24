@@ -40,9 +40,7 @@ listing:
     fields: [image, title,description,categories]
 ---
 
-All these tutorials have an Ecologist bias, mixed with my own opinions 
-
-![](Images/who/preview-image.png){.preview-image}
+All these tutorials have an Ecologist bias, mixed with my own opinions on best practices.
 
 ## R Basics:
 
@@ -79,3 +77,6 @@ All these tutorials have an Ecologist bias, mixed with my own opinions
 ::: {#Stats_ML}
 
 :::
+
+
+![](Images/who/preview-image.png){.preview-image}
