@@ -1,5 +1,6 @@
 ---
 title: "Tutorials"
+image: Images/who/preview-image.png
 listing:
   - id: Basics
     contents: BasicRTutorials
