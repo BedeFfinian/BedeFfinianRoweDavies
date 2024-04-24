@@ -1,6 +1,6 @@
 ---
 title: "Tutorials"
-image: Images/who/preview-image.png
+image: "Images/who/preview-image.png"
 listing:
   - id: Basics
     contents: BasicRTutorials
@@ -40,37 +40,41 @@ listing:
     fields: [image, title,description,categories]
 ---
 
-## R Tutorials with an Ecologist Bias (Basic):
+All these tutorials have an Ecologist bias, mixed with my own opinions 
+
+![](Images/who/preview-image.png){.preview-image}
+
+## R Basics:
 
 ::: {#Basics}
 
 :::
 
-## R Tutorials with an Ecologist Bias (Intermediate):
+## R Intermediate:
 
 ::: {#Intermediate}
 
 :::
 
-## R Tutorials with an Ecologist Bias (Advanced):
+## R Advanced:
 
 ::: {#Advanced}
 
 :::
 
-## Statistics Tutorials with an Ecologist Bias (GLMs):
+## General Linear Models (GLMs):
 
 ::: {#Stats}
 
 :::
 
-## Statistics Tutorials with an Ecologist Bias (GLMMs):
+## General Linear Mixed Effect Models (GLMMs):
 
 ::: {#StatsGLMMS}
 
 :::
 
-## Statistics Tutorials with an Ecologist Bias (Machine Learning):
+## Machine Learning:
 
 ::: {#Stats_ML}
 
