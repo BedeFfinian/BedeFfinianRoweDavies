@@ -51,7 +51,7 @@ website:
     background: "#467373"
   sidebar:
       contents: 
-        - section: "Who am I and What have I done?" 
+        - section: "About Me" 
           contents: 
             - index.qmd
             - map.qmd
@@ -61,26 +61,32 @@ website:
           contents:
             - consultancy.qmd
         - text: "---"
-        - section: "Basic R Tutorials"
+        - section: "R Tutorials"
           contents: 
+            - text: "---"
+            - text: "Basics"
+            - text: "---"
             - BasicRTutorials/IntroductionR.qmd
             - BasicRTutorials/DataManipulation.qmd
             - BasicRTutorials/DataVisualisation.qmd
-        - text: "---"
-        - section: "Intermediate R Tutorials"
-          contents: 
+            - text: "---"
+            - text: "Intermediate"
+            - text: "---"
             - IntermediateRTutorials/CombiningPlots.qmd
             - IntermediateRTutorials/StarterGIS.qmd
             - IntermediateRTutorials/MakingMaps.qmd
             - IntermediateRTutorials/MakingInteractiveMaps.qmd
             - IntermediateRTutorials/ComplexGIS.qmd
-        - text: "---"
-        - section: "Advanced R Tutorials"
-          contents: 
+            - text: "---"
+            - text: "Advanced"
+            - text: "---"
             - AdvancedRTutorials/RemoteSensingMapping.qmd
         - text: "---"
-        - section: "General Linear Models Tutorials"
-          contents:
+        - section: "Statistics Tutorials"
+          contents: 
+            - text: "---"
+            - text: "General Linear Models"
+            - text: "---"
             - StatisticsTutorials/IntroductionGLMs.qmd
             - StatisticsTutorials/GaussianGLMs.qmd
             - StatisticsTutorials/PoissonGLMs.qmd
@@ -89,13 +95,13 @@ website:
             - StatisticsTutorials/BetaGLMs.qmd
             - StatisticsTutorials/ProblematicGLMs.qmd
             - StatisticsTutorials/ZeroInflatedGLMs.qmd
-        - text: "---"
-        - section: "Mixed Effects Models Tutorials"
-          contents:
+            - text: "---"
+            - text: "General Linear Mixed Effects Models"
+            - text: "---"
             - StatisticsTutorialsGLMM/IntroductionGLMMs.qmd
-        - text: "---"
-        - section: "Machine Learning Tutorials"
-          contents:
+            - text: "---"
+            - text: "Machine Learning"
+            - text: "---"
             - StatisticsMLTutorials/IntroMachineLearning.qmd
             - StatisticsMLTutorials/ComparingMLs.qmd
             - StatisticsMLTutorials/RemoteSensingML.qmd

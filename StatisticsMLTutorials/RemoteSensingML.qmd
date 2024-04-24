@@ -1,17 +1,19 @@
 ---
 title: "Using Machine Learning with Satellite Imagery"
-description: "Building a Prediction Model on for Satellite Imagery"
-image: ../Images/Tutorials/RemoteSensing.png
+description: "Building a Prediction Model for Satellite Imagery"
+image: ../Images/Tutorials/ESA.png
 id: Stats_ML
-date: "04/17/2024"
-categories: [Introduction, R, Machine Learning, Stats, Random Forest, XGBoost, SVM, KNN]
+date: "04/23/2024"
+categories: [Introduction, R, GIS, Machine Learning, Remote Sensing, Mapping, Stats, Random Forest]
+execute: 
+  cache: true
 ---
 
-# Downloading Satellite Imagery 
+# Downloading Satellite Imagery  <img src='../Images/Tutorials/ESA.png' align="right" height="138.5" /></a>
 
-For this tutorial we will be trying to take some known landcover classes, associate them with the surface reflectance of those areas from Sentinel-2, then we will use tidymodels to create a supervised prediction model that can use the surface reflectance of Sentinel-2 to predict habitat from another Sentinel-2 image. We will then validate this new prediction using separate data. 
+For this tutorial we will be trying to take some known landcover classes, associate them with the surface reflectance of those areas from Sentinel-2, then we will use tidymodels to create a supervised prediction model that can use the surface reflectance of Sentinel-2 to predict habitat from another Sentinel-2 image provided by the European Space Agency (ESA). We will then validate this new prediction using separate data. 
 
-## Necessary Data For ML
+# Necessary Data For ML
 
 This breaks down into having 4 different data types:
 
@@ -23,110 +25,541 @@ This breaks down into having 4 different data types:
 
 - 4. Validation Habitat Information: the true classes associated with the Validation Sentinel-2 Image.
 
-## Our Data
+# Our Data
 
-Creating these datasets is in itself a large task to do, and requires using resources outside of R. To download Sentinel-2 imagery you need to create a free account here: <https://dataspace.copernicus.eu/>. Once you have that you can browse locations and times and download a full tile. This will come as a folder called a SAFE file. This has a lot of information inside that is important but not needed from use currently. Likewise tif file for a whole Sentinel-2 tile is quite large and will take up space and time in this tutorial. So I have taken two Sentinel-2 tiles from the European Atlantic Coast, areas that include large cities, forests and farming areas: Bordeaux and Bilbao. I have then taken the landcover classification from ESRI found here: <https://www.arcgis.com/home/item.html?id=cfcb7609de5f478eb7666240902d4d3d>. This landcover classification is created with complex modelling techniques and has its own uncertainty/accuracy. We will ignore this and pretend the landcover is the truth! (Just for simplicity's sense, this isn't good practice!). 
+Creating these datasets is in itself a large task to do, and requires using resources outside of R. To download Sentinel-2 imagery you need to create a free account here: <https://dataspace.copernicus.eu/>. Once you have that you can browse locations and times and download a full tile. This will come as a folder called a SAFE file. This has a lot of information and data inside that is important but not needed currently. Likewise the tif file for a whole Sentinel-2 tile is quite large and will take up space and time in this tutorial (plus it won't work nicely with github as it is over 100MB). So I have taken two Sentinel-2 tiles from the European Atlantic Coast, areas that include large cities, forests and farming areas: Bordeaux and Bilbao. I have then taken the landcover classification from ESRI (found here: <https://www.arcgis.com/home/item.html?id=cfcb7609de5f478eb7666240902d4d3d>). This landcover classification is created with complex modelling techniques and has its own uncertainty/accuracy. We will ignore this uncertainty and pretend the landcover is the truth! (Just for simplicity's sake, this isn't good practice at all!). 
 
+I have downloaded the S2 imagery and landcover classifications then applied spatial cropping to minimise the file sizes. I have also selected the bands we are interested in for this tutorial. The two folders in this repository can be found with the 10 bands of Sentinel-2 and a landcover classification for Bordeaux <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bordeaux_S2> and Bilbao <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bilbao_S2>. You can download these datasets by copying the URL links above into this website: <https://download-directory.github.io/>. If not you will have to download the S2 imagery yourself, crop them to an area of interest and do the same with the accompanying landcover file downloaded from the above arcgis link. Lets first have a look at Bordeaux data.
+
+## Read Data
+
+We will plot the RGB alongside the landcover classification.
+
+The classes are:
+
+ 1:	Water	
+ 2:	Trees	
+ 4:	Flooded vegetation	
+ 5:	Crops	
+ 7:	Built Area	
+ 8:	Bare ground	
+ 9:	Snow/Ice	
+10:	Clouds	
+11:	Rangeland
+
+We will covert the numbers to their classification and then turn them into a factor, and assign them a nice (ish) colour scheme. There already is a colortab associated with the raster, which would plot the colours assigned by ESRI to the tif, but it causes issues with factor alteration so we remove it by setting it as null. 
 
 ```{r}
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
 
 library(tidyverse)
 library(terra)
 library(sf)
+library(patchwork)
+library(tidyterra)
 
-r<-rast("30T_20230101-20240101.tif")
+landcover_Bordeaux<-as.factor(rast("S2Data/Bordeaux_S2/T30TXQ_20230821T105629_Classification.tif"))
 
-plot(r)
+Bordeaux_FileNames_10m<-list.files("S2Data/Bordeaux_S2/",full.names = T,pattern = "10m")
 
-bbox_Bordeaux <- st_bbox(c(xmin = -1.389959, ymin = 44.712743,
-                         xmax = -0.163688, ymax = 45.030115) ,
-                       crs = st_crs(4326) ) %>% 
-  st_as_sfc()%>% 
-  st_transform(crs=crs(r))%>% 
-  vect()
+Bordeaux_FileNames_20m<-list.files("S2Data/Bordeaux_S2/",full.names = T,pattern = "20m")
 
-Bordeaux_B2<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B02_10m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B3<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B03_10m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B4<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B04_10m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B5<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B05_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B6<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B06_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B7<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B07_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B8<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R10m/T30TXQ_20230821T105629_B08_10m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B8A<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B8A_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B11<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B11_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-Bordeaux_B12<-rast("Bordeaux_rm/S2B_MSIL2A_20230821T105629_N0509_R094_T30TXQ_20230821T140250.SAFE/GRANULE/L2A_T30TXQ_A033725_20230821T110322/IMG_DATA/R20m/T30TXQ_20230821T105629_B12_20m.jp2")%>% 
-  crop(bbox_Bordeaux)
-BordeauxClass<-r %>% 
-  crop(bbox_Bordeaux)
+Bordeaux_10m<-rast(Bordeaux_FileNames_10m)
 
+Bordeaux_20m<-rast(Bordeaux_FileNames_20m)
 
-writeRaster(Bordeaux_B2,"Bordeaux_S2/T30TXQ_20230821T105629_B02_10m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B3,"Bordeaux_S2/T30TXQ_20230821T105629_B03_10m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B4,"Bordeaux_S2/T30TXQ_20230821T105629_B04_10m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B5,"Bordeaux_S2/T30TXQ_20230821T105629_B05_20m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B6,"Bordeaux_S2/T30TXQ_20230821T105629_B06_20m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B7,"Bordeaux_S2/T30TXQ_20230821T105629_B07_20m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B8,"Bordeaux_S2/T30TXQ_20230821T105629_B08_10m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B8A,"Bordeaux_S2/T30TXQ_20230821T105629_B8A_20m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B11,"Bordeaux_S2/T30TXQ_20230821T105629_B11_20m_cropped.tif",overwrite=T)
-writeRaster(Bordeaux_B12,"Bordeaux_S2/T30TXQ_20230821T105629_B12_20m_cropped.tif",overwrite=T)
-writeRaster(BordeauxClass,"Bordeaux_S2/T30TXQ_20230821T105629_Classification.tif",overwrite=T)
+p1<-ggplot()+
+  geom_spatraster_rgb(data=Bordeaux_10m,
+                      r=3,g=2,b=1,
+                      max_col_value = 5000,
+                      interpolate=T)+
+  theme_classic()
+
+landcover_Bordeaux_fct<-landcover_Bordeaux %>% 
+  mutate(`30T_20230101-20240101`=factor(as.factor(case_when(`30T_20230101-20240101`==1~"Water",	
+                                   `30T_20230101-20240101`==2~"Trees",
+                                   `30T_20230101-20240101`==4~"Flooded",
+                                   `30T_20230101-20240101`==5~"Crops",
+                                   `30T_20230101-20240101`==7~"Built",
+                                   `30T_20230101-20240101`==8~"Bare",
+                                   `30T_20230101-20240101`==9~"Snow",
+                                   `30T_20230101-20240101`==10~"Clouds",
+                                   `30T_20230101-20240101`==11~"Rangeland")),
+                                   levels=c("Water",	
+                                            "Trees",
+                                            "Flooded",
+                                            "Crops",
+                                            "Built",
+                                            "Bare",
+                                            "Snow",
+                                            "Clouds",
+                                            "Rangeland")
+                                   ))
+
+coltab(landcover_Bordeaux_fct[[1]])<-NULL
 
 
-bbox_Bilbao <- st_bbox(c(xmin = -3.066515, ymin = 42.948374,
-                         xmax = -2.185319, ymax = 43.399087),
-                       crs = st_crs(4326) ) %>% 
-  st_as_sfc()%>% 
-  st_transform(crs=crs(r))%>% 
-  vect()
+p2<-ggplot()+
+  geom_spatraster(data=landcover_Bordeaux_fct)+
+  scale_fill_manual(values=c("#2494a2",
+                             "#389318",
+                             "#3d26ab",
+                             "#DAA520",
+                             "#e4494f",
+                             "#bec3c5",
+                             "#f5f8fd",
+                             "#70543e"))+
+  labs(fill="Class")+
+  theme_classic()
 
-Bilbao_B2<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B02_10m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B3<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B03_10m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B4<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B04_10m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B5<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B05_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B6<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B06_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B7<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B07_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B8<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R10m/T30TWN_20230925T105801_B08_10m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B8A<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B8A_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B11<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B11_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-Bilbao_B12<-rast("Bilbao_rm/S2A_MSIL2A_20230925T105801_N0509_R094_T30TWN_20230925T171100.SAFE/GRANULE/L2A_T30TWN_A043134_20230925T110416/IMG_DATA/R20m/T30TWN_20230925T105801_B12_20m.jp2")%>% 
-  crop(bbox_Bilbao)
-BilbaoClass<-r %>% 
-  crop(bbox_Bilbao)
-
-
-writeRaster(Bilbao_B2,"Bilbao_S2/T30TWN_20230925T105801_B02_10m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B3,"Bilbao_S2/T30TWN_20230925T105801_B03_10m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B4,"Bilbao_S2/T30TWN_20230925T105801_B04_10m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B5,"Bilbao_S2/T30TWN_20230925T105801_B05_20m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B6,"Bilbao_S2/T30TWN_20230925T105801_B06_20m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B7,"Bilbao_S2/T30TWN_20230925T105801_B07_20m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B8,"Bilbao_S2/T30TWN_20230925T105801_B08_10m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B8A,"Bilbao_S2/T30TWN_20230925T105801_B8A_20m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B11,"Bilbao_S2/T30TWN_20230925T105801_B11_20m_cropped.tif",overwrite=T)
-writeRaster(Bilbao_B12,"Bilbao_S2/T30TWN_20230925T105801_B12_20m_cropped.tif",overwrite=T)
-writeRaster(BilbaoClass,"Bilbao_S2/T30TWN_20230925T105801_Classification.tif",overwrite=T)
+p1/p2
 
 ```
 
-## Read Data
+## Resample Bands
 
-So the two folders in this repository can be found with the 10 bands of Sentinel-2 and a landcover classification for Bordeaux <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bordeaux_S2> and Bilbao <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/StatisticsMLTutorials/S2Data/Bilbao_S2>. You can download these datasets
+Before we can combine all bands together in one multiband raster we need to resample the 20 m resolution bands to be 10 m. We will use the function we used previously. Lets also plot this to visualise. 
+
+The intensity of spectral bands normally increase with increased wavelength but for Sentinel-2 this ranges around 0-10,000. I set a colourscale limit of 5000 to see the majority of the data, only a few pixels have a much higher value than that. 
+
+```{r}
+#| fig-width: 8
+#| fig-height: 8
+
+Bordeaux_20m_resampled<-resample(Bordeaux_20m,Bordeaux_10m,method="average")
+
+
+Bordeaux_Multispec<-c(Bordeaux_10m,Bordeaux_20m_resampled)
+
+ggplot()+
+  geom_spatraster(data=Bordeaux_Multispec)+
+  labs(fill="")+
+  facet_wrap(~lyr,ncol = 2)+
+  scale_fill_whitebox_c("viridi",na.value = NA,limits=c(0,5000))+
+  theme_classic()
+
+```
+
+## Align Classification
+
+So now we can add the classification as another band in the raster using the same method of using c() from above. The bands are also not named in an easy way to read so lets rename them so that they are easier to work with. Note that the original name of the classification tif was starting with a number and had a hyphen, which is generally bad naming style. We can use little ticks `` to tell r that it is a name of a column. We also remove NA values to make life easier. These tidyverse functions being applied to spatRasters are made available by the tidyterra package, which we have previously used. They make code easier to read but are slower than terra functions when dealing with very big spatrasters.
+
+```{r}
+
+Bordeaux_Multispec_cleaned<-c(Bordeaux_Multispec,landcover_Bordeaux) %>% 
+  rename(B02=T30TXQ_20230821T105629_B02_10m, 
+         B03=T30TXQ_20230821T105629_B03_10m, 
+         B04=T30TXQ_20230821T105629_B04_10m, 
+         B08=T30TXQ_20230821T105629_B08_10m, 
+         B05=T30TXQ_20230821T105629_B05_20m, 
+         B06=T30TXQ_20230821T105629_B06_20m,
+         B07=T30TXQ_20230821T105629_B07_20m, 
+         B11=T30TXQ_20230821T105629_B11_20m, 
+         B12=T30TXQ_20230821T105629_B12_20m, 
+         B8A=T30TXQ_20230821T105629_B8A_20m,
+         Class=`30T_20230101-20240101`) %>% 
+  drop_na()
+  
+names(Bordeaux_Multispec_cleaned)
+
+ncell(Bordeaux_Multispec_cleaned)
+
+```
+
+Now this could be our training data but this is a lot of pixels to train a model with (~20,000,000 training pixels). We will therefore take a random subset from here to create our training data. Using spatSample will take a random sample of our raster and return a dataframe. Lets create a dataset of 10,000 rows. We will also change the Class column to be a factor and be readable. Note that the spatSample function returns a dataframe.
+
+```{r}
+
+set.seed(2345)
+
+Bordeaux_Multispec_cleaned_Sample<-spatSample(Bordeaux_Multispec_cleaned,size=10000,xy=TRUE) %>% 
+  mutate(Class=as.factor(case_when(Class==1~"Water",	
+                                   Class==2~"Trees",
+                                   Class==4~"Flooded",
+                                   Class==5~"Crops",
+                                   Class==7~"Built",
+                                   Class==8~"Bare",
+                                   Class==9~"Snow",
+                                   Class==10~"Clouds",
+                                   Class==11~"Rangeland")))
+```
+
+# Model Building
+
+This will follow exactly the same steps as the other ML tutorials, split data, create recipe, specifiy model, set up workflow, tune hyperparametres and then finalise best model. (We could also ensemble many models when finalising as in the stacks package).
+
+## Data Splitting
+
+First we will split our model building data from Bordeaux into training, different cross validation folds of the training data and testing data. 
+
+```{r}
+#| warning: false
+
+
+library(tidymodels)
+
+init<-initial_split(Bordeaux_Multispec_cleaned_Sample,strata = Class)
+
+train<-training(init)
+
+folds<-vfold_cv(train,strata = Class)
+
+test<-testing(init)
+
+```
+
+## Recipe
+
+We can now write a recipe with any transformations and updates of roles we want. We will keep this simple but we could add in all sorts of updates or transformations if we wanted to. 
+
+```{r}
+
+recipe_Class<-recipe(Class~B02+B03+B04+B08+B05+B06+B07+B11+B12+B8A,data=train)
+
+class_juiced <- prep(recipe_Class) %>% 
+  juice()
+
+
+```
+
+## Specification
+
+We will create a Random forest model and try and tune the mtry, trees and min_n over all the folds. But we could do a different model at this stage and the rest of the code stays the same. Or we could even create a model stack like in the Comparing and Ensembling ML tutorial. 
+
+```{r}
+tune_spec <- rand_forest(
+  mtry = tune(),
+  trees = tune(),
+  min_n = tune()
+) %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+
+```
+
+## Workflow
+
+Once we have the recipe and the specification we can then add them to a workflow and tune the hyperparameters of the model across the folded training data. We will use a different method to tune the hyperparameters here, tune_race_anova() from the finetune package. This will search for best hyperpararmeters but will not use values that have been poor previously. We will also set up some simple parallel processing to speed up this process using the parallel and doParallel packages. 
+
+```{r}
+#| cache: true
+
+library(finetune)
+library(parallel)
+library(doParallel)
+
+tune_wf <- workflow() %>%
+  add_recipe(recipe_Class) %>%
+  add_model(tune_spec)
+
+set.seed(123)
+
+cores <- detectCores(logical = FALSE)
+cl <- makePSOCKcluster(cores)
+registerDoParallel(cl)
+
+tune_res <- tune_race_anova(
+  tune_wf,
+  resamples = folds
+)
+
+tune_res
+
+```
+
+Lets plot the results of each fold using the ROC_AUC.
+
+```{r}
+tune_res %>%
+  collect_metrics() %>%
+  filter(.metric == "roc_auc") %>%
+  select(mean, min_n,trees, mtry) %>%
+  pivot_longer(min_n:mtry,
+    values_to = "value",
+    names_to = "parameter"
+  ) %>%
+  ggplot(aes(value, mean, color = parameter)) +
+  geom_point(show.legend = FALSE) +
+  facet_wrap(~parameter, scales = "free_x") +
+  labs(x = NULL, y = "AUC")+
+  theme_classic()
+
+```
+
+So we see varying accuracy based on our hyperparameters but all very similar around/above 0.8 or so regardless. Lets select the best and finalise our model.
+
+```{r}
+
+best_auc <- select_best(tune_res, metric = "roc_auc")
+
+final_rf <- finalize_model(
+  tune_spec,
+  best_auc
+)
+
+final_rf
+
+```
+
+So this is our model, lets investigate the different features and their importance using the vip package. This is where we use the juiced data set.
+
+```{r}
+
+library(vip)
+
+set.seed(234)
+
+final_rf %>%
+  set_engine("ranger", importance = "permutation") %>%
+  fit(Class~B02+B03+B04+B08+B05+B06+B07+B11+B12+B8A,data=class_juiced
+  ) %>%
+  vip(geom = "point")+
+  theme_classic()
+
+```
+
+## Validate Model on testing data
+
+Lets prepare the workflow with our final model then apply the model to the testing data, and collect the accuracy metrics.
+
+```{r}
+
+final_wf <- workflow() %>%
+  add_recipe(recipe_Class) %>%
+  add_model(final_rf)
+
+final_res <- final_wf %>%
+  last_fit(init)
+
+final_model <- final_res %>%
+  extract_workflow()
+
+final_res %>%
+  collect_metrics()
+
+```
+
+This is pretty good accuracy generally. We can also create a confusion matrix to compare where inaccuracies lay (i.e. false positives, false negatives?).
+
+```{r}
+
+final_res  %>% 
+  unnest(cols=.predictions) %>% 
+  conf_mat(.pred_class,Class)
+
+```
+
+# Validate with New Data
+
+## Read in New Data
+
+Above we used the testing data set to evaluate the model accuracy. These are data randomly split from the training data, which in our case means it is the same satellite image, same day and geographically similar location. But we may be wanting a model that can be applied at scale, across large geographical ranges and different images. To do this we want to validate our model on another image. We will take our bilbao image and its labels (again we are using labels generated by another model so a bit flawed but lets assume the labels are correct) then apply our model, comparing our predictions with the 'true' labels. I have used the full tif to predict on but a sample could be taken as above. This is the code that is commented out.
+
+```{r}
+
+landcover_Bilbao<-as.factor(rast("S2Data/Bilbao_S2/T30TWN_20230925T105801_Classification.tif"))
+
+Bilbao_FileNames_10m<-list.files("S2Data/Bilbao_S2/",full.names = T,pattern = "10m")
+
+Bilbao_FileNames_20m<-list.files("S2Data/Bilbao_S2/",full.names = T,pattern = "20m")
+
+Bilbao_10m<-rast(Bilbao_FileNames_10m)
+
+Bilbao_20m<-rast(Bilbao_FileNames_20m)
+
+Bilbao_20m_resampled<-resample(Bilbao_20m,Bilbao_10m,method="average")
+
+
+Bilbao_Multispec<-c(Bilbao_10m,Bilbao_20m_resampled)
+
+
+Bilbao_Multispec_cleaned<-c(Bilbao_Multispec,landcover_Bilbao) %>% 
+  rename(B02=T30TWN_20230925T105801_B02_10m, 
+         B03=T30TWN_20230925T105801_B03_10m, 
+         B04=T30TWN_20230925T105801_B04_10m, 
+         B08=T30TWN_20230925T105801_B08_10m, 
+         B05=T30TWN_20230925T105801_B05_20m, 
+         B06=T30TWN_20230925T105801_B06_20m,
+         B07=T30TWN_20230925T105801_B07_20m, 
+         B11=T30TWN_20230925T105801_B11_20m, 
+         B12=T30TWN_20230925T105801_B12_20m, 
+         B8A=T30TWN_20230925T105801_B8A_20m,
+         Class=`30T_20230101-20240101`) %>% 
+  drop_na()
+
+set.seed(2345)
+
+Bilbao_Multispec_cleaned_Sample<-as.data.frame(Bilbao_Multispec_cleaned,xy=TRUE)%>% 
+  mutate(Class=as.factor(case_when(Class==1~"Water",	
+                                   Class==2~"Trees",
+                                   Class==4~"Flooded",
+                                   Class==5~"Crops",
+                                   Class==7~"Built",
+                                   Class==8~"Bare",
+                                   Class==9~"Snow",
+                                   Class==10~"Clouds",
+                                   Class==11~"Rangeland")))
+
+
+#Bilbao_Multispec_cleaned_Sample<-spatSample(Bilbao_Multispec_cleaned,size=1000000,xy=TRUE) %>% 
+#  mutate(Class=as.factor(case_when(Class==1~"Water",	
+#                                   Class==2~"Trees",
+#                                   Class==4~"Flooded",
+#                                   Class==5~"Crops",
+#                                   Class==7~"Built",
+#                                   Class==8~"Bare",
+#                                   Class==9~"Snow",
+#                                   Class==10~"Clouds",
+#                                   Class==11~"Rangeland")))
+
+```
+
+## Predict on New Data
+
+We will predict on these new data, creating a new column. To calculate the confusion matrix and accuracy we need the two columns to have the same factor levels, but they are not all in both columns. Se we will set the levels of the factor columns to include all potential levels.
+
+```{r}
+
+BilbaoPrediction<-Bilbao_Multispec_cleaned_Sample %>% 
+  mutate(predict(final_model,.),
+         .pred_class=factor(.pred_class,levels=c("Water",	
+                                                 "Trees",
+                                                 "Flooded",
+                                                 "Crops",
+                                                 "Built",
+                                                 "Bare",
+                                                 "Snow",
+                                                 "Clouds",
+                                                 "Rangeland")),
+         Class=factor(Class,levels=c("Water",	
+                                     "Trees",
+                                     "Flooded",
+                                     "Crops",
+                                     "Built",
+                                     "Bare",
+                                     "Snow",
+                                     "Clouds",
+                                     "Rangeland")))
+
+BilbaoPrediction%>% 
+  conf_mat(truth=Class,estimate=.pred_class)
+
+
+BilbaoPrediction%>% 
+  accuracy(truth=Class,estimate=.pred_class)
+
+```
+
+Okay so we can see that the accuracy is `r round(yardstick::accuracy(BilbaoPrediction,truth=Class,estimate=.pred_class)$.estimate,3)`, not amazing but also not awful. 
+
+## Plotting Prediction
+
+So lets look on a map, comparing the new prediction with the 'true' class. We will clean the prediction dataset, convert the predictions to rasters then plot them alongside the original 'true' classification. Again as before we will remove the colortab as it make mutation difficult.
+
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+
+BilbaoPrediction_tif<-BilbaoPrediction %>% 
+  mutate(.pred_class=case_when(.pred_class=="Water"~1,	
+                                   .pred_class=="Trees"~2,
+                                   .pred_class=="Flooded"~4,
+                                   .pred_class=="Crops"~5,
+                                   .pred_class=="Built"~7,
+                                   .pred_class=="Bare"~8,
+                                   .pred_class=="Snow"~9,
+                                   .pred_class=="Clouds"~10,
+                                   .pred_class=="Rangeland"~11))%>% 
+  dplyr::select(x,y,.pred_class) %>% 
+  rast(type="xyz",crs="EPSG:32630")
+
+landcover_Bilbao_True<-as.factor(rast("S2Data/Bilbao_S2/T30TWN_20230925T105801_Classification.tif"))
+
+Bilbao_Comparison<-c(landcover_Bilbao_True,BilbaoPrediction_tif) %>% 
+  rename(Truth=`30T_20230101-20240101`, 
+         Prediction=.pred_class)
+
+coltab(Bilbao_Comparison[[1]])<-NULL
+
+Bilbao_Comparison_fct<-Bilbao_Comparison %>% 
+  mutate(Prediction=factor(case_when(Prediction==1~"Water",	
+                                   Prediction==2~"Trees",
+                                   Prediction==4~"Flooded",
+                                   Prediction==5~"Crops",
+                                   Prediction==7~"Built",
+                                   Prediction==8~"Bare",
+                                   Prediction==9~"Snow",
+                                   Prediction==10~"Clouds",
+                                   Prediction==11~"Rangeland"),
+         levels=c("Water",	
+                  "Trees",
+                  "Flooded",
+                  "Crops",
+                  "Built",
+                  "Bare",
+                  "Snow",
+                  "Clouds",
+                  "Rangeland")),
+         Truth=factor(case_when(Truth==1~"Water",	
+                                Truth==2~"Trees",
+                                Truth==4~"Flooded",
+                                Truth==5~"Crops",
+                                Truth==7~"Built",
+                                Truth==8~"Bare",
+                                Truth==9~"Snow",
+                                Truth==10~"Clouds",
+                                Truth==11~"Rangeland"),
+         levels=c("Water",	
+                  "Trees",
+                  "Flooded",
+                  "Crops",
+                  "Built",
+                  "Bare",
+                  "Snow",
+                  "Clouds",
+                  "Rangeland")))
+
+ggplot()+
+  geom_spatraster(data=Bilbao_Comparison_fct,
+                  maxcell = 10000000)+
+  scale_fill_manual(values=c("#2494a2",
+                             "#389318",
+                             "#DAA520",
+                             "#e4494f",
+                             "#bec3c5",
+                             "#f5f8fd",
+                             "#70543e"))+
+  facet_wrap(~lyr,ncol = 1)+
+  labs(fill="Class")+
+  theme_classic()
+
+
+
+```
+
+Okay so these two images look very similar generally but with some big differences, especially in the amount of rangeland predicted. We can also see whether certain areas were better predicted or not.
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3
+
+
+Correct<-Bilbao_Comparison_fct %>% 
+  mutate(Correct=as.factor(case_when(Truth==Prediction~"Correct",
+                           TRUE~"Incorrect"))) %>% 
+  select(Correct)
+
+ggplot()+
+  geom_spatraster(data=Correct,
+                  maxcell = 10000000)+
+  scale_fill_manual(values=c("#cccc00",
+                             "#b3002d"))+
+  labs(fill="Correct?")+
+  theme_classic()
+
+```
+
+Okay so there are some clear patterns here of where we have correctly identified and where we haven't. This may be acceptable to us or not. 
+
