@@ -73,6 +73,7 @@ website:
             - text: "Intermediate"
             - text: "---"
             - IntermediateRTutorials/CombiningPlots.qmd
+            - IntermediateRTutorials/ForLoops.qmd
             - IntermediateRTutorials/StarterGIS.qmd
             - IntermediateRTutorials/MakingMaps.qmd
             - IntermediateRTutorials/MakingInteractiveMaps.qmd
