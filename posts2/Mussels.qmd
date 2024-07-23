@@ -9,7 +9,7 @@ id: Co
 categories: [Ecology, Marine Diversity, Aquaculture, TUVs, Co-Author]
 ---
 
-[Bridger *et al.,* 2022](https://onlinelibrary.wiley.com/doi/10.1002/aff2.77)
+Link here: [Bridger *et al.,* 2022](https://onlinelibrary.wiley.com/doi/10.1002/aff2.77)
 
 The United Kingdom's first large-scale, offshore, long-line mussel farm deployed its first ropes in 2013 in Lyme Bay, southwest United Kingdom, located in an area of seabed that was heavily degraded due to historic bottom-towed fishing. It was hypothesised that due to the artificial structures that accumulate mussels and exclude destructive fishing practices, the seabed could be restored. To assess the restoration potential of the farm and its ecosystem interactions over time, a multi-method, annual monitoring approach was undertaken. Here, we tested the effects of the farm trial stations on the seabed habitat, epifauna and demersal species over 5 years. Responses of % mussel cover, sessile and sedentary, and mobile taxa were measured using three video methods. Within 2 years of infrastructure deployment, mussel clumps and shells were detected below the headlines, increasing the structural complexity of the seabed. After 4 years, there was a significantly greater abundance of mobile taxa compared to the Controls that remained open to trawling. Commercial European lobster and edible crab were almost exclusively recorded within the farm. We discuss whether these findings can be considered a restoration of the seabed and how these data can be used to inform the future management of offshore mariculture globally.
 

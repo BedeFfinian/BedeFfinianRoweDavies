@@ -9,7 +9,7 @@ id: First
 categories: [Remote Sensing, Spectral Library, Satellite, Machine Learning, First Author]
 ---
 
-[Davies *et al.,* 2023](https://www.sciencedirect.com/science/article/pii/S0034425723001050?dgcid=author)
+Link here: [Davies *et al.,* 2023](https://www.sciencedirect.com/science/article/pii/S0034425723001050?dgcid=author)
 
 # Abstract
 

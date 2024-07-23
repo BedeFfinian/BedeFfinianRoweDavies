@@ -1,0 +1,17 @@
+---
+title: "A Sentinel Watching over Intertidal Seagrass Phenology across Western Europe and North Africa."
+description: "Bede F.R. Davies; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Ana I. Sousa; Oliver R. Thomas; Dan A. Smale; Melanie C. Austen; Lauren Biermann; Martin J. Attrill; Alejandro Roman; Gabriel Navarro; Anne-Laure Barillé; Nicolas Harin; Daniel Clewley; Victor Martinez-Vicente; Pierre Gernez & Laurent Barillé"
+author:
+  - name: [Bede Ffinian Rowe Davies; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Ana I. Sousa; Oliver R. Thomas; Dan A. Smale; Melanie C. Austen; Lauren Biermann; Martin J. Attrill; Alejandro Roman; Gabriel Navarro; Anne-Laure Barillé; Nicolas Harin; Daniel Clewley; Victor Martinez-Vicente; Pierre Gernez; Laurent Barillé]
+image: PhenologyICECREAMS.png
+id: First
+date: "07-16-2024"
+categories: [Remote Sensing, Spectral Library, Satellite, Machine Learning, First Author, Europe, Neural Networks]
+---
+
+
+Link here: [Davies *et al.,* 2024](https://www.nature.com/articles/s43247-024-01543-z.pdf)
+
+# Abstract
+
+Seagrasses are marine flowering plants that form extensive meadows from the inter-tidal zone up to ~50 m depth. As biological and ecological Essential Biodiversity Variables, seagrass cover and composition provide a wide range of ecosystem services. Inter-tidal seagrass meadows provide services to many ecosystems, so monitoring their occurrence, extent, condition and diversity can be used to indicate the biodiversity and health of local ecosystems. Current global estimates of seagrass extent and recent reviews either do not mention inter-tidal seagrasses and their seasonal variation, or combine them with sub-tidal seagrasses. Here, using high-spatial and high-temporal resolution satellite data (Sentinel-2), we demonstrate a method for consistently mapping inter-tidal seagrass meadows and their phenology at a continental scale. We were able to highlight varying seasonal patterns that are observable across a 23° latitudinal range. Timings of peaks in seagrass extent varied by up to 5 months, rather than the previously assumed marginal to non-existent variation in peak timing. These results will aid management by providing high-resolution spatio-temporal monitoring data to better inform seagrass conservation and restoration. They also highlight the high level of seasonal variability in inter-tidal seagrass, meaning combination with sub-tidal seagrass for global assessments will likely produce misleading or incorrect estimates.

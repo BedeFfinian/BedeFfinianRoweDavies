@@ -9,7 +9,7 @@ date: "11-20-2020"
 categories: [Plastics, Pollution, Terrestrial Pollution, Co-Author]
 ---
 
-[Napper *et al.,* 2020](https://www.sciencedirect.com/science/article/pii/S2590332220305509)
+Link here: [Napper *et al.,* 2020](https://www.sciencedirect.com/science/article/pii/S2590332220305509)
 
 Mount Everest was once a pristine environment. However, due to increased tourism, waste is accumulating on the mountain, with a large proportion being made of plastic. This research aimed to identify and characterize microplastic (MP) pollution near the top of highest mountain on Earth and could illustrate the implications for the environment and the people living below. Stream water and snow were collected from multiple locations leading up to, and including, the Balcony (8,440 m.a.s.l). MPs were detected at an ~30 MP L$^−1$ in snow and ~1 MP L$^−1$ in stream water, and the majority were fibrous. Therefore, with increased tourism, deposition of MP near Mt. Everest is expected to rise. At a pivotal point in the exploration of remote areas, environmental stewardship should focus on technological and other advances toward minimizing sources of MP pollution.
 
