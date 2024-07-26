@@ -1,0 +1,17 @@
+---
+title: "Carbon stocks in marine habitats across Jersey’s territorial waters."
+description: "Bede Ffinian Rowe Davies, Samantha Blampied, Francis Binney, Graham Epstein, Paul Chambers & Emma V. Sheehan"
+author:
+  - name: [Bede Ffinian Rowe Davies; Samantha Blampied; Francis Binney; Graham Epstein; Paul Chambers; Emma V. Sheehan]
+image: JerseyCarbon_Preview.png
+id: First
+date: "07-26-2024"
+categories: [Habitat Mapping, Carbon Stock, Jersey, First Author, Europe]
+---
+
+
+Link here: [Davies *et al.,* 2024](https://doi.org/10.1016/j.rsma.2024.103713)
+
+# Abstract
+
+Marine areas have been shown to store varying amounts of carbon. The densities of these stores varies considerably across environmental settings, including the biotic and physical habitat type, the productivity of these habitats, the ephemeral or permanent nature of the habitats as well as the hydrological energy of the area, its depth and its exposure to anthropogenic activities. To appropriately incorporate carbon storage into management plans, baseline information on the carbon held within marine areas is required. Here, an inventory of carbon was carried out for marine habitats found within the territorial waters of Jersey, one of the Channel Islands situated between England and France. Across the habitats surveyed, the biogenic habitats Seagrass and Sand Mason Worm Dominated Sands contained high densities of Organic Carbon with 0.25 ± 0.047 (Seagrass) and 0.17 ± 0.048 Mg Ha-1 (Sand Mason Worms) respectively, but due to their small spatial area this only accounted for 110 ± 0.211 (Seagrass) and 359 ± 1.02 Tonnes (Sand Mason Worms) across Jersey’s entire territorial waters (cumulatively 1.11 % by area). Less carbon dense habitats, such as Coarse Sediments with 0.12 ± 0.031 Mg Ha-1 covered much larger areas and accounted for a much larger proportion of organic carbon stocks (8450 ± 21.9 Tonnes; 30.9 % of Jersey’s Territorial waters by area). As nations aim to quantify their biosphere carbon stocks to best inform future management, the need for extensive knowledge of the quantities of carbon found within and across marine habitats is highly important. This work provides a baseline assessment of carbon found within marine habitats in Jersey’s territorial waters. The work highlights the importance of not only understanding the density of carbon within specific habitats but also the necessity of accurate spatial information characterising the extents of these habitats.

@@ -3,7 +3,7 @@ title: "A Sentinel Watching over Intertidal Seagrass Phenology across Western Eu
 description: "Bede F.R. Davies; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Ana I. Sousa; Oliver R. Thomas; Dan A. Smale; Melanie C. Austen; Lauren Biermann; Martin J. Attrill; Alejandro Roman; Gabriel Navarro; Anne-Laure Barillé; Nicolas Harin; Daniel Clewley; Victor Martinez-Vicente; Pierre Gernez & Laurent Barillé"
 author:
   - name: [Bede Ffinian Rowe Davies; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Ana I. Sousa; Oliver R. Thomas; Dan A. Smale; Melanie C. Austen; Lauren Biermann; Martin J. Attrill; Alejandro Roman; Gabriel Navarro; Anne-Laure Barillé; Nicolas Harin; Daniel Clewley; Victor Martinez-Vicente; Pierre Gernez; Laurent Barillé]
-image: PhenologyICECREAMS.png
+image: PhenologyICECREAMS_Preview.png
 id: First
 date: "07-16-2024"
 categories: [Remote Sensing, Spectral Library, Satellite, Machine Learning, First Author, Europe, Neural Networks]
