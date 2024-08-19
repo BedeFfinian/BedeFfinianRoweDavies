@@ -1,6 +1,6 @@
 ---
 title: "Ecosystem benefits of adopting a whole‐site approach to MPA management."
-subtitle: "Bede F. R. Davies, Luke Holmes, Martin J. Attrill & Emma V. Sheehan"
+description: "Bede F. R. Davies, Luke Holmes, Martin J. Attrill & Emma V. Sheehan"
 author:
   - name: [Bede Ffinian Rowe Davies; Luke Holmes; Martin J. Attrill; Emma V. Sheehan]
 image: SAC_Preview.png
@@ -8,6 +8,7 @@ date: "07-14-2022"
 id: First
 categories: [Marine Management, BRUVs, TUVs, Ecology, Marine Diversity, Functional Diversity, First Author]
 ---
+
 
 Link here: [Davies *et al.,* 2022](https://onlinelibrary.wiley.com/doi/10.1111/fme.12581)
 

@@ -1,6 +1,6 @@
 ---
 title: "Multi- and hyperspectral classification of soft-bottom intertidal vegetation using a spectral library for coastal biodiversity remote sensing."
-subtitle: "Bede F. R. Davies, Pierre Gernez, Andréa Geraud, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli & Laurent Barillé"
+description: "Bede F. R. Davies, Pierre Gernez, Andréa Geraud, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli & Laurent Barillé"
 author:
   - name: [Bede F. R. Davies; Pierre Gernez; Andréa Geraud; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Laurent Barillé]
 image: SpectralLibrary.png
@@ -8,6 +8,7 @@ date: "03-24-2023"
 id: First
 categories: [Remote Sensing, Spectral Library, Satellite, Machine Learning, First Author]
 ---
+
 
 Link here: [Davies *et al.,* 2023](https://www.sciencedirect.com/science/article/pii/S0034425723001050?dgcid=author)
 
