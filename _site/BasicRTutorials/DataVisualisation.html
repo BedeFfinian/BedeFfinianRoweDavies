@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.52">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -618,9 +618,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             126.       121.
-2 Treatment 1        -719.      1137.
-3 Treatment 2        1269.       894.</code></pre>
+1 Control             122.       119.
+2 Treatment 1        -722.      1086.
+3 Treatment 2        1273.       850.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -636,16 +636,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950         1.15       39.9
- 2 Control    1951         3.76       29.7
- 3 Control    1952        10.4        33.3
- 4 Control    1953        19.2        35.0
- 5 Control    1954        19.8        43.2
- 6 Control    1955        25.3        42.0
- 7 Control    1956        29.9        39.4
- 8 Control    1957        46.2        53.7
- 9 Control    1958        38.7        49.9
-10 Control    1959        57.2        40.4
+ 1 Control    1950         22.9       25.0
+ 2 Control    1951         17.3       36.2
+ 3 Control    1952         31.9       50.1
+ 4 Control    1953         14.0       34.7
+ 5 Control    1954         19.5       32.4
+ 6 Control    1955         34.1       30.5
+ 7 Control    1956         18.9       38.7
+ 8 Control    1957         48.0       22.4
+ 9 Control    1958         49.1       48.8
+10 Control    1959         40.1       38.9
 # ℹ 212 more rows</code></pre>
 </div>
 </div>

@@ -1,0 +1,16 @@
+---
+title: "Mapping intertidal microphytobenthic biomass with very high-resolution remote sensing imagery in an estuarine system."
+description: "Alejandro Román, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé"
+author:
+  - name: [Alejandro Román; Simon Oiry; Bede F. R. Davies; Philippe Rosa; Pierre Gernez; Antonio Tovar-Sánchez; Gabriel Navarro; Vona Méléder; Laurent Barillé]
+image: JerseyCarbon_Preview.png
+id: Co
+date: "10-25-2024"
+categories: [Habitat Mapping, Microphytobenthos, Drone, Co-Author, Spain]
+---
+
+Link here: [Roman *et al.,* 2024](https://doi.org/10.1016/j.scitotenv.2024.177025)
+
+# Abstract
+
+Microphytobenthos (MPB) contributes significantly to estuarine primary production, so that quantifying its biomass is crucial for assessing their ecosystem functioning. Conventional sampling methods are labour-intensive, logistically challenging, and cannot provide a comprehensive spatial distribution map of MPB biomass. Satellite imagery has offered a feasible alternative for mapping large areas at various temporal and spatial resolutions. However, no imaging device with a spatial resolution consistent with the few square centimetres sampled in-situ has been used in the field. This makes it challenging to accurately relate field biomass measurements with remotely sensed radiometric observations. In this study, two similar multispectral sensors were mounted on an unmanned aerial vehicle (UAV) at different altitudes, as well as on a custom-built device specifically designed to acquire images at ∼1 m altitude, in order to collect very-high spatial resolution reflectance data of MPB biofilms at the Guadalquivir Estuary (Spain) mudflats. In addition, a hyperspectral spectroradiometer acquiring in-situ field reflectance was used for validation. Simultaneously, MPB samples were collected using a 2 mm depth contact corer method, which were analysed through high-performance liquid chromatography (HPLC) to measure the concentrations of major MPB pigments. To assess the relationship between the MPB pigments and different reflectance-based spectral indices, generalised linear mixed effects models (GLMMs) were used, achieving a significant positive relationship between chlorophylls and all spectral indices tested. These models were used to map microphytobenthic biomass, yielding a mean biomass in the range of 30–50 mg Chl-a m−2 in the Guadalquivir estuary during late winter. This study demonstrates the potential of low-altitude/high spatial resolution radiometric imaging as an efficient, rapid, and non-destructive addition to in-situ measurements of MPB biomass, providing exciting perspectives for the monitoring of estuarine systems on a millimetric scale of variability.
