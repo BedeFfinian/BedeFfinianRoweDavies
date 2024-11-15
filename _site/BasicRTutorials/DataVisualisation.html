@@ -169,15 +169,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/bedeffinian"> 
-<span class="menu-text"><iconify-icon role="img" inline="" icon="ant-design:github-outlined" aria-label="Icon github-outlined from ant-design Iconify.design set." title="Icon github-outlined from ant-design Iconify.design set."></iconify-icon></span></a>
+<span class="menu-text"><iconify-icon role="img" inline="" icon="mdi:github" style="font-size: 30px;" aria-label="Icon github from mdi Iconify.design set." title="Icon github from mdi Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://bsky.app/profile/bedeffinian.bsky.social"> 
-<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></span></a>
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" style="font-size: 25px;" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://orcid.org/0000-0001-6462-4347"> 
-<span class="menu-text"><iconify-icon role="img" inline="" icon="fa-brands:orcid" aria-label="Icon orcid from fa-brands Iconify.design set." title="Icon orcid from fa-brands Iconify.design set."></iconify-icon></span></a>
+<span class="menu-text"><iconify-icon role="img" inline="" icon="fa-brands:orcid" style="font-size: 25px;" aria-label="Icon orcid from fa-brands Iconify.design set." title="Icon orcid from fa-brands Iconify.design set."></iconify-icon></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -616,9 +616,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             119.       112.
-2 Treatment 1        -763.      1269.
-3 Treatment 2        1289.       882.</code></pre>
+1 Control             122.       119.
+2 Treatment 1        -735.      1184.
+3 Treatment 2        1284.       879.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -634,16 +634,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950        0.161       25.7
- 2 Control    1951       18.4         41.2
- 3 Control    1952       32.4         31.7
- 4 Control    1953        3.89        39.7
- 5 Control    1954        3.13        32.9
- 6 Control    1955       38.6         46.5
- 7 Control    1956       34.8         25.3
- 8 Control    1957       24.9         56.5
- 9 Control    1958       11.7         47.1
-10 Control    1959       37.2         49.8
+ 1 Control    1950         8.26       27.5
+ 2 Control    1951        30.1        30.4
+ 3 Control    1952        18.7        28.3
+ 4 Control    1953        33.4        35.2
+ 5 Control    1954        36.7        25.6
+ 6 Control    1955        19.6        28.7
+ 7 Control    1956        51.5        33.6
+ 8 Control    1957        51.7        45.1
+ 9 Control    1958        24.6        48.0
+10 Control    1959        64.7        43.4
 # ℹ 212 more rows</code></pre>
 </div>
 </div>

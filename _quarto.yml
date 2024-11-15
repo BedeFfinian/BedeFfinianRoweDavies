@@ -29,11 +29,11 @@ website:
       file: Blogs.qmd
     - text: "Tutorials"
       file: Tutorials.qmd
-    - text: "{{< iconify ant-design:github-outlined >}}"
+    - text: "{{< iconify mdi:github size=30px  >}}"
       href: https://github.com/bedeffinian
-    - text: "{{< iconify fa6-brands:bluesky >}}"
+    - text: "{{< iconify fa6-brands:bluesky size=25px  >}}"
       href: https://bsky.app/profile/bedeffinian.bsky.social
-    - text: "{{< iconify fa-brands:orcid >}}"
+    - text: "{{< iconify fa-brands:orcid size=25px  >}}"
       href: https://orcid.org/0000-0001-6462-4347
   page-footer: 
     left:
