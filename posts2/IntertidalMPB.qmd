@@ -3,7 +3,7 @@ title: "Mapping intertidal microphytobenthic biomass with very high-resolution r
 description: "Alejandro Román, Simon Oiry, Bede F.R. Davies, Philippe Rosa, Pierre Gernez, Antonio Tovar-Sánchez, Gabriel Navarro, Vona Méléder & Laurent Barillé"
 author:
   - name: [Alejandro Román; Simon Oiry; Bede F. R. Davies; Philippe Rosa; Pierre Gernez; Antonio Tovar-Sánchez; Gabriel Navarro; Vona Méléder; Laurent Barillé]
-image: JerseyCarbon_Preview.png
+image: IntertidalMPB_Preview.png
 id: Co
 date: "10-25-2024"
 categories: [Habitat Mapping, Microphytobenthos, Drone, Co-Author, Spain]

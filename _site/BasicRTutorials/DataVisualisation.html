@@ -616,9 +616,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 3 × 3
   Treatment   MeanResponse SDResponse
   &lt;fct&gt;              &lt;dbl&gt;      &lt;dbl&gt;
-1 Control             122.       119.
-2 Treatment 1        -735.      1184.
-3 Treatment 2        1284.       879.</code></pre>
+1 Control             116.       113.
+2 Treatment 1        -623.      1116.
+3 Treatment 2        1289.       863.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_1_summary_year<span class="ot">&lt;-</span>df_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Treatment,Year) <span class="sc">%&gt;%</span> </span>
@@ -634,16 +634,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # Groups:   Treatment [3]
    Treatment  Year MeanResponse SDResponse
    &lt;fct&gt;     &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
- 1 Control    1950         8.26       27.5
- 2 Control    1951        30.1        30.4
- 3 Control    1952        18.7        28.3
- 4 Control    1953        33.4        35.2
- 5 Control    1954        36.7        25.6
- 6 Control    1955        19.6        28.7
- 7 Control    1956        51.5        33.6
- 8 Control    1957        51.7        45.1
- 9 Control    1958        24.6        48.0
-10 Control    1959        64.7        43.4
+ 1 Control    1950        12.2        26.4
+ 2 Control    1951       -16.3        35.0
+ 3 Control    1952         2.13       47.4
+ 4 Control    1953        16.0        41.4
+ 5 Control    1954        31.1        29.4
+ 6 Control    1955       -14.7        35.2
+ 7 Control    1956        29.7        55.9
+ 8 Control    1957        46.1        43.6
+ 9 Control    1958        37.8        69.7
+10 Control    1959        28.0        38.9
 # ℹ 212 more rows</code></pre>
 </div>
 </div>
