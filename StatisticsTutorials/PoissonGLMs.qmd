@@ -34,7 +34,7 @@ This is a relatively simple model with just one fixed effect and can be written 
 
 Count of Endemic Plants ~ Elevation
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 The number of endemic species is a count response where there is no theoretical limit (although one probably exists). Therefore the values can range from 0 upwards. This tells us that is most likely a Poisson distribution. 
 
@@ -230,7 +230,7 @@ This is a bit more complex model with two interacting fixed effect and one addit
 
 Count of Seizures After Treatment ~ Treatment*Age + Base Number of Seizures
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 Again, the number of seizures can only be a non-negative integer.
 

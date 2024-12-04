@@ -43,7 +43,7 @@ This is a fairly simple model with one fixed effect and can be written as:
 
 Bill Depth ~ Flipper Length
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 As before when we modelled flipper length, bill depth is technically Gamma distributed but a linear model will work well. 
 

@@ -39,7 +39,7 @@ Does the flipper length of penguins change between species and between sexes?
 
 Whether we use an interaction or not depends on if our scientific thought believes the relationship of Species to flipper length is different between sexes (sexual dimorphism may not be consistent across species). We shall use an interaction here as we might expect some sexual dimorphism in some species while less, no or opposite sexual dimorphism in other species. If we had good reason to expect the same sexual dimorphism across these species we would not use an interaction term. 
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 As you probably guessed from the title we will be using a Gaussian Distribution. However, flipper length would more technically be a Gamma distribution. It is Numeric, Continuous but cannot be Zero or Negative! Using a Gaussian distribution in this situation is okay as flipper length will not approach 0, so issues of modelling near the zero will not be a problem. This is due to our sampling and just the fact that you won't ever be able to measure a penguins foot that is 1 mm. or probably less than 25 mm! Our lowest value is 174 in the data. One method could be to centre and scale the flipper_length_mm and model it with a Gamma distribution but this would be a lot of converting back and forth, especially when a Gaussian model will perform equally as well.
 
@@ -365,7 +365,7 @@ ggplot(penguins_noNAs)+
 
 We can see from the raw data that we will expect to find some interesting relationships
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 Nothing has changed from above, so lets stick to Gaussian 
 

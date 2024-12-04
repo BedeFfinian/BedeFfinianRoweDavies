@@ -478,7 +478,7 @@ window.Quarto = {
   <li><a href="#modelling-with-categorical-predictor-variables" id="toc-modelling-with-categorical-predictor-variables" class="nav-link" data-scroll-target="#modelling-with-categorical-predictor-variables">Modelling with Categorical Predictor Variables</a>
   <ul class="collapse">
   <li><a href="#step-one---scienctific-model-to-stats-model" id="toc-step-one---scienctific-model-to-stats-model" class="nav-link" data-scroll-target="#step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</a></li>
-  <li><a href="#step-two---resonse-variable-distribution" id="toc-step-two---resonse-variable-distribution" class="nav-link" data-scroll-target="#step-two---resonse-variable-distribution">Step Two - Resonse Variable Distribution</a></li>
+  <li><a href="#step-two---response-variable-distribution" id="toc-step-two---response-variable-distribution" class="nav-link" data-scroll-target="#step-two---response-variable-distribution">Step Two - Response Variable Distribution</a></li>
   <li><a href="#step-three---organising-fixed-effects" id="toc-step-three---organising-fixed-effects" class="nav-link" data-scroll-target="#step-three---organising-fixed-effects">Step Three - Organising Fixed Effects</a></li>
   <li><a href="#step-four---assessing-model-functioning" id="toc-step-four---assessing-model-functioning" class="nav-link" data-scroll-target="#step-four---assessing-model-functioning">Step Four - Assessing Model Functioning</a></li>
   <li><a href="#step-five---model-interpretation" id="toc-step-five---model-interpretation" class="nav-link" data-scroll-target="#step-five---model-interpretation">Step Five - Model Interpretation</a></li>
@@ -486,7 +486,7 @@ window.Quarto = {
   <li><a href="#modelling-continuous-predictor-variables" id="toc-modelling-continuous-predictor-variables" class="nav-link" data-scroll-target="#modelling-continuous-predictor-variables">Modelling Continuous Predictor Variables</a>
   <ul class="collapse">
   <li><a href="#step-one---scienctific-model-to-stats-model-1" id="toc-step-one---scienctific-model-to-stats-model-1" class="nav-link" data-scroll-target="#step-one---scienctific-model-to-stats-model-1">Step one - Scienctific Model to Stats Model</a></li>
-  <li><a href="#step-two---resonse-variable-distribution-1" id="toc-step-two---resonse-variable-distribution-1" class="nav-link" data-scroll-target="#step-two---resonse-variable-distribution-1">Step Two - Resonse Variable Distribution</a></li>
+  <li><a href="#step-two---response-variable-distribution-1" id="toc-step-two---response-variable-distribution-1" class="nav-link" data-scroll-target="#step-two---response-variable-distribution-1">Step Two - Response Variable Distribution</a></li>
   <li><a href="#step-three---organising-fixed-effects-1" id="toc-step-three---organising-fixed-effects-1" class="nav-link" data-scroll-target="#step-three---organising-fixed-effects-1">Step Three - Organising Fixed Effects</a></li>
   <li><a href="#step-four---assessing-model-functioning-1" id="toc-step-four---assessing-model-functioning-1" class="nav-link" data-scroll-target="#step-four---assessing-model-functioning-1">Step Four - Assessing Model Functioning</a></li>
   <li><a href="#step-five---model-interpretation-1" id="toc-step-five---model-interpretation-1" class="nav-link" data-scroll-target="#step-five---model-interpretation-1">Step Five - Model Interpretation</a></li>
@@ -577,8 +577,8 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</h3>
 <p>Whether we use an interaction or not depends on if our scientific thought believes the relationship of Species to flipper length is different between sexes (sexual dimorphism may not be consistent across species). We shall use an interaction here as we might expect some sexual dimorphism in some species while less, no or opposite sexual dimorphism in other species. If we had good reason to expect the same sexual dimorphism across these species we would not use an interaction term.</p>
 </section>
-<section id="step-two---resonse-variable-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="step-two---resonse-variable-distribution">Step Two - Resonse Variable Distribution</h3>
+<section id="step-two---response-variable-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="step-two---response-variable-distribution">Step Two - Response Variable Distribution</h3>
 <p>As you probably guessed from the title we will be using a Gaussian Distribution. However, flipper length would more technically be a Gamma distribution. It is Numeric, Continuous but cannot be Zero or Negative! Using a Gaussian distribution in this situation is okay as flipper length will not approach 0, so issues of modelling near the zero will not be a problem. This is due to our sampling and just the fact that you won’t ever be able to measure a penguins foot that is 1 mm. or probably less than 25 mm! Our lowest value is 174 in the data. One method could be to centre and scale the flipper_length_mm and model it with a Gamma distribution but this would be a lot of converting back and forth, especially when a Gaussian model will perform equally as well.</p>
 </section>
 <section id="step-three---organising-fixed-effects" class="level3">
@@ -926,8 +926,8 @@ y = \beta_{1} sex(female-male):species(Adelie-Chinstrap) \\
 </div>
 <p>We can see from the raw data that we will expect to find some interesting relationships</p>
 </section>
-<section id="step-two---resonse-variable-distribution-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-two---resonse-variable-distribution-1">Step Two - Resonse Variable Distribution</h3>
+<section id="step-two---response-variable-distribution-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-two---response-variable-distribution-1">Step Two - Response Variable Distribution</h3>
 <p>Nothing has changed from above, so lets stick to Gaussian</p>
 </section>
 <section id="step-three---organising-fixed-effects-1" class="level3">

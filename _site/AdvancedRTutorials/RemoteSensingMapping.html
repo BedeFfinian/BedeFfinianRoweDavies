@@ -536,7 +536,7 @@ window.Quarto = {
 </section>
 <section id="bring-in-some-example-data" class="level2">
 <h2 class="anchored" data-anchor-id="bring-in-some-example-data">Bring in some example data</h2>
-<p>We will access some Landsat data from this UCdavis repo. This will create a new folder in your working directory, download the zip file, unzip it and then delete the raw zip file, and also some tifs we won’t be using to free up space.</p>
+<p>We will access some Landsat data from this UCdavis repo. This will create a new folder in your working directory, download the zip file, unzip it and then delete the raw zip file, and also some tifs we won’t be using to free up space. If this link stops working, you can taken the data from my github here: <a href="https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/AdvancedRTutorials/data/rs" class="uri">https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/AdvancedRTutorials/data/rs</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"data/rs/samples.rds"</span>)) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dir.create</span>(<span class="st">"data"</span>, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>

@@ -49,7 +49,7 @@ We imagine that the colour, weight and clarity will all influence the value of a
 
 Binary Value (above 190) ~ Clarity + Weight + Colour
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 We created the response variable to be either 1 or 0. We therefore know that it is a binomial distribution but more specifically it is a Bernoulli distribution. For modelling in r the binomial distribution family is what is used.
 
@@ -280,7 +280,7 @@ This is a bit more complex model with some interacting fixed effects and additio
 
 Frequency of Affairs ~ Children*Yearsmarried + Gender + Religiousness
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 As before there are only integer values for affairs or none in the last year. This type of data could be presented in a different way if we wanted but we will use this scale for now.
 

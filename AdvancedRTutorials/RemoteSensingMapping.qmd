@@ -17,7 +17,7 @@ The Electro-Magnetic spectrum ranges from wavelengths of 1000s (radio) to 10 $^{
 
 ## Bring in some example data
 
-We will access some Landsat data from this UCdavis repo. This will create a new folder in your working directory, download the zip file, unzip it and then delete the raw zip file, and also some tifs we won't be using to free up space. 
+We will access some Landsat data from this UCdavis repo. This will create a new folder in your working directory, download the zip file, unzip it and then delete the raw zip file, and also some tifs we won't be using to free up space. If this link stops working, you can taken the data from my github here: <https://github.com/BedeFfinian/BedeFfinianRoweDavies/tree/main/AdvancedRTutorials/data/rs>
 
 ```{r}
 

@@ -36,7 +36,7 @@ This is a very simple model with just one fixed effect and can be written as:
 
 Height of Pine Tree ~ Age
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 The height of the tree must be positive and is continuous, therefore we should technically use a Gamma Model. Again as with most Gamma examples we could use a Gaussian distribution, which is simpler mathematically, but when using a Gaussian model on a transformed response variable we will get incorrect estimates of effects meaning our inference will be incorrect.
 
@@ -212,7 +212,7 @@ This is a bit more complex model with two interacting fixed effect, and can be w
 
 Chick Weight ~ Age*Diet
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 Again, our value is a measurement that is always positive and continuous, thus we will use the Gamma distribution. While, the values in our response variable do not have decimal points the weight of a chick in grams could feasibly have 0.5 of a gram etc. This data not having decimals doesn't matter and is more related to the measurement style (precision of the scale used), the data still come from a Gamma distribution.
 

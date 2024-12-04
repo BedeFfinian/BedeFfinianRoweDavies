@@ -43,7 +43,7 @@ This is a fairly simple model with two fixed effect and can be written as:
 
 Yield of Gasoline ~ Pressure + Temperature
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 As a proportion, Yield of Gasoline can be between 0 and 1, but all real numbers between these upper and lower limits. Therefore it will be a Beta distribution. 
 
@@ -240,7 +240,7 @@ We can write the stats model as:
 
 Accuracy ~ IQ*Dyslexia
 
-### Step Two - Resonse Variable Distribution
+### Step Two - Response Variable Distribution
 
 Here the accuracy score is a value from 0 to 1, as all accuracy scores have to logically be. Therefore, we will use the Beta distribution.
 
