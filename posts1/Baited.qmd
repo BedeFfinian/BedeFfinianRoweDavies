@@ -1,5 +1,5 @@
 ---
-title: "Ecosystem Approach to Fisheries Management works— How switching from Mbile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area."
+title: "Ecosystem Approach to Fisheries Management works— How switching from Mobile to Static Fishing Gear Improves Populations of Fished and Non-Fished Species Inside a Marine Protected Area."
 description: "Bede F.R. Davies, Luke Holmes, Adam Rees, Martin J. Attrill, Amy Y. Cartwright & Emma V. Sheehan."
 author:
   - name: [Bede Ffinian Rowe Davies; Luke Holmes; Adam Rees; Martin J. Attrill; Amy Y. Cartwright; Emma V. Sheehan]
