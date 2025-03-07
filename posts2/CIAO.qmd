@@ -1,12 +1,12 @@
 ---
 title: "CIAO: A Machine-Learning Algorithm for Mapping Arctic Ocean Chlorophyll-a from Space"
-description: "Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies & Laurent Barilĺ"
+description: "Maria Laura Zoffoli, Vittorio Brando, Gianluca Volpe, Luis González Vilas, Bede Ffinian Rowe Davies, Robert Frouin, Jaime Pitarch, Simon Oiry, Jing Tan, Simone Colella, Christiane Marchese"
 author:
   - name: [Maria Laura Zoffoli; Vittorio Brando; Gianluca Volpe; Luis González Vilas; Bede Ffinian Rowe Davies; Robert Frouin; Jaime Pitarch; Simon Oiry; Jing Tan; Simone Colella; Christiane Marchese]
 image: CIAO_Preview.jpg
 date: "02-25-2025"
 id: Co
-categories: [Satellite, Ecology, Seagrass, Marine Diversity, Climatic Events, Remote Sensing, Arctic, Co-Author]
+categories: [Satellite, Ecology, Marine Diversity, Climatic Events, Remote Sensing, Arctic, Co-Author]
 ---
 
 Link here: [Zoffoli *et al.,* 2025](https://zslpublications.onlinelibrary.wiley.com/doi/epdf/10.1002/rse2.319)

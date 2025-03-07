@@ -1,8 +1,8 @@
 ---
 title: "Remote sensing in seagrass ecology: coupled dynamicsbetween migratory herbivorous birds and intertidalmeadows observed by satellite during four decades"
-description: "Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies & Laurent Barilĺ"
+description: "Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Sebastien Dalloyau, Bede Fﬁnian Rowe Davies & Laurent Barillé"
 author:
-  - name: [Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau,Bede Ffinian Rowe Davies & Laurent Barilĺe]
+  - name: [Maria Laura Zoffoli; Pierre Gernez; Simon Oiry; Laurent Godet; Sebastien Dalloyau; Bede Fﬁnian Rowe Davies & Laurent Barillé]
 image: BrentGoose_Preview.png
 date: "11-22-2022"
 id: Co
