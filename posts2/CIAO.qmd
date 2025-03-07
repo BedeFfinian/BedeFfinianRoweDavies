@@ -1,0 +1,15 @@
+---
+title: "CIAO: A Machine-Learning Algorithm for Mapping Arctic Ocean Chlorophyll-a from Space"
+description: "Maria Laura Zoffoli, Pierre Gernez, Simon Oiry, Laurent Godet, Śebastien Dalloyau, Bede Ffinian Rowe Davies & Laurent Barilĺ"
+author:
+  - name: [Maria Laura Zoffoli; Vittorio Brando; Gianluca Volpe; Luis González Vilas; Bede Ffinian Rowe Davies; Robert Frouin; Jaime Pitarch; Simon Oiry; Jing Tan; Simone Colella; Christiane Marchese]
+image: CIAO_Preview.jpg
+date: "02-25-2025"
+id: Co
+categories: [Satellite, Ecology, Seagrass, Marine Diversity, Climatic Events, Remote Sensing, Arctic, Co-Author]
+---
+
+Link here: [Zoffoli *et al.,* 2025](https://zslpublications.onlinelibrary.wiley.com/doi/epdf/10.1002/rse2.319)
+
+Ocean color (OC) remote sensing at a Pan-Arctic scale, with over 26 years of continuous daily data, provides critical insights into long-term trends and seasonal variability in phytoplankton abundance, indexed by Chlorophyll-a concentration (Chl-a). However, existing satellite algorithms for retrieving Chl-a in the Arctic Ocean (AO) exhibit significant limitations, including high uncertainties and inconsistent accuracy across different regions, which propagate errors in primary production estimates and biogeochemical models. In this study, we quantified the uncertainties of seven existing algorithms using harmonized, merged multi-sensor satellite remote sensing reflectance (Rrs) data from the ESA Climate Change Initiative (CCI) spanning 1998–2023. The existing algorithms exhibited varying performance, with Mean Absolute Differences (MAD) ranging from 0.8 to 4.2 mg m$^{-3}$. To improve these results, we developed CIAO (**C**hlorophyll **I**n the **A**rctic **O**cean), a machine learning-based algorithm specifically designed for AO waters and trained with satellite Rrs data. The CIAO algorithm uses Rrs at four spectral bands (443, 490, 510 and 560 nm) and Day-Of-Year (DOY) to account for seasonal variations in bio-optical relationships. CIAO significantly outperformed seven existing algorithms, achieving a MAD of 0.5 mg m$^{-3}$, thereby improving Chl-a retrievals by at least 30%, compared to the best-performing existing algorithm. Furthermore, CIAO produced consistent spatial patterns without artifacts and provided more reliable Chl-a estimates in coastal waters, where other algorithms tend to overestimate. This enhanced the accuracy of seasonal variability tracking at a Pan-Arctic scale. By strengthening the precision of satellite-derived Chl-a estimates, CIAO contributes to more accurate ecological assessments and robust climate projections for the rapidly changing AO.
+
