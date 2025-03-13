@@ -1,0 +1,14 @@
+---
+title: "Citizen science reveals litter trends in the UK: Population density effects on coastal and inland regions."
+description: "Imogen E. Napper, Bede F.R. Davies, Aquila Erskine, Richard C. Thompson, Rachel Yates & Heather Koldewey"
+author:
+  - name: [Imogen E. Napper, Bede F.R. Davies, Aquila Erskine, Richard C. Thompson, Rachel Yates, Heather Koldewey]
+image: SAS_Preview.jpg
+date: "03-06-2025"
+id: Co
+categories: [Plastics, Pollution, Freshwater Pollution, Co-Author]
+---
+
+Link here: [Napper et al., 2025](https://doi.org/10.1016/j.marpolbul.2025.117634)
+
+There is limited understanding of how litter abundance, particularly plastic items, varies between coastal and inland regions with different population densities. The absence of standardised data collection methods further complicates comparisons. Moreover, the lack of data for inland areas hampers efforts to identify potential litter sources, pathways, and interventions. In this study, we address these gaps by quantifying and characterising litter across diverse settings in the United Kingdom (UK), encompassing coastal and inland regions, as well as urban and rural areas. Data were collected in collaboration with a major UK charity specialising in coastal litter removal, with 97 volunteers conducting monthly surveys along 200-m transects using a custom mobile application. Over five months, a total of 27,855 litter items were collected. Fragments (33 %), packaging (33 %), and cigarette-related debris (23 %) were the most prevalent litter types, each displaying varying trends in abundance across different locations. Litter density was higher in coastal areas (0.053 items/m$^{2}$) compared to inland regions (0.030 items/m$^{2}$), and urban areas consistently exhibited more litter than rural areas (urban 0.046 items/m$^{2}$ vs. rural 0.038 items/m$^{2}$). Over time, coastal areas experienced a significantly higher influx of new litter (p < 0.0001) compared to inland regions, where litter levels were stable or decreasing. Notably, while coastal areas showed no significant difference in litter accumulation between urban and rural communities, inland urban areas had significantly more litter than their rural counterparts (p < 0.0001). These findings underscore the importance of considering both geographic region and community type when developing waste management strategies. They also highlight the need for enhanced legislation targeting common litter sources.
