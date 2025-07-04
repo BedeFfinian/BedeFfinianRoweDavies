@@ -40,9 +40,9 @@ $$s = Distribution(y',\sigma)$$
 
 $$y'=f(y)$$
 
-$$y = \beta x + c$$
+$$y = \beta x + \alpha + \epsilon$$
 
-The first of these equations is saying that the data we recorded ($s$) comes from some distribution (We will define this later) with a mean of $y'$ and a standard deviation of $\sigma$. $y$ is the result of an effect ($\beta$) multiplied by some fixed effect ($x$) and an intercept value ($c$). Between these two equations we have a link function ($f()$). This converts $y$ into a value that the distribution function will accept $y'$, again we will define what these elements are later. The elements that we want our GLM to tell us is the effect of x ($\beta$) and the intercept ($c$). We don't have to do maths at all for GLMs but it can help some people understand what the model is telling us. (If you don't like equations/maths ignore this bit - But we will discuss link functions later on).
+The first of these equations (the distribution equation) is saying that the data we sampled ($s$) comes from some distribution, with certain shape parameters ($y'$ and $\sigma$). $y$ is the result of an effect ($\beta$) multiplied by some fixed effect ($x$) and an intercept value ($alpha$). Between these two equations we have a link function ($f()$). This converts $y$ into a value that the distribution function will accept $y'$, again we will define what these elements are later. The elements that we want our GLM to tell us is the effect of x ($\beta$) and the intercept ($\alpha$). We don't have to do maths at all for GLMs but it can help some people understand what the model is telling us. (If you don't like equations/maths ignore this bit - But we will discuss link functions later on).
 
 ## First Step of Analysis - Statistical Model Formulation
 
@@ -52,7 +52,7 @@ Here I will discuss exclusively univariate modelling (where only one variable is
 
 Our research question will dictate how we create our scientific model, which dictates what statistical model to use and then how we interpret that statistical model.
 
-Many researchers like to draw out what is called a DAG, which diagrammatically shows assumed influences of factors, and how the directionallity of that influence. At first these are quite difficult to formulate until you have created a few. Therefore, the easiest way I can think to do this is saying some sort of hypothesis or statement in English then we can turn that statement into the Statistical model.
+Many researchers like to draw out what is called a DAG, which diagrammatically shows assumed influences of factors, and the directionallity of that influence. At first these are quite difficult to formulate until you have created a few. Therefore, the easiest way I can think to do this is saying some sort of hypothesis or statement in English then we can turn that statement into the Statistical model.
 
 For example: 
 I hypothesise that the flipper length of a penguin is described primarily by the species of that penguin but also influenced by its sex. Effectively Flipper length changes with Species and Sex. 

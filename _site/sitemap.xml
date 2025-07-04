@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/MakingMaps.html</loc>
-    <lastmod>2024-03-29T12:58:44.099Z</lastmod>
+    <lastmod>2025-07-04T16:52:23.838Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorialsGLMM/IntroductionGLMMs.html</loc>
@@ -54,111 +54,115 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/IntroductionGLMs.html</loc>
-    <lastmod>2024-04-16T11:23:23.428Z</lastmod>
+    <lastmod>2025-07-04T12:55:44.286Z</lastmod>
   </url>
   <url>
-    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/BetaGLMs.html</loc>
-    <lastmod>2024-12-04T17:01:19.949Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/index.html</loc>
-    <lastmod>2023-10-04T10:02:27.215Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/ComparingMLs.html</loc>
-    <lastmod>2024-04-15T13:56:59.678Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
-    <lastmod>2023-10-03T17:08:24.122Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataManipulation.html</loc>
-    <lastmod>2023-10-11T07:44:13.076Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Storms.html</loc>
-    <lastmod>2024-07-23T16:44:57.908Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/LymeSummary.html</loc>
-    <lastmod>2024-07-23T16:45:26.383Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/IntertidalMPB.html</loc>
-    <lastmod>2025-01-22T15:50:13.286Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges.html</loc>
-    <lastmod>2024-07-23T16:45:24.581Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/CIAO.html</loc>
-    <lastmod>2025-03-12T10:59:36.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/OysterTables.html</loc>
-    <lastmod>2024-07-23T16:45:29.906Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
-    <lastmod>2024-02-09T11:46:19.359Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
-    <lastmod>2023-07-05T15:32:12.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
-    <lastmod>2023-08-23T07:48:30.578Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Mussels.html</loc>
-    <lastmod>2024-07-23T16:45:28.258Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/DISCOV.html</loc>
-    <lastmod>2024-11-25T15:43:46.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges_2.html</loc>
-    <lastmod>2024-07-23T16:45:22.923Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/SAS.html</loc>
-    <lastmod>2025-03-13T15:37:11.920Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/BrentGoose.html</loc>
-    <lastmod>2025-03-07T14:32:42.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/posts2/Everest.html</loc>
-    <lastmod>2024-07-23T16:45:21.659Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
-    <lastmod>2023-11-09T16:22:48.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/IntroductionR.html</loc>
-    <lastmod>2023-10-03T17:09:44.200Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/RemoteSensingML.html</loc>
-    <lastmod>2024-04-24T15:25:33.229Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/IntroMachineLearning.html</loc>
-    <lastmod>2024-04-09T09:59:59.688Z</lastmod>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/PoissonGLMs.html</loc>
+    <lastmod>2024-12-04T17:01:54.881Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/GammaGLMs.html</loc>
     <lastmod>2024-12-04T17:02:40.390Z</lastmod>
   </url>
   <url>
-    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/PoissonGLMs.html</loc>
-    <lastmod>2024-12-04T17:01:54.881Z</lastmod>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/IntroMachineLearning.html</loc>
+    <lastmod>2024-04-09T09:59:59.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/RemoteSensingML.html</loc>
+    <lastmod>2024-04-24T15:25:33.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/IntroductionR.html</loc>
+    <lastmod>2023-10-03T17:09:44.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/consultancy_Desktop.html</loc>
+    <lastmod>2023-11-09T16:22:48.626Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Everest.html</loc>
+    <lastmod>2024-07-23T16:45:21.659Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/BrentGoose.html</loc>
+    <lastmod>2025-03-07T14:32:42.963Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/SAS.html</loc>
+    <lastmod>2025-03-13T15:37:11.920Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges_2.html</loc>
+    <lastmod>2024-07-23T16:45:22.923Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/DISCOV.html</loc>
+    <lastmod>2024-11-25T15:43:46.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Mussels.html</loc>
+    <lastmod>2024-07-23T16:45:28.258Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/blogs/GreenlandTale.html</loc>
+    <lastmod>2023-08-23T07:48:30.578Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/consultancy.html</loc>
+    <lastmod>2023-07-05T15:32:12.962Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/map.html</loc>
+    <lastmod>2025-07-04T16:22:29.828Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/OysterTables.html</loc>
+    <lastmod>2024-07-23T16:45:29.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/CIAO.html</loc>
+    <lastmod>2025-03-12T10:59:36.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Ganges.html</loc>
+    <lastmod>2024-07-23T16:45:24.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/IntertidalMPB.html</loc>
+    <lastmod>2025-01-22T15:50:13.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/LymeSummary.html</loc>
+    <lastmod>2024-07-23T16:45:26.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/posts2/Storms.html</loc>
+    <lastmod>2024-07-23T16:44:57.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataManipulation.html</loc>
+    <lastmod>2023-10-11T07:44:13.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/BasicRTutorials/DataVisualisation.html</loc>
+    <lastmod>2023-10-03T17:08:24.122Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsMLTutorials/ComparingMLs.html</loc>
+    <lastmod>2024-04-15T13:56:59.678Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/index.html</loc>
+    <lastmod>2023-10-04T10:02:27.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/BetaGLMs.html</loc>
+    <lastmod>2024-12-04T17:01:19.949Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/MultivariateGLMs.html</loc>
+    <lastmod>2025-07-04T16:17:33.509Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/StatisticsTutorials/GaussianGLMs.html</loc>
@@ -178,7 +182,7 @@
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/MakingInteractiveMaps.html</loc>
-    <lastmod>2024-08-19T08:03:48.831Z</lastmod>
+    <lastmod>2025-07-04T16:53:46.691Z</lastmod>
   </url>
   <url>
     <loc>https://www.bedeffinianrowedavies.com/IntermediateRTutorials/StarterGIS.html</loc>

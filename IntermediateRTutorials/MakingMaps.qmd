@@ -711,7 +711,7 @@ geom_mark_ellipse(data=InterestingPoints,
 
 ## Step 3 - Appearance
 
-Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big i think a scale bar is unneccesary (but we will put a small one in anyway) and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.
+Appearance is very down to personal preference but is all just using ggplot theme and scale elements. For a map this big i think a scale bar is unneccesary and in my opinion a North arrow is never useful (except for navigational maps), as having Latitude on the y axis and Longitude on the x axis removes its utility.
 
 Here I add nicer legend labels. Again it is personal preference but Depth in my opinion should be positive going deeper. I also add a scale bar, although with this projection it will change how big it should be for different areas of the map. I change the colour scheme of the bathymetry to be a blue palette. Then I add Labels for x and y, and a caption of data source. I add some grid lines to show latitude and longitude lines with theme(). 
 
@@ -720,10 +720,6 @@ Here I add nicer legend labels. Again it is personal preference but Depth in my 
 #| error: false
 #| fig-width: 10
 #| fig-height: 12
-
-#install.packages("ggsn")
-
-library(ggsn)
 
 world_map %>% 
   st_transform(Projection3D) %>% 
@@ -747,15 +743,6 @@ geom_mark_ellipse(data=InterestingPoints,
                        na.value = NA)+
   coord_sf(xlim=c(min(Crop_MAR$x),max(Crop_MAR$x)),
            ylim=c(min(Crop_MAR$y),max(Crop_MAR$y)))+
-  scalebar(world_map %>%  st_transform(Projection3D),
-           dist = 1500, dist_unit = "km", 
-                 transform=FALSE, 
-                 st.dist=0.008,
-                 height=0.01,
-                 location="bottomright",
-                 anchor=c(x=min(Crop_MAR$x)*1.07,
-                          y=max(Crop_MAR$y)*0.25),
-                 border.size = 0.8)+
   labs(x="Longitude",y="Latitude", 
        caption = "Data Source: National Oceanic and Atmospheric Administration (NOAA)",
        title = "Bathymetry of the Mid-Atlantic Ridge",fill="Depth (m)")+
@@ -840,15 +827,6 @@ label.fill = "grey90")+
                        na.value = NA)+
   coord_sf(xlim=c(min(Crop_MAR$x),max(Crop_MAR$x)),
            ylim=c(min(Crop_MAR$y),max(Crop_MAR$y)))+
-  scalebar(world_map %>%  st_transform(Projection3D),
-           dist = 1500, dist_unit = "km", 
-                 transform=FALSE, 
-                 st.dist=0.0085,
-                 height=0.01,
-                 location="bottomright",
-                 anchor=c(x=min(Crop_MAR$x)*1.07,
-                          y=max(Crop_MAR$y)*0.28),
-                 border.size = 0.8)+
   labs(x="Longitude",y="Latitude", 
        title = "Bathymetry of the Mid-Atlantic Ridge",fill="Depth (m)")+
   theme(panel.background = element_blank(), # bg of the panel

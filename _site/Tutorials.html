@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,17 +32,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="./Images/index/whale.ico" rel="icon">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a2fb1da9e11f36baaf9bd39ebd7bb69c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4d308b90acf2c358992d7355417bdb7e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6148c21fa11e65e83c2e01def8135037.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2577bd2f8cfe0ce028b76ea040f6bc61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -286,7 +287,167 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const darkModeDefault = authorPrefersDark;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -563,6 +724,12 @@ window.Quarto = {
  <span class="menu-text">Zero Inflated GLMs</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./StatisticsTutorials/MultivariateGLMs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multivariate GLMs</span></a>
+  </div>
+</li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
  <span class="menu-text">General Linear Mixed Effects Models</span>
@@ -617,9 +784,10 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(22)</span></div><div class="category" data-category="QmV0YQ==">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qmlub21pYWw=">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(6)</span></div><div class="category" data-category="R0xNTXM=">GLMMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0xNcw==">GLMs <span class="quarto-category-count">(8)</span></div><div class="category" data-category="R2FtbWE=">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2F1c3NpYW4=">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW50cm9kdWN0aW9u">Introduction <span class="quarto-category-count">(17)</span></div><div class="category" data-category="S05O">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TWFwcGluZw==">Mapping <span class="quarto-category-count">(6)</span></div><div class="category" data-category="UG9pc3Nvbg==">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvYmxlbXM=">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(22)</span></div><div class="category" data-category="UmFuZG9tJTIwRm9yZXN0">Random Forest <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UmVtb3RlJTIwU2Vuc2luZw==">Remote Sensing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1ZN">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdHM=">Stats <span class="quarto-category-count">(9)</span></div><div class="category" data-category="VGlkeXZlcnNl">Tidyverse <span class="quarto-category-count">(8)</span></div><div class="category" data-category="WEdCb29zdA==">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WmVybyUyMEluZmxhdGlvbg==">Zero Inflation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybG9vcA==">forloop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="bGVhZmxldA==">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFw">map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGF0Y2h3b3Jr">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVycnJy">purrrr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Y=">sf <span class="quarto-category-count">(4)</span></div><div class="category" data-category="dGVycmE=">terra <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(23)</span></div><div class="category" data-category="QmV0YQ==">Beta <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Qmlub21pYWw=">Binomial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9ybG9vcA==">forloop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2FtbWE=">Gamma <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R2F1c3NpYW4=">Gaussian <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2dwbG90Mg==">ggplot2 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="R0lT">GIS <span class="quarto-category-count">(6)</span></div><div class="category" data-category="R0xNTXM=">GLMMs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0xNcw==">GLMs <span class="quarto-category-count">(9)</span></div><div class="category" data-category="SW50cm9kdWN0aW9u">Introduction <span class="quarto-category-count">(18)</span></div><div class="category" data-category="S05O">KNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGVhZmxldA==">leaflet <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bWFw">map <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFwcGluZw==">Mapping <span class="quarto-category-count">(6)</span></div><div class="category" data-category="TXVsdGl2YXJpYXRl">Multivariate <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGF0Y2h3b3Jr">patchwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG9pc3Nvbg==">Poisson <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvYmxlbXM=">Problems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVycnJy">purrrr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(23)</span></div><div class="category" data-category="UmFuZG9tJTIwRm9yZXN0">Random Forest <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UmVtb3RlJTIwU2Vuc2luZw==">Remote Sensing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2Y=">sf <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U3RhdHM=">Stats <span class="quarto-category-count">(10)</span></div><div class="category" data-category="U1ZN">SVM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGVycmE=">terra <span class="quarto-category-count">(3)</span></div><div class="category" data-category="VGlkeXZlcnNl">Tidyverse <span class="quarto-category-count">(8)</span></div><div class="category" data-category="WEdCb29zdA==">XGBoost <span class="quarto-category-count">(1)</span></div><div class="category" data-category="WmVybyUyMEluZmxhdGlvbg==">Zero Inflation <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -646,105 +814,89 @@ window.Quarto = {
 <div id="listing-Basics" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDUg==" data-listing-date-sort="1695160800000" data-listing-file-modified-sort="1696352984200" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1940">
-<div class="thumbnail">
-<p><a href="./BasicRTutorials/IntroductionR.html" class="no-external"></a></p><a href="./BasicRTutorials/IntroductionR.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/R_logo.png" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/IntroductionR.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./BasicRTutorials/IntroductionR.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/R_logo.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./BasicRTutorials/IntroductionR.html" class="no-external">Introduction to R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./BasicRTutorials/IntroductionR.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="./BasicRTutorials/IntroductionR.html" class="no-external">An Introduction to R for Research Scientists: From Installation to Reading and Writing Data.</a>
-</div>
+<div class="delink listing-description"><a href="./BasicRTutorials/IntroductionR.html" class="no-external">
+<p>An Introduction to R for Research Scientists: From Installation to Reading and Writing Data.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/IntroductionR.html" class="no-external"></a></p><a href="./BasicRTutorials/IntroductionR.html" class="no-external">
+<a href="./BasicRTutorials/IntroductionR.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-categories="SW50cm9kdWN0aW9uJTJDUg==" data-listing-date-sort="1695247200000" data-listing-file-modified-sort="1697010253076" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2427">
-<div class="thumbnail">
-<p><a href="./BasicRTutorials/DataManipulation.html" class="no-external"></a></p><a href="./BasicRTutorials/DataManipulation.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Tidyverse.png" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/DataManipulation.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./BasicRTutorials/DataManipulation.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Tidyverse.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./BasicRTutorials/DataManipulation.html" class="no-external">Data Manipulation in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./BasicRTutorials/DataManipulation.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="./BasicRTutorials/DataManipulation.html" class="no-external">An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling.</a>
-</div>
+<div class="delink listing-description"><a href="./BasicRTutorials/DataManipulation.html" class="no-external">
+<p>An Introduction to Data Manipulation in R for Research Scientists: From Data Creation to Data Wrangling.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/DataManipulation.html" class="no-external"></a></p><a href="./BasicRTutorials/DataManipulation.html" class="no-external">
+<a href="./BasicRTutorials/DataManipulation.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="2" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1I=" data-listing-date-sort="1695420000000" data-listing-file-modified-sort="1696352904122" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2849">
-<div class="thumbnail">
-<p><a href="./BasicRTutorials/DataVisualisation.html" class="no-external"></a></p><a href="./BasicRTutorials/DataVisualisation.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/ggplot2.png" class="thumbnail-image"></p>
-</a><p><a href="./BasicRTutorials/DataVisualisation.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./BasicRTutorials/DataVisualisation.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/ggplot2.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./BasicRTutorials/DataVisualisation.html" class="no-external">Data Visualisation in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./BasicRTutorials/DataVisualisation.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="./BasicRTutorials/DataVisualisation.html" class="no-external">An Introduction to Data Visualisation in R for Research Scientists: From Base Scatter Plots to Facetting GGPlots.</a>
-</div>
+<div class="delink listing-description"><a href="./BasicRTutorials/DataVisualisation.html" class="no-external">
+<p>An Introduction to Data Visualisation in R for Research Scientists: From Base Scatter Plots to Facetting GGPlots.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./BasicRTutorials/DataVisualisation.html" class="no-external"></a></p><a href="./BasicRTutorials/DataVisualisation.html" class="no-external">
+<a href="./BasicRTutorials/DataVisualisation.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="r-intermediate" class="level2">
@@ -752,270 +904,217 @@ No matching items
 <div id="listing-Intermediate" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNwYXRjaHdvcms=" data-listing-date-sort="1696716000000" data-listing-file-modified-sort="1707927708906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2649">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Patchwork.png" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Patchwork.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">Combining Multiple Plots in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGF0Y2h3b3Jr'); return false;">patchwork</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cGF0Y2h3b3Jr'); return false;">
-patchwork
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">A Introduction to Combining Plots in R for Research Scientists: From Facetting to Patchworks.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
+<p>A Introduction to Combining Plots in R for Research Scientists: From Facetting to Patchworks.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external"></a></p><a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
+<a href="./IntermediateRTutorials/CombiningPlots.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNzZiUyQ01hcHBpbmclMkNHSVM=" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1711717124099" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="36" data-listing-word-count-sort="7187">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/sf.gif" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="1" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNzZiUyQ01hcHBpbmclMkNHSVM=" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1751647943838" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35" data-listing-word-count-sort="6872">
+<div class="thumbnail"><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/sf.gif" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">Making Static Maps in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">sf</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">
-sf
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
+<p>A Rapid Introduction to Mapping in R for Research Scientists: From Reading in Shape files and Rasters to plotting Shape files alongside Rasters in different Projections.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
+<a href="./IntermediateRTutorials/MakingMaps.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNsZWFmbGV0JTJDTWFwcGluZyUyQ0dJUw==" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1724054628831" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/leaflet.png" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="2" data-categories="SW50cm9kdWN0aW9uJTJDVGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNsZWFmbGV0JTJDTWFwcGluZyUyQ0dJUw==" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1751648026691" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<div class="thumbnail"><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/leaflet.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">Making Interactive Maps in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGVhZmxldA=='); return false;">leaflet</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bGVhZmxldA=='); return false;">
-leaflet
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">A Rapid Introduction to Interactive Mapping in R for Research Scientists: All/some things Leaflet.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
+<p>A Rapid Introduction to Interactive Mapping in R for Research Scientists: All/some things Leaflet.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external"></a></p><a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
+<a href="./IntermediateRTutorials/MakingInteractiveMaps.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="3" data-categories="VGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkN0ZXJyYSUyQ3NmJTJDTWFwcGluZyUyQ0dJUw==" data-listing-date-sort="1696888800000" data-listing-file-modified-sort="1711717137218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2511">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Terra.png" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Terra.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">Spatial Data in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">terra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">sf</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">
-terra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">
-sf
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">An Introduction look at spatial analyses, plotting, manipulation and combination.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
+<p>An Introduction look at spatial analyses, plotting, manipulation and combination.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
+<a href="./IntermediateRTutorials/StarterGIS.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="4" data-categories="VGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkN0ZXJyYSUyQ3NmJTJDTWFwcGluZyUyQ0dJUw==" data-listing-date-sort="1711062000000" data-listing-file-modified-sort="1711725225597" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4273">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/TidyTerra.png" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/TidyTerra.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">Complex GIS in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">terra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">sf</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">
-terra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">
-sf
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">An in-depth look at spatial dataset analyses.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
+<p>An in-depth look at spatial dataset analyses.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
+<a href="./IntermediateRTutorials/ComplexGIS.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="5" data-categories="VGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkNmb3Jsb29wJTJDbWFwJTJDcHVycnJy" data-listing-date-sort="1717538400000" data-listing-file-modified-sort="1717683245256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1794">
-<div class="thumbnail">
-<p><a href="./IntermediateRTutorials/ForLoops.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ForLoops.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/purrr.png" class="thumbnail-image"></p>
-</a><p><a href="./IntermediateRTutorials/ForLoops.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./IntermediateRTutorials/ForLoops.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/purrr.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./IntermediateRTutorials/ForLoops.html" class="no-external">Loops in R</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./IntermediateRTutorials/ForLoops.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9ybG9vcA=='); return false;">forloop</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFw'); return false;">map</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHVycnJy'); return false;">purrrr</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Zm9ybG9vcA=='); return false;">
-forloop
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bWFw'); return false;">
-map
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHVycnJy'); return false;">
-purrrr
-</div>
-</div>
-<div class="listing-description">
-<a href="./IntermediateRTutorials/ForLoops.html" class="no-external">An Introduction look at loops/ifelse/apply/mapping.</a>
-</div>
+<div class="delink listing-description"><a href="./IntermediateRTutorials/ForLoops.html" class="no-external">
+<p>An Introduction look at loops/ifelse/apply/mapping.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./IntermediateRTutorials/ForLoops.html" class="no-external"></a></p><a href="./IntermediateRTutorials/ForLoops.html" class="no-external">
+<a href="./IntermediateRTutorials/ForLoops.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="r-advanced" class="level2">
@@ -1023,364 +1122,331 @@ No matching items
 <div id="listing-Advanced" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="VGlkeXZlcnNlJTJDZ2dwbG90MiUyQ1IlMkN0ZXJyYSUyQ3NmJTJDTWFwcGluZyUyQ0dJUw==" data-listing-date-sort="1713304800000" data-listing-file-modified-sort="1733331506129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1966">
-<div class="thumbnail">
-<p><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external"></a></p><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/RemoteSensing.png" class="thumbnail-image"></p>
-</a><p><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/RemoteSensing.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">Making Maps from Satellite Imagery</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">
-Tidyverse
+
+<div class="listing-category" onclick="window.quartoListingCategory('VGlkeXZlcnNl'); return false;">Tidyverse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">ggplot2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">terra</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">sf</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2dwbG90Mg=='); return false;">
-ggplot2
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('dGVycmE='); return false;">
-terra
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c2Y='); return false;">
-sf
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-</div>
-<div class="listing-description">
-<a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">Introduction to using Satellite Imagery for Mapping.</a>
-</div>
+<div class="delink listing-description"><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">
+<p>Introduction to using Satellite Imagery for Mapping.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external"></a></p><a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">
+<a href="./AdvancedRTutorials/RemoteSensingMapping.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="general-linear-models-glms" class="level2">
 <h2 class="anchored" data-anchor-id="general-linear-models-glms">General Linear Models (GLMs):</h2>
 <div id="listing-Stats" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXM=" data-listing-date-sort="1695506400000" data-listing-file-modified-sort="1713266603428" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4865">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Example_Plot.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXM=" data-listing-date-sort="1695506400000" data-listing-file-modified-sort="1751633744286" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4860">
+<div class="thumbnail"><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Example_Plot.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">Introduction GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">An Introduction to General Linear Models (GLMs) in R.</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
+<p>An Introduction to General Linear Models (GLMs) in R.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/IntroductionGLMs.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0dhdXNzaWFu" data-listing-date-sort="1695592800000" data-listing-file-modified-sort="1733331750151" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3658">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Gaussian_Plot.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Gaussian_Plot.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">Gaussian GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R2F1c3NpYW4='); return false;">Gaussian</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2F1c3NpYW4='); return false;">
-Gaussian
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">Examples of Gaussian GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">
+<p>Examples of Gaussian GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/GaussianGLMs.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="2" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ1BvaXNzb24=" data-listing-date-sort="1695852000000" data-listing-file-modified-sort="1733331714881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2786">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Poisson.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Poisson.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">Poisson GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UG9pc3Nvbg=='); return false;">Poisson</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UG9pc3Nvbg=='); return false;">
-Poisson
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">Examples of Poisson GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">
+<p>Examples of Poisson GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/PoissonGLMs.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0Jpbm9taWFs" data-listing-date-sort="1696197600000" data-listing-file-modified-sort="1733331772024" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4052">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Coin_Flip.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external"></a></p>
+<div class="quarto-post image-right" data-index="3" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ011bHRpdmFyaWF0ZQ==" data-listing-date-sort="1695852000000" data-listing-file-modified-sort="1751645853509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1735">
+<div class="thumbnail"><a href="./StatisticsTutorials/MultivariateGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Poisson.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./StatisticsTutorials/MultivariateGLMs.html" class="no-external">Multivariate GLMs</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TXVsdGl2YXJpYXRl'); return false;">Multivariate</div>
+
 </div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/MultivariateGLMs.html" class="no-external">
+<p>Examples of Multivariate GLMs</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./StatisticsTutorials/MultivariateGLMs.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0Jpbm9taWFs" data-listing-date-sort="1696197600000" data-listing-file-modified-sort="1733331772024" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4052">
+<div class="thumbnail"><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Coin_Flip.jpeg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">Binomial GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Qmlub21pYWw='); return false;">Binomial</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Qmlub21pYWw='); return false;">
-Binomial
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">Examples of Binomial GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">
+<p>Examples of Binomial GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/BinomialGLMs.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0dhbW1h" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1733331760390" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2168">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Gamma.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="5" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0dhbW1h" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1733331760390" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2168">
+<div class="thumbnail"><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Gamma.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">Gamma GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/GammaGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R2FtbWE='); return false;">Gamma</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R2FtbWE='); return false;">
-Gamma
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">Examples of Gamma GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">
+<p>Examples of Gamma GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/GammaGLMs.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0JldGE=" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1733331679949" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2081">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Beta.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="6" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ0JldGE=" data-listing-date-sort="1696284000000" data-listing-file-modified-sort="1733331679949" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2081">
+<div class="thumbnail"><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Beta.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">Beta GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/BetaGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmV0YQ=='); return false;">Beta</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('QmV0YQ=='); return false;">
-Beta
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">Examples of Beta GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
+<p>Examples of Beta GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/BetaGLMs.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ1plcm8lMjBJbmZsYXRpb24=" data-listing-date-sort="1702249200000" data-listing-file-modified-sort="1704986496858" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1323">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/ZIP.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="7" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTXMlMkNTdGF0cyUyQ1plcm8lMjBJbmZsYXRpb24=" data-listing-date-sort="1702249200000" data-listing-file-modified-sort="1704986496858" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1323">
+<div class="thumbnail"><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/ZIP.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">Zero Inflated GLMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('WmVybyUyMEluZmxhdGlvbg=='); return false;">Zero Inflation</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('WmVybyUyMEluZmxhdGlvbg=='); return false;">
-Zero Inflation
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">Examples of Zero Inflated GLMs</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">
+<p>Examples of Zero Inflated GLMs</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/ZeroInflatedGLMs.html" class="no-external">
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="UHJvYmxlbXMlMkNSJTJDR0xNcw==" data-listing-date-sort="1702335600000" data-listing-file-modified-sort="1733331691228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1524">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Problems.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external"></a></p>
-</div>
+<div class="quarto-post image-right" data-index="8" data-categories="UHJvYmxlbXMlMkNSJTJDR0xNcw==" data-listing-date-sort="1702335600000" data-listing-file-modified-sort="1733331691228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1524">
+<div class="thumbnail"><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Problems.jpeg" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">Common GLM Problems</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmxlbXM='); return false;">
-Problems
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmxlbXM='); return false;">Problems</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">GLMs</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNcw=='); return false;">
-GLMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">Understanding and Solving Common Problems of General Linear Models (GLMs) in R.</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
+<p>Understanding and Solving Common Problems of General Linear Models (GLMs) in R.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external"></a></p><a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
+<a href="./StatisticsTutorials/ProblematicGLMs.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="general-linear-mixed-effect-models-glmms" class="level2">
@@ -1388,42 +1454,35 @@ No matching items
 <div id="listing-StatsGLMMS" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dMTU1z" data-listing-date-sort="1713218400000" data-listing-file-modified-sort="1713284502325" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3798">
-<div class="thumbnail">
-<p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/dragon.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/dragon.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">Introduction to GLMMs</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0xNTXM='); return false;">GLMMs</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0xNTXM='); return false;">
-GLMMs
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">An Introduction to General Linear Mixed Effect Models (GLMMs) in R.</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
+<p>An Introduction to General Linear Mixed Effect Models (GLMMs) in R.</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external"></a></p><a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
+<a href="./StatisticsTutorialsGLMM/IntroductionGLMMs.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="machine-learning" class="level2">
@@ -1431,144 +1490,115 @@ No matching items
 <div id="listing-Stats_ML" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ1N0YXRzJTJDUmFuZG9tJTIwRm9yZXN0" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1712656799688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1546">
-<div class="thumbnail">
-<p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/tidymodels.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/tidymodels.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">Introduction to Machine Learning</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">Random Forest</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">
-Machine Learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">
-Random Forest
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">Brief Introduction to Machine Learning</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
+<p>Brief Introduction to Machine Learning</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
+<a href="./StatisticsMLTutorials/IntroMachineLearning.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ1N0YXRzJTJDUmFuZG9tJTIwRm9yZXN0JTJDWEdCb29zdCUyQ1NWTSUyQ0tOTg==" data-listing-date-sort="1704754800000" data-listing-file-modified-sort="1713189419678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
-<div class="thumbnail">
-<p><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/Stacks.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/Stacks.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">Comparing and Ensembling Machine Learning Models</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">Random Forest</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('WEdCb29zdA=='); return false;">XGBoost</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U1ZN'); return false;">SVM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('S05O'); return false;">KNN</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">
-Machine Learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">
-Random Forest
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('WEdCb29zdA=='); return false;">
-XGBoost
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U1ZN'); return false;">
-SVM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('S05O'); return false;">
-KNN
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">Building different Models and Intercomparing, and then Combining into an Ensemble</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">
+<p>Building different Models and Intercomparing, and then Combining into an Ensemble</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">
+<a href="./StatisticsMLTutorials/ComparingMLs.html" class="no-external">
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="2" data-categories="SW50cm9kdWN0aW9uJTJDUiUyQ0dJUyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ1JlbW90ZSUyMFNlbnNpbmclMkNNYXBwaW5nJTJDU3RhdHMlMkNSYW5kb20lMjBGb3Jlc3Q=" data-listing-date-sort="1713823200000" data-listing-file-modified-sort="1713972333229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5926">
-<div class="thumbnail">
-<p><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">
-<p><img loading="lazy" src="./Images/Tutorials/ESA.png" class="thumbnail-image"></p>
-</a><p><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external"></a></p>
-</div>
+<div class="thumbnail"><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">
+
+<img loading="lazy" src="./Images/Tutorials/ESA.png" class="thumbnail-image">
+
+</a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">Using Machine Learning with Satellite Imagery</a>
 </h3>
-<div class="listing-subtitle">
-<a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external"></a>
-</div>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">
-Introduction
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW50cm9kdWN0aW9u'); return false;">Introduction</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">GIS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmVtb3RlJTIwU2Vuc2luZw=='); return false;">Remote Sensing</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">Mapping</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">Stats</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">Random Forest</div>
+
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R0lT'); return false;">
-GIS
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">
-Machine Learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmVtb3RlJTIwU2Vuc2luZw=='); return false;">
-Remote Sensing
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('TWFwcGluZw=='); return false;">
-Mapping
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdHM='); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwRm9yZXN0'); return false;">
-Random Forest
-</div>
-</div>
-<div class="listing-description">
-<a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">Building a Prediction Model for Satellite Imagery</a>
-</div>
+<div class="delink listing-description"><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">
+<p>Building a Prediction Model for Satellite Imagery</p>
+</a></div>
 </div>
 <div class="metadata">
-<p><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external"></a></p><a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">
+<a href="./StatisticsMLTutorials/RemoteSensingML.html" class="no-external">
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 <p><img src="Images/who/preview-image.png" class="preview-image img-fluid"></p>
 
@@ -1578,380 +1608,255 @@ No matching items
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.bedeffinianrowedavies\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
       });
     }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = true;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/www\.bedeffinianrowedavies\.com");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1959,185 +1864,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

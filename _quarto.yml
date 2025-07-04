@@ -95,6 +95,7 @@ website:
             - StatisticsTutorials/BetaGLMs.qmd
             - StatisticsTutorials/ProblematicGLMs.qmd
             - StatisticsTutorials/ZeroInflatedGLMs.qmd
+            - StatisticsTutorials/MultivariateGLMs.qmd
             - text: "---"
             - text: "General Linear Mixed Effects Models"
             - text: "---"

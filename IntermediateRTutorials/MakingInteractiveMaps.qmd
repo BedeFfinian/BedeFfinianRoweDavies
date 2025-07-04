@@ -26,7 +26,7 @@ Leaflet maps are a Javascript (I think) mapping library that are used very often
 
 library(leaflet)
 library(leaflet.extras)
-library(leaflet.esri)
+#library(leaflet.esri)
 library(leaflet.providers)
 
 leaflet()
