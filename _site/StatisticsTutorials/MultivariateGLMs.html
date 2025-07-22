@@ -734,7 +734,7 @@ window.Quarto = {
 <section id="step-one---scienctific-model-to-stats-model" class="level3">
 <h3 class="anchored" data-anchor-id="step-one---scienctific-model-to-stats-model">Step One - Scienctific Model to Stats Model</h3>
 <p>Our scientific question is how the multivariate abundance of herbivores changes with habitat but that our results are influenced by the timing of sampling (Day or Night).</p>
-<p>This is a relatively simple model with just one fixed effect and can be written as:</p>
+<p>This is a relatively simple model with an interaction of two fixed effects and can be written as:</p>
 <p>Multivariate Count of Herbivores ~ Habitat*DayNight</p>
 </section>
 <section id="step-two---response-variable-distribution" class="level3">
@@ -868,11 +868,11 @@ HabitatDictyopteris_acrostichoides               12.656     0.001 ***
 HabitatSargassum_linearifolium                   12.836     0.001 ***
 HabitatSargassum_vestitum                         8.553     0.001 ***
 HabitatZonaria_diesingiana                        9.120     0.001 ***
-DayNightN                                         3.140     0.122    
-HabitatDictyopteris_acrostichoides:DayNightN      2.723     0.077 .  
-HabitatSargassum_linearifolium:DayNightN          1.882     0.309    
-HabitatSargassum_vestitum:DayNightN               3.020     0.041 *  
-HabitatZonaria_diesingiana:DayNightN              1.971     0.455    
+DayNightN                                         3.140     0.100 .  
+HabitatDictyopteris_acrostichoides:DayNightN      2.723     0.061 .  
+HabitatSargassum_linearifolium:DayNightN          1.882     0.311    
+HabitatSargassum_vestitum:DayNightN               3.020     0.037 *  
+HabitatZonaria_diesingiana:DayNightN              1.971     0.414    
 --- 
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 

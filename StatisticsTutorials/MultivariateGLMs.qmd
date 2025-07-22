@@ -35,7 +35,7 @@ colnames(Herbivores)
 
 Our scientific question is how the multivariate abundance of herbivores changes with habitat but that our results are influenced by the timing of sampling (Day or Night).
 
-This is a relatively simple model with just one fixed effect and can be written as:
+This is a relatively simple model with an interaction of two fixed effects and can be written as:
 
 Multivariate Count of Herbivores ~ Habitat*DayNight
 
