@@ -1,0 +1,15 @@
+---
+title: "Mapping the distribution of the alien invasive Gracilaria vermiculophylla at the site of its first European introduction"
+description: "Simon Oiry, Bede Ffinian Rowe Davies, Valérie Stiger-Pouvreau, Pierre Gernez & Laurent Barillé"
+author:
+  - name: [Simon Oiry; Bede Ffinian Rowe Davies; Valérie Stiger-Pouvreau; Pierre Gernez; Laurent Barillé]
+image: Drone_Gracilaria_Preview.jpg
+date: "08-02-2025"
+id: Co
+categories: [Satellite, Ecology, Marine Diversity, Climatic Events, Remote Sensing, Invasive Species, Co-Author]
+---
+
+Link here: [Oiry *et al.,* 2025](https://www.sciencedirect.com/science/article/pii/S0301479725027021?via%3Dihub)
+
+The invasive red macroalga *Gracilaria vermiculophylla* has significantly impacted intertidal ecosystems in temperate estuaries globally. This study utilized drone-based multispectral remote sensing to map the spatial and temporal distribution of *G. vermiculophylla* in its first documented European site, the Belon Estuary, alongside additional sites in Spain and France. By adapting the neural network classification model DISCOV, trained with a comprehensive dataset, we achieved 91.1 % accuracy in distinguishing *G. vermiculophylla* from other macroalgal taxa. Historical aerial imagery revealed a progressive expansion of *G. vermiculophylla* from its initial appearance in 1976, approximately 20 years before its first description in the literature, to extensive colonization by 2024. Concurrent LiDAR data enabled precise characterization of intertidal topography, demonstrating a strong association between algal cover, elevation, and slope. Dense mats were consistently observed in flat, elevated mudflat areas, with reduced presence in steeper or lower zones. These patterns indicate that *G. vermiculophylla* is able to persist in stable, fine-sediment environments where hydrodynamic forces are relatively low. Temporal analyses also linked its spread to anthropogenic activities, notably aquaculture. Our findings emphasize the utility of high-resolution drone imaging for invasive species monitoring and habitat mapping, offering critical insights into the ecological dynamics of *G. vermiculophylla* and its drivers. This scalable method facilitates proactive management strategies by enabling early detection and detailed assessment of invasion patterns. The integration of remote sensing and in situ validation establishes a robust framework for ecological monitoring, contributing to the understanding of biological invasions and their environmental consequences. This approach can inform management interventions to mitigate the impacts of *G. vermiculophylla* and similar invasive species.
+
