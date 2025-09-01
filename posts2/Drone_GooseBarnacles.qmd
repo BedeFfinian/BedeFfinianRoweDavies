@@ -1,0 +1,14 @@
+---
+title: "Discrimination of the intertidal goose barnacle Pollicipes pollicipes from rocky shore invertebrates and macroalgae using in situ hyperspectral signatures"
+description: "Marta Román, Bede F.R. Davies, Simon Oiry, Philippe Rosa, Pierre Gernez, Celia Olabarria & Laurent Barillé"
+author:
+  - name: [Marta Román; Bede F.R. Davies; Simon Oiry; Philippe Rosa; Pierre Gernez; Celia Olabarria; Laurent Barillé]
+image: Drone_GooseBarnacles_Preview.jpg
+date: "09-01-2025"
+id: Co
+categories: [Drone, Ecology, Marine Diversity, Climatic Events, Remote Sensing, Co-Author]
+---
+
+Link here: [Román *et al.,* 2025](https://doi.org/10.1016/j.rsase.2025.101697)
+
+Using remote sensing techniques based on spectral reflectance for mapping intertidal species, offers advantages over traditional surveys. However, the effect of the spectral resolution of the sensors, hyper- or multi-spectral, for the detection of intertidal sessile goose barnacles has not been assessed yet. We described the reflectance spectra of the species *Pollicipes pollicipes* and tested if it could be discriminated from mussels (adults and spat) from the *Mytilus* genus, other barnacles of the genus *Chthamalus* and *Semibalanus* and red, brown and green macroalgae. We measured their hyperspectral signatures in 337 samples, at three sites along the French and Spanish NE Atlantic coast and in the laboratory. From these hyperspectral signatures, composed of 491 narrow bands, we tested the ability of a lower resolution multispectral sensor of 10 bands to capture key spectral features for classification. Dissimilarity between classification targets was assessed and Random Forest classifications were trained with hyper and multispectral resolutions. There was a higher accuracy with hyperspectral data, but classifications with multispectral resolution showed a satisfactory overall accuracy of 0.88. Barnacles, mussels and macroalgae, showed discernible dissimilarities. User accuracy of the goose barnacle class at a multispectral resolution was 0.89 showing only a small confusion with other barnacles. Spectral bands belonging to red edge and green wavelengths were the most important features for discrimination between the two classes of barnacles. This highlights the necessity of near infrared bands for goose barnacle identification and suggests a potential for mapping these populations with a visible near infra-red sensor mounted on a drone.
