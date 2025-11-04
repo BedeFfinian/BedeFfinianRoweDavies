@@ -9,7 +9,7 @@ date: "11-03-2024"
 categories: [Remote Sensing, Spectral Library, Seagrass, Cloud Computing, Satellite, Machine Learning, First Author, Europe, Neural Networks]
 ---
 
-Link here: [Davies *et al.,* 2025](https://doi.org/10.1016/j.rse.2025.115116) and Open-Access Application [here.](https://s2maxextenticecreams.projects.earthengine.app/view/europeanintertidalseagrass)
+Link here: [Davies *et al.,* 2026](https://doi.org/10.1016/j.rse.2025.115116) and Open-Access Application [here.](https://s2maxextenticecreams.projects.earthengine.app/view/europeanintertidalseagrass)
 
 # Abstract
 
