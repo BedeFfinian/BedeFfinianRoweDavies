@@ -1,0 +1,16 @@
+---
+title: "An Initial Map of European Intertidal Seagrass"
+description: "Bede Ffinian Rowe Davies, Simon Oiry, Mar Roca, Philippe Rosa, Maria Laura Zoffoli, Dimitris Poursanidis, Tobias Dolch, Bárbara Ondiviela, Cristina Galván, Ana C. Brito, Richard J. Lilley, Laura L. Govers, Martin Gade, Laurent Barillé & Pierre Gernez"
+author:
+  - name: [Bede Ffinian Rowe Davies; Simon Oiry; Mar Roca; Philippe Rosa; Maria Laura Zoffoli; Dimitris Poursanidis; Tobias Dolch; Bárbara Ondiviela; Cristina Galván; Ana C. Brito; Richard J. Lilley; Laura L. Govers; Martin Gade; Laurent Barillé; Pierre Gernez]
+image: EuropeICECREAMS_Preview.png
+id: First
+date: "11-03-2024"
+categories: [Remote Sensing, Spectral Library, Seagrass, Cloud Computing, Satellite, Machine Learning, First Author, Europe, Neural Networks]
+---
+
+Link here: [Davies *et al.,* 2025](https://doi.org/10.1016/j.rse.2025.115116) and Open-Access Application [here.](https://s2maxextenticecreams.projects.earthengine.app/view/europeanintertidalseagrass)
+
+# Abstract
+
+Seagrass meadows directly and indirectly provide a wide range of ecosystem services, but their close proximity to anthropogenic activities renders them highly vulnerable. Regardless of their vulnerability and importance as ecosystem health indicators, intertidal seagrasses, unlike their subtidal relatives, have yet to be assessed at continental scales, and current global estimates of seagrass extent either do not mention intertidal seagrasses or combine them with subtidal seagrasses. Here, we present a first of its kind map of intertidal seagrasses in Europe using a harmonised methodology. Over a total intertidal area of 15,100 km$^2$, we found that seagrasses cover an area comparable to the combined areas of Paris and Lisbon: 212 $\pm$ 18.8 km$^2$. The proportion of available intertidal area covered by seagrass decreased towards higher latitudes (from ∼5.4 % at 35°N to ∼0 % at 58°N). Regardless of this pattern, the top three hotspots of seagrass covered the full latitudinal range of Europe, notably in the North Frisian Wadden Sea (Germany), Arcachon Bay (France) and Ria Formosa (Portugal). Furthermore, we showed latitudinal gradients in seagrass cover, with higher cover in low latitudes and lower cover in high latitudes. Finally, an almost linear change in intertidal seagrass peak timing (day of the year of maximum seagrass cover) with latitude was found, with peak timing later the further south. This is a ‘Call-to-Action’ for data that are Findable, Accessible, Interoperable and Reusable (FAIR). We present critical data for prioritising and developing policies, management and protection mechanisms across local, regional or international scales to safeguard these important ecosystems and the societies that depend upon them.

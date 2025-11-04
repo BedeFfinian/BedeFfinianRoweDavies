@@ -1,38 +1,5 @@
 [
   {
-    "listing": "/Blogs.html",
-    "items": [
-      "/blogs/GreenlandTale.html"
-    ]
-  },
-  {
-    "listing": "/Publications.html",
-    "items": [
-      "/posts1/Functional.html",
-      "/posts1/PhenologyICECREAMS.html",
-      "/posts1/Acoustics.html",
-      "/posts1/JerseyCarbon.html",
-      "/posts1/Baited.html",
-      "/posts1/SAC.html",
-      "/posts1/TrendsICECREAMS.html",
-      "/posts1/SpectralLibrary.html",
-      "/posts2/CIAO.html",
-      "/posts2/SAS.html",
-      "/posts2/DISCOV.html",
-      "/posts2/Drone_GooseBarnacles.html",
-      "/posts2/LymeSummary.html",
-      "/posts2/IntertidalMPB.html",
-      "/posts2/OysterTables.html",
-      "/posts2/Drone_Gracilaria.html",
-      "/posts2/Everest.html",
-      "/posts2/BrentGoose.html",
-      "/posts2/Storms.html",
-      "/posts2/Ganges.html",
-      "/posts2/Ganges_2.html",
-      "/posts2/Mussels.html"
-    ]
-  },
-  {
     "listing": "/Tutorials.html",
     "items": [
       "/BasicRTutorials/IntroductionR.html",
@@ -58,6 +25,40 @@
       "/StatisticsMLTutorials/IntroMachineLearning.html",
       "/StatisticsMLTutorials/ComparingMLs.html",
       "/StatisticsMLTutorials/RemoteSensingML.html"
+    ]
+  },
+  {
+    "listing": "/Publications.html",
+    "items": [
+      "/posts1/Functional.html",
+      "/posts1/PhenologyICECREAMS.html",
+      "/posts1/Acoustics.html",
+      "/posts1/EuropeICECREAMS.html",
+      "/posts1/JerseyCarbon.html",
+      "/posts1/Baited.html",
+      "/posts1/SAC.html",
+      "/posts1/TrendsICECREAMS.html",
+      "/posts1/SpectralLibrary.html",
+      "/posts2/CIAO.html",
+      "/posts2/SAS.html",
+      "/posts2/DISCOV.html",
+      "/posts2/Drone_GooseBarnacles.html",
+      "/posts2/LymeSummary.html",
+      "/posts2/IntertidalMPB.html",
+      "/posts2/OysterTables.html",
+      "/posts2/Drone_Gracilaria.html",
+      "/posts2/Everest.html",
+      "/posts2/BrentGoose.html",
+      "/posts2/Storms.html",
+      "/posts2/Ganges.html",
+      "/posts2/Ganges_2.html",
+      "/posts2/Mussels.html"
+    ]
+  },
+  {
+    "listing": "/Blogs.html",
+    "items": [
+      "/blogs/GreenlandTale.html"
     ]
   }
 ]
