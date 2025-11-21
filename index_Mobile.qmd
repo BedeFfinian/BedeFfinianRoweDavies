@@ -7,19 +7,22 @@ categories: [statistics, ecology, marine, science, marine management, consultanc
 <div>
 **Bede Ffinian Rowe Davies**<br>
 Post-Doctoral Researcher [bedeffinian@gmail.com](bedeffinian@gmail.com)<br>
-[Laboratoire ISOMer, UFR Sciences et Techniques](https://isomer.univ-nantes.fr/rsbe-remote-sensing-benthic-ecology)<br>
-[Nantes University](https://english.univ-nantes.fr/), France.
+[L'Institut Français de Recherche pour l'Exploitation de la MER (IFREMER)](https://www.ifremer.fr/fr)<br>
+[MARine Biodiversity, Exploitation & Conservation (MARBEC)](http://umr-marbec.fr/)<br>
+[University of Montpellier](https://www.umontpellier.fr/), France.
 </div>
 
 
 # Who am I? 
 
 ::: {.g-col-12}
-My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology and Remote Sensing at the **University of Nantes**. I am a researcher interested in the large scale changes in marine ecosystems in relation to anthropogenic activities and drivers, using novel techniques alongside traditional methods. 
+My name is Bede Ffinian Rowe Davies a Post-Doctoral Researcher in Marine Ecology at **Ifremer** based at the **University of Montpellier**. I am a researcher interested in the large scale changes in marine ecosystems in relation to anthropogenic activities and drivers, using novel techniques alongside traditional methods. 
 
 # Current Post-Doctoral Work
 
-The current project I am taking part in aims to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across the whole of **Northern Europe**. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery).
+The current project I am taking part in is to use models of Ecosystems to use novels simulation models that effectively couple Physical (Oceanographic), Lower Trophic Level (LTL: Micro-organisms, Phyoplankton and their Elements) and Higher Trophic Level (HTL: Fish, Cephalopods and other large marine organisms). These simulation models are the first to consider the full marine ecosystem as one whole system, interacting dynamically to allow us to test different scenarios of Climate Change and other human impacts, such as Marine Protected Areas and Fisheries, and how these impacts will change under predicted climate change scenarios.
+
+
 :::
 
 ::: {.g-col-8}
@@ -29,7 +32,7 @@ The current project I am taking part in aims to create scaleable and generalisea
 
 # Previous Post-Doctoral Work
 
-After my PhD I was a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aimed to assess the stored carbon within sedimentary habitats in Jersey. This information was then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
+My most recent Post-doctoral work was based at the University of Nantes in France where the project aimed to create scaleable and generaliseable classification models to use **Spectral Reflectance** measured from Satellite imagery to predict spatial extent of intertidal habitats across multiple scales, ranging from the specific sites, to the whole of **Northern Europe** all the way up to **Global** extents. This can assist biodiversity management over great spatial scales while also providing real-time data (assuming regular available satellite imagery). After my PhD I was a Post-Doctoral researcher at the University of Plymouth assessing changes in Blue Carbon stores around Jersey in the UK Channel Islands. The project aimed to assess the stored carbon within sedimentary habitats in Jersey. This information was then being used alongside spatial habitat data to create a preliminary estimate of total carbon within sedimentary habitats across Jersey's territorial waters. Cores and Grabs were taken across Jersey's waters, then prepared and analysed for their total and organic carbon content with CHN analysis.
 
 # PhD 
 
