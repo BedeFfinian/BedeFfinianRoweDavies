@@ -8,6 +8,7 @@ categories: [statistics, ecology, marine, science, marine management, consultanc
 ```{r, results='asis', echo=FALSE}
 a<-knitr::knit_child("index_Mobile.qmd", envir = environment(), quiet = TRUE)
 
+
 cat(a, sep='\n')
 ```
 :::
@@ -15,6 +16,7 @@ cat(a, sep='\n')
 ::: {.hide-on-small}
 ```{r, results='asis', echo=FALSE}
 desk<-knitr::knit_child("index_Desktop.qmd", envir = environment(), quiet = TRUE)
+
 
 cat(desk, sep='\n')
 ```
