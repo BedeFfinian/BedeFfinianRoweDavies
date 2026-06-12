@@ -712,11 +712,11 @@ Attaching package: 'palmerpenguins'</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ dplyr     1.2.1     ✔ readr     2.2.0
 ✔ forcats   1.0.1     ✔ stringr   1.6.0
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -748,37 +748,37 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
                                  Mean   :43.92   Mean   :17.15  
                                  3rd Qu.:48.50   3rd Qu.:18.70  
                                  Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
+                                 NAs    :2       NAs    :2      
  flipper_length_mm  body_mass_g       sex           year     
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  : 11   Median :2008  
+ Median :197.0     Median :4050   NAs   : 11   Median :2008  
  Mean   :200.9     Mean   :4202                Mean   :2008  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
  Max.   :231.0     Max.   :6300                Max.   :2009  
- NA's   :2         NA's   :2                                 </code></pre>
+ NAs    :2         NAs    :2                                 </code></pre>
 </div>
 </div>
 <p>The penguins data set is fairly well organised but we can still do a bit more with it if we want</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(penguins_raw)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  studyName         Sample Number      Species             Region         
- Length:344         Min.   :  1.00   Length:344         Length:344        
- Class :character   1st Qu.: 29.00   Class :character   Class :character  
- Mode  :character   Median : 58.00   Mode  :character   Mode  :character  
-                    Mean   : 63.15                                        
-                    3rd Qu.: 95.25                                        
-                    Max.   :152.00                                        
-                                                                          
-    Island             Stage           Individual ID      Clutch Completion 
- Length:344         Length:344         Length:344         Length:344        
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
+<pre><code>     studyName   Sample Number         Species          Region   
+ Length   :344   Min.   :  1.00   Length   :344   Length   :344  
+ N.unique :  3   1st Qu.: 29.00   N.unique :  3   N.unique :  1  
+ N.blank  :  0   Median : 58.00   N.blank  :  0   N.blank  :  0  
+ Min.nchar:  7   Mean   : 63.15   Min.nchar: 33   Min.nchar:  6  
+ Max.nchar:  7   3rd Qu.: 95.25   Max.nchar: 41   Max.nchar:  6  
+                 Max.   :152.00                                  
+                                                                 
+       Island          Stage       Individual ID Clutch Completion
+ Length   :344   Length   :344   Length   :344   Length   :344    
+ N.unique :  3   N.unique :  1   N.unique :190   N.unique :  2    
+ N.blank  :  0   N.blank  :  0   N.blank  :  0   N.blank  :  0    
+ Min.nchar:  5   Min.nchar: 18   Min.nchar:  4   Min.nchar:  2    
+ Max.nchar:  9   Max.nchar: 18   Max.nchar:  6   Max.nchar:  3    
+                                                                  
+                                                                  
     Date Egg          Culmen Length (mm) Culmen Depth (mm) Flipper Length (mm)
  Min.   :2007-11-09   Min.   :32.10      Min.   :13.10     Min.   :172.0      
  1st Qu.:2007-11-28   1st Qu.:39.23      1st Qu.:15.60     1st Qu.:190.0      
@@ -786,23 +786,23 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
  Mean   :2008-11-27   Mean   :43.92      Mean   :17.15     Mean   :200.9      
  3rd Qu.:2009-11-16   3rd Qu.:48.50      3rd Qu.:18.70     3rd Qu.:213.0      
  Max.   :2009-12-01   Max.   :59.60      Max.   :21.50     Max.   :231.0      
-                      NA's   :2          NA's   :2         NA's   :2          
- Body Mass (g)      Sex            Delta 15 N (o/oo) Delta 13 C (o/oo)
- Min.   :2700   Length:344         Min.   : 7.632    Min.   :-27.02   
- 1st Qu.:3550   Class :character   1st Qu.: 8.300    1st Qu.:-26.32   
- Median :4050   Mode  :character   Median : 8.652    Median :-25.83   
- Mean   :4202                      Mean   : 8.733    Mean   :-25.69   
- 3rd Qu.:4750                      3rd Qu.: 9.172    3rd Qu.:-25.06   
- Max.   :6300                      Max.   :10.025    Max.   :-23.79   
- NA's   :2                         NA's   :14        NA's   :13       
-   Comments        
- Length:344        
- Class :character  
- Mode  :character  
-                   
-                   
-                   
-                   </code></pre>
+                      NAs    :2          NAs    :2         NAs    :2          
+ Body Mass (g)         Sex      Delta 15 N (o/oo) Delta 13 C (o/oo)
+ Min.   :2700   Length   :344   Min.   : 7.632    Min.   :-27.02   
+ 1st Qu.:3550   N.unique :  2   1st Qu.: 8.300    1st Qu.:-26.32   
+ Median :4050   N.blank  :  0   Median : 8.652    Median :-25.83   
+ Mean   :4202   Min.nchar:  4   Mean   : 8.733    Mean   :-25.69   
+ 3rd Qu.:4750   Max.nchar:  6   3rd Qu.: 9.172    3rd Qu.:-25.06   
+ Max.   :6300   NAs      : 11   Max.   :10.025    Max.   :-23.79   
+ NAs    :2                      NAs    :14        NAs    :13       
+      Comments  
+ Length   :344  
+ N.unique : 10  
+ N.blank  :  0  
+ Min.nchar: 18  
+ Max.nchar: 68  
+ NAs      :290  
+                </code></pre>
 </div>
 </div>
 <p>The raw data has a lot of extra information that may or may not be important for us. The raw data has lots of difficult to deal with column names.</p>
@@ -1028,7 +1028,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
  flipper_length_mm  body_mass_g       sex           year     
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007  
- Median :197.0     Median :4050   NA's  :  9   Median :2008  
+ Median :197.0     Median :4050   NAs   :  9   Median :2008  
  Mean   :200.9     Mean   :4202                Mean   :2008  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009  
  Max.   :231.0     Max.   :6300                Max.   :2009  </code></pre>
@@ -1201,15 +1201,15 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
                                  Mean   :43.92   Mean   :17.15  
                                  3rd Qu.:48.50   3rd Qu.:18.70  
                                  Max.   :59.60   Max.   :21.50  
-                                 NA's   :2       NA's   :2      
+                                 NAs    :2       NAs    :2      
  flipper_length_mm  body_mass_g       sex           year       body_mass_kg  
  Min.   :172.0     Min.   :2700   female:165   Min.   :2007   Min.   :2.700  
  1st Qu.:190.0     1st Qu.:3550   male  :168   1st Qu.:2007   1st Qu.:3.550  
- Median :197.0     Median :4050   NA's  : 11   Median :2008   Median :4.050  
+ Median :197.0     Median :4050   NAs   : 11   Median :2008   Median :4.050  
  Mean   :200.9     Mean   :4202                Mean   :2008   Mean   :4.202  
  3rd Qu.:213.0     3rd Qu.:4750                3rd Qu.:2009   3rd Qu.:4.750  
  Max.   :231.0     Max.   :6300                Max.   :2009   Max.   :6.300  
- NA's   :2         NA's   :2                                  NA's   :2      </code></pre>
+ NAs    :2         NAs    :2                                  NAs    :2      </code></pre>
 </div>
 </div>
 <p>We can also paste information from other columns together into another new column.</p>
@@ -1325,8 +1325,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,species) <span class="sc">%&gt;%</span> </span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year'. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year and species.
+ℹ Output is grouped by year.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 3
@@ -1347,8 +1351,12 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,species, island) <span class="sc">%&gt;%</span> </span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species'. You can override using
-the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, and island.
+ℹ Output is grouped by year and species.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island))` for per-operation grouping
+  (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 4
@@ -1375,8 +1383,12 @@ the `.groups` argument.</code></pre>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,species, island,sex) <span class="sc">%&gt;%</span> </span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 30 × 5
@@ -1403,8 +1415,12 @@ override using the `.groups` argument.</code></pre>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,species,island,sex) <span class="sc">%&gt;%</span> </span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Number=</span><span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 30 × 5
@@ -1493,8 +1509,12 @@ year   Adelie Chinstrap Gentoo
 <span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g)) <span class="sc">%&gt;%</span> </span>
 <span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> species, <span class="at">values_from =</span> Mean_body_mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 6
@@ -1528,8 +1548,12 @@ override using the `.groups` argument.</code></pre>
 <span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g)) <span class="sc">%&gt;%</span> </span>
 <span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(species,year), <span class="at">values_from =</span> Mean_body_mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 11
@@ -1550,8 +1574,12 @@ override using the `.groups` argument.</code></pre>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean_body_mass=</span><span class="fu">mean</span>(body_mass_g)) <span class="sc">%&gt;%</span> </span>
 <span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="fu">c</span>(species,sex), <span class="at">values_from =</span> Mean_body_mass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 8
@@ -1578,8 +1606,12 @@ override using the `.groups` argument.</code></pre>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Number=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> species,<span class="at">values_from =</span> Number, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'year', 'species', 'island'. You can
-override using the `.groups` argument.</code></pre>
+<pre><code>`summarise()` has regrouped the output.
+ℹ Summaries were computed grouped by year, species, island, and sex.
+ℹ Output is grouped by year, species, and island.
+ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+ℹ Use `summarise(.by = c(year, species, island, sex))` for per-operation
+  grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>WideCounts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">

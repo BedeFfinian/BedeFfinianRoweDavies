@@ -3,7 +3,7 @@ title: "Multi- and hyperspectral classification of soft-bottom intertidal vegeta
 description: "Bede F. R. Davies, Pierre Gernez, Andréa Geraud, Simon Oiry, Philippe Rosa, Maria Laura Zoffoli & Laurent Barillé"
 author:
   - name: [Bede F. R. Davies; Pierre Gernez; Andréa Geraud; Simon Oiry; Philippe Rosa; Maria Laura Zoffoli; Laurent Barillé]
-image: SpectralLibrary.png
+image: SpectralLibrary_Preview.png
 date: "03-24-2023"
 id: First
 categories: [Remote Sensing, Spectral Library, Satellite, Machine Learning, First Author]
