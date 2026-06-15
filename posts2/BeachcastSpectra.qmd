@@ -1,0 +1,17 @@
+---
+title: "Beachcast degradation stages of Rugulopteryx okamurae and Zostera noltii: towards a scalable remote-sensing monitoring platform"
+description: "Mar Roca-Mora, Bede Ffinian Rowe Davies, Pierre Gernez, Maria Laura Zoffoli & Laurent Barillé"
+author:
+  - name: [Mar Roca-Mora; Bede Ffinian Rowe Davies; Pierre Gernez; Maria Laura Zoffoli; Laurent Barillé]
+image: BeachcastSpectra_Preview.jpg
+id: Co
+date: "06-15-2026"
+categories: [Hyperspectral, Seagrass, Invasive species, Laboratory, Experiment, Co-Author, Spain]
+---
+
+Link here: [Roca-Mora *et al.,* 2026](https://doi.org/10.1016/j.rsase.2026.102108)
+
+# Abstract
+
+Coastal zones have experienced significant anthropogenic alteration, facilitating the spread of invasive alien species, such as *Rugulopteryx okamurae* in the Strait of Gibraltar, which colonises rocky bottoms and creates massive accumulations of biomass along coastlines. Marine macrophytes, macroalgae and seagrasses, can form beachcasts as part of their natural lifecycle. However, the increased frequency and abundance of *R. okamurae* beachcasts has had ecological and economic impacts since 2015 in southern Spain, Portugal and Morocco, yet no beachcast monitoring programs have been developed. This study focuses on the radiometric characterisation of *Zostera noltii* seagrass and *R. okamurae* macroalgae beachcasts to assess their spectral differentiation across degradation stages linked to water content, pigment photooxidation and photoprotection mechanisms. Sentinel-2 and PlanetScope SuperDove multispectral satellite imagery was used to evaluate their capacity to track beachcast degradation stages, highlighting the usefulness of the three red-edge, narrow Near-Infrared (NIR) and SWIR bands from Sentinel-2. Results showed notable differences in the degradation processes of the two species, with *R. okamurae* beachcasts retaining more water, yet exhibiting faster pigment degradation compared to *Z. noltii*. These insights are crucial for large-scale monitoring of *R. okamurae* beachcasts using Earth Observation, offering a framework for biomass quantification to improve the operational management of this marine invasive species.
+
